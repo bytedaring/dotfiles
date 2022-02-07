@@ -1,0 +1,84 @@
+if has("unix")
+    let s:uname = system("uname -s")
+    " Do mac stuff
+    if s:uname == "Darwin\n"
+        runtime ./macos.vim
+    endif
+endif
+
+set nocompatible
+
+" 递归搜索文件路径
+set path+=**
+set encoding=utf-8
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" 表示Tab自动转换成空格
+set expandtab 
+
+" 表示换行后自动缩进
+set autoindent
+" 智能对齐
+set smartindent
+
+" 当文件在外部被修改时，自动重新读取
+" set autoread
+
+" 显示行号、 显示当前行行号，其它行的行号都是以当前行为基准从 1 开始增加（即相对行号）
+set number relativenumber
+" 禁止自动换行
+set nowrap
+
+" 开启真彩色
+set termguicolors
+
+filetype plugin indent on
+
+" 启用语法高亮
+syntax on
+" vim记住的历史操作的数量，默认的是20
+set history=40 
+" 搜索时忽略大小写
+set ignorecase
+
+
+" 防止图标和文件名重叠
+let g:defx_icons_column_length = 2
+
+
+" 配置coq自动完成插件，自启动
+let g:coq_settings = { 'auto_start': v:true }
+
+" vim操作作用到系统clipboard
+set clipboard+=unnamedplus 
+
+" vimspector 图形调试器
+" Enable the default set of mappings:
+let g:vimspector_enable_mappings='HUMAN'
+
+
+" init autocmd
+autocmd!
+" 保存代码前进行自动格式化
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+" 开始编辑vim文件时自动打开语法高亮 
+autocmd BufReadPre *.vim syntax on
+autocmd BufReadPre *.xml syntax on
+
+" 保存代码时自动导入包
+" autocmd BufWritePre *.go lua goimports(1000)
+
+
+runtime ./plug.vim
+runtime ./maps.vim
+
+" 设置配色方案
+colorscheme monokai_pro "gruvbox
+let g:airline_theme='gruvbox'
+" 使用黑色主题-light dark 
+set bg=dark 
+
+" 设置indent样式为¦
+"let g:indentLine_char = '¦'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
