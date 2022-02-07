@@ -6,6 +6,10 @@ if has("unix")
     endif
 endif
 
+" 导入lua 配置
+lua require('plugins')
+
+
 set nocompatible
 
 " 递归搜索文件路径
