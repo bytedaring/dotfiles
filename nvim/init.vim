@@ -78,7 +78,7 @@ runtime ./plug.vim
 runtime ./maps.vim
 
 " 设置配色方案
-colorscheme monokai_pro "gruvbox
+colorscheme monokai_soda " monokai_pro gruvbox
 let g:airline_theme='gruvbox'
 " 使用黑色主题-light dark 
 set bg=dark 
