@@ -73,6 +73,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
+" Git 文件git状态、Blame text
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'
 
