@@ -1,4 +1,7 @@
-
+"
+" 空白缩进
+" https://github.com/lukas-reineke/indent-blankline.nvim
+"
 lua << EOF
 
 vim.opt.list = true

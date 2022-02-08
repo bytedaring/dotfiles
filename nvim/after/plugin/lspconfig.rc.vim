@@ -1,3 +1,6 @@
+"
+" https://github.com/neovim/nvim-lspconfig
+"
 if !exists('g:lspconfig')
   finish
 endif

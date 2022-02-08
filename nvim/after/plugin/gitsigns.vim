@@ -1,4 +1,5 @@
 " 
+" 文件行git历史状态信息，blame text 
 " https://github.com/lewis6991/gitsigns.nvim
 "
 lua << EOF
