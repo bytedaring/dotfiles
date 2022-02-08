@@ -7,7 +7,7 @@ if has("unix")
 endif
 
 " 导入lua 配置
-lua require('plugins')
+" lua require('plugins')
 
 
 set nocompatible
