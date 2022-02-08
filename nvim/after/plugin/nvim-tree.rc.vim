@@ -1,3 +1,6 @@
+"
+" https://github.com/kyazdani42/nvim-tree.lua
+"
 " if !exists('g:loaded_nvim_tree') | finish | endif
 
 
@@ -70,7 +73,7 @@ require'nvim-tree'.setup {
         args = {}
     },
     filters = {
-        dotfiles = false,
+        dotfiles = true,
         custom = {}
     },
     git = {

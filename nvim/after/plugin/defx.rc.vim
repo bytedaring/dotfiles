@@ -1,3 +1,7 @@
+"
+"  https://github.com/Shougo/defx.nvim
+"  目前弃用、未生效(目前使用的是nvim-tree)
+"
 if !exists('g:loaded_defx') | finish | endif
 
 " Define mappings
