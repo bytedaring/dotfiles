@@ -12,7 +12,7 @@
 - 注释 - [comment](https://github.com/numToStr/Comment.nvim)
 - 自动括号补全 - [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 - Blame text - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- 代码自动补全 - [coq_nvim](https://github.com/ms-jpq/coq_nvim)
+- 代码自动补全 - ~~[coq_nvim](https://github.com/ms-jpq/coq_nvim)~~ [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - 图标 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - 代码高亮着色 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - 空白缩进高亮 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)

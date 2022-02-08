@@ -83,7 +83,7 @@ Plug 'neovim/nvim-lspconfig'
 " 增强代码自动完成
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 " 9000+ Snippets
-" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
 " 轻量级UI优化内置lsp功能
