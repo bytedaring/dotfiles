@@ -103,4 +103,9 @@ Plug 'numToStr/Comment.nvim'
 " 终端控制
 Plug 'akinsho/toggleterm.nvim'
 
+" 高亮游标下文本
+" Plug 'RRethy/vim-illuminate'
+Plug 'yamatsum/nvim-cursorline'
+
+
 call plug#end()

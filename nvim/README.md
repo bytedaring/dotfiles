@@ -18,6 +18,7 @@
 - 空白缩进高亮 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - 调试器 - [puremourning/vimspector](https://github.com/puremourning/vimspector)
 - 十六进制文本颜色高亮 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
+- 高亮游标下文本 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 
 ##TODO 
 
