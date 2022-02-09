@@ -46,7 +46,8 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " 文档大纲-缩略图
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
+Plug 'simrat39/symbols-outline.nvim'
 
 " vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
 Plug 'mhinz/vim-startify'
@@ -106,6 +107,5 @@ Plug 'akinsho/toggleterm.nvim'
 " 高亮游标下文本
 " Plug 'RRethy/vim-illuminate'
 Plug 'yamatsum/nvim-cursorline'
-
 
 call plug#end()
