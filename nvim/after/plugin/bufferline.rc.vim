@@ -1,5 +1,5 @@
 "
-" 禁用标题栏bufferline
+" [禁用]标题栏bufferline
 "
 if !exists('g:loaded_bufferline') | finish | endif
 
