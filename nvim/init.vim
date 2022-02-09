@@ -11,6 +11,10 @@ endif
 
 
 set nocompatible
+"设置leader键
+let mapleader=","
+" 启用鼠标
+set mouse+=a
 
 " 递归搜索文件路径
 set path+=**
