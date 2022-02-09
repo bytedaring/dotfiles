@@ -64,8 +64,6 @@ let g:vimspector_enable_mappings='HUMAN'
 
 " init autocmd
 autocmd!
-" 保存代码前进行自动格式化
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 " 开始编辑vim文件时自动打开语法高亮 
 autocmd BufReadPre *.vim syntax on
 autocmd BufReadPre *.xml syntax on
