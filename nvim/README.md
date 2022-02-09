@@ -29,3 +29,7 @@
 - A pretty diagnostics list (优美的诊断信息列表)
 
 [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+
+- 代码格式化
+
+[neoformat](https://github.com/sbdchd/neoformat)

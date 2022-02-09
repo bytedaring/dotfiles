@@ -86,3 +86,5 @@ set bg=dark
 " 设置indent样式为¦
 "let g:indentLine_char = '¦'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" nvim-cursorline 配置高亮当前行出现的延迟时间
+let g:cursorline_timeout=0
