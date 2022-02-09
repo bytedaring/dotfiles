@@ -1,3 +1,8 @@
+"
+" 禁用标题栏bufferline
+"
+if !exists('g:loaded_bufferline') | finish | endif
+
 lua << EOF
 
 require("bufferline").setup{

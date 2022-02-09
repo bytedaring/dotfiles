@@ -19,6 +19,7 @@
 - 调试器 - [puremourning/vimspector](https://github.com/puremourning/vimspector)
 - 十六进制文本颜色高亮 - [norcalli/nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 - 高亮游标下文本 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- 标题栏 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 
 ##TODO 
 

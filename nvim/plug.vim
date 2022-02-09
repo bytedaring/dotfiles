@@ -108,7 +108,7 @@ Plug 'akinsho/toggleterm.nvim'
 " Plug 'RRethy/vim-illuminate'
 Plug 'yamatsum/nvim-cursorline'
 
-" 标签栏 bufferline
-Plug 'akinsho/bufferline.nvim'
+" 标签栏 bufferline[暂时禁用-不好用]
+" Plug 'akinsho/bufferline.nvim'
 
 call plug#end()
