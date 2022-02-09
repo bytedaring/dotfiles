@@ -21,3 +21,7 @@ nnoremap <silent>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent>fb <cmd>Telescope buffers<cr>
 nnoremap <silent>fh <cmd>Telescope help_tags<cr>
 
+" nvim-tree
+" nnoremap <silent>fi :<C-u>:NvimTreeFindFileToggle<CR>
+nnoremap <silent>fi <cmd>NvimTreeFindFileToggle<CR>
+
