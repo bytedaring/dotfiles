@@ -67,6 +67,7 @@ autocmd!
 " 开始编辑vim文件时自动打开语法高亮 
 autocmd BufReadPre *.vim syntax on
 autocmd BufReadPre *.xml syntax on
+autocmd BufEnter * silent! lcd %:p:h
 
 " 保存代码时自动导入包
 " autocmd BufWritePre *.go lua goimports(1000)

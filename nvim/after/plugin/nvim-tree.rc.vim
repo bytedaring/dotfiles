@@ -6,8 +6,8 @@
 
 " let g:nvim_tree_group_empty = 1
 " let g:nvim_tree_change_dir_global = 1
-"
-let g:nvim_tree_respect_buf_cwd = 1
+
+let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 let g:nvim_tree_indent_markers = 1
 
 " default will show icon by default if no icon is provided
@@ -64,8 +64,8 @@ require'nvim-tree'.setup {
          }
     },
     update_focused_file = {
-        enable      = false,
-        update_cwd  = false,
+        enable      = true,
+        update_cwd  = true,
         ignore_list = {}
     },
     system_open = {
@@ -102,4 +102,3 @@ require'nvim-tree'.setup {
 }
 EOF
 
-nnoremap <silent>fi :<C-u>:NvimTreeFindFileToggle<CR>

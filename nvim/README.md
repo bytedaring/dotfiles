@@ -33,3 +33,12 @@
 - 代码格式化
 
 [neoformat](https://github.com/sbdchd/neoformat)
+
+## tips
+
+vim编辑文件唤出nvim-tree时，进入被编辑文件目录，而不是进入键入vim命令时的所在目录：
+```
+
+autocmd BufEnter * silent! lcd %:p:h
+
+```vim

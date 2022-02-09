@@ -15,7 +15,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <F7> :SymbolsOutline<cr>
 
 " Find files using Telescope command-line sugar.
-" nnoremap <silent>ff <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
 nnoremap <silent>ff <cmd>Telescope find_files<cr>
 nnoremap <silent>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent>fb <cmd>Telescope buffers<cr>
