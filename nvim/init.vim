@@ -43,8 +43,6 @@ set termguicolors
 
 filetype plugin indent on
 
-" 启用语法高亮
-syntax on
 " vim记住的历史操作的数量，默认的是20
 set history=40 
 " 搜索时忽略大小写
@@ -65,7 +63,6 @@ set clipboard+=unnamedplus
 " Enable the default set of mappings:
 let g:vimspector_enable_mappings='HUMAN'
 
-
 " init autocmd
 autocmd!
 " 开始编辑vim文件时自动打开语法高亮 
@@ -79,6 +76,9 @@ autocmd BufEnter * silent! lcd %:p:h
 
 runtime ./plug.vim
 runtime ./maps.vim
+
+" 启用语法高亮
+syntax on
 
 " 设置配色方案
 colorscheme monokai_soda " monokai_pro gruvbox

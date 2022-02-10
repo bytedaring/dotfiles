@@ -111,4 +111,7 @@ Plug 'yamatsum/nvim-cursorline'
 " 标签栏 bufferline[暂时禁用-不好用]
 " Plug 'akinsho/bufferline.nvim'
 
+" EasyMotion
+Plug 'phaazon/hop.nvim'
+
 call plug#end()
