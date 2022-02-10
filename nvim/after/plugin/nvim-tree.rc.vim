@@ -8,7 +8,8 @@
 " let g:nvim_tree_change_dir_global = 1
 
 let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_disable_window_picker = 0 "0 by default, will disable the window picker.
 
 " default will show icon by default if no icon is provided
 " default shows no icon by default

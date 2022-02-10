@@ -2,7 +2,7 @@ lua << EOF
 
 require'symbols-outline'.setup{
     auto_close = true,
-    width = 40,
+    width = 45,
 }
 
 
