@@ -9,7 +9,7 @@ endif
 " 导入lua 配置
 " lua require('plugins')
 
-
+" 不兼容模式
 set nocompatible
 "设置leader键
 let mapleader=","
