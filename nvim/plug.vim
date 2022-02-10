@@ -63,7 +63,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'glepnir/dashboard-nvim'
 
 " 配色方案
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'tanvirtin/monokai.nvim'
 
 " 插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
