@@ -51,6 +51,7 @@ Plug 'simrat39/symbols-outline.nvim'
 
 " vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
 Plug 'mhinz/vim-startify'
+" Plug 'goolord/alpha-nvim'
 
 " deoplete 代码自动补全
 "Plug 'Shougo/deoplete.nvim'
