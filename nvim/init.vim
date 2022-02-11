@@ -1,10 +1,11 @@
-if has("unix")
-    let s:uname = system("uname -s")
-    " Do mac stuff
-    if s:uname == "Darwin\n"
-        runtime ./macos.vim
-    endif
-endif
+" 不导入空白的macos.vim 配置文件，以提高启动速度
+" if has("unix")
+"     let s:uname = system("uname -s")
+"     " Do mac stuff
+"     if s:uname == "Darwin\n"
+"         runtime ./macos.vim
+"     endif
+" endif
 
 " 导入lua 配置
 " lua require('plugins')
