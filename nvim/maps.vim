@@ -24,3 +24,9 @@ nnoremap <silent>fh <cmd>Telescope help_tags<cr>
 " nnoremap <silent>fi :<C-u>:NvimTreeFindFileToggle<CR>
 nnoremap <silent>fi <cmd>NvimTreeFindFileToggle<CR>
 
+" vimspector
+nmap <leader>dd :call vimspector#Launch()<CR>
+nmap <leader>dx :VimspectorReset<CR>
+nmap <leader>de :VimspectorEval
+nmap <leader>dw :VimspectorWatch
+nmap <leader>do :VimspectorShowOutput

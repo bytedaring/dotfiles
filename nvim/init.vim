@@ -63,6 +63,7 @@ set clipboard+=unnamedplus
 " vimspector 图形调试器
 " Enable the default set of mappings:
 let g:vimspector_enable_mappings='HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 
 " init autocmd
 autocmd!
