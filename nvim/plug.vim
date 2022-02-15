@@ -64,6 +64,7 @@ Plug 'jiangmiao/auto-pairs'
 " 配色方案
 "Plug 'morhetz/gruvbox'
 Plug 'tanvirtin/monokai.nvim'
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " 插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
@@ -115,4 +116,10 @@ Plug 'phaazon/hop.nvim'
 
 " Quick fix
 Plug 'folke/trouble.nvim'
+
+" Surround 环绕的标签修改插件
+Plug 'tpope/vim-surround'
+" `.` 重复上次操作
+Plug 'tpope/vim-repeat'
+
 call plug#end()
