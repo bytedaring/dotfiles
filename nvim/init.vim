@@ -50,6 +50,7 @@ set history=40
 set ignorecase
 
 
+
 " 防止图标和文件名重叠
 let g:defx_icons_column_length = 2
 

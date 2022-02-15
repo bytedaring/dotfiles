@@ -37,8 +37,6 @@ Plug 'nvim-telescope/telescope.nvim'
 " telescope 扩展插件
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-" telescope 多媒体文件插件
-Plug 'nvim-telescope/telescope-media-files.nvim'
 
 " 状态栏美化
 "Plug 'vim-airline/vim-airline'
@@ -115,4 +113,6 @@ Plug 'yamatsum/nvim-cursorline'
 " EasyMotion
 Plug 'phaazon/hop.nvim'
 
+" Quick fix
+Plug 'folke/trouble.nvim'
 call plug#end()
