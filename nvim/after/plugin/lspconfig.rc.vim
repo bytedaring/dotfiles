@@ -6,10 +6,6 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
-vim.lsp.set_log_level("debug")
-EOF
-
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- nvim_lsp.pyright.setup{}

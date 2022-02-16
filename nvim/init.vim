@@ -85,6 +85,7 @@ runtime ./maps.vim
 " 启用语法高亮
 syntax on
 
+"-------------Color scheme-----------------
 " 设置配色方案
 colorscheme monokai_soda " monokai_pro gruvbox
 " 使用黑色主题-light dark 
@@ -95,3 +96,6 @@ set bg=dark
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " nvim-cursorline 配置高亮当前行出现的延迟时间
 let g:cursorline_timeout=0
+
+
+
