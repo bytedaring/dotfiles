@@ -2,6 +2,7 @@
 
 - 目录管理 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 - 文件模糊搜索 - [telescope-fzf-native](https://github.com/nvim-telescope/telescope-fzy-native.nvim)
+    - fzf插件 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) 提升性能、支持忽略大小写
 - 代码缩略图 - ~~[tagbar](https://github.com/majutsushi/tagbar)~~   [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - 主题配色 - [molokai.nvim](https://github.com/tanvirtin/monokai.nvim)
 - 状态栏 - [lualine](https://github.com/nvim-lualine/lualine.nvim)

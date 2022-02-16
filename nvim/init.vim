@@ -36,8 +36,9 @@ set smartindent
 
 " 显示行号、 显示当前行行号，其它行的行号都是以当前行为基准从 1 开始增加（即相对行号）
 set number relativenumber
-" 禁止自动换行
-set nowrap
+" 允许自动换行
+set wrap
+set linebreak
 
 " 开启真彩色
 set termguicolors
