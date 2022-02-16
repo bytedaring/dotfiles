@@ -21,6 +21,7 @@
 - 高亮游标下文本 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - 标题栏 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - trouble窗口 - [trouble.vim](https://github.com/folke/trouble.nvim)
+- 根目录定位器 - [vim-rooter](https://github.com/airblade/vim-rooter) 打开一个文件或者目录时，将项目根目录作为工作目录
 
 ##TODO 
 

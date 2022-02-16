@@ -122,4 +122,7 @@ Plug 'tpope/vim-surround'
 " `.` 重复上次操作
 Plug 'tpope/vim-repeat'
 
+" 自动根目录识别
+Plug 'airblade/vim-rooter'
+
 call plug#end()
