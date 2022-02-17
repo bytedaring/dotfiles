@@ -34,7 +34,7 @@ set smartindent
 " 设置折叠方式
 set foldmethod=indent
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
 
 " 当文件在外部被修改时，自动重新读取
 " set autoread
