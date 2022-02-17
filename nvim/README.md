@@ -24,7 +24,8 @@
 - trouble窗口 - [trouble.vim](https://github.com/folke/trouble.nvim)
 - 根目录定位器 - [vim-rooter](https://github.com/airblade/vim-rooter) 打开一个文件或者目录时，将项目根目录作为工作目录
 
-##TODO 
+
+## TODO
 
 - rust 
 
@@ -46,3 +47,5 @@ vim编辑文件唤出nvim-tree时，进入被编辑文件目录，而不是进�
 autocmd BufEnter * silent! lcd %:p:h
 
 ```vim
+
+

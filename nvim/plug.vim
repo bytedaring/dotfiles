@@ -82,6 +82,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 " 增强代码自动完成
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -124,5 +125,9 @@ Plug 'tpope/vim-repeat'
 
 " 自动根目录识别
 Plug 'airblade/vim-rooter'
+
+"Markdown预览
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 
 call plug#end()
