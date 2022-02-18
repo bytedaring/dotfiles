@@ -92,7 +92,7 @@ syntax on
 
 "-------------Color scheme-----------------
 " 设置配色方案
-colorscheme monokai_soda " monokai_pro gruvbox
+colorscheme monokai_soda  "dracula onedark  monokai_pro gruvbox
 " 使用黑色主题-light dark 
 set bg=dark 
 
