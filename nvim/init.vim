@@ -1,15 +1,3 @@
-" 不导入空白的macos.vim 配置文件，以提高启动速度
-" if has("unix")
-"     let s:uname = system("uname -s")
-"     " Do mac stuff
-"     if s:uname == "Darwin\n"
-"         runtime ./macos.vim
-"     endif
-" endif
-
-" 导入lua 配置
-" lua require('plugins')
-
 " 不兼容模式
 set nocompatible
 "设置leader键
@@ -50,16 +38,8 @@ set termguicolors
 
 filetype plugin indent on
 
-" vim记住的历史操作的数量，默认的是20
-set history=40 
 " 搜索时忽略大小写
 set ignorecase
-
-
-
-" 防止图标和文件名重叠
-let g:defx_icons_column_length = 2
-
 
 " 配置coq自动完成插件，自启动
 let g:coq_settings = { 'auto_start': v:true }
@@ -92,15 +72,20 @@ syntax on
 
 "-------------Color scheme-----------------
 " 设置配色方案
-colorscheme monokai_soda  "dracula onedark  monokai_pro gruvbox
+colorscheme dracula "monokai_soda  "dracula onedark  monokai_pro gruvbox
 " 使用黑色主题-light dark 
 set bg=dark 
 
+"------------- Indent -----------------
 " 设置indent样式为¦
-"let g:indentLine_char = '¦'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " nvim-cursorline 配置高亮当前行出现的延迟时间
 let g:cursorline_timeout=0
 
 
+"------------- Blame -----------------
+let g:gitblame_message_template = '<date> • <author> • <summary>'
+let g:gitblame_date_format = '%r'
 
+"------------- Python3 -----------------
+let g:python3_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python3'

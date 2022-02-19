@@ -63,10 +63,10 @@ Plug 'jiangmiao/auto-pairs'
 
 " 配色方案
 "Plug 'morhetz/gruvbox'
-Plug 'tanvirtin/monokai.nvim'
+" Plug 'tanvirtin/monokai.nvim'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'joshdick/onedark.vim'
-" Plug 'Mofiqul/dracula.nvim'
+Plug 'Mofiqul/dracula.nvim',  { 'as': 'dracula' }
 
 " 插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
@@ -77,10 +77,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Git
 Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-rhubarb'
-
 " Git 文件git状态、Blame text
 Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+" Plug 'lewis6991/gitsigns.nvim'
+Plug 'f-person/git-blame.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -129,7 +129,7 @@ Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 
 "Markdown预览
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim' 
 
 
 call plug#end()
