@@ -1,6 +1,4 @@
-if has("nvim")
-  let g:plug_home = stdpath('data') . '/plugged'
-endif
+let g:plug_home = stdpath('data') . '/plugged'
 
 call plug#begin()
 
@@ -12,6 +10,9 @@ call plug#begin()
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
 " Make sure you use single quotes
+
+" 自动根目录识别
+Plug 'airblade/vim-rooter'
 
 " 文件浏览器 File Explorer
 " The NERDTree is a file system explorer for the Vim editor. 
@@ -124,9 +125,6 @@ Plug 'folke/trouble.nvim'
 Plug 'tpope/vim-surround'
 " `.` 重复上次操作
 Plug 'tpope/vim-repeat'
-
-" 自动根目录识别
-Plug 'airblade/vim-rooter'
 
 "Markdown预览
 Plug 'iamcco/markdown-preview.nvim' 

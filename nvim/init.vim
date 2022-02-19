@@ -63,14 +63,18 @@ autocmd BufReadPre *.xml syntax on
 " 保存代码时自动导入包
 " autocmd BufWritePre *.go lua goimports(1000)
 
+"-------------Work Directory Rooter -----------------
+" let g:rooter_targets = '/,*'
+let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
 
+"------------- Plug and Maps -----------------
+"
 runtime ./plug.vim
 runtime ./maps.vim
 
+"-------------Color scheme-----------------
 " 启用语法高亮
 syntax on
-
-"-------------Color scheme-----------------
 " 设置配色方案
 colorscheme dracula "monokai_soda  "dracula onedark  monokai_pro gruvbox
 " 使用黑色主题-light dark 
