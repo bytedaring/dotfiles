@@ -5,7 +5,7 @@ local nvim_lsp = require('lspconfig')
 
 -- 支持code snippets
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)-- Use an on_attach function to only map the following keys
 
 -- after the language server attaches to the current buffer
@@ -59,7 +59,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- pyright  
+-- pyright
 nvim_lsp.pyright.setup{
     cmd = { "pyright-langserver", "--stdio" },
 	-- for postfix snippets and analyzers
@@ -108,7 +108,7 @@ function goimports(timeoutms)
 
     -- See the implementation of the textDocument/codeAction callback
     -- (lua/vim/lsp/handler.lua) for how to do this properly.
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
     if not result or next(result) == nil then return end
     local actions = result[1].result
     if not actions then return end
@@ -159,3 +159,45 @@ nvim_lsp.sumneko_lua.setup{
 	on_attach = on_attach,
 }
 
+local cmp = require 'cmp'
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            require('snippy').expand_snippet(args.body)
+        end,
+    },
+    mapping = {
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end,
+        ['<S-Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end,
+    },
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    },
+}

@@ -4,7 +4,3 @@ require'symbols-outline'.setup{
 }
 
 
-set_symbols_outline_state = function()
-  vim.g['symbols_outline_state'] = require('symbols-outline').state
-end
-
