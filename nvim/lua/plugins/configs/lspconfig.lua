@@ -1,11 +1,3 @@
-"
-" https://github.com/neovim/nvim-lspconfig
-"
-if !exists('g:lspconfig')
-  finish
-endif
-
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- nvim_lsp.pyright.setup{}
@@ -14,8 +6,8 @@ local nvim_lsp = require('lspconfig')
 -- 支持code snippets
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)-- Use an on_attach function to only map the following keys
 
--- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -26,7 +18,7 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     local opts = { noremap=true, silent=true }
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    -- Se `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
@@ -166,6 +158,4 @@ nvim_lsp.sumneko_lua.setup{
     } ,
 	on_attach = on_attach,
 }
-
-EOF
 
