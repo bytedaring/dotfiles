@@ -12,7 +12,7 @@
 - GIT - [fugitive](https://github.com/tpope/vim-fugitive)、[lazygit](https://github.com/lewis6991/gitsigns.nvim)
 - 注释 - [comment](https://github.com/numToStr/Comment.nvim)
 - 自动括号补全 - [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
-- Blame text - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- Blame text - ~~[gitsigns](https://github.com/lewis6991/gitsigns.nvim)~~ [git-blame.nvim](https://github.com/f-person/git-blame.nvim)
 - 代码自动补全 - ~~[coq_nvim](https://github.com/ms-jpq/coq_nvim)~~ [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - 图标 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - 代码高亮着色 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -23,6 +23,7 @@
 - 标题栏 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - trouble窗口 - [trouble.vim](https://github.com/folke/trouble.nvim)
 - 根目录定位器 - [vim-rooter](https://github.com/airblade/vim-rooter) 打开一个文件或者目录时，将项目根目录作为工作目录
+- Markdown预览 - [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
 
 
 ## TODO
