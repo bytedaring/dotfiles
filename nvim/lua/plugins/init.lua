@@ -52,9 +52,9 @@ require('packer').startup(function(use)
     -- Plug 'vim-airline/vim-airline'
     -- Plug 'vim-airline/vim-airline-themes'
     use {
-        'nvim-lualine/lualine.nvim', 
+        'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() 
+        config = function()
             require('lualine').setup()
         end
     }
@@ -83,7 +83,7 @@ require('packer').startup(function(use)
     --  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     --  Plug 'joshdick/onedark.vim'
     -- use 'Mofiqul/dracula.nvim'
-    use { 'dracula/vim', as = 'dracula' } 
+    use { 'dracula/vim', as = 'dracula' }
 
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     use 'nvim-treesitter/nvim-treesitter'
@@ -99,8 +99,8 @@ require('packer').startup(function(use)
     use 'f-person/git-blame.nvim'
 
     -- indentation guides to all lines
-    use { 
-        'lukas-reineke/indent-blankline.nvim', 
+    use {
+        'lukas-reineke/indent-blankline.nvim',
         config = function()
             require("indent_blankline").setup {
                 show_current_context_start = true,
@@ -144,7 +144,7 @@ require('packer').startup(function(use)
     --  注释插件
     use {
         'numToStr/Comment.nvim',
-        config = function() 
+        config = function()
             require('Comment').setup()
         end
     }
@@ -156,8 +156,8 @@ require('packer').startup(function(use)
     use 'yamatsum/nvim-cursorline'
 
     --  Quick fix
-    use  { 
-        'folke/trouble.nvim', 
+    use  {
+        'folke/trouble.nvim',
         config = function()
             require("trouble").setup{ }
         end
@@ -176,10 +176,11 @@ require('packer').startup(function(use)
     end
 end)
 
-require('plugins.configs.nvim-tree')
-require('plugins.configs.toggleterm')
-require('plugins.configs.lspconfig')
-require('plugins.configs.web-icons')
-require('plugins.configs.treesitter')
-require('plugins.configs.symbols')
-require('plugins.configs.telescope')
+require('plugins.configs.nvim-tree-cfg')
+require('plugins.configs.toggleterm-cfg')
+require('plugins.configs.lspconfig-cfg')
+require('plugins.configs.web-icons-cfg')
+require('plugins.configs.treesitter-cfg')
+require('plugins.configs.symbols-cfg')
+require('plugins.configs.telescope-cfg')
+

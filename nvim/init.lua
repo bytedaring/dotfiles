@@ -1,5 +1,5 @@
 vim.cmd [[filetype plugin indent on]]
 
-require("plugins")
 require("settings")
+require("plugins")
 require("keymaps")

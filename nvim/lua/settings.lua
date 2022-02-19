@@ -1,6 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 local o = vim.o
+local wo = vim.wo
 
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]
@@ -8,6 +9,8 @@ vim.cmd [[set nocompatible ]]
 -- g.mapleader=","
 -- 启用鼠标
 o.mouse = 'a'
+
+wo.list = true
 
 -- 递归搜索文件路径
 -- opt.path+="**"
@@ -32,7 +35,7 @@ opt.foldlevel=2
 -- set autoread
 
 -- 显示行号、 显示当前行行号，其它行的行号都是以当前行为基准从 1 开始增加（即相对行号）
-opt.number=true
+wo.number=true
 opt.relativenumber=true
 -- 允许自动换行
 opt.wrap=true
@@ -91,4 +94,5 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 g.mapleader = ' '
 g.maplocalleader = ' '
 
+-- Required for nvim-compe
 opt.completeopt="menu,menuone,noselect"

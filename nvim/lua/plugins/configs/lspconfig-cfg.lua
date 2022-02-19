@@ -81,7 +81,7 @@ nvim_lsp.pyright.setup{
     single_file_support = false
 }
 
--- gopls 
+-- gopls
 nvim_lsp.gopls.setup{
 	cmd = {'gopls'},
 	-- for postfix snippets and analyzers
