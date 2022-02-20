@@ -38,30 +38,34 @@ require('packer').startup(function(use)
     --  Plug 'kristijanhusak/defx-git'
     use 'kyazdani42/nvim-tree.lua'
 
-    --  fzf
-    --  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    --  Plug 'junegunn/fzf.vim'
     --  fuzzy finder over lists
     use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim' } }
+    }
     --  telescope 扩展插件
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    --  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
     --  状态栏美化
-    -- Plug 'vim-airline/vim-airline'
-    -- Plug 'vim-airline/vim-airline-themes'
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
             require('lualine').setup()
         end
     }
 
     --  文档大纲-缩略图
-    --  Plug 'majutsushi/tagbar'
-    use 'simrat39/symbols-outline.nvim'
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function ()
+            require'symbols-outline'.setup{
+                auto_close = true,
+                width = 45,
+                }
+        end
+    }
 
     --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
     use 'mhinz/vim-startify'
@@ -85,10 +89,49 @@ require('packer').startup(function(use)
     use 'Mofiqul/dracula.nvim'
 
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function ()
+            require'nvim-treesitter.configs'.setup {
+                highlight = {
+                    enable = true,
+                    disable = {},
+                    additional_vim_regex_highlighting = false,
+                },
+                indent = {
+                    enable = false,
+                    disable = {},
+                },
+                ensure_installed = {
+                    "toml",
+                    "fish",
+                    "json",
+                    "go",
+                    "html",
+                    "scss",
+                    "javascript"
+                },
+            }
+        end
+    }
 
     --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
-    use 'kyazdani42/nvim-web-devicons'
+    use {
+        'kyazdani42/nvim-web-devicons',
+        config = function ()
+            require'nvim-web-devicons'.setup {
+                override = {
+                    fish = {
+                        icon = "",
+                        color = "#51a0cf",
+                        cterm_color = "66",
+                        name = "Fish"
+                    }
+                };
+                default = true;
+            }
+        end
+    }
 
     --  Git
     -- use 'tpope/vim-fugitive'
@@ -125,7 +168,7 @@ require('packer').startup(function(use)
     --  Plug 'glepnir/lspsaga.nvim'
 
     --  用于VIM的多语言图形调试器
-    use 'puremourning/vimspector'
+    use { 'puremourning/vimspector' }
 
     --  高性能的十六进制文本颜色高亮
     use {
@@ -167,6 +210,8 @@ require('packer').startup(function(use)
     use 'tpope/vim-repeat'
 
     -- Markdown预览
+    -- Plugins can have post-install/update hooks
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -178,8 +223,5 @@ end)
 require('plugins.configs.nvim-tree-cfg')
 require('plugins.configs.toggleterm-cfg')
 require('plugins.configs.lspconfig-cfg')
-require('plugins.configs.web-icons-cfg')
-require('plugins.configs.treesitter-cfg')
-require('plugins.configs.symbols-cfg')
 require('plugins.configs.telescope-cfg')
 
