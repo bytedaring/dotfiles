@@ -52,7 +52,6 @@ o.ignorecase=true
 vim.cmd [[ set clipboard+=unnamedplus ]]
 
 -- vimspector 图形调试器
--- Enable the default set of mappings:
 g.vimspector_enable_mappings='HUMAN'
 vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
 
@@ -69,10 +68,7 @@ vim.cmd [[
 ]]
 
 ---------------Work Directory Rooter -----------------
--- let g:rooter_targets = '/,*'
 vim.cmd [[ let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh'] ]]
-
---------------- Plug and Maps -----------------
 
 ---------------Color scheme-----------------
 -- 启用语法高亮

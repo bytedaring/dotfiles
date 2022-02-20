@@ -14,13 +14,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-vim.cmd [[packadd packer.nvim]]
-vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]]
+-- vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[
+--   augroup Packer
+--     autocmd!
+--     autocmd BufWritePost init.lua PackerCompile
+--   augroup end
+-- ]]
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
@@ -82,8 +82,7 @@ require('packer').startup(function(use)
     --  Plug 'tanvirtin/monokai.nvim'
     --  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     --  Plug 'joshdick/onedark.vim'
-    -- use 'Mofiqul/dracula.nvim'
-    use { 'dracula/vim', as = 'dracula' }
+    use 'Mofiqul/dracula.nvim'
 
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     use 'nvim-treesitter/nvim-treesitter'
