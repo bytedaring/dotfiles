@@ -3,6 +3,7 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
+opt.lazyredraw = true
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]
 --设置leader键

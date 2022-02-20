@@ -25,17 +25,28 @@ end
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
+    use {
+        'kyazdani42/nvim-web-devicons',
+        config = function ()
+            require'nvim-web-devicons'.setup {
+                override = {
+                    fish = {
+                        icon = "",
+                        color = "#51a0cf",
+                        cterm_color = "66",
+                        name = "Fish"
+                    }
+                };
+                default = true;
+            }
+        end
+    }
+
     --  自动根目录识别
     use 'airblade/vim-rooter'
 
     --  文件浏览器 File Explorer
-    --  The NERDTree is a file system explorer for the Vim editor
-    --  Plug 'preservim/nerdtree'
-    --  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    --  defx 文件管理配上图标
-    --  Plug 'kristijanhusak/defx-icons'
-    --  文件上标上git状态
-    --  Plug 'kristijanhusak/defx-git'
     use 'kyazdani42/nvim-tree.lua'
 
     --  fuzzy finder over lists
@@ -68,14 +79,13 @@ require('packer').startup(function(use)
     }
 
     --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
-    use 'mhinz/vim-startify'
-    --  Plug 'goolord/alpha-nvim'
-
-    --  deoplete 代码自动补全
-    -- Plug 'Shougo/deoplete.nvim'
-    --  Python deoplete
-    -- Plug 'deoplete-plugins/deoplete-jedi'
-    -- let g:deoplete#enable_at_startup = 1
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
+        end
+    }
 
     --  Insert or delete brackets, parens, quotes in pair.
     use 'jiangmiao/auto-pairs'
@@ -115,29 +125,7 @@ require('packer').startup(function(use)
         end
     }
 
-    --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
-    use {
-        'kyazdani42/nvim-web-devicons',
-        config = function ()
-            require'nvim-web-devicons'.setup {
-                override = {
-                    fish = {
-                        icon = "",
-                        color = "#51a0cf",
-                        cterm_color = "66",
-                        name = "Fish"
-                    }
-                };
-                default = true;
-            }
-        end
-    }
-
-    --  Git
-    -- use 'tpope/vim-fugitive'
-    --  Plug 'tpope/vim-rhubarb'
     --  Git 文件git状态、Blame text
-    --  Plug 'lewis6991/gitsigns.nvim'
     use 'f-person/git-blame.nvim'
 
     -- indentation guides to all lines
@@ -164,8 +152,6 @@ require('packer').startup(function(use)
     -- For snippy users.
     use 'dcampos/nvim-snippy'
     use'dcampos/cmp-snippy'
-    --  轻量级UI优化内置lsp功能
-    --  Plug 'glepnir/lspsaga.nvim'
 
     --  用于VIM的多语言图形调试器
     use { 'puremourning/vimspector' }
@@ -210,7 +196,6 @@ require('packer').startup(function(use)
     use 'tpope/vim-repeat'
 
     -- Markdown预览
-    -- Plugins can have post-install/update hooks
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
     -- Automatically set up your configuration after cloning packer.nvim
