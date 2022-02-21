@@ -22,7 +22,7 @@ end
 --   augroup end
 -- ]]
 
-require('packer').startup(function(use)
+require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
 
     --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
@@ -40,6 +40,15 @@ require('packer').startup(function(use)
                 };
                 default = true;
             }
+        end
+    }
+
+    --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
         end
     }
 
@@ -70,20 +79,12 @@ require('packer').startup(function(use)
     --  文档大纲-缩略图
     use {
         'simrat39/symbols-outline.nvim',
+        cmd = { 'SymbolsOutline' },
         config = function ()
             require'symbols-outline'.setup{
                 auto_close = true,
                 width = 45,
                 }
-        end
-    }
-
-    --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
-    use {
-        'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.startify'.config)
         end
     }
 
@@ -101,6 +102,7 @@ require('packer').startup(function(use)
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     use {
         'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpade',
         config = function ()
             require'nvim-treesitter.configs'.setup {
                 highlight = {
@@ -166,7 +168,8 @@ require('packer').startup(function(use)
                     'javascript';
                     html = { mode = 'foreground'};
                 }, { mode = 'background'})
-        end
+        end,
+        ft = { 'html', 'css', 'less' }
     }
 
     --  注释插件
@@ -188,7 +191,8 @@ require('packer').startup(function(use)
         'folke/trouble.nvim',
         config = function()
             require("trouble").setup{ }
-        end
+        end,
+        cmd = 'TroubleToggle'
     }
     --  Surround 环绕的标签修改插件
     use 'tpope/vim-surround'
@@ -203,7 +207,7 @@ require('packer').startup(function(use)
     if PACKER_BOOTSTRAP then
         require('packer').sync()
     end
-end)
+end})
 
 require('plugins.configs.nvim-tree-cfg')
 require('plugins.configs.toggleterm-cfg')
