@@ -200,7 +200,7 @@ require('packer').startup({function(use)
     use 'tpope/vim-repeat'
 
     -- Markdown预览
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview'}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
