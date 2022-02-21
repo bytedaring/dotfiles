@@ -25,6 +25,8 @@ end
 require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
 
+    use 'lewis6991/impatient.nvim'
+
     --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
     use {
         'kyazdani42/nvim-web-devicons',
@@ -53,7 +55,12 @@ require('packer').startup({function(use)
     }
 
     --  自动根目录识别
-    use 'airblade/vim-rooter'
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup {}
+        end
+    }
 
     --  文件浏览器 File Explorer
     use 'kyazdani42/nvim-tree.lua'
