@@ -159,9 +159,11 @@ require('packer').startup({function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    -- For snippy users.
+    -- 代码片段 For lussnip users.
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
+    -- snippet source
+    use "rafamadriz/friendly-snippets"
 
     --  用于VIM的多语言图形调试器
     use { 'puremourning/vimspector' }
@@ -221,4 +223,3 @@ require('plugins.configs.nvim-tree-cfg')
 require('plugins.configs.toggleterm-cfg')
 require('plugins.configs.lspconfig-cfg')
 require('plugins.configs.telescope-cfg')
-
