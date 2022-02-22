@@ -159,7 +159,14 @@ nvim_lsp.sumneko_lua.setup{
 	on_attach = on_attach,
 }
 
+local has_words_before = function ()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, true)[1]:sub(col, col):match("%s") == nil
+end
+
 local cmp = require 'cmp'
+local snippy = require("snippy")
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -180,8 +187,10 @@ cmp.setup {
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            elseif snippy.can_expand_or_advance() then
+                snippy.expand_or_advance()
+            elseif has_words_before() then
+                cmp.complete()
             else
                 fallback()
             end
@@ -189,15 +198,15 @@ cmp.setup {
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            elseif snippy.can_jump(-1) then
+                snippy.previous()
             else
                 fallback()
             end
-        end,
+        end
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = 'snippy' },
     },
 }
