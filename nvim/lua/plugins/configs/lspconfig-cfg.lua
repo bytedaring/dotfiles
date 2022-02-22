@@ -165,12 +165,13 @@ local has_words_before = function ()
 end
 
 local cmp = require 'cmp'
-local snippy = require("snippy")
+-- luasnip setup
+local luasnip = require 'luasnip'
 
 cmp.setup {
     snippet = {
         expand = function(args)
-            require('snippy').expand_snippet(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -187,10 +188,8 @@ cmp.setup {
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif snippy.can_expand_or_advance() then
-                snippy.expand_or_advance()
-            elseif has_words_before() then
-                cmp.complete()
+            elseif luasnip.expand_or_jumpable() then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
             else
                 fallback()
             end
@@ -198,8 +197,8 @@ cmp.setup {
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif snippy.can_jump(-1) then
-                snippy.previous()
+            elseif luasnip.jumpable(-1) then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
             else
                 fallback()
             end
@@ -207,7 +206,7 @@ cmp.setup {
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'snippy' },
+        { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' }
     },

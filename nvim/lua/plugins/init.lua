@@ -154,15 +154,14 @@ require('packer').startup({function(use)
     use 'williamboman/nvim-lsp-installer'
 
     --  增强代码自动完成
-    use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
-
+    use 'hrsh7th/cmp-nvim-lsp'
     -- For snippy users.
-    use 'dcampos/nvim-snippy'
-    use'dcampos/cmp-snippy'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip'
 
     --  用于VIM的多语言图形调试器
     use { 'puremourning/vimspector' }
