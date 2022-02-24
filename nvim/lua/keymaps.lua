@@ -16,11 +16,12 @@ map('n', 'fp', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true
 map('n', 'fi', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
 
 -- vimspector
-map('n','<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]],{ noremap = true, silent = true })
-map('n','<leader>dx', [[<Cmd>:VimspectorReset<CR>,{ noremap = true, silent = true })
-map('n','<leader>de', [[<Cmd>:VimspectorEval<CR>]], { noremap = true, silent = true })
+map('n','<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], { noremap = true, silent = true })
+map('n','<leader>dx', [[<Cmd>:VimspectorReset<CR>]], { noremap = true, silent = true })
+map('n','<leader>de', [[<Cmd>:VimspectorEval<CR>]],  { noremap = true, silent = true })
 map('n','<leader>dw', [[<Cmd>:VimspectorWatch<CR>]], { noremap = true, silent = true })
 map('n','<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], { noremap = true, silent = true })
+
 
 -- Trouble
 map('n','<leader>xx', [[<Cmd>TroubleToggle<CR>]], { noremap = true, silent = true })
