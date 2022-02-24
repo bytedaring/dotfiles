@@ -55,12 +55,12 @@ require('packer').startup({function(use)
     }
 
     --  自动根目录识别
-    use {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup {}
-        end
-    }
+    -- use {
+    --     "ahmedkhalf/project.nvim",
+    --     config = function()
+    --         require("project_nvim").setup {}
+    --     end
+    -- }
 
     --  文件浏览器 File Explorer
     use 'kyazdani42/nvim-tree.lua'
