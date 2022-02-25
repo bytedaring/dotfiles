@@ -67,12 +67,13 @@ require('packer').startup({function(use)
 
     --  fuzzy finder over lists
     use 'nvim-lua/popup.nvim'
+    --  telescope 扩展插件
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim' } }
+        requires = { {'nvim-lua/plenary.nvim' } },
     }
-    --  telescope 扩展插件
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     --  状态栏美化
     use {
@@ -166,7 +167,10 @@ require('packer').startup({function(use)
     use "rafamadriz/friendly-snippets"
 
     --  用于VIM的多语言图形调试器
-    use { 'puremourning/vimspector' }
+    use {
+            'puremourning/vimspector',
+            ft = { 'rust', 'go', 'lua', 'python' }
+        }
 
     --  高性能的十六进制文本颜色高亮
     use {
@@ -187,7 +191,8 @@ require('packer').startup({function(use)
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
-        end
+        end,
+        ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim' }
     }
     --  终端控制
     use 'akinsho/toggleterm.nvim'

@@ -8,8 +8,8 @@ map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], {noremap = true, silent = true })
 -- Find files using Telescope command-line sugar.
 map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
 map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
-map('n', 'fh', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
-map('n', 'fp', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
+map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
+map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
 
 -- nvim-tree NvimTreeFindFileToggle
 -- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
