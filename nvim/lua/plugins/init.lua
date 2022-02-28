@@ -168,9 +168,47 @@ require('packer').startup({function(use)
 
     --  用于VIM的多语言图形调试器
     use {
-            'puremourning/vimspector',
-            ft = { 'rust', 'go', 'lua', 'python' }
-        }
+        'puremourning/vimspector',
+        ft = { 'rust', 'lua', 'go', 'python' }
+    }
+    -- 另一种图形调试器
+    -- use {
+    --     'mfussenegger/nvim-dap',
+    --     ft = { 'go' },
+    --     config = function ()
+    --         local dap = require "dap"
+    --         dap.adapters.go = {
+    --             type = 'executable',
+    --             command = 'node',
+    --             args = { '/Users/xiaoxiwang/Work/vscode-go/dist/debugAdapter.js' }
+    --         }
+    --         dap.configurations.go = {
+    --             {
+    --                 type = 'go',
+    --                 name = 'Debug',
+    --                 request = 'launch',
+    --                 program = "${file}",
+    --                 dlvToolPath = vim.fn.exepath('dlv')  -- Adjust to where delve is installed
+    --             },
+    --         }
+    --         require('dap.ext.vscode').load_launchjs()
+    --     end
+    -- }
+    -- use {
+    --     'rcarriga/nvim-dap-ui',
+    --     ft = { 'go' },
+    --     requires = {"mfussenegger/nvim-dap"},
+    --     config = function ()
+    --         require("dapui").setup()
+    --     end
+    -- }
+    -- use {
+    --     'leoluz/nvim-dap-go',
+    --     ft = { 'go' },
+    --     config = function ()
+    --         require('dap-go').setup()
+    --     end
+    -- }
 
     --  高性能的十六进制文本颜色高亮
     use {
