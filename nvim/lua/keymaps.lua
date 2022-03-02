@@ -37,10 +37,10 @@ map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sile
 --     dapui.open()
 -- end
 -- dap.listeners.before.event_terminated["dapui_config"] = function()
---     -- dapui.close()
+--     dapui.close()
 -- end
 -- dap.listeners.before.event_exited["dapui_config"] = function()
---     -- dapui.close()
+--     dapui.close()
 -- end
 --
 -- map('n', '<F5>', [[<Cmd>lua require'dap'.continue()<CR>]], { noremap = true, silent = true })
