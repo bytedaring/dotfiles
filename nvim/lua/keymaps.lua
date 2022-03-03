@@ -59,13 +59,30 @@ map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sile
 -- nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
 
--------------------- autocmd for filetyep go -------------------
+-------------------- autocmd for vim-go -------------------
+-- vim.cmd [[
+--   autocmd!
+--   autocmd FileType go nmap <leader>b :GoBuild
+--   autocmd FileType go nmap <leader>c :GoCoverage
+--   autocmd FileType go nmap <leader>l :GoLint
+--   autocmd FileType go nmap <leader>i :GoImport
+--   autocmd FileType go nmap <leader>r :GoRun %
+--   autocmd FileType go nmap <leader>t :GoTest
+--   autocmd FileType go nmap <F3> :GoDebugStop
+--   autocmd FileType go nmap <F4> :GoDebugRestart
+--   autocmd FileType go nmap <F5> :GoDebugContinue
+--   autocmd FileType go nmap <F9> :GoDebugBreakpoint
+--   autocmd FileType go nmap <F10> :GoDebugNext
+--   autocmd FileType go nmap <F11> :GoDebugStep
+--   autocmd FileType go nmap <F12> :GoDebugStepOut
+-- ]]
+
+--------------------- autocmd for go.nvim --------------------
 vim.cmd [[
   autocmd!
-  autocmd FileType go nmap <leader>b :GoBuild<CR> 
-  autocmd FileType go nmap <leader>c :GoCoverage<CR> 
-  autocmd FileType go nmap <leader>l :GoLint<CR> 
-  autocmd FileType go nmap <leader>i :GoImport<CR> 
-  autocmd FileType go nmap <leader>r :GoRun %<CR> 
-  autocmd FileType go nmap <leader>t :GoTest<CR> 
+  autocmd FileType go nmap <F9> :GoBreakToggle
+  autocmd FileType go nmap <leader>dd :GoDebug
+  autocmd FileType go nmap <leader>dx :GoDebug stop
+  autocmd FileType go nmap <leader>dt :GoDebug test
 ]]
+

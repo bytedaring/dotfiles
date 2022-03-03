@@ -172,20 +172,20 @@ require('packer').startup({function(use)
         ft = { 'rust', 'lua', 'python' }
     }
     -- 另一种图形调试器
-    -- use {
-    --     'mfussenegger/nvim-dap',
-    --     ft = { 'go' },
-    --     config = function ()
-    --     end
-    -- }
-    -- use {
-    --     'rcarriga/nvim-dap-ui',
-    --     ft = { 'go' },
-    --     requires = {"mfussenegger/nvim-dap"},
-    --     config = function ()
-    --         require("dapui").setup()
-    --     end
-    -- }
+    use {
+        'mfussenegger/nvim-dap',
+        ft = { 'go' },
+        config = function ()
+        end
+    }
+    use {
+        'rcarriga/nvim-dap-ui',
+        ft = { 'go' },
+        requires = {"mfussenegger/nvim-dap"},
+        config = function ()
+            require("dapui").setup()
+        end
+    }
     -- use {
     --     'leoluz/nvim-dap-go',
     --     ft = { 'go' },
@@ -193,7 +193,18 @@ require('packer').startup({function(use)
     --         require('dap-go').setup()
     --     end
     -- }
-    use { 'fatih/vim-go', ft =  { 'go' }}
+
+    -- go development ide plugin
+    -- use { 'fatih/vim-go', ft =  { 'go' }}
+    use {
+      'ray-x/go.nvim', ft = { 'go' },
+      config = function()
+        require('go').setup({
+          icons = {breakpoint='🔴', currentpos='👉'}
+        })
+      end
+    }
+    use { 'ray-x/guihua.lua', ft = { 'go' }, run = 'cd lua/fzy && make'}
 
     --  高性能的十六进制文本颜色高亮
     use {

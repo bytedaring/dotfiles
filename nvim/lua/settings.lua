@@ -11,7 +11,7 @@ vim.cmd [[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
--- vim.cmd [[set autowrite]]
+vim.cmd [[set autowrite]]
 opt.list = true
 
 -- 递归搜索文件路径
