@@ -57,3 +57,15 @@ map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sile
 -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 -- nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 -- nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
+
+
+-------------------- autocmd for filetyep go -------------------
+vim.cmd [[
+  autocmd!
+  autocmd FileType go nmap <leader>b :GoBuild<CR> 
+  autocmd FileType go nmap <leader>c :GoCoverage<CR> 
+  autocmd FileType go nmap <leader>l :GoLint<CR> 
+  autocmd FileType go nmap <leader>i :GoImport<CR> 
+  autocmd FileType go nmap <leader>r :GoRun %<CR> 
+  autocmd FileType go nmap <leader>t :GoTest<CR> 
+]]

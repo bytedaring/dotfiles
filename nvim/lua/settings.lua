@@ -11,6 +11,7 @@ vim.cmd [[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
+-- vim.cmd [[set autowrite]]
 opt.list = true
 
 -- 递归搜索文件路径
@@ -97,3 +98,7 @@ g.maplocalleader = ' '
 
 -- Required for nvim-compe
 opt.completeopt="menu,menuone,noselect"
+
+-------------- vim-go ----------------
+g.go_template_autocreate = 1
+g.go_template_test_file = 'hello_world_test.go'
