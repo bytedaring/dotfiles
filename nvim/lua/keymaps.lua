@@ -80,9 +80,9 @@ map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sile
 --------------------- autocmd for go.nvim --------------------
 vim.cmd [[
   autocmd!
-  autocmd FileType go nmap <F9> :GoBreakToggle
-  autocmd FileType go nmap <leader>dd :GoDebug
-  autocmd FileType go nmap <leader>dx :GoDebug stop
-  autocmd FileType go nmap <leader>dt :GoDebug test
+  autocmd FileType go nmap <F9> :GoBreakToggle<CR>
+  autocmd FileType go nmap <leader>dd :GoDebug<CR>
+  autocmd FileType go nmap <leader>dx :GoDebug stop<CR>
+  autocmd FileType go nmap <leader>dt :Ultest<CR>
 ]]
 

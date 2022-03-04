@@ -171,7 +171,7 @@ require('packer').startup({function(use)
         'puremourning/vimspector',
         ft = { 'rust', 'lua', 'python' }
     }
-    -- 另一种图形调试器
+    -- 另一种通用图形调试器
     use {
         'mfussenegger/nvim-dap',
         ft = { 'go' },
@@ -186,6 +186,21 @@ require('packer').startup({function(use)
             require("dapui").setup()
         end
     }
+    use { 'theHamsta/nvim-dap-virtual-text', ft = { 'go' } }
+    -- go development ide plugin
+    -- use { 'fatih/vim-go', ft =  { 'go' }}
+    use { 'ray-x/guihua.lua', ft = { 'go' } }
+    use {
+      'ray-x/go.nvim', ft = { 'go' },
+      config = function()
+        require('go').setup({
+          icons = {breakpoint='🔴', currentpos='👉'},
+          lsp_cfg = false,
+          run_in_floaterm = true
+        })
+      end
+    }
+    -- 另一种通用图形调试器
     -- use {
     --     'leoluz/nvim-dap-go',
     --     ft = { 'go' },
@@ -193,19 +208,10 @@ require('packer').startup({function(use)
     --         require('dap-go').setup()
     --     end
     -- }
-
-    -- go development ide plugin
-    -- use { 'fatih/vim-go', ft =  { 'go' }}
-    use {
-      'ray-x/go.nvim', ft = { 'go' },
-      config = function()
-        require('go').setup({
-          icons = {breakpoint='🔴', currentpos='👉'}
-        })
-      end
-    }
-    use { 'ray-x/guihua.lua', ft = { 'go' }, run = 'cd lua/fzy && make'}
-
+    -- 测试插件
+    use { 'vim-test/vim-test', ft = { 'go', 'python' } }
+    use { "rcarriga/vim-ultest", ft = { 'go', 'python' }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
+   
     --  高性能的十六进制文本颜色高亮
     use {
         'norcalli/nvim-colorizer.lua',

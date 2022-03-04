@@ -99,6 +99,3 @@ g.maplocalleader = ' '
 -- Required for nvim-compe
 opt.completeopt="menu,menuone,noselect"
 
--------------- vim-go ----------------
-g.go_template_autocreate = 1
-g.go_template_test_file = 'hello_world_test.go'
