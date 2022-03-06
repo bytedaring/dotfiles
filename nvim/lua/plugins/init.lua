@@ -247,7 +247,7 @@ require('packer').startup({function(use)
         config = function()
             require("trouble").setup{ }
         end,
-        cmd = 'TroubleToggle'
+        ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim' }
     }
     --  Surround 环绕的标签修改插件
     use 'tpope/vim-surround'
