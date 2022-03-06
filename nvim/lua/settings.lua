@@ -33,6 +33,9 @@ opt.foldmethod="indent"
 vim.cmd [[ set nofoldenable ]]
 opt.foldlevel=2
 
+-- indentLine 
+g.indentLine_char = '¦'
+
 -- 当文件在外部被修改时，自动重新读取
 -- set autoread
 
