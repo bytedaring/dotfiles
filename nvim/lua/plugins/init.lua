@@ -161,7 +161,7 @@ require('packer').startup({function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     -- 代码片段 For lussnip users.
-    use { 'saadparwaiz1/cmp_luasnip', ft = { 'lua' } }
+    use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
     -- snippet source
     use "rafamadriz/friendly-snippets"
