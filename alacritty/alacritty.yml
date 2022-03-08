@@ -922,29 +922,31 @@ key_bindings:
 
 
 # Colors (Darkside)
+# Colors (Ayu Dark)
 colors:
+  # Default colors
   primary:
-    background: '#222324'
-    foreground: '#BABABA'
+    background: '#0A0E14'
+    foreground: '#B3B1AD'
 
   # Normal colors
   normal:
-    black:    '#000000'
-    red:      '#E8341C'
-    green:    '#68C256'
-    yellow:   '#F2D42C'
-    blue:     '#1C98E8'
-    magenta:  '#8E69C9'
-    cyan:     '#1C98E8'
-    white:    '#BABABA'
+    black: '#01060E'
+    red: '#EA6C73'
+    green: '#91B362'
+    yellow: '#F9AF4F'
+    blue: '#53BDFA'
+    magenta: '#FAE994'
+    cyan: '#90E1C6'
+    white: '#C7C7C7'
 
   # Bright colors
   bright:
-    black:    '#666666'
-    red:      '#E05A4F'
-    green:    '#77B869'
-    yellow:   '#EFD64B'
-    blue:     '#387CD3'
-    magenta:  '#957BBE'
-    cyan:     '#3D97E2'
-    white:    '#BABABA'
+    black: '#686868'
+    red: '#F07178'
+    green: '#C2D94C'
+    yellow: '#FFB454'
+    blue: '#59C2FF'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'
