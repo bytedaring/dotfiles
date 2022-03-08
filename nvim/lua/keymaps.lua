@@ -82,7 +82,8 @@ vim.cmd [[
   autocmd!
   autocmd FileType go nmap <F9> :GoBreakToggle<CR>
   autocmd FileType go nmap <leader>dd :GoDebug<CR>
-  autocmd FileType go nmap <leader>dx :GoDebug stop<CR>
-  autocmd FileType go nmap <leader>dt :Ultest<CR>
+  autocmd FileType go nmap <leader>dx :GoDebug -s<CR>
+  autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
+  autocmd FileType go nmap <leader>t :Ultest<CR>
 ]]
 
