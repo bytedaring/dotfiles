@@ -247,7 +247,7 @@ require('packer').startup({function(use)
         config = function()
             require("trouble").setup{ }
         end,
-        ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim' }
+        ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim', 'sh' }
     }
     --  Surround 环绕的标签修改插件
     use 'tpope/vim-surround'
@@ -260,6 +260,19 @@ require('packer').startup({function(use)
     -- Lua Development for Neovim 
     use { 'tjdevries/nlua.nvim', ft =  { 'lua' }}
 
+    -- Bash Development for Neovim 
+    use {
+      'jose-elias-alvarez/null-ls.nvim',
+      ft = { 'sh' },
+      config = function()
+        require('null-ls').setup{
+          sources = {
+            require('null-ls').builtins.diagnostics.shellcheck,
+            require('null-ls').builtins.formatting.shfmt,
+          }
+        }
+      end
+    }
     -- TODO
     -- use {
     --     'folke/todo-comments.nvim',
