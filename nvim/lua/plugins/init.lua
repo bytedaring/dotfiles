@@ -232,7 +232,7 @@ require('packer').startup({function(use)
         config = function()
             require('Comment').setup()
         end,
-        ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim' }
+        ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim', 'sh' }
     }
     --  终端控制
     use 'akinsho/toggleterm.nvim'
