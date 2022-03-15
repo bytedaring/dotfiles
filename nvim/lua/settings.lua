@@ -66,11 +66,11 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 -- 保存代码时自动导入包
 -- autocmd BufWritePre *.go lua goimports(1000)
 -- 开始编辑vim文件时自动打开语法高亮
-vim.cmd [[
-    autocmd!
-    autocmd BufReadPre *.vim syntax on
-    autocmd BufReadPre *.xml syntax on
-]]
+-- vim.cmd [[
+--      autocmd!
+--      autocmd BufReadPre *.vim syntax on
+--      autocmd BufReadPre *.xml syntax on
+-- ]]
 
 ---------------Work Directory Rooter -----------------
 vim.cmd [[ let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh'] ]]
