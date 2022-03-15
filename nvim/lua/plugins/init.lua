@@ -123,13 +123,8 @@ require('packer').startup({function(use)
                     disable = {},
                 },
                 ensure_installed = {
-                    "toml",
-                    "fish",
                     "json",
                     "go",
-                    "html",
-                    "scss",
-                    "javascript"
                 },
             }
         end
@@ -155,7 +150,28 @@ require('packer').startup({function(use)
     use 'williamboman/nvim-lsp-installer'
 
     --  增强代码自动完成
-    use 'hrsh7th/cmp-buffer'
+    use { 
+      'hrsh7th/cmp-buffer',
+      config = function () 
+        cmp.setup({
+          sources = {
+            {
+              name = 'buffer',
+              option = {
+                get_bufnrs = function()
+                  local buf = vim.api.nvim_get_current_buf()
+                  local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+                  if byte_size > 1024 * 128 then -- 128 Kbyte max
+                    return {}
+                  end
+                  return { buf }
+                end
+              },
+            },
+          },
+        })
+      end
+    }
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
