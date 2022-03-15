@@ -76,13 +76,18 @@ require('packer').startup({function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     --  状态栏美化
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function()
-            require('lualine').setup()
-        end
+    use { 'feline-nvim/feline.nvim',
+      config = function() 
+        require('feline').setup()
+      end
     }
+    -- use {
+    --     'nvim-lualine/lualine.nvim',
+    --     requires = { 'kyazdani42/nvim-web-devicons' },
+    --     config = function()
+    --         require('lualine').setup()
+    --     end
+    -- }
 
     --  文档大纲-缩略图
     use {
