@@ -55,7 +55,7 @@ require('packer').startup({function(use)
     }
 
     --  文件浏览器 File Explorer
-    use { 
+    use {
       'kyazdani42/nvim-tree.lua',
       after = "nvim-web-devicons",
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
@@ -97,7 +97,7 @@ require('packer').startup({function(use)
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim' } },
       cmd = 'Telescope',
-      config = function () 
+      config = function ()
         require('telescope').setup {
           extensions = {
             fzf = {
@@ -117,14 +117,14 @@ require('packer').startup({function(use)
       run = 'make',
       config = function ()
         require('telescope').load_extension('fzf')
-      end 
+      end
     }
 
     --  状态栏美化
-    use { 
+    use {
       'feline-nvim/feline.nvim',
       after = "nvim-web-devicons",
-      config = function() 
+      config = function()
         require('feline').setup()
       end
     }
@@ -285,7 +285,7 @@ require('packer').startup({function(use)
     -- 测试插件
     use { 'vim-test/vim-test', ft = { 'go', 'python' } }
     use { "rcarriga/vim-ultest", ft = { 'go', 'python' }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
-   
+
     --  高性能的十六进制文本颜色高亮
     use {
         'norcalli/nvim-colorizer.lua',
@@ -309,7 +309,11 @@ require('packer').startup({function(use)
         ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim', 'sh' }
     }
     --  终端控制
-    use 'akinsho/toggleterm.nvim'
+    use {
+      'akinsho/toggleterm.nvim',
+      event = "BufRead",
+      config = require('plugins.configs.toggleterm-cfg').setup
+    }
 
     --  高亮游标下文本
     --  Plug 'RRethy/vim-illuminate'
@@ -331,10 +335,10 @@ require('packer').startup({function(use)
     -- Markdown预览
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview'}
 
-    -- Lua Development for Neovim 
+    -- Lua Development for Neovim
     use { 'tjdevries/nlua.nvim', ft =  { 'lua' }}
 
-    -- Bash Development for Neovim 
+    -- Bash Development for Neovim
     use {
       'jose-elias-alvarez/null-ls.nvim',
       ft = { 'sh' },
@@ -362,5 +366,5 @@ require('packer').startup({function(use)
     end
 end})
 
-require('plugins.configs.toggleterm-cfg')
+
 
