@@ -11,7 +11,7 @@ local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
-  local should_profile = false
+  local should_profile = true
   if should_profile then
     local hrtime = vim.loop.hrtime
     profile_info = {}
@@ -235,18 +235,19 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
+    config = { "\27LJ\2\n…\3\0\0\6\0\17\0\0236\0\0\0009\0\1\0)\1\1\0=\1\2\0)\1\1\0=\1\3\0006\1\4\0'\3\5\0B\1\2\0029\1\6\0015\3\a\0005\4\b\0004\5\0\0=\5\t\4=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\3B\1\2\1K\0\1\0\ffilters\1\0\1\rdotfiles\1\tview\1\0\1\nwidth\3(\bgit\1\0\1\ftimeout\3¬\2\24update_focused_file\16ignore_list\1\0\2\venable\2\15update_cwd\1\1\0\a\16open_on_tab\1\18hijack_cursor\1\15update_cwd\2\18disable_netrw\2\17hijack_netrw\2\18open_on_setup\2\15auto_close\2\nsetup\14nvim-tree\frequire\29nvim_tree_indent_markers\30nvim_tree_respect_buf_cwd\6g\bvim\0" },
     loaded = true,
     path = "/Users/xiaoxiwang/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\nã\1\0\0\5\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0005\3\3\0004\4\0\0=\4\4\3=\3\6\0025\3\a\0004\4\0\0=\4\4\3=\3\b\0025\3\t\0=\3\n\2B\0\2\1K\0\1\0\21ensure_installed\1\3\0\0\tjson\ago\vindent\1\0\1\venable\1\14highlight\1\0\0\fdisable\1\0\2&additional_vim_regex_highlighting\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nã\1\0\0\5\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0005\3\3\0004\4\0\0=\4\4\3=\3\6\0025\3\a\0004\4\0\0=\4\4\3=\3\b\0025\3\t\0=\3\n\2B\0\2\1K\0\1\0\21ensure_installed\1\3\0\0\tjson\ago\vindent\1\0\1\venable\1\14highlight\1\0\0\fdisable\1\0\2\venable\2&additional_vim_regex_highlighting\1\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/xiaoxiwang/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    config = { "\27LJ\2\n£\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\roverride\1\0\1\fdefault\2\tfish\1\0\0\1\0\4\tname\tFish\ticon\bîž•\ncolor\f#51a0cf\16cterm_color\a66\nsetup\22nvim-web-devicons\frequire\0" },
+    config = { "\27LJ\2\n£\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\roverride\1\0\1\fdefault\2\tfish\1\0\0\1\0\4\ncolor\f#51a0cf\16cterm_color\a66\ticon\bîž•\tname\tFish\nsetup\22nvim-web-devicons\frequire\0" },
     loaded = true,
     path = "/Users/xiaoxiwang/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
@@ -268,7 +269,7 @@ _G.packer_plugins = {
   },
   ["symbols-outline.nvim"] = {
     commands = { "SymbolsOutline" },
-    config = { "\27LJ\2\nX\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\15auto_close\2\nwidth\3-\nsetup\20symbols-outline\frequire\0" },
+    config = { "\27LJ\2\nX\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\nwidth\3-\15auto_close\2\nsetup\20symbols-outline\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -332,18 +333,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: feline.nvim
-time([[Config for feline.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vfeline\frequire\0", "config", "feline.nvim")
-time([[Config for feline.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nã\1\0\0\5\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0005\3\3\0004\4\0\0=\4\4\3=\3\6\0025\3\a\0004\4\0\0=\4\4\3=\3\b\0025\3\t\0=\3\n\2B\0\2\1K\0\1\0\21ensure_installed\1\3\0\0\tjson\ago\vindent\1\0\1\venable\1\14highlight\1\0\0\fdisable\1\0\2&additional_vim_regex_highlighting\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\nã\1\0\0\5\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0005\3\3\0004\4\0\0=\4\4\3=\3\6\0025\3\a\0004\4\0\0=\4\4\3=\3\b\0025\3\t\0=\3\n\2B\0\2\1K\0\1\0\21ensure_installed\1\3\0\0\tjson\ago\vindent\1\0\1\venable\1\14highlight\1\0\0\fdisable\1\0\2\venable\2&additional_vim_regex_highlighting\1\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n£\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\roverride\1\0\1\fdefault\2\tfish\1\0\0\1\0\4\tname\tFish\ticon\bîž•\ncolor\f#51a0cf\16cterm_color\a66\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
@@ -352,6 +345,18 @@ time([[Config for alpha-nvim]], false)
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\2\nŽ\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\25space_char_blankline\6 \25show_current_context\2\31show_current_context_start\1\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n…\3\0\0\6\0\17\0\0236\0\0\0009\0\1\0)\1\1\0=\1\2\0)\1\1\0=\1\3\0006\1\4\0'\3\5\0B\1\2\0029\1\6\0015\3\a\0005\4\b\0004\5\0\0=\5\t\4=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\3B\1\2\1K\0\1\0\ffilters\1\0\1\rdotfiles\1\tview\1\0\1\nwidth\3(\bgit\1\0\1\ftimeout\3¬\2\24update_focused_file\16ignore_list\1\0\2\venable\2\15update_cwd\1\1\0\a\16open_on_tab\1\18hijack_cursor\1\15update_cwd\2\18disable_netrw\2\17hijack_netrw\2\18open_on_setup\2\15auto_close\2\nsetup\14nvim-tree\frequire\29nvim_tree_indent_markers\30nvim_tree_respect_buf_cwd\6g\bvim\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: feline.nvim
+time([[Config for feline.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vfeline\frequire\0", "config", "feline.nvim")
+time([[Config for feline.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n£\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\roverride\1\0\1\fdefault\2\tfish\1\0\0\1\0\4\ncolor\f#51a0cf\16cterm_color\a66\ticon\bîž•\tname\tFish\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -363,17 +368,17 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType lua ++once lua require("packer.load")({'vimspector', 'nlua.nvim', 'trouble.nvim', 'Comment.nvim', 'Comment.nvim'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sh ++once lua require("packer.load")({'null-ls.nvim', 'trouble.nvim', 'Comment.nvim'}, { ft = "sh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim ++once lua require("packer.load")({'trouble.nvim', 'Comment.nvim'}, { ft = "vim" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'trouble.nvim', 'vimspector'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'Comment.nvim', 'trouble.nvim', 'vim-test', 'vim-ultest', 'vimspector'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sh ++once lua require("packer.load")({'null-ls.nvim', 'Comment.nvim', 'trouble.nvim'}, { ft = "sh" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vim ++once lua require("packer.load")({'Comment.nvim', 'trouble.nvim'}, { ft = "vim" }, _G.packer_plugins)]]
+vim.cmd [[au FileType lua ++once lua require("packer.load")({'nlua.nvim', 'Comment.nvim', 'Comment.nvim', 'trouble.nvim', 'vimspector'}, { ft = "lua" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-colorizer.lua', 'Comment.nvim'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType less ++once lua require("packer.load")({'nvim-colorizer.lua', 'Comment.nvim'}, { ft = "less" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-colorizer.lua', 'Comment.nvim'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'trouble.nvim', 'Comment.nvim'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'go.nvim', 'guihua.lua', 'vim-test', 'vim-ultest', 'nvim-dap', 'nvim-dap-ui', 'nvim-dap-virtual-text', 'trouble.nvim', 'Comment.nvim'}, { ft = "go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'vimspector', 'trouble.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-test', 'vim-ultest', 'vimspector', 'trouble.nvim', 'Comment.nvim'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'Comment.nvim', 'trouble.nvim'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap', 'nvim-dap-ui', 'Comment.nvim', 'nvim-dap-virtual-text', 'trouble.nvim', 'go.nvim', 'guihua.lua', 'vim-test', 'vim-ultest'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

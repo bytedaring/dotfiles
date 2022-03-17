@@ -54,16 +54,39 @@ require('packer').startup({function(use)
         end
     }
 
-    --  自动根目录识别
-    -- use {
-    --     "ahmedkhalf/project.nvim",
-    --     config = function()
-    --         require("project_nvim").setup {}
-    --     end
-    -- }
-
     --  文件浏览器 File Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    use { 
+      'kyazdani42/nvim-tree.lua',
+      config = function ()
+        local g = vim.g
+        g.nvim_tree_respect_buf_cwd = 1
+        g.nvim_tree_indent_markers = 1
+
+        require'nvim-tree'.setup {
+          disable_netrw       = true,
+          hijack_netrw        = true,
+          open_on_setup       = true,
+          auto_close          = true,
+          open_on_tab         = false,
+          hijack_cursor       = false,
+          update_cwd          = true,
+          update_focused_file = {
+            enable      = true,
+            update_cwd  = false,
+            ignore_list = {}
+          },
+          git = {
+            timeout = 300,
+          },
+          view = {
+            width = 40,
+          },
+          filters = {
+            dotfiles = false
+          }
+        }
+      end
+    }
 
     --  fuzzy finder over lists
     use 'nvim-lua/popup.nvim'
@@ -282,14 +305,12 @@ require('packer').startup({function(use)
     --     end
     -- }
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
+    -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
         require('packer').sync()
     end
 end})
 
-require('plugins.configs.nvim-tree-cfg')
 require('plugins.configs.toggleterm-cfg')
 require('plugins.configs.lspconfig-cfg')
 require('plugins.configs.telescope-cfg')
