@@ -26,8 +26,7 @@ require'nvim-tree'.setup {
         width = 40,
     },
     filters = {
-        dotfiles = true
-
+        dotfiles = false
     }
 }
 

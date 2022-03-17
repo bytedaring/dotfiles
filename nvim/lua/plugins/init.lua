@@ -239,7 +239,7 @@ require('packer').startup({function(use)
 
     --  高亮游标下文本
     --  Plug 'RRethy/vim-illuminate'
-    use 'yamatsum/nvim-cursorline'
+    -- use 'yamatsum/nvim-cursorline'
 
     --  Quick fix
     use  {
