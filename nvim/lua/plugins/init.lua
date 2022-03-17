@@ -57,6 +57,8 @@ require('packer').startup({function(use)
     --  文件浏览器 File Explorer
     use { 
       'kyazdani42/nvim-tree.lua',
+      after = "nvim-web-devicons",
+      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
       config = function ()
         local g = vim.g
         g.nvim_tree_respect_buf_cwd = 1
@@ -92,14 +94,36 @@ require('packer').startup({function(use)
     use 'nvim-lua/popup.nvim'
     --  telescope 扩展插件
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim' } },
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim' } },
+      cmd = 'Telescope',
+      config = function () 
+        require('telescope').setup {
+          extensions = {
+            fzf = {
+              fuzzy = true, -- false will only do exact matching
+              override_generic_sorter = true,  -- override the generic sorter
+              override_file_sorter = true,     -- override the file sorter
+              case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
+            }
+          }
+        }
+      end
     }
 
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      after = 'telescope.nvim',
+      run = 'make',
+      config = function ()
+        require('telescope').load_extension('fzf')
+      end 
+    }
 
     --  状态栏美化
-    use { 'feline-nvim/feline.nvim',
+    use { 
+      'feline-nvim/feline.nvim',
+      after = "nvim-web-devicons",
       config = function() 
         require('feline').setup()
       end
@@ -125,8 +149,10 @@ require('packer').startup({function(use)
     }
 
     --  Insert or delete brackets, parens, quotes in pair.
-    use 'jiangmiao/auto-pairs'
-    --  Plug 'glepnir/dashboard-nvim'
+    use {
+      'windwp/nvim-autopairs',
+      config = require('plugins.configs.autopairs-cfg').setup
+    }
 
     --  配色方案
     -- Plug 'morhetz/gruvbox'
@@ -137,25 +163,26 @@ require('packer').startup({function(use)
 
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpade',
-        config = function ()
-            require'nvim-treesitter.configs'.setup {
-                highlight = {
-                    enable = true,
-                    disable = {},
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = {
-                    enable = false,
-                    disable = {},
-                },
-                ensure_installed = {
-                    "json",
-                    "go",
-                },
-            }
-        end
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpade',
+      event = { "BufRead", "BufNewFile" },
+      config = function ()
+        require'nvim-treesitter.configs'.setup {
+          highlight = {
+            enable = true,
+            disable = {},
+            additional_vim_regex_highlighting = false,
+          },
+          indent = {
+            enable = false,
+            disable = {},
+          },
+          ensure_installed = {
+            "json",
+            "go",
+          },
+        }
+      end
     }
 
     --  Git 文件git状态、Blame text
@@ -164,6 +191,7 @@ require('packer').startup({function(use)
     -- indentation guides to all lines
     use {
         'lukas-reineke/indent-blankline.nvim',
+        event = "BufRead",
         config = function()
             require("indent_blankline").setup {
                 space_char_blankline = " ",
@@ -173,21 +201,44 @@ require('packer').startup({function(use)
         end
     }
 
+    -- load luasnips + cmp related in insert mode only
     --  LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
 
-    --  增强代码自动完成
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    -- 代码片段 For lussnip users.
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip'
     -- snippet source
-    use "rafamadriz/friendly-snippets"
+    use {
+      "rafamadriz/friendly-snippets",
+      event = "InsertEnter"
+    }
+    --  增强代码自动完成
+    use {
+      'hrsh7th/nvim-cmp',
+      after = "friendly-snippets",
+      config = require('plugins.configs.lspconfig-cfg').setup
+    }
+    use {
+      'L3MON4D3/LuaSnip',
+      wants = "friendly-snippets",
+      after = "nvim-cmp"
+    }
+    use {
+      'saadparwaiz1/cmp_luasnip',
+      after = "LuaSnip"
+    }
+    use {
+      'hrsh7th/cmp-nvim-lsp',
+      after = "cmp_luasnip",
+      config = require('plugins.configs.luasnip-cfg').setup
+    }
+    use {
+      'hrsh7th/cmp-buffer',
+      after = "cmp-nvim-lsp"
+    }
+    use {
+      'hrsh7th/cmp-path',
+      after = "cmp-buffer"
+    }
 
     --  用于VIM的多语言图形调试器
     use {
@@ -312,5 +363,4 @@ require('packer').startup({function(use)
 end})
 
 require('plugins.configs.toggleterm-cfg')
-require('plugins.configs.lspconfig-cfg')
-require('plugins.configs.telescope-cfg')
+
