@@ -28,6 +28,10 @@ opt.autoindent=true
 -- 智能对齐
 opt.smartindent=true
 
+-- 禁用netrw插件
+g.loaded_netrw=1
+g.loaded_netrwPlugin=1
+
 -- 设置折叠方式
 opt.foldmethod="indent"
 vim.cmd [[ set nofoldenable ]]
@@ -72,16 +76,12 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 --      autocmd BufReadPre *.xml syntax on
 -- ]]
 
----------------Work Directory Rooter -----------------
-vim.cmd [[ let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh'] ]]
-
 ---------------Color scheme-----------------
 -- 启用语法高亮
 -- syntax on
 -- 使用黑色主题 设置配色方案
 opt.bg="dark"
 vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
-
 
 --------------- Blame -----------------
 g.gitblame_message_template = '<date> • <author> • <summary>'

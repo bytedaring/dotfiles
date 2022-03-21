@@ -255,12 +255,13 @@ require('packer').startup({function(use)
     use {
         'rcarriga/nvim-dap-ui',
         ft = { 'go' },
+        after = "nvim-dap",
         requires = {"mfussenegger/nvim-dap"},
         config = function ()
             require("dapui").setup()
         end
     }
-    use { 'theHamsta/nvim-dap-virtual-text', ft = { 'go' } }
+    use { 'theHamsta/nvim-dap-virtual-text', ft = { 'go' }, after = "nvim-dap" }
     -- go development ide plugin
     -- use { 'fatih/vim-go', ft =  { 'go' }}
     use { 'ray-x/guihua.lua', ft = { 'go' } }
