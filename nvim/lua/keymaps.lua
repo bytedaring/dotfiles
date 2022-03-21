@@ -30,6 +30,9 @@ map('n','<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], { noremap
 map('n','<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], { noremap = true, silent = true })
 map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, silent = true })
 
+-- ToggleTerm
+map('n','<C-\\>', [[<Cmd>ToggleTerm<CR>]], {noremap = true, silent = true })
+
 
 -- -- Nvim-dap
 -- local dap, dapui = require("dap"), require("dapui")

@@ -81,7 +81,7 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 -- syntax on
 -- 使用黑色主题 设置配色方案
 opt.bg="dark"
-vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
+-- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
 
 --------------- Blame -----------------
 g.gitblame_message_template = '<date> • <author> • <summary>'

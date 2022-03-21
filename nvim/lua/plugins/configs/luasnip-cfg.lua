@@ -27,8 +27,6 @@ M.setup = function ()
       elseif luasnip.expand_or_jumpable() then
         -- vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
         luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
       else
         fallback()
       end

@@ -154,12 +154,28 @@ require('packer').startup({function(use)
     config = require('plugins.configs.autopairs-cfg').setup
   }
 
-  --  配色方案
+  -- color scheme
   -- Plug 'morhetz/gruvbox'
-  --  Plug 'tanvirtin/monokai.nvim'
-  --  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-  --  Plug 'joshdick/onedark.vim'
-  use 'Mofiqul/dracula.nvim'
+  -- Plug 'tanvirtin/monokai.nvim'
+  -- Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  -- Plug 'joshdick/onedark.vim'
+  -- use 'Mofiqul/dracula.nvim'
+  use {
+    'Mofiqul/vscode.nvim',
+    config = function ()
+      vim.g.vscode_style = "dark"
+      vim.g.vscode_transparent = 1
+      vim.g.vscode_italic_comment = 1
+      vim.cmd[[colorscheme vscode]]
+    end
+  }
+  -- use {
+  --   'EdenEast/nightfox.nvim',
+  --   config = function ()
+  --     -- vim.cmd[[colorscheme duskfox]]
+  --   end
+  -- }
+
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
@@ -204,7 +220,10 @@ require('packer').startup({function(use)
   -- load luasnips + cmp related in insert mode only
   --  LSP
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use {
+    'williamboman/nvim-lsp-installer',
+    cmd = { "LspInstallInfo", "LspInstall" }
+  }
 
   -- snippet source
   use {
@@ -312,7 +331,8 @@ require('packer').startup({function(use)
   --  终端控制
   use {
     'akinsho/toggleterm.nvim',
-    event = "BufRead",
+    -- event = "BufRead",
+    cmd = "ToggleTerm",
     config = require('plugins.configs.toggleterm-cfg').setup
   }
 
