@@ -160,19 +160,18 @@ require('packer').startup({function(use)
   -- Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   -- Plug 'joshdick/onedark.vim'
   -- use 'Mofiqul/dracula.nvim'
+  -- use 'Mofiqul/vscode.nvim',
   use {
-    'Mofiqul/vscode.nvim',
+    'tanvirtin/monokai.nvim',
     config = function ()
-      vim.g.vscode_style = "dark"
-      vim.g.vscode_transparent = 1
-      vim.g.vscode_italic_comment = 1
-      vim.cmd[[colorscheme vscode]]
+      -- require('monokai').setup{ palette = require('monokai').ristretto }
+      require('monokai').setup{}
     end
   }
   -- use {
   --   'EdenEast/nightfox.nvim',
   --   config = function ()
-  --     -- vim.cmd[[colorscheme duskfox]]
+  --     -- vim.cmd[[colorscheme default]]
   --   end
   -- }
 
