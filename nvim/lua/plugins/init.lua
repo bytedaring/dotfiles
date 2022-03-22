@@ -162,16 +162,15 @@ require('packer').startup({function(use)
   -- use 'Mofiqul/dracula.nvim'
   -- use 'Mofiqul/vscode.nvim',
   use {
-    'tanvirtin/monokai.nvim',
+    'bluz71/vim-nightfly-guicolors',
     config = function ()
-      -- require('monokai').setup{ palette = require('monokai').ristretto }
-      require('monokai').setup{}
+      vim.cmd[[colorscheme nightfly]]
     end
   }
   -- use {
   --   'EdenEast/nightfox.nvim',
   --   config = function ()
-  --     -- vim.cmd[[colorscheme default]]
+  --     vim.cmd[[colorscheme default]]
   --   end
   -- }
 
