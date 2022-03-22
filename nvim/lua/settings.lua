@@ -37,7 +37,7 @@ opt.foldmethod="indent"
 vim.cmd [[ set nofoldenable ]]
 opt.foldlevel=2
 
--- indentLine 
+-- indentLine
 g.indentLine_char = '¦'
 
 -- 当文件在外部被修改时，自动重新读取
@@ -53,7 +53,6 @@ opt.linebreak=true
 -- 开启真彩色
 o.termguicolors = true
 
-
 -- 搜索时忽略大小写
 o.ignorecase=true
 
@@ -63,18 +62,6 @@ vim.cmd [[ set clipboard+=unnamedplus ]]
 -- vimspector 图形调试器
 g.vimspector_enable_mappings='HUMAN'
 vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
-
--- init autocmd
--- 自动将当前打开文件所在目录作为工作目录
--- autocmd BufEnter * silent! lcd %:p:h
--- 保存代码时自动导入包
--- autocmd BufWritePre *.go lua goimports(1000)
--- 开始编辑vim文件时自动打开语法高亮
--- vim.cmd [[
---      autocmd!
---      autocmd BufReadPre *.vim syntax on
---      autocmd BufReadPre *.xml syntax on
--- ]]
 
 ---------------Color scheme-----------------
 -- 启用语法高亮
@@ -101,4 +88,49 @@ g.maplocalleader = ' '
 
 -- Required for nvim-compe
 opt.completeopt="menu,menuone,noselect"
+
+--
+-- Description: Keymaps
+--
+local map = vim.api.nvim_set_keymap
+
+map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], {noremap = true, silent = true })
+
+-- Find files using Telescope command-line sugar.
+map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
+map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
+map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
+map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
+
+-- nvim-tree NvimTreeFindFileToggle
+-- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
+map('n', 'fi', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
+
+-- vimspector
+map('n','<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], { noremap = true, silent = true })
+map('n','<leader>dx', [[<Cmd>:VimspectorReset<CR>]], { noremap = true, silent = true })
+map('n','<leader>de', [[<Cmd>:VimspectorEval<CR>]],  { noremap = true, silent = true })
+map('n','<leader>dw', [[<Cmd>:VimspectorWatch<CR>]], { noremap = true, silent = true })
+map('n','<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], { noremap = true, silent = true })
+
+
+-- Trouble
+map('n','<leader>xx', [[<Cmd>TroubleToggle<CR>]], { noremap = true, silent = true })
+map('n','<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], { noremap = true, silent = true })
+map('n','<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], { noremap = true, silent = true })
+map('n','<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], { noremap = true, silent = true })
+map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, silent = true })
+
+-- ToggleTerm
+map('n','<C-\\>', [[<Cmd>ToggleTerm<CR>]], {noremap = true, silent = true })
+
+--------------------- autocmd for go.nvim --------------------
+vim.cmd [[
+  autocmd!
+  autocmd FileType go nmap <F9> :GoBreakToggle<CR>
+  autocmd FileType go nmap <leader>dd :GoDebug<CR>
+  autocmd FileType go nmap <leader>dx :GoDebug -s<CR>
+  autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
+  autocmd FileType go nmap <leader>t :Ultest<CR>
+]]
 
