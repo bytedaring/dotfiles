@@ -87,6 +87,9 @@ require('packer').startup({function(use)
           dotfiles = false
         }
       }
+    end,
+    setup = function ()
+      require("plugins.mappings").nvimtree()
     end
   }
 
@@ -108,6 +111,9 @@ require('packer').startup({function(use)
           }
         }
       }
+    end,
+    setup = function ()
+      require('plugins.mappings').telescope()
     end
   }
 
@@ -145,6 +151,9 @@ require('packer').startup({function(use)
         auto_close = true,
         width = 45,
       }
+    end,
+    setup = function ()
+      require('plugins.mappings').symbol()
     end
   }
 
@@ -260,7 +269,10 @@ require('packer').startup({function(use)
   --  用于VIM的多语言图形调试器
   use {
     'puremourning/vimspector',
-    ft = { 'rust', 'lua', 'python' }
+    ft = { 'rust', 'lua', 'python' },
+    setup = function ()
+      require('plugins.mappings').vimspector()
+    end
   }
   -- 另一种通用图形调试器
   use {
@@ -290,6 +302,9 @@ require('packer').startup({function(use)
         lsp_cfg = false,
         run_in_floaterm = true
       })
+    end,
+    setup = function ()
+      require('plugins.mappings').gonvim()
     end
   }
   -- 另一种通用图形调试器
@@ -331,7 +346,10 @@ require('packer').startup({function(use)
     'akinsho/toggleterm.nvim',
     -- event = "BufRead",
     cmd = "ToggleTerm",
-    config = require('plugins.configs.toggleterm-cfg').setup
+    config = require('plugins.configs.toggleterm-cfg').setup,
+    setup = function ()
+      require('plugins.mappings').toggleTerm()
+    end
   }
 
   --  高亮游标下文本
@@ -344,7 +362,10 @@ require('packer').startup({function(use)
     config = function()
       require("trouble").setup{ }
     end,
-    ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim', 'sh' }
+    ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim', 'sh' },
+    setup = function ()
+      require('plugins.mappings').trouble()
+    end
   }
   --  Surround 环绕的标签修改插件
   use 'tpope/vim-surround'

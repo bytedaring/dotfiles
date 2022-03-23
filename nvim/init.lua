@@ -1,4 +1,3 @@
 require 'impatient'
-
-require("settings")
-require("plugins")
+require 'settings'
+require 'core'

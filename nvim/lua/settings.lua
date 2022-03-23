@@ -28,9 +28,12 @@ opt.autoindent=true
 -- 智能对齐
 opt.smartindent=true
 
--- 禁用netrw插件
+-- 禁用netrw等默认内置插件
 g.loaded_netrw=1
 g.loaded_netrwPlugin=1
+g.loaded_gzip=1
+-- g.did_load_filetypes = 1
+-- g.do_filetype_lua = 1
 
 -- 设置折叠方式
 opt.foldmethod="indent"
@@ -88,49 +91,3 @@ g.maplocalleader = ' '
 
 -- Required for nvim-compe
 opt.completeopt="menu,menuone,noselect"
-
---
--- Description: Keymaps
---
-local map = vim.api.nvim_set_keymap
-
-map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], {noremap = true, silent = true })
-
--- Find files using Telescope command-line sugar.
-map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
-map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
-map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
-map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
-
--- nvim-tree NvimTreeFindFileToggle
--- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
-map('n', 'fi', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
-
--- vimspector
-map('n','<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], { noremap = true, silent = true })
-map('n','<leader>dx', [[<Cmd>:VimspectorReset<CR>]], { noremap = true, silent = true })
-map('n','<leader>de', [[<Cmd>:VimspectorEval<CR>]],  { noremap = true, silent = true })
-map('n','<leader>dw', [[<Cmd>:VimspectorWatch<CR>]], { noremap = true, silent = true })
-map('n','<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], { noremap = true, silent = true })
-
-
--- Trouble
-map('n','<leader>xx', [[<Cmd>TroubleToggle<CR>]], { noremap = true, silent = true })
-map('n','<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], { noremap = true, silent = true })
-map('n','<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], { noremap = true, silent = true })
-map('n','<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], { noremap = true, silent = true })
-map('n','<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, silent = true })
-
--- ToggleTerm
-map('n','<C-\\>', [[<Cmd>ToggleTerm<CR>]], {noremap = true, silent = true })
-
---------------------- autocmd for go.nvim --------------------
-vim.cmd [[
-  autocmd!
-  autocmd FileType go nmap <F9> :GoBreakToggle<CR>
-  autocmd FileType go nmap <leader>dd :GoDebug<CR>
-  autocmd FileType go nmap <leader>dx :GoDebug -s<CR>
-  autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
-  autocmd FileType go nmap <leader>t :Ultest<CR>
-]]
-
