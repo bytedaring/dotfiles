@@ -261,7 +261,6 @@ require('packer').startup({function(use)
   }
   use {
     'rcarriga/nvim-dap-ui',
-    ft = { 'go' },
     after = "nvim-dap",
     requires = {"mfussenegger/nvim-dap"},
     config = function ()

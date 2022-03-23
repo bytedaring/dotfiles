@@ -29,11 +29,17 @@ opt.autoindent=true
 opt.smartindent=true
 
 -- 禁用netrw等默认内置插件
+g.loaded_2html_plugin=1
+g.loaded_gzip=1
 g.loaded_netrw=1
 g.loaded_netrwPlugin=1
-g.loaded_gzip=1
--- g.did_load_filetypes = 1
--- g.do_filetype_lua = 1
+g.loaded_netrwSettings=1
+g.loaded_netrwFileHandlers=1
+g.loaded_tar=1
+g.loaded_tarPlugin=1
+g.loaded_zip=1
+g.loaded_zipPlugin=1
+g.loaded_spellfile_plugin=1
 
 -- 设置折叠方式
 opt.foldmethod="indent"
