@@ -27,25 +27,10 @@ require('packer').startup({function(use)
   use 'lewis6991/impatient.nvim'
   use 'nathom/filetype.nvim'
 
-  use 'wbthomason/packer.nvim' 
+  use 'wbthomason/packer.nvim'
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
-  use {
-    'kyazdani42/nvim-web-devicons',
-    config = function ()
-      require'nvim-web-devicons'.setup {
-        override = {
-          fish = {
-            icon = "",
-            color = "#51a0cf",
-            cterm_color = "66",
-            name = "Fish"
-          }
-        };
-        default = true;
-      }
-    end
-  }
+  use 'kyazdani42/nvim-web-devicons'
 
   --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
   use {
@@ -95,8 +80,6 @@ require('packer').startup({function(use)
     end
   }
 
-  --  fuzzy finder over lists
-  use 'nvim-lua/popup.nvim'
   --  telescope 扩展插件
   use {
     'nvim-telescope/telescope.nvim',
@@ -136,13 +119,6 @@ require('packer').startup({function(use)
       require('feline').setup()
     end
   }
-  -- use {
-  --     'nvim-lualine/lualine.nvim',
-  --     requires = { 'kyazdani42/nvim-web-devicons' },
-  --     config = function()
-  --         require('lualine').setup()
-  --     end
-  -- }
 
   --  文档大纲-缩略图
   use {
@@ -162,8 +138,15 @@ require('packer').startup({function(use)
   --  Insert or delete brackets, parens, quotes in pair.
   use {
     'windwp/nvim-autopairs',
-    config = require('core.configs.autopairs-cfg').setup
+    config = require('core.configs.autopairs-cfg').setup,
+    event = 'BufRead'
   }
+
+  --  Surround 环绕的标签修改插件
+  use { 'tpope/vim-surround', event = 'BufRead' }
+  --  `.` 重复上次操作
+  use { 'tpope/vim-repeat', event = 'BufRead' }
+
 
   -- color scheme
   -- Plug 'morhetz/gruvbox'
@@ -178,13 +161,6 @@ require('packer').startup({function(use)
       vim.cmd[[colorscheme nightfly]]
     end
   }
-  -- use {
-  --   'EdenEast/nightfox.nvim',
-  --   config = function ()
-  --     vim.cmd[[colorscheme default]]
-  --   end
-  -- }
-
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
@@ -211,7 +187,7 @@ require('packer').startup({function(use)
   }
 
   --  Git 文件git状态、Blame text
-  use 'f-person/git-blame.nvim'
+  use { 'f-person/git-blame.nvim', event = "BufRead" }
 
   -- indentation guides to all lines
   use {
@@ -369,10 +345,6 @@ require('packer').startup({function(use)
       require('core.mappings').trouble()
     end
   }
-  --  Surround 环绕的标签修改插件
-  use 'tpope/vim-surround'
-  --  `.` 重复上次操作
-  use 'tpope/vim-repeat'
 
   -- Markdown预览
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview'}
