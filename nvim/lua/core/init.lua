@@ -89,7 +89,7 @@ require('packer').startup({function(use)
       }
     end,
     setup = function ()
-      require("plugins.mappings").nvimtree()
+      require("core.mappings").nvimtree()
     end
   }
 
@@ -113,7 +113,7 @@ require('packer').startup({function(use)
       }
     end,
     setup = function ()
-      require('plugins.mappings').telescope()
+      require('core.mappings').telescope()
     end
   }
 
@@ -153,14 +153,14 @@ require('packer').startup({function(use)
       }
     end,
     setup = function ()
-      require('plugins.mappings').symbol()
+      require('core.mappings').symbol()
     end
   }
 
   --  Insert or delete brackets, parens, quotes in pair.
   use {
     'windwp/nvim-autopairs',
-    config = require('plugins.configs.autopairs-cfg').setup
+    config = require('core.configs.autopairs-cfg').setup
   }
 
   -- color scheme
@@ -241,7 +241,7 @@ require('packer').startup({function(use)
   use {
     'hrsh7th/nvim-cmp',
     after = "friendly-snippets",
-    config = require('plugins.configs.lspconfig-cfg').setup
+    config = require('core.configs.lspconfig-cfg').setup
   }
   use {
     'L3MON4D3/LuaSnip',
@@ -255,7 +255,7 @@ require('packer').startup({function(use)
   use {
     'hrsh7th/cmp-nvim-lsp',
     after = "cmp_luasnip",
-    config = require('plugins.configs.luasnip-cfg').setup
+    config = require('core.configs.luasnip-cfg').setup
   }
   use {
     'hrsh7th/cmp-buffer',
@@ -271,7 +271,7 @@ require('packer').startup({function(use)
     'puremourning/vimspector',
     ft = { 'rust', 'lua', 'python' },
     setup = function ()
-      require('plugins.mappings').vimspector()
+      require('core.mappings').vimspector()
     end
   }
   -- 另一种通用图形调试器
@@ -304,7 +304,7 @@ require('packer').startup({function(use)
       })
     end,
     setup = function ()
-      require('plugins.mappings').gonvim()
+      require('core.mappings').gonvim()
     end
   }
   -- 另一种通用图形调试器
@@ -317,7 +317,7 @@ require('packer').startup({function(use)
   -- }
   -- 测试插件
   use { 'vim-test/vim-test', ft = { 'go', 'python' } }
-  use { "rcarriga/vim-ultest", ft = { 'go', 'python' }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
+  use { "rcarriga/vim-ultest", ft = { 'go', 'python' }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
 
   --  高性能的十六进制文本颜色高亮
   use {
@@ -346,9 +346,9 @@ require('packer').startup({function(use)
     'akinsho/toggleterm.nvim',
     -- event = "BufRead",
     cmd = "ToggleTerm",
-    config = require('plugins.configs.toggleterm-cfg').setup,
+    config = require('core.configs.toggleterm-cfg').setup,
     setup = function ()
-      require('plugins.mappings').toggleTerm()
+      require('core.mappings').toggleTerm()
     end
   }
 
@@ -364,7 +364,7 @@ require('packer').startup({function(use)
     end,
     ft = { 'javascript', 'go', 'rust', 'lua', 'python', 'vim', 'sh' },
     setup = function ()
-      require('plugins.mappings').trouble()
+      require('core.mappings').trouble()
     end
   }
   --  Surround 环绕的标签修改插件
@@ -400,7 +400,7 @@ require('packer').startup({function(use)
   --     end
   -- }
 
-  -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all plugins
+  -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core
   if PACKER_BOOTSTRAP then
       require('packer').sync()
   end
