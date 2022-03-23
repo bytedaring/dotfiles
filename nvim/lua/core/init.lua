@@ -23,9 +23,11 @@ end
 -- ]]
 
 require('packer').startup({function(use)
-  use 'wbthomason/packer.nvim'
-
+  use 'nvim-lua/plenary.nvim'
   use 'lewis6991/impatient.nvim'
+  use 'nathom/filetype.nvim'
+
+  use 'wbthomason/packer.nvim' 
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   use {
