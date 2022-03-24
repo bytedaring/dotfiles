@@ -71,7 +71,7 @@ require("packer").startup({function(use)
           width = 40,
         },
         filters = {
-          dotfiles = false
+          dotfiles = true
         }
       }
     end,
