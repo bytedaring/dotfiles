@@ -1,3 +1,3 @@
 require 'impatient'
 require 'settings'
-require 'core'
+require 'plugins'

@@ -1,15 +1,15 @@
 local M = {}
 M.setup = function()
   local nvim_lsp = require('lspconfig')
-  
+
   -- nvim_lsp.pyright.setup{}
   -- nvim_lsp.gopls.setup{}
-  
+
   -- 支持code snippets
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)-- Use an on_attach function to only map the following keys
-  
+
   -- after the language server attaches to the current buffer
   local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -48,7 +48,7 @@ M.setup = function()
       vim.api.nvim_command [[augroup END]]
     end
   end
-  
+
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
   local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'bashls' }
@@ -60,7 +60,7 @@ M.setup = function()
       }
     }
   end
-  
+
   -- pyright
   nvim_lsp.pyright.setup{
     cmd = { "pyright-langserver", "--stdio" },
@@ -100,7 +100,7 @@ M.setup = function()
     },
   	on_attach = on_attach,
   }
-  
+
   function goimports(timeoutms)
     local context = { source = { organizeImports = true } }
     vim.validate { context = { context, "t", true } }
@@ -130,7 +130,7 @@ M.setup = function()
       vim.lsp.buf.execute_command(action)
     end
   end
-  
+
   local runtime_path = vim.split(package.path, ';')
   table.insert(runtime_path, "lua/?.lua")
   table.insert(runtime_path, "lua/?/init.lua")
@@ -160,10 +160,5 @@ M.setup = function()
     } ,
   	on_attach = on_attach,
   }
-  
-  local has_words_before = function ()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  end
 end
 return M
