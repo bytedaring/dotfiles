@@ -3,6 +3,7 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
+opt.shada ="'50,<400,s100,:200"
 opt.lazyredraw = true
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]

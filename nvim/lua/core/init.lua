@@ -147,6 +147,58 @@ require('packer').startup({function(use)
   --  `.` 重复上次操作
   use { 'tpope/vim-repeat', event = 'BufRead' }
 
+  --  Git 文件git状态、Blame text
+  use { 'f-person/git-blame.nvim', event = "BufRead" }
+
+  -- indentation guides to all lines
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    event = "BufRead",
+    config = function()
+      require("indent_blankline").setup {
+        space_char_blankline = " ",
+        show_current_context = true,
+        show_current_context_start = false,
+      }
+    end
+  }
+
+  --  注释插件
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+    ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim', 'sh' }
+  }
+
+  -- Markdown预览
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview'}
+
+  --  高性能的十六进制文本颜色高亮
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require 'colorizer'.setup ({
+          'less';
+          'css';
+          'javascript';
+          html = { mode = 'foreground'};
+        }, { mode = 'background'})
+    end,
+    ft = { 'html', 'css', 'less' }
+  }
+
+  --  终端控制
+  use {
+    'akinsho/toggleterm.nvim',
+    -- event = "BufRead",
+    cmd = "ToggleTerm",
+    config = require('core.configs.toggleterm-cfg').setup,
+    setup = function ()
+      require('core.mappings').toggleTerm()
+    end
+  }
 
   -- color scheme
   -- Plug 'morhetz/gruvbox'
@@ -186,28 +238,21 @@ require('packer').startup({function(use)
     end
   }
 
-  --  Git 文件git状态、Blame text
-  use { 'f-person/git-blame.nvim', event = "BufRead" }
-
-  -- indentation guides to all lines
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    event = "BufRead",
-    config = function()
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = false,
-      }
-    end
-  }
-
   -- load luasnips + cmp related in insert mode only
   --  LSP
   use 'neovim/nvim-lspconfig'
   use {
     'williamboman/nvim-lsp-installer',
     cmd = { "LspInstallInfo", "LspInstall" }
+  }
+
+  -- LSP signature hint as you type
+  use {
+    'ray-x/lsp_signature.nvim',
+    after = "nvim-lspconfig",
+    config = function ()
+      -- require('lsp_signature').setup()
+    end
   }
 
   -- snippet source
@@ -296,43 +341,6 @@ require('packer').startup({function(use)
   use { 'vim-test/vim-test', ft = { 'go', 'python' } }
   use { "rcarriga/vim-ultest", ft = { 'go', 'python' }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
 
-  --  高性能的十六进制文本颜色高亮
-  use {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require 'colorizer'.setup ({
-          'less';
-          'css';
-          'javascript';
-          html = { mode = 'foreground'};
-        }, { mode = 'background'})
-    end,
-    ft = { 'html', 'css', 'less' }
-  }
-
-  --  注释插件
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-    ft = { 'html', 'javascript', 'lua', 'css', 'less', 'lua', 'python', 'go', 'vim', 'sh' }
-  }
-  --  终端控制
-  use {
-    'akinsho/toggleterm.nvim',
-    -- event = "BufRead",
-    cmd = "ToggleTerm",
-    config = require('core.configs.toggleterm-cfg').setup,
-    setup = function ()
-      require('core.mappings').toggleTerm()
-    end
-  }
-
-  --  高亮游标下文本
-  --  Plug 'RRethy/vim-illuminate'
-  -- use 'yamatsum/nvim-cursorline'
-
   --  Quick fix
   use  {
     'folke/trouble.nvim',
@@ -344,9 +352,6 @@ require('packer').startup({function(use)
       require('core.mappings').trouble()
     end
   }
-
-  -- Markdown预览
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview'}
 
   -- Lua Development for Neovim
   use { 'tjdevries/nlua.nvim', ft =  { 'lua' }}
