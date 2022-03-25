@@ -273,6 +273,14 @@ require("packer").startup({function(use)
     end
   }
 
+  use {
+    "andymass/vim-matchup",
+    opt = true,
+    setup = function ()
+      require("core.utils").packer_lazy_load "vim-matchup"
+    end
+  }
+
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",

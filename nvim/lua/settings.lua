@@ -41,6 +41,15 @@ g.loaded_tarPlugin=1
 g.loaded_zip=1
 g.loaded_zipPlugin=1
 g.loaded_spellfile_plugin=1
+g.loaded_matchparen=1
+g.loaded_matchit=1
+g.loaded_logiPat=1
+g.loaded_rrhelper=1
+g.loaded_remote_plugins=1
+g.vimball=1
+g.vimballPlugin=1
+g.getscriptPlugin=1
+g.getscript=1
 
 -- 设置折叠方式
 opt.foldmethod="indent"
