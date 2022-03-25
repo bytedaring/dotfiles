@@ -148,8 +148,9 @@ require("packer").startup({function(use)
   use { "tpope/vim-repeat", event = "BufRead" }
 
   --  Git 文件git状态、Blame text
-  use { 
+  use {
     "f-person/git-blame.nvim",
+    opt = true,
     setup = function ()
       require("core.utils").packer_lazy_load "git-blame.nvim"
     end
@@ -251,6 +252,7 @@ require("packer").startup({function(use)
   --  LSP
   use {
     "neovim/nvim-lspconfig",
+    opt = true,
     setup = function ()
       require("core.utils").packer_lazy_load "nvim-lspconfig"
       -- reload the current file so lsp actually starts for it
