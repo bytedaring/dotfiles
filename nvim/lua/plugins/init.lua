@@ -240,10 +240,7 @@ require("packer").startup({function(use)
           enable = false,
           disable = {},
         },
-        ensure_installed = {
-          "json",
-          "go",
-        },
+        ensure_installed = {},
       }
     end
   }
