@@ -46,10 +46,12 @@ g.loaded_matchit=1
 g.loaded_logiPat=1
 g.loaded_rrhelper=1
 g.loaded_remote_plugins=1
+g.loaded_tutor_mode_plugin=1
 g.vimball=1
 g.vimballPlugin=1
 g.getscriptPlugin=1
 g.getscript=1
+g.loaded_shada_plugin=1
 
 -- 设置折叠方式
 opt.foldmethod="indent"
