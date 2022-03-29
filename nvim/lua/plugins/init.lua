@@ -23,8 +23,8 @@ end
 -- ]]
 
 require("packer").startup({function(use)
-  use "nvim-lua/plenary.nvim"
   use "lewis6991/impatient.nvim"
+  use "nvim-lua/plenary.nvim"
   use "nathom/filetype.nvim"
 
   use "wbthomason/packer.nvim"
@@ -372,7 +372,7 @@ require("packer").startup({function(use)
     config = function()
       require("trouble").setup{ }
     end,
-    ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh" },
+    ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
     setup = function ()
       require("core.mappings").trouble()
     end
