@@ -55,7 +55,6 @@ require("packer").startup({function(use)
         disable_netrw       = true,
         hijack_netrw        = true,
         open_on_setup       = true,
-        auto_close          = true,
         open_on_tab         = false,
         hijack_cursor       = false,
         update_cwd          = true,
@@ -77,6 +76,7 @@ require("packer").startup({function(use)
     end,
     setup = function ()
       require("core.mappings").nvimtree()
+      vim.cmd [[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
     end
   }
 
