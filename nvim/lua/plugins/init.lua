@@ -76,7 +76,6 @@ require("packer").startup({function(use)
     end,
     setup = function ()
       require("core.mappings").nvimtree()
-      vim.cmd [[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
     end
   }
 
@@ -217,10 +216,17 @@ require("packer").startup({function(use)
   -- Plug "joshdick/onedark.vim"
   -- use "Mofiqul/dracula.nvim"
   -- use "Mofiqul/vscode.nvim",
+  -- use {
+    -- "bluz71/vim-nightfly-guicolors",
+    -- config = function ()
+      -- vim.cmd[[colorscheme nightfly]]
+    -- end
+  -- }
+  
   use {
-    "bluz71/vim-nightfly-guicolors",
+    "Mofiqul/dracula.nvim",
     config = function ()
-      vim.cmd[[colorscheme nightfly]]
+      vim.cmd[[colorscheme dracula]]
     end
   }
 
@@ -394,14 +400,19 @@ require("packer").startup({function(use)
       }
     end
   }
+
   -- TODO
-  -- use {
-  --     "folke/todo-comments.nvim",
-  --     requires = "nvim-lua/plenary.nvim",
-  --     config = function()
-  --         require("todo-comments").setup {}
-  --     end
-  -- }
+  use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      cmd = { "TodoQuickFix", "TodoLocList", "TodoTelescope", "TroubleToggle" },
+      config = function()
+          require("todo-comments").setup {}
+      end,
+      setup = function ()
+        require("core.mappings").todo()
+      end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core
   if PACKER_BOOTSTRAP then

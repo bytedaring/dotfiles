@@ -16,6 +16,11 @@ M.telescope = function ()
   map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
 end
 
+-- todo-comments.nvim
+M.todo = function ()
+  map('n', 'ft', [[<cmd>TodoTelescope<CR>]], { noremap = true, silent = true })
+end
+
 -- nvim-tree NvimTreeFindFileToggle
 -- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
 M.nvimtree = function ()
