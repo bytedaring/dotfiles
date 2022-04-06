@@ -73,6 +73,12 @@ require("packer").startup({function(use)
           dotfiles = true
         }
       }
+      vim.cmd [[
+        augroup nvim-tree
+          autocmd!
+          autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+        augroup END
+      ]]
     end,
     setup = function ()
       require("core.mappings").nvimtree()
@@ -222,7 +228,7 @@ require("packer").startup({function(use)
       -- vim.cmd[[colorscheme nightfly]]
     -- end
   -- }
-  
+
   use {
     "Mofiqul/dracula.nvim",
     config = function ()
