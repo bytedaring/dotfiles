@@ -76,7 +76,7 @@ require("packer").startup({function(use)
       vim.cmd [[
         augroup nvim-tree
           autocmd!
-          autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+          autocmd BufEnter * if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
         augroup END
       ]]
     end,
