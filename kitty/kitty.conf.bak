@@ -16,7 +16,7 @@
 # SauceCodePro Nerd Font Mono Light
 
 font_family      BlexMono Nerd Font Mono ExtraLight
-bold_font        auto
+bold_font        BlexMono Nerd Font Mono Book
 italic_font      auto
 bold_italic_font auto
 
@@ -34,7 +34,7 @@ bold_italic_font auto
 #:     bold_italic_font Operator Mono Medium Italic
 
 # font_size 11.0
-font_size 18.0
+font_size 17.0
 
 #: Font size (in pts)
 
@@ -2072,6 +2072,6 @@ macos_thicken_font 0
 
 
 # BEGIN_KITTY_THEME
-# Black Russian Cotton Candy
+# Wild Cherry
 include current-theme.conf
 # END_KITTY_THEME
