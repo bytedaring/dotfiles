@@ -12,6 +12,8 @@ vim.cmd [[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
+o.laststatus=3
+
 vim.cmd [[set autowrite]]
 opt.list = true
 
@@ -52,6 +54,8 @@ g.vimballPlugin=1
 g.getscriptPlugin=1
 g.getscript=1
 g.loaded_shada_plugin=1
+g.did_load_filetypes=0
+g.do_filetype_lua=1
 
 -- 设置折叠方式
 opt.foldmethod="indent"
