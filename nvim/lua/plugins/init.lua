@@ -56,6 +56,16 @@ require("packer").startup({function(use)
         open_on_tab         = false,
         hijack_cursor       = false,
         update_cwd          = true,
+        renderer = {
+          indent_markers = {
+            enable = true,
+            icons = {
+              corner = "└ ",
+              edge = "│ ",
+              none = "  ",
+            },
+          },
+        },
         update_focused_file = {
           enable      = true,
           update_cwd  = false,
