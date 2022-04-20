@@ -100,8 +100,6 @@ g.gitblame_message_template = '<date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
 
 --------------- Python3 -----------------
-g.python_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python'
-g.python_host_skip_check=1
 g.python3_host_skip_check=1
 g.python3_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python3'
 
