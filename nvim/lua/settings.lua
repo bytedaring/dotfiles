@@ -91,6 +91,14 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 ---------------Color scheme-----------------
 -- 启用语法高亮
 -- syntax on
+vim.cmd [[
+  augroup syntax
+    autocmd!
+    autocmd FileType awk syntax on
+    autocmd FileType proto syntax on
+  augroup end
+]]
+
 -- 使用黑色主题 设置配色方案
 opt.bg="dark"
 -- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
