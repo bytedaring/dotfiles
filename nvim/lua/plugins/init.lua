@@ -152,7 +152,7 @@ require("packer").startup({function(use)
   use {
     "windwp/nvim-autopairs",
     config = require("plugins.configs.autopairs-cfg").setup,
-    event = "BufRead"
+    after = "nvim-cmp"
   }
 
   --  Surround 环绕的标签修改插件

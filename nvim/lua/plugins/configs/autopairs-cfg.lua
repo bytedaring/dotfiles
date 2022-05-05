@@ -5,10 +5,13 @@ M.setup = function()
 
   if present1 and present2 then
     local cmp = require "cmp"
-    cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+    cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
+    -- cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
-    cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
-    autopairs.setup{}
+    -- cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+    autopairs.setup{
+      fast_wrap = {}
+    }
   end
 end
 return M

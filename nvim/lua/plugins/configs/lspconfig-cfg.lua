@@ -82,7 +82,7 @@ M.setup = function()
   	on_attach = on_attach,
     single_file_support = false
   }
-  
+
   -- gopls
   nvim_lsp.gopls.setup{
   	cmd = {'gopls'},
