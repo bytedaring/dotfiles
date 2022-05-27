@@ -95,7 +95,7 @@ M.setup = function()
             unusedparams = true,
             shadow = true,
         },
-        staticcheck = true,
+        staticcheck = false,
       },
     },
   	on_attach = on_attach,

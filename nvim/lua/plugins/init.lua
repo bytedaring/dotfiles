@@ -73,6 +73,7 @@ require("packer").startup({function(use)
         },
         git = {
           timeout = 300,
+          ignore = false,
         },
         view = {
           width = 40,
@@ -389,9 +390,7 @@ require("packer").startup({function(use)
   --  Quick fix
   use  {
     "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup{ }
-    end,
+    config = require("plugins.configs.trouble-cfg").setup,
     ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
     setup = function ()
       require("core.mappings").trouble()
