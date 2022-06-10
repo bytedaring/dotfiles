@@ -46,9 +46,6 @@ require("packer").startup({function(use)
     after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function ()
-      local g = vim.g
-      g.nvim_tree_respect_buf_cwd = 1
-
       require"nvim-tree".setup {
         disable_netrw       = true,
         hijack_netrw        = true,
@@ -366,9 +363,10 @@ require("packer").startup({function(use)
     "ray-x/go.nvim", ft = { "go" },
     config = function()
       require("go").setup({
+        go='go1.18',
         icons = {breakpoint="🔴", currentpos="👉"},
         lsp_cfg = false,
-        run_in_floaterm = true
+        run_in_floaterm = false
       })
     end,
     setup = function ()

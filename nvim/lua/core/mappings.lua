@@ -24,7 +24,7 @@ end
 -- nvim-tree NvimTreeFindFileToggle
 -- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
 M.nvimtree = function ()
-  map('n', 'fi', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
+  map('n', 'ni', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
 end
 
 -- vimspector
