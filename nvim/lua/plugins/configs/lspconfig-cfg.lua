@@ -96,6 +96,7 @@ M.setup = function()
             shadow = true,
         },
         staticcheck = false,
+        -- buildFlags = { "-tags=wireinject" }
       },
     },
   	on_attach = on_attach,

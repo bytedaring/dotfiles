@@ -238,7 +238,17 @@ require("packer").startup({function(use)
   use {
     "Mofiqul/dracula.nvim",
     config = function ()
-      vim.cmd[[colorscheme dracula]]
+      -- vim.cmd[[colorscheme dracula]]
+    end
+  }
+
+  -- Packer:
+  use {
+    'Mofiqul/vscode.nvim',
+    config = function ()
+      vim.o.background = 'dark'
+      vim.g.vscode_italic_comment = 0
+      vim.cmd([[colorscheme vscode]])
     end
   }
 
