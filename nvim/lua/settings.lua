@@ -76,7 +76,7 @@ opt.wrap=true
 opt.linebreak=true
 
 -- 开启真彩色
-o.termguicolors = true
+opt.termguicolors = true
 
 -- 搜索时忽略大小写
 o.ignorecase=true

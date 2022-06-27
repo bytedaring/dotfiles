@@ -2,7 +2,7 @@
 
 - 目录管理 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 - 文件模糊搜索 - [telescope-fzf-native](https://github.com/nvim-telescope/telescope-fzy-native.nvim)
-    - fzf插件 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) 提升性能、支持忽略大小写
+- fzf插件 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) 提升性能、支持忽略大小写
 - 代码缩略图 - ~~[tagbar](https://github.com/majutsushi/tagbar)~~   [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - 主题配色 - [molokai.nvim](https://github.com/tanvirtin/monokai.nvim)
 - 状态栏 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
@@ -11,7 +11,8 @@
 - 控制台 - [toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - GIT - [fugitive](https://github.com/tpope/vim-fugitive)、[lazygit](https://github.com/lewis6991/gitsigns.nvim)
 - 注释 - [comment](https://github.com/numToStr/Comment.nvim)
-- 自动括号补全 - [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
+- 自动括号补全 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- 自动补全html tag - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) 
 - Blame text - ~~[gitsigns](https://github.com/lewis6991/gitsigns.nvim)~~ [git-blame.nvim](https://github.com/f-person/git-blame.nvim)
 - 代码自动补全 - ~~[coq_nvim](https://github.com/ms-jpq/coq_nvim)~~ [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - 图标 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)

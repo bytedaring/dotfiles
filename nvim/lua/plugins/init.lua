@@ -105,6 +105,13 @@ require("packer").startup({function(use)
             override_file_sorter = true,     -- override the file sorter
             case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
           }
+        },
+        defaults = {
+          layout_strategy='vertical',
+          layout_config = {
+            vertical = { width = 0.85 }
+          },
+          file_ignore_patterns = { "vendor" }
         }
       }
     end,
@@ -138,7 +145,7 @@ require("packer").startup({function(use)
     config = function ()
       require"symbols-outline".setup{
         auto_close = true,
-        width = 45,
+        width = 25,
       }
     end,
     setup = function ()
@@ -235,12 +242,12 @@ require("packer").startup({function(use)
     -- end
   -- }
 
-  use {
-    "Mofiqul/dracula.nvim",
-    config = function ()
-      -- vim.cmd[[colorscheme dracula]]
-    end
-  }
+  -- use {
+  --   "Mofiqul/dracula.nvim",
+  --   config = function ()
+  --     vim.cmd[[colorscheme dracula]]
+  --   end
+  -- }
 
   -- Packer:
   use {
@@ -251,6 +258,14 @@ require("packer").startup({function(use)
       vim.cmd([[colorscheme vscode]])
     end
   }
+
+  -- use {
+  --   'marko-cerovac/material.nvim',
+  --   config = function ()
+  --     vim.g.material_style = "dark"
+  --     vim.cmd[[colorscheme material]]
+  --   end
+  -- }
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
@@ -433,6 +448,30 @@ require("packer").startup({function(use)
       setup = function ()
         require("core.mappings").todo()
       end
+  }
+
+  -- tabline
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v2.*",
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup{
+        options = {
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "File Explorer",
+              highlight = "Directory",
+              text_align = "left"
+            }
+          },
+        }
+      }
+    end,
+    setup = function ()
+      require("core.mappings").bufferline()
+    end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core

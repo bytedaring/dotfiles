@@ -62,4 +62,10 @@ M.gonvim = function ()
   ]]
 end
 
+-- bufferline
+M.bufferline = function ()
+  map('n', 'b]', [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true})
+  map('n', 'b[', [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true})
+end
+
 return M
