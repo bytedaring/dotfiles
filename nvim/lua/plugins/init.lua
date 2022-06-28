@@ -451,28 +451,28 @@ require("packer").startup({function(use)
   }
 
   -- tabline
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "v2.*",
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup{
-        options = {
-          offsets = {
-            {
-              filetype = "NvimTree",
-              text = "File Explorer",
-              highlight = "Directory",
-              text_align = "left"
-            }
-          },
-        }
-      }
-    end,
-    setup = function ()
-      require("core.mappings").bufferline()
-    end
-  }
+  -- use {
+    -- 'akinsho/bufferline.nvim',
+    -- tag = "v2.*",
+    -- requires = 'kyazdani42/nvim-web-devicons',
+    -- config = function()
+      -- require("bufferline").setup{
+      --   options = {
+      --     offsets = {
+      --       {
+      --         filetype = "NvimTree",
+      --         text = "File Explorer",
+      --         highlight = "Directory",
+      --         text_align = "left"
+      --       }
+      --     },
+      --   }
+      -- }
+    -- end,
+    -- setup = function ()
+      -- require("core.mappings").bufferline()
+    -- end
+  -- }
 
   -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core
   if PACKER_BOOTSTRAP then

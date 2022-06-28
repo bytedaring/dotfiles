@@ -14,6 +14,7 @@ M.telescope = function ()
   map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
   map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
   map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
+  map('n', 'fn', [[<Cmd>bNext<CR>]], { noremap = true, silent = true })
 end
 
 -- todo-comments.nvim
