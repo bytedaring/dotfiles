@@ -95,7 +95,7 @@ vim.cmd [[
   augroup syntax
     autocmd!
     autocmd FileType awk syntax on
-    autocmd FileType proto syntax on
+    " autocmd FileType proto syntax on
   augroup end
 ]]
 
