@@ -173,6 +173,15 @@ require("packer").startup({function(use)
       require("core.utils").packer_lazy_load "git-blame.nvim"
     end
   }
+  --  Git diffs for all modified files
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    opt = true,
+    setup = function ()
+      require("core.utils").packer_lazy_load "diffview.nvim"
+    end
+  }
 
   -- indentation guides to all lines
   use {
@@ -346,7 +355,7 @@ require("packer").startup({function(use)
   use {
     "hrsh7th/cmp-nvim-lsp",
     after = "cmp_luasnip",
-    config = require("plugins.configs.luasnip-cfg").setup
+    config = require("plugins.configs.cmp-cfg").setup
   }
   use {
     "hrsh7th/cmp-buffer",
@@ -355,6 +364,10 @@ require("packer").startup({function(use)
   use {
     "hrsh7th/cmp-path",
     after = "cmp-buffer"
+  }
+  use {
+    'hrsh7th/cmp-cmdline',
+    after = "cmp-path"
   }
 
   --  用于VIM的多语言图形调试器
@@ -391,7 +404,27 @@ require("packer").startup({function(use)
         go='go1.18',
         icons = {breakpoint="🔴", currentpos="👉"},
         lsp_cfg = false,
-        run_in_floaterm = false
+        run_in_floaterm = false,
+        layouts = {
+          {
+            -- You can change the order of elements in the sidebar
+            elements = {
+                -- Provide IDs as strings or tables with "id" and "size" keys
+                { id = "scopes", size = 0.25, -- Can be float or integer > 1 },
+                { id = "breakpoints", size = 0.25 },
+                { id = "stacks", size = 0.25 },
+                { id = "watches", size = 0.25 },
+              },
+              size = 40,
+              position = "left", -- Can be "left" or "right"
+            },
+          },
+          {
+            elements = { "repl" },
+            size = 10,
+            position = "bottom", -- Can be "bottom" or "top"
+          }
+        }
       })
     end,
     setup = function ()
@@ -454,7 +487,7 @@ require("packer").startup({function(use)
   use {
     'rcarriga/nvim-notify',
     config = function ()
-      -- vim.notify = require('notify')
+      vim.notify = require('notify')
     end
   }
 
