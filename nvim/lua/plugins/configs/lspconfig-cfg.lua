@@ -47,6 +47,9 @@ M.setup = function()
       vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
       vim.api.nvim_command [[augroup END]]
     end
+
+    -- 高亮鼠标下单词，Integrates with Neovim's LSP
+    require('illuminate').on_attach(client)
   end
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -102,9 +105,6 @@ M.setup = function()
   	on_attach = on_attach,
   }
 
-  local runtime_path = vim.split(package.path, ';')
-  table.insert(runtime_path, "lua/?.lua")
-  table.insert(runtime_path, "lua/?/init.lua")
   nvim_lsp.sumneko_lua.setup{
     cmd = { "lua-language-server" },
     settings = {
@@ -112,8 +112,6 @@ M.setup = function()
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = 'LuaJIT',
-          -- Setup your lua path
-          path = '/usr/local/bin/',
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
@@ -128,7 +126,7 @@ M.setup = function()
       telemetry = {
         enable = false,
       },
-    } ,
+    },
   	on_attach = on_attach,
   }
 end

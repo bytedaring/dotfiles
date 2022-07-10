@@ -159,11 +159,28 @@ require("packer").startup({function(use)
     config = require("plugins.configs.autopairs-cfg").setup,
     after = "nvim-cmp"
   }
+  -- Use treesitter to auto close and auto rename html tag
+  use {
+    'windwp/nvim-ts-autotag',
+    ft = { 'javascript', 'html' },
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  }
 
   --  Surround 环绕的标签修改插件
   use { "tpope/vim-surround", event = "BufRead" }
   --  `.` 重复上次操作
   use { "tpope/vim-repeat", event = "BufRead" }
+
+  -----Cursorline------
+  use {
+    'RRethy/vim-illuminate',
+    opt = true,
+    setup = function ()
+      require("core.utils").packer_lazy_load "vim-illuminate"
+    end
+  }
 
   --  Git 文件git状态、Blame text
   use {
@@ -452,9 +469,6 @@ require("packer").startup({function(use)
       require("core.mappings").trouble()
     end
   }
-
-  -- Lua Development for Neovim
-  use { "tjdevries/nlua.nvim", ft =  { "lua" }}
 
   -- Bash Development for Neovim
   use {
