@@ -16,7 +16,7 @@ end
 
 -- vim.cmd [[packadd packer.nvim]]
 -- vim.cmd [[
---   augroup Packer
+--   augroup Packe
 --     autocmd!
 --     autocmd BufWritePost init.lua PackerCompile
 --   augroup end
@@ -284,6 +284,13 @@ require("packer").startup({function(use)
       vim.cmd([[colorscheme vscode]])
     end
   }
+
+  -- use {
+  --   'yashguptaz/calvera-dark.nvim',
+  --   config = function ()
+  --     vim.cmd(([[colorscheme calvera]]))
+  --   end
+  -- }
 
   -- use {
   --   'marko-cerovac/material.nvim',
