@@ -68,7 +68,10 @@ M.setup = function ()
     }
   })
 
+  -- lazy-load snippets from my-snippets folder
   require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/my_snippets"})
+  -- lazy-load default snippets
+  require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M
