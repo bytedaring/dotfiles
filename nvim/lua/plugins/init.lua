@@ -47,21 +47,18 @@ require("packer").startup({function(use)
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function ()
       require"nvim-tree".setup {
-        disable_netrw       = true,
-        hijack_netrw        = true,
-        open_on_setup       = true,
-        open_on_tab         = false,
-        hijack_cursor       = false,
-        update_cwd          = true,
+        disable_netrw = false,
         renderer = {
           indent_markers = {
             enable = true,
-            icons = {
-              corner = "└ ",
-              edge = "│ ",
-              none = "  ",
-            },
           },
+          icons  = {
+            git_placement = "after",
+            glyphs = {
+              folder = {
+              }
+            }
+          }
         },
         update_focused_file = {
           enable      = true,
@@ -71,9 +68,6 @@ require("packer").startup({function(use)
         git = {
           timeout = 300,
           ignore = false,
-        },
-        view = {
-          width = 40,
         },
         filters = {
           dotfiles = true
