@@ -12,6 +12,7 @@ vim.cmd [[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
+-- 0: 不显示 1: 启动显示转态行 2: 总是显示状态行 3: 总是显示且显示最后一个windows的状态行
 o.laststatus=3
 
 vim.cmd [[set autowrite]]
@@ -19,7 +20,10 @@ opt.list = true
 
 -- 递归搜索文件路径
 -- opt.path+="**"
+
+-- 设置默认编码格式
 opt.encoding="utf-8"
+-- 缩进配置为2空格
 opt.tabstop=2
 opt.softtabstop=2
 opt.shiftwidth=2
