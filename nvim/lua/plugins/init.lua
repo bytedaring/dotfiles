@@ -9,9 +9,10 @@
 -- -----------------------------------------------------------------------------
 
 local fn = vim.fn
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+  PACKER_BOOTSTRAP = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
+    install_path })
 end
 
 -- vim.cmd [[packadd packer.nvim]]
@@ -22,7 +23,7 @@ end
 --   augroup end
 -- ]]
 
-require("packer").startup({function(use)
+require("packer").startup({ function(use)
   use "lewis6991/impatient.nvim"
   use "nvim-lua/plenary.nvim"
 
@@ -35,8 +36,8 @@ require("packer").startup({function(use)
   use {
     "goolord/alpha-nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
-    config = function ()
-      require"alpha".setup(require"alpha.themes.startify".config)
+    config = function()
+      require "alpha".setup(require "alpha.themes.startify".config)
     end
   }
 
@@ -45,8 +46,8 @@ require("packer").startup({function(use)
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    config = function ()
-      require"nvim-tree".setup {
+    config = function()
+      require "nvim-tree".setup {
         disable_netrw = false,
         view = {
           width = 40
@@ -55,7 +56,7 @@ require("packer").startup({function(use)
           indent_markers = {
             enable = true,
           },
-          icons  = {
+          icons          = {
             git_placement = "after",
             glyphs = {
               folder = {
@@ -83,7 +84,7 @@ require("packer").startup({function(use)
         augroup END
       ]]
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").nvimtree()
     end
   }
@@ -91,20 +92,20 @@ require("packer").startup({function(use)
   --  telescope 扩展插件
   use {
     "nvim-telescope/telescope.nvim",
-    requires = { {"nvim-lua/plenary.nvim" } },
+    requires = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
-    config = function ()
+    config = function()
       require("telescope").setup {
         extensions = {
           fzf = {
             fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
           }
         },
         defaults = {
-          layout_strategy='vertical',
+          layout_strategy = 'vertical',
           layout_config = {
             vertical = { width = 0.85 }
           },
@@ -112,7 +113,7 @@ require("packer").startup({function(use)
         }
       }
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").telescope()
     end
   }
@@ -121,7 +122,7 @@ require("packer").startup({function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     after = "telescope.nvim",
     run = "make",
-    config = function ()
+    config = function()
       require("telescope").load_extension("fzf")
     end
   }
@@ -139,13 +140,13 @@ require("packer").startup({function(use)
   use {
     "simrat39/symbols-outline.nvim",
     cmd = { "SymbolsOutline" },
-    config = function ()
-      require"symbols-outline".setup{
+    config = function()
+      require "symbols-outline".setup {
         auto_close = true,
         width = 25,
       }
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").symbol()
     end
   }
@@ -168,33 +169,26 @@ require("packer").startup({function(use)
   --  Surround 环绕的标签修改插件
   use { "tpope/vim-surround", event = "BufRead" }
   --  `.` 重复上次操作
-  use { "tpope/vim-repeat", event = "BufRead" }
+  use { "tpope/vim-repeat", event = "InsertEnter" }
 
   -----Cursorline------
   use {
     'RRethy/vim-illuminate',
-    opt = true,
-    setup = function ()
-      require("core.utils").packer_lazy_load "vim-illuminate"
-    end
+    event = 'InsertEnter',
   }
 
   --  Git 文件git状态、Blame text
   use {
     "f-person/git-blame.nvim",
     opt = true,
-    setup = function ()
+    setup = function()
       require("core.utils").packer_lazy_load "git-blame.nvim"
     end
   }
   --  Git diffs for all modified files
   use {
     'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    opt = true,
-    setup = function ()
-      require("core.utils").packer_lazy_load "diffview.nvim"
-    end
+    event = 'InsertEnter'
   }
 
   -- indentation guides to all lines
@@ -222,7 +216,7 @@ require("packer").startup({function(use)
   -- Markdown预览
   use {
     "iamcco/markdown-preview.nvim", run = "cd app && yarn install",
-    ft = {"markdown"},
+    ft = { "markdown" },
     cmd = "MarkdownPreview"
   }
 
@@ -230,12 +224,12 @@ require("packer").startup({function(use)
   use {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require "colorizer".setup ({
-          "less";
-          "css";
-          "javascript";
-          html = { mode = "foreground"};
-        }, { mode = "background"})
+      require "colorizer".setup({
+        "less";
+        "css";
+        "javascript";
+        html = { mode = "foreground" };
+      }, { mode = "background" })
     end,
     ft = { "html", "css", "less" }
   }
@@ -246,7 +240,7 @@ require("packer").startup({function(use)
     -- event = "BufRead",
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
-    setup = function ()
+    setup = function()
       require("core.mappings").toggleTerm()
     end
   }
@@ -259,10 +253,10 @@ require("packer").startup({function(use)
   -- use "Mofiqul/dracula.nvim"
   -- use "Mofiqul/vscode.nvim",
   -- use {
-    -- "bluz71/vim-nightfly-guicolors",
-    -- config = function ()
-      -- vim.cmd[[colorscheme nightfly]]
-    -- end
+  -- "bluz71/vim-nightfly-guicolors",
+  -- config = function ()
+  -- vim.cmd[[colorscheme nightfly]]
+  -- end
   -- }
 
   -- use {
@@ -275,7 +269,7 @@ require("packer").startup({function(use)
   -- Packer:
   use {
     'Mofiqul/vscode.nvim',
-    config = function ()
+    config = function()
       vim.o.background = 'dark'
       vim.g.vscode_italic_comment = 0
       vim.cmd([[colorscheme vscode]])
@@ -283,11 +277,11 @@ require("packer").startup({function(use)
   }
 
   -- use {
-    -- "EdenEast/nightfox.nvim",
-    -- config = function ()
-      -- require('nightfox').setup()
-      -- vim.cmd([[colorscheme terafox]])
-    -- end
+  -- "EdenEast/nightfox.nvim",
+  -- config = function ()
+  -- require('nightfox').setup()
+  -- vim.cmd([[colorscheme terafox]])
+  -- end
   -- }
 
   -- use {
@@ -310,8 +304,8 @@ require("packer").startup({function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpade",
     event = { "BufRead", "BufNewFile" },
-    config = function ()
-      require"nvim-treesitter.configs".setup {
+    config = function()
+      require "nvim-treesitter.configs".setup {
         highlight = {
           enable = true,
           disable = {},
@@ -329,6 +323,18 @@ require("packer").startup({function(use)
   -- load luasnips + cmp related in insert mode only
   --  LSP
   use {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
+  }
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup()
+    end
+  }
+  use {
     "neovim/nvim-lspconfig",
     -- opt = true,
     -- setup = function ()
@@ -339,29 +345,13 @@ require("packer").startup({function(use)
     --   end, 0)
     -- end
   }
-  -- use {
-  --   "williamboman/nvim-lsp-installer",
-  --   cmd = { "LspInstallInfo", "LspInstall" }
-  -- }
-  use {
-    "williamboman/mason.nvim",
-    config = function ()
-      require("mason").setup()
-    end
-  }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    config = function ()
-      require("mason-lspconfig").setup()
-    end
-  }
-
 
   -- LSP signature hint as you type
   use {
     "ray-x/lsp_signature.nvim",
     after = "nvim-lspconfig",
-    config = function ()
+    event = { "InsertEnter", "BufNewFile" },
+    config = function()
       require("lsp_signature").setup()
     end
   }
@@ -369,7 +359,7 @@ require("packer").startup({function(use)
   use {
     "andymass/vim-matchup",
     opt = true,
-    setup = function ()
+    setup = function()
       require("core.utils").packer_lazy_load "vim-matchup"
     end
   }
@@ -416,7 +406,8 @@ require("packer").startup({function(use)
   use {
     "puremourning/vimspector",
     ft = { "rust", "lua", "python" },
-    setup = function ()
+    event = { "BufNewFile", "InsertEnter" },
+    setup = function()
       require("core.mappings").vimspector()
     end
   }
@@ -424,15 +415,15 @@ require("packer").startup({function(use)
   use {
     "mfussenegger/nvim-dap",
     ft = { "go" },
-    config = function ()
+    config = function()
     end
   }
   use {
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
-    requires = {"mfussenegger/nvim-dap"},
-    config = function ()
-        require("dapui").setup()
+    requires = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("dapui").setup()
     end
   }
   use { "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
@@ -443,33 +434,13 @@ require("packer").startup({function(use)
     "ray-x/go.nvim", ft = { "go" },
     config = function()
       require("go").setup({
-        go='go1.18',
-        icons = {breakpoint="🔴", currentpos="👉"},
+        go = 'go1.18',
+        icons = { breakpoint = "🔴", currentpos = "👉" },
         lsp_cfg = false,
         run_in_floaterm = false,
-        layouts = {
-          {
-            -- You can change the order of elements in the sidebar
-            elements = {
-                -- Provide IDs as strings or tables with "id" and "size" keys
-                { id = "scopes", size = 0.25, -- Can be float or integer > 1 },
-                { id = "breakpoints", size = 0.25 },
-                { id = "stacks", size = 0.25 },
-                { id = "watches", size = 0.25 },
-              },
-              size = 40,
-              position = "left", -- Can be "left" or "right"
-            },
-          },
-          {
-            elements = { "repl" },
-            size = 10,
-            position = "bottom", -- Can be "bottom" or "top"
-          }
-        }
       })
     end,
-    setup = function ()
+    setup = function()
       require("core.mappings").gonvim()
     end
   }
@@ -484,7 +455,12 @@ require("packer").startup({function(use)
   -- 测试插件
   use { "vim-test/vim-test", ft = { "go", "python" } }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
-  use { "nvim-neotest/neotest-go", ft = { "go" }}
+  use { "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
+  use {
+    "nvim-neotest/neotest-go",
+    ft = { "go" },
+    after = "FixCursorHold.nvim"
+  }
   use {
     "nvim-neotest/neotest",
     ft = { "go" },
@@ -493,10 +469,8 @@ require("packer").startup({function(use)
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-go",
-      -- "nvim-neotest/neotest-python",
-      "antoinemadec/FixCursorHold.nvim"
     },
-    config = function ()
+    config = function()
       require('neotest').setup({
         adapters = {
           require('neotest-go'),
@@ -507,11 +481,12 @@ require("packer").startup({function(use)
   }
 
   --  Quick fix
-  use  {
+  use {
     "folke/trouble.nvim",
+    event = 'InsertEnter',
     config = require("plugins.configs.trouble-cfg").setup,
     ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
-    setup = function ()
+    setup = function()
       require("core.mappings").trouble()
     end
   }
@@ -521,7 +496,7 @@ require("packer").startup({function(use)
     "jose-elias-alvarez/null-ls.nvim",
     ft = { "sh" },
     config = function()
-      require("null-ls").setup{
+      require("null-ls").setup {
         sources = {
           require("null-ls").builtins.diagnostics.shellcheck,
           require("null-ls").builtins.formatting.shfmt,
@@ -532,30 +507,27 @@ require("packer").startup({function(use)
 
   -- TODO
   use {
-      "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      cmd = { "TodoQuickFix", "TodoLocList", "TodoTelescope", "TroubleToggle" },
-      config = function()
-          require("todo-comments").setup {}
-      end,
-      setup = function ()
-        require("core.mappings").todo()
-      end
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    cmd = { "TodoQuickFix", "TodoLocList", "TodoTelescope", "TroubleToggle" },
+    config = function()
+      require("todo-comments").setup {}
+    end,
+    setup = function()
+      require("core.mappings").todo()
+    end
   }
 
   -----Utility-----
   use {
     'rcarriga/nvim-notify',
-    config = function ()
+    config = function()
       vim.notify = require('notify')
     end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core
   if PACKER_BOOTSTRAP then
-      require("packer").sync()
+    require("packer").sync()
   end
-end})
-
-
-
+end })
