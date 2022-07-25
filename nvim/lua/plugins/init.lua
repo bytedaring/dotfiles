@@ -48,6 +48,9 @@ require("packer").startup({function(use)
     config = function ()
       require"nvim-tree".setup {
         disable_netrw = false,
+        view = {
+          width = 40
+        },
         renderer = {
           indent_markers = {
             enable = true,
@@ -280,6 +283,14 @@ require("packer").startup({function(use)
   }
 
   -- use {
+    -- "EdenEast/nightfox.nvim",
+    -- config = function ()
+      -- require('nightfox').setup()
+      -- vim.cmd([[colorscheme terafox]])
+    -- end
+  -- }
+
+  -- use {
   --   'yashguptaz/calvera-dark.nvim',
   --   config = function ()
   --     vim.cmd(([[colorscheme calvera]]))
@@ -459,7 +470,28 @@ require("packer").startup({function(use)
   -- }
   -- 测试插件
   use { "vim-test/vim-test", ft = { "go", "python" } }
-  use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
+  -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
+  use { "nvim-neotest/neotest-go", ft = { "go" }}
+  use {
+    "nvim-neotest/neotest",
+    ft = { "go" },
+    after = "neotest-go",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-go",
+      -- "nvim-neotest/neotest-python",
+      "antoinemadec/FixCursorHold.nvim"
+    },
+    config = function ()
+      require('neotest').setup({
+        adapters = {
+          require('neotest-go'),
+          -- require("neotest-python")
+        }
+      })
+    end
+  }
 
   --  Quick fix
   use  {
