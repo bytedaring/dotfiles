@@ -330,19 +330,32 @@ require("packer").startup({function(use)
   --  LSP
   use {
     "neovim/nvim-lspconfig",
-    opt = true,
-    setup = function ()
-      require("core.utils").packer_lazy_load "nvim-lspconfig"
-      -- reload the current file so lsp actually starts for it
-      vim.defer_fn(function ()
-        vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-      end, 0)
+    -- opt = true,
+    -- setup = function ()
+    --   require("core.utils").packer_lazy_load "nvim-lspconfig"
+    --   -- reload the current file so lsp actually starts for it
+    --   vim.defer_fn(function ()
+    --     vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+    --   end, 0)
+    -- end
+  }
+  -- use {
+  --   "williamboman/nvim-lsp-installer",
+  --   cmd = { "LspInstallInfo", "LspInstall" }
+  -- }
+  use {
+    "williamboman/mason.nvim",
+    config = function ()
+      require("mason").setup()
     end
   }
   use {
-    "williamboman/nvim-lsp-installer",
-    cmd = { "LspInstallInfo", "LspInstall" }
+    "williamboman/mason-lspconfig.nvim",
+    config = function ()
+      require("mason-lspconfig").setup()
+    end
   }
+
 
   -- LSP signature hint as you type
   use {
