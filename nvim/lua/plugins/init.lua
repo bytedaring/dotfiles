@@ -330,20 +330,21 @@ require("packer").startup({ function(use)
   }
   use {
     "williamboman/mason-lspconfig.nvim",
+    after = "mason.nvim",
     config = function()
       require("mason-lspconfig").setup()
     end
   }
   use {
     "neovim/nvim-lspconfig",
-    -- opt = true,
-    -- setup = function ()
-    --   require("core.utils").packer_lazy_load "nvim-lspconfig"
-    --   -- reload the current file so lsp actually starts for it
-    --   vim.defer_fn(function ()
-    --     vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-    --   end, 0)
-    -- end
+    opt = true,
+    setup = function()
+      require("core.utils").packer_lazy_load "nvim-lspconfig"
+      -- reload the current file so lsp actually starts for it
+      vim.defer_fn(function()
+        vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+      end, 0)
+    end
   }
 
   -- LSP signature hint as you type
@@ -436,7 +437,7 @@ require("packer").startup({ function(use)
       require("go").setup({
         go = 'go1.18',
         icons = { breakpoint = "🔴", currentpos = "👉" },
-        lsp_cfg = false,
+        lsp_cfg = true,
         run_in_floaterm = false,
       })
     end,
@@ -491,18 +492,10 @@ require("packer").startup({ function(use)
     end
   }
 
-  -- Bash Development for Neovim
+  -- Bash Development for Neovim, also support formatting and lintting
   use {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = { "sh" },
-    config = function()
-      require("null-ls").setup {
-        sources = {
-          require("null-ls").builtins.diagnostics.shellcheck,
-          require("null-ls").builtins.formatting.shfmt,
-        }
-      }
-    end
+    config = require("plugins.configs.null-ls-cfg").setup,
   }
 
   -- TODO
