@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function ()
+M.setup = function()
   local cmp = require 'cmp'
   -- luasnip setup
   local luasnip = require 'luasnip'
@@ -44,11 +44,11 @@ M.setup = function ()
       end
     },
     sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'path' }
-      },
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      { name = 'buffer' },
+      { name = 'path' },
+    },
   }
 
   cmp.setup.cmdline(':', {
@@ -69,7 +69,7 @@ M.setup = function ()
   })
 
   -- lazy-load snippets from my-snippets folder
-  require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/my_snippets"})
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/my_snippets" })
   -- lazy-load default snippets
   require("luasnip.loaders.from_vscode").lazy_load()
 end

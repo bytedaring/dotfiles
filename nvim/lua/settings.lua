@@ -93,12 +93,13 @@ g.vimspector_enable_mappings = 'HUMAN'
 vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
 
 ---------------Color scheme-----------------
--- 启用语法高亮
+-- 启用语法高亮、拼写检查
 --syntax on
 vim.cmd [[
   augroup syntax
   autocmd!
   autocmd FileType awk syntax on
+  " autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us
   " autocmd FileType proto syntax on
   augroup end
 ]]
