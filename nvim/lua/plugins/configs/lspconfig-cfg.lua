@@ -101,6 +101,13 @@ M.setup = function()
           shadow = true,
         },
         staticcheck = false,
+        -- codelenses = {
+        --   test = true,
+        --   tidy = true,
+        --   gc_details = true,
+        --   generate = true,
+        --   regenerate_cgo = true
+        -- }
         -- buildFlags = { "-tags=wireinject" }
       },
     },

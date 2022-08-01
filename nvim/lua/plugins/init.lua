@@ -495,7 +495,24 @@ require("packer").startup({ function(use)
   -- Bash Development for Neovim, also support formatting and lintting
   use {
     "jose-elias-alvarez/null-ls.nvim",
+    ft = { "javascript", "html", "css", "sh", "vim" },
     config = require("plugins.configs.null-ls-cfg").setup,
+  }
+
+  -- lint
+  use {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('lint').linters_by_ft = {
+        go = { 'golangcilint' },
+        sh = { 'shellcheck' }
+      }
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end
   }
 
   -- TODO
