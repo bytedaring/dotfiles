@@ -502,17 +502,7 @@ require("packer").startup({ function(use)
   -- lint
   use {
     'mfussenegger/nvim-lint',
-    config = function()
-      require('lint').linters_by_ft = {
-        go = { 'golangcilint' },
-        sh = { 'shellcheck' }
-      }
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          require("lint").try_lint()
-        end,
-      })
-    end
+    config = require("plugins.configs.lint-cfg").config
   }
 
   -- TODO
