@@ -111,7 +111,7 @@ opt.bg = "dark"
 --------------- Blame -----------------
 g.gitblame_message_template = '<date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
-g.gitblame_ignored_filetypes = { 'NvimTree', 'packer' }
+g.gitblame_ignored_filetypes = { 'NvimTree', 'packer', 'Trouble' }
 
 --------------- Python3 -----------------
 g.python3_host_skip_check = 1
