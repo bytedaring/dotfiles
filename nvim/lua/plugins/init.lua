@@ -508,11 +508,11 @@ require("packer").startup({ function(use)
   }
 
   -- Bash Development for Neovim, also support formatting and lintting
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = { "javascript", "html", "css", "sh", "vim", "lua" },
-    config = require("plugins.configs.null-ls-cfg").setup,
-  }
+  -- use {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   ft = { "javascript", "html", "css", "sh", "vim", "lua" },
+  --   config = require("plugins.configs.null-ls-cfg").setup,
+  -- }
 
   -- lint
   use {
