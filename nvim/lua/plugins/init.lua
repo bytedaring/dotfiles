@@ -320,7 +320,6 @@ require("packer").startup({ function(use)
     end
   }
 
-  -- load luasnips + cmp related in insert mode only
   --  LSP
   use {
     "williamboman/mason.nvim",
@@ -346,7 +345,6 @@ require("packer").startup({ function(use)
       end, 0)
     end
   }
-
   -- LSP signature hint as you type
   use {
     "ray-x/lsp_signature.nvim",
@@ -356,6 +354,23 @@ require("packer").startup({ function(use)
       require("lsp_signature").setup()
     end
   }
+  -- LSP plugin
+  use {
+    "ray-x/guihua.lua",
+    after = "nvim-lspconfig",
+  }
+  use {
+    'ray-x/navigator.lua',
+    after = "guihua.lua",
+    config = function()
+      require('navigator').setup()
+    end
+  }
+  -- use {
+  --   "glepnir/lspsaga.nvim",
+  --   branch = "main",
+  --   config = require("plugins.configs.lspsaga-cfg").config
+  -- }
 
   use {
     "andymass/vim-matchup",
@@ -365,6 +380,7 @@ require("packer").startup({ function(use)
     end
   }
 
+  -- load luasnips + cmp related in insert mode only
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",
@@ -430,14 +446,13 @@ require("packer").startup({ function(use)
   use { "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
   -- go development ide plugin
   -- use { "fatih/vim-go", ft =  { "go" }}
-  use { "ray-x/guihua.lua", ft = { "go" } }
   use {
     "ray-x/go.nvim", ft = { "go" },
     config = function()
       require("go").setup({
+        lsp_cfg = true,
         go = 'go1.18',
         icons = { breakpoint = "🔴", currentpos = "👉" },
-        lsp_cfg = true,
         run_in_floaterm = false,
       })
     end,
@@ -495,7 +510,7 @@ require("packer").startup({ function(use)
   -- Bash Development for Neovim, also support formatting and lintting
   use {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = { "javascript", "html", "css", "sh", "vim" },
+    ft = { "javascript", "html", "css", "sh", "vim", "lua" },
     config = require("plugins.configs.null-ls-cfg").setup,
   }
 
