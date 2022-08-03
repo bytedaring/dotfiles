@@ -58,8 +58,8 @@ g.vimballPlugin = 1
 g.getscriptPlugin = 1
 g.getscript = 1
 g.loaded_shada_plugin = 1
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1
+-- 禁用filetype
+--g.did_load_filetypes = 0
 
 -- 设置折叠方式
 opt.foldmethod = "indent"

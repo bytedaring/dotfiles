@@ -71,7 +71,7 @@ end
 
 -- Null-ls
 M.nullLs = function()
-  map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.formatting()<CR>]], { noremap = true, silent = true })
+  map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.format{async = true}<CR>]], { noremap = true, silent = true })
 end
 
 return M

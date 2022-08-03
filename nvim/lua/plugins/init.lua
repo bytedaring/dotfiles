@@ -323,14 +323,12 @@ require("packer").startup({ function(use)
   --  LSP
   use {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end
   }
   use {
     "williamboman/mason-lspconfig.nvim",
     after = "mason.nvim",
     config = function()
+      require("mason").setup()
       require("mason-lspconfig").setup()
     end
   }
@@ -363,7 +361,9 @@ require("packer").startup({ function(use)
     'ray-x/navigator.lua',
     after = "guihua.lua",
     config = function()
-      require('navigator').setup()
+      require('navigator').setup({
+        mason = true
+      })
     end
   }
   -- use {
@@ -451,7 +451,7 @@ require("packer").startup({ function(use)
     config = function()
       require("go").setup({
         lsp_cfg = true,
-        go = 'go1.18',
+        go = 'go1.19',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
       })
