@@ -358,19 +358,17 @@ require("packer").startup({ function(use)
     after = "nvim-lspconfig",
   }
   use {
-    'ray-x/navigator.lua',
-    after = "guihua.lua",
-    config = function()
-      require('navigator').setup({
-        mason = true
-      })
-    end
+    -- 'ray-x/navigator.lua',
+    -- after = "guihua.lua",
+    -- config = function()
+    -- require('navigator').setup({ mason = true })
+    -- end
   }
-  -- use {
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   config = require("plugins.configs.lspsaga-cfg").config
-  -- }
+  use {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = require("plugins.configs.lspsaga-cfg").config
+  }
 
   use {
     "andymass/vim-matchup",
@@ -451,6 +449,7 @@ require("packer").startup({ function(use)
     config = function()
       require("go").setup({
         lsp_cfg = true,
+        lsp_keymaps = false,
         go = 'go1.19',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
