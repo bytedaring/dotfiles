@@ -298,17 +298,6 @@ require("packer").startup({ function(use)
 
   --  LSP
   use {
-    "williamboman/mason.nvim",
-  }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    after = "mason.nvim",
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end
-  }
-  use {
     "neovim/nvim-lspconfig",
     opt = true,
     setup = function()
@@ -317,6 +306,19 @@ require("packer").startup({ function(use)
       vim.defer_fn(function()
         vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
       end, 0)
+    end
+  }
+  use {
+    "williamboman/mason.nvim",
+    opt = true,
+    after = "nvim-lspconfig"
+  }
+  use {
+    "williamboman/mason-lspconfig.nvim",
+    after = "mason.nvim",
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup()
     end
   }
   -- LSP signature hint as you type
@@ -349,10 +351,7 @@ require("packer").startup({ function(use)
 
   use {
     "andymass/vim-matchup",
-    opt = true,
-    setup = function()
-      require("core.utils").packer_lazy_load "vim-matchup"
-    end
+    event = { "BufRead", "BufNewFile" }
   }
 
   -- load luasnips + cmp related in insert mode only
