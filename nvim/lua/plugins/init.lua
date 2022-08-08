@@ -41,6 +41,25 @@ require("packer").startup({ function(use)
     end
   }
 
+  --  状态栏美化
+  use {
+    "feline-nvim/feline.nvim",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("feline").setup()
+    end
+  }
+
+  -- color scheme
+  use {
+    'Mofiqul/vscode.nvim',
+    config = function()
+      vim.o.background = 'dark'
+      vim.g.vscode_italic_comment = 0
+      vim.cmd([[colorscheme vscode]])
+    end
+  }
+
   --  文件浏览器 File Explorer
   use {
     "kyazdani42/nvim-tree.lua",
@@ -127,15 +146,6 @@ require("packer").startup({ function(use)
     end
   }
 
-  --  状态栏美化
-  use {
-    "feline-nvim/feline.nvim",
-    after = "nvim-web-devicons",
-    config = function()
-      require("feline").setup()
-    end
-  }
-
   --  文档大纲-缩略图
   use {
     "simrat39/symbols-outline.nvim",
@@ -179,11 +189,7 @@ require("packer").startup({ function(use)
 
   --  Git 文件git状态、Blame text
   use {
-    "f-person/git-blame.nvim",
-    opt = true,
-    setup = function()
-      require("core.utils").packer_lazy_load "git-blame.nvim"
-    end
+    "f-person/git-blame.nvim", event = 'BufRead'
   }
   --  Git diffs for all modified files
   use {
@@ -245,36 +251,6 @@ require("packer").startup({ function(use)
     end
   }
 
-  -- color scheme
-  -- Plug "morhetz/gruvbox"
-  -- Plug "tanvirtin/monokai.nvim"
-  -- Plug "folke/tokyonight.nvim", { "branch": "main" }
-  -- Plug "joshdick/onedark.vim"
-  -- use "Mofiqul/dracula.nvim"
-  -- use "Mofiqul/vscode.nvim",
-  -- use {
-  -- "bluz71/vim-nightfly-guicolors",
-  -- config = function ()
-  -- vim.cmd[[colorscheme nightfly]]
-  -- end
-  -- }
-
-  -- use {
-  --   "Mofiqul/dracula.nvim",
-  --   config = function ()
-  --     vim.cmd[[colorscheme dracula]]
-  --   end
-  -- }
-
-  -- Packer:
-  use {
-    'Mofiqul/vscode.nvim',
-    config = function()
-      vim.o.background = 'dark'
-      vim.g.vscode_italic_comment = 0
-      vim.cmd([[colorscheme vscode]])
-    end
-  }
 
   -- use {
   -- "EdenEast/nightfox.nvim",
@@ -366,6 +342,7 @@ require("packer").startup({ function(use)
   }
   use {
     "glepnir/lspsaga.nvim",
+    event = { "BufRead", "BufNewFile" },
     branch = "main",
     config = require("plugins.configs.lspsaga-cfg").config
   }
@@ -535,6 +512,7 @@ require("packer").startup({ function(use)
   -----Utility-----
   use {
     'rcarriga/nvim-notify',
+    event = { "BufRead", "BufNewFile" },
     config = function()
       vim.notify = require('notify')
     end
