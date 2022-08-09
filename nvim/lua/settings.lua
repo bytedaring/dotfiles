@@ -3,6 +3,56 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
+-- 禁用netrw等默认内置插件
+-- -- g.loaded_2html_plugin = 1
+-- g.loaded_gzip = 1
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1
+-- g.loaded_netrwSettings = 1
+-- g.loaded_netrwFileHandlers = 1
+-- g.loaded_tar = 1
+-- g.loaded_tarPlugin = 1
+-- g.loaded_zip = 1
+-- g.loaded_zipPlugin = 1
+-- g.loaded_spellfile_plugin = 1
+-- g.loaded_matchparen = 1
+-- g.loaded_matchit = 1
+-- g.loaded_logiPat = 1
+-- g.loaded_rrhelper = 1
+-- -- g.loaded_remote_plugins=1
+-- g.loaded_tutor_mode_plugin = 1
+-- g.vimball = 1
+-- g.vimballPlugin = 1
+-- g.getscriptPlugin = 1
+-- g.getscript = 1
+-- g.loaded_shada_plugin = 1
+local builtin_plugs = {
+  '2html_plugin',
+  'gzip',
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'tar',
+  'tarPlugin',
+  'zip',
+  'zipPlugin',
+  'spellfile_plugin',
+  'matchparen',
+  'matchit',
+  'logiPat',
+  'rrhelper',
+  'remote_plugins',
+  'tutor_mode_plugin',
+  'vimball',
+  'vimballPlugin',
+  'getscriptPlugin',
+  'getscript'
+}
+for i = 1, #builtin_plugs do
+  g['loaded_' .. builtin_plugs[i]] = 1
+end
+
 opt.shada = "'50,<400,s100,:200"
 opt.lazyredraw = true
 -- 不兼容模式
@@ -34,32 +84,6 @@ opt.expandtab = true
 opt.autoindent = true
 -- 智能对齐
 opt.smartindent = true
-
--- 禁用netrw等默认内置插件
-g.loaded_2html_plugin = 1
-g.loaded_gzip = 1
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-g.loaded_netrwSettings = 1
-g.loaded_netrwFileHandlers = 1
-g.loaded_tar = 1
-g.loaded_tarPlugin = 1
-g.loaded_zip = 1
-g.loaded_zipPlugin = 1
-g.loaded_spellfile_plugin = 1
-g.loaded_matchparen = 1
-g.loaded_matchit = 1
-g.loaded_logiPat = 1
-g.loaded_rrhelper = 1
--- g.loaded_remote_plugins=1
-g.loaded_tutor_mode_plugin = 1
-g.vimball = 1
-g.vimballPlugin = 1
-g.getscriptPlugin = 1
-g.getscript = 1
-g.loaded_shada_plugin = 1
--- 禁用filetype
---g.did_load_filetypes = 0
 
 -- 设置折叠方式
 opt.foldmethod = "indent"
@@ -113,7 +137,7 @@ g.gitblame_message_template = '<date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
 g.gitblame_ignored_filetypes = {
   'NvimTree', 'packer', 'Trouble', 'dap-repl', 'dapui_watches',
-  'dapui_breakpoints',  'dapui_scopes',  'dapui_stacks'
+  'dapui_breakpoints', 'dapui_scopes', 'dapui_stacks'
 }
 
 --------------- Python3 -----------------

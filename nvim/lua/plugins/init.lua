@@ -51,12 +51,19 @@ require("packer").startup({ function(use)
   }
 
   -- color scheme
+  -- use {
+  --   'Mofiqul/vscode.nvim',
+  --   disable = true,
+  --   config = function()
+  --     vim.o.background = 'dark'
+  --     vim.g.vscode_italic_comment = 0
+  --     vim.cmd([[colorscheme vscode]])
+  --   end
+  -- }
   use {
-    'Mofiqul/vscode.nvim',
+    'glepnir/zephyr-nvim',
     config = function()
-      vim.o.background = 'dark'
-      vim.g.vscode_italic_comment = 0
-      vim.cmd([[colorscheme vscode]])
+      require('zephyr')
     end
   }
 
@@ -177,7 +184,12 @@ require("packer").startup({ function(use)
   }
 
   --  Surround 环绕的标签修改插件
-  use { "tpope/vim-surround", event = "BufRead" }
+  -- use { "tpope/vim-surround", event = "BufRead" }
+  use { 'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end
+  }
   --  `.` 重复上次操作
   use { "tpope/vim-repeat", event = "InsertEnter" }
 
