@@ -74,4 +74,10 @@ M.nullLs = function()
   map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.format{async = true}<CR>]], { noremap = true, silent = true })
 end
 
+-- vim-illuminate
+M.illuminate = function()
+  map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
+  map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
+end
+
 return M

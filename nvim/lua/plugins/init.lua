@@ -197,6 +197,9 @@ require("packer").startup({ function(use)
   use {
     'RRethy/vim-illuminate',
     event = 'InsertEnter',
+    config = function()
+      require("core.mappings").illuminate()
+    end
   }
 
   --  Git 文件git状态、Blame text
