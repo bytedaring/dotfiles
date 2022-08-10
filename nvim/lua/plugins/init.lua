@@ -186,6 +186,7 @@ require("packer").startup({ function(use)
   --  Surround 环绕的标签修改插件
   -- use { "tpope/vim-surround", event = "BufRead" }
   use { 'kylechui/nvim-surround',
+    event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('nvim-surround').setup()
     end
