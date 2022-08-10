@@ -1,6 +1,6 @@
 local M = {}
-M.setup = function ()
-  require("toggleterm").setup{
+M.setup = function()
+  require("toggleterm").setup {
     size = 15,
     open_mapping = [[<c-\>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
@@ -11,13 +11,13 @@ M.setup = function ()
     insert_mappings = true, -- whether or not the open mapping applies in insert mode
     terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
     persist_size = true,
-    direction = 'horizontal', ---'vertical' | 'horizontal' | 'window' | 'float',
+    direction = 'float', ---'vertical' | 'horizontal' | 'window' | 'float',
     close_on_exit = true, -- close the terminal wndow when the process exits
     shell = vim.o.shell, -- change the default shell
     -- This field is only relevant if direction is set to 'float'
     float_opts = {
       border = 'curved', --'single' | 'double' | 'shadow' | 'curved'
-      winblend = 0,
+      winblend = 3,
       highlights = {
         border = "Normal",
         background = "Normal",
@@ -29,7 +29,8 @@ M.setup = function ()
   local lazygit = Terminal:new({
     cmd = "lazygit",
     hidden = true,
-    direction = "float"})
+    direction = "float"
+  })
   -- function _G.lazygit_toggle_term()
   --   lazygit:toggle()
   -- end
@@ -38,21 +39,21 @@ M.setup = function ()
   vim.api.nvim_set_keymap("n", "<c-g>", "", {
     noremap = true,
     silent = true,
-    callback = function ()
+    callback = function()
       lazygit:toggle()
     end
   })
 
   -- Terminal window mappings, it can be helpful to make moving in and out of a terminal
   function _G.set_terminal_keymaps()
-    local opts = {noremap = true}
-      vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-    end
+    local opts = { buffer = 0 }
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+    vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+    vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+    vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+    vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+    vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  end
 
   -- if you only want these mappings for toggle term use term://*toggleterm#* instead
   vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
