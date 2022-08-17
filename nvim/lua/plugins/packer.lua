@@ -72,49 +72,7 @@ require("packer").startup({ function(use)
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    config = function()
-      require "nvim-tree".setup {
-        disable_netrw = false,
-        view = {
-          width = 40
-        },
-        renderer = {
-          indent_markers = {
-            enable = true,
-          },
-          icons          = {
-            git_placement = "after",
-            glyphs = {
-              folder = {
-              }
-            }
-          }
-        },
-        update_focused_file = {
-          enable      = true,
-          update_cwd  = false,
-          ignore_list = {}
-        },
-        git = {
-          timeout = 300,
-          ignore = false,
-        },
-        filters = {
-          dotfiles = true
-        }
-      }
-      vim.api.nvim_create_autocmd("BufEnter", {
-        group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
-        pattern = "NvimTree_*",
-        callback = function()
-          local layout = vim.api.nvim_call_function("winlayout", {})
-          if layout[1] == "leaf" and
-              vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and
-              layout[3] == nil then vim.cmd("confirm quit") end
-        end
-      })
-
-    end,
+    config = require('plugins.configs.nvim-tree-cfg').config,
     setup = function()
       require("core.mappings").nvimtree()
     end
@@ -125,25 +83,7 @@ require("packer").startup({ function(use)
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
-    config = function()
-      require("telescope").setup {
-        extensions = {
-          fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
-          }
-        },
-        defaults = {
-          layout_strategy = 'vertical',
-          layout_config = {
-            vertical = { width = 0.85 }
-          },
-          file_ignore_patterns = { "vendor" }
-        }
-      }
-    end,
+    config = require('plugins.configs.telescope-cfg').config,
     setup = function()
       require("core.mappings").telescope()
     end
@@ -356,13 +296,13 @@ require("packer").startup({ function(use)
     "ray-x/guihua.lua",
     after = "nvim-lspconfig",
   }
-  use {
-    -- 'ray-x/navigator.lua',
-    -- after = "guihua.lua",
-    -- config = function()
-    -- require('navigator').setup({ mason = true })
-    -- end
-  }
+  -- use {
+  --   'ray-x/navigator.lua',
+  --   after = "guihua.lua",
+  --   config = function()
+  --   require('navigator').setup({ mason = true })
+  --   end
+  -- }
   use {
     "glepnir/lspsaga.nvim",
     event = { "BufRead", "BufNewFile" },
