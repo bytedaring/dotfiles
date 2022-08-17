@@ -384,7 +384,7 @@ require("packer").startup({ function(use)
     config = function()
       require("go").setup({
         lsp_cfg = true,
-        lsp_keymaps = false,
+        lsp_keymaps = true,
         go = 'go1.19',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
