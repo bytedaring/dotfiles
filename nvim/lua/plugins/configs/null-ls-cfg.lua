@@ -11,7 +11,7 @@ M.setup = function()
     }
   }
 
-  require("core.mappings").nullLs()
+  -- require("core.mappings").nullLs()
 end
 
 return M

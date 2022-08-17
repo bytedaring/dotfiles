@@ -139,15 +139,6 @@ require("packer").startup({ function(use)
   --  `.` 重复上次操作
   use { "tpope/vim-repeat", event = "InsertEnter" }
 
-  -----Cursorline------
-  use {
-    'RRethy/vim-illuminate',
-    event = 'InsertEnter',
-    config = function()
-      require("core.mappings").illuminate()
-    end
-  }
-
   --  Git 文件git状态、Blame text
   use {
     "f-person/git-blame.nvim", event = 'BufRead'
@@ -260,7 +251,6 @@ require("packer").startup({ function(use)
   --  LSP
   use {
     "neovim/nvim-lspconfig",
-    opt = true,
     setup = function()
       require("core.utils").packer_lazy_load "nvim-lspconfig"
       -- reload the current file so lsp actually starts for it
@@ -319,12 +309,25 @@ require("packer").startup({ function(use)
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",
-    event = "InsertEnter"
+    event = { "BufRead", "BufNewFile" }
   }
   --  增强代码自动完成
   use {
-    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
     after = "friendly-snippets",
+    config = require("plugins.configs.cmp-cfg").setup
+  }
+  -----Cursorline------
+  use {
+    'RRethy/vim-illuminate',
+    after = "cmp-nvim-lsp",
+    config = function()
+      require("core.mappings").illuminate()
+    end
+  }
+  use {
+    "hrsh7th/nvim-cmp",
+    after = "vim-illuminate",
     config = require("plugins.configs.lspconfig-cfg").setup
   }
   use {
@@ -335,11 +338,6 @@ require("packer").startup({ function(use)
   use {
     "saadparwaiz1/cmp_luasnip",
     after = "LuaSnip"
-  }
-  use {
-    "hrsh7th/cmp-nvim-lsp",
-    after = "cmp_luasnip",
-    config = require("plugins.configs.cmp-cfg").setup
   }
   use {
     "hrsh7th/cmp-buffer",
