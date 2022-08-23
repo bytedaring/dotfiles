@@ -262,6 +262,7 @@ require("packer").startup({ function(use)
   use {
     "williamboman/mason.nvim",
     opt = true,
+    event = { 'InsertEnter' },
     after = "nvim-lspconfig"
   }
   use {

@@ -87,7 +87,7 @@ M.setup = function()
       }
     },
     on_attach = on_attach,
-    single_file_support = false
+    -- single_file_support = false
   }
 
   -- gopls
