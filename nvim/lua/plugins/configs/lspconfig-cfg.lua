@@ -2,9 +2,6 @@ local M = {}
 M.setup = function()
   local nvim_lsp = require('lspconfig')
 
-  -- nvim_lsp.pyright.setup{}
-  -- nvim_lsp.gopls.setup{}
-
   -- 支持code snippets
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -68,9 +65,9 @@ M.setup = function()
     }
   end
 
-  -- pyright
-  nvim_lsp.pyright.setup {
-    cmd = { "pyright-langserver", "--stdio" },
+  --
+  nvim_lsp.pylsp.setup {
+    cmd = { 'pylsp' },
     -- for postfix snippets and analyzers
     capabilities = capabilities,
     filetypes = { "python" },
@@ -78,12 +75,10 @@ M.setup = function()
     --    return M.search_ancestors(startpath, matcher)
     -- end,
     settings = {
-      python = {
-        analyzers = {
-          autoSearchPaths = true,
-          diagnosticMode = "workspace",
-          useLibraryCodeForTypes = true
-        }
+      pylsp = {
+        plugins = {
+          pycodestyle = {}
+        },
       }
     },
     on_attach = on_attach,
