@@ -123,7 +123,7 @@ vim.cmd [[
   augroup syntax
   autocmd!
   autocmd FileType awk syntax on
-  autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us
+  autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us,cjk
   " autocmd FileType proto syntax on
   augroup end
 ]]
