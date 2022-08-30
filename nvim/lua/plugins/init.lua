@@ -57,8 +57,6 @@ opt.shada = "'50,<400,s100,:200"
 opt.lazyredraw = true
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]
---设置leader键
--- g.mapleader=","
 -- 启用鼠标
 o.mouse = 'a'
 
@@ -116,17 +114,39 @@ vim.cmd [[ set clipboard+=unnamedplus ]]
 g.vimspector_enable_mappings = 'HUMAN'
 vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
 
----------------Color scheme-----------------
+--------------- Color scheme -----------------
 -- 启用语法高亮、拼写检查
 --syntax on
-vim.cmd [[
-  augroup syntax
-  autocmd!
-  autocmd FileType awk syntax on
-  autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us,cjk
-  " autocmd FileType proto syntax on
-  augroup end
-]]
+-- vim.cmd [[
+-- augroup syntax
+-- autocmd!
+-- autocmd FileType awk syntax on
+-- " autocmd FileType proto syntax on
+-- augroup end
+-- ]]
+local syntax_group = vim.api.nvim_create_augroup("syntax_group", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "awk" },
+  command = "syntax on",
+  group = syntax_group,
+})
+---------- Spell Check  --------------------
+local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "python", "go" },
+  command = "setlocal spell spelllang=en_us,cjk",
+  group = spell_group,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  command = "setlocal nospell",
+  group = spell_group,
+})
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nospell",
+  group = spell_group,
+})
 
 -- 使用黑色主题 设置配色方案
 opt.bg = "dark"
@@ -145,6 +165,7 @@ g.python3_host_skip_check = 1
 g.python3_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python3'
 
 
+--设置leader键
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 g.mapleader = ' '
