@@ -234,10 +234,13 @@ require("packer").startup({ function(use)
     event = { "BufRead", "BufNewFile" },
     config = function()
       require "nvim-treesitter.configs".setup {
+        matchup = {
+          enable = true
+        },
         highlight = {
           enable = true,
           disable = {},
-          additional_vim_regex_highlighting = false,
+          -- additional_vim_regex_highlighting = false,
         },
         indent = {
           enable = false,
@@ -356,7 +359,7 @@ require("packer").startup({ function(use)
   --  用于VIM的多语言图形调试器
   use {
     "puremourning/vimspector",
-    ft = { "rust", "lua", "python" },
+    ft = { "rust", "lua" },
     event = { "BufNewFile", "InsertEnter" },
     setup = function()
       require("core.mappings").vimspector()
@@ -474,6 +477,13 @@ require("packer").startup({ function(use)
     event = { "BufRead", "BufNewFile" },
     config = function()
       vim.notify = require('notify')
+    end
+  }
+  -----Spell checker-----
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup()
     end
   }
 

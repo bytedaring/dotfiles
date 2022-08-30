@@ -123,7 +123,7 @@ vim.cmd [[
   augroup syntax
   autocmd!
   autocmd FileType awk syntax on
-  " autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us
+  autocmd BufRead,BufNewFile * setlocal spell spelllang=en_us
   " autocmd FileType proto syntax on
   augroup end
 ]]
@@ -150,7 +150,7 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 g.mapleader = ' '
 g.maplocalleader = ' '
 
--- Required for nvim-compe
+-- Required for nvim-cmp
 opt.completeopt = "menu,menuone,noselect"
 
 require("plugins.packer")

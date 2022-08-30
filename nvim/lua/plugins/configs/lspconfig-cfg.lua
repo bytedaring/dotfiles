@@ -77,7 +77,12 @@ M.setup = function()
     settings = {
       pylsp = {
         plugins = {
-          pycodestyle = {}
+          pycodestyle = {
+            enable = true
+          },
+          yapf = {
+            enable = true
+          }
         },
       }
     },
