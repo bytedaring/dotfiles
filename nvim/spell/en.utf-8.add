@@ -199,3 +199,13 @@ proto
 autoread
 indentLine
 mapleader
+env
+python3
+utf
+czset
+args
+blpop
+bufferline
+NvimTreeFindFileToggle
+nnoremap
+fi

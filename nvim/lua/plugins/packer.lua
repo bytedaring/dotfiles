@@ -203,30 +203,6 @@ require("packer").startup({ function(use)
     end
   }
 
-
-  -- use {
-  -- "EdenEast/nightfox.nvim",
-  -- config = function ()
-  -- require('nightfox').setup()
-  -- vim.cmd([[colorscheme terafox]])
-  -- end
-  -- }
-
-  -- use {
-  --   'yashguptaz/calvera-dark.nvim',
-  --   config = function ()
-  --     vim.cmd(([[colorscheme calvera]]))
-  --   end
-  -- }
-
-  -- use {
-  --   'marko-cerovac/material.nvim',
-  --   config = function ()
-  --     vim.g.material_style = "dark"
-  --     vim.cmd[[colorscheme material]]
-  --   end
-  -- }
-
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -290,13 +266,6 @@ require("packer").startup({ function(use)
     "ray-x/guihua.lua",
     after = "nvim-lspconfig",
   }
-  -- use {
-  --   'ray-x/navigator.lua',
-  --   after = "guihua.lua",
-  --   config = function()
-  --   require('navigator').setup({ mason = true })
-  --   end
-  -- }
   use {
     "glepnir/lspsaga.nvim",
     event = { "BufRead", "BufNewFile" },

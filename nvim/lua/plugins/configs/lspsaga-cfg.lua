@@ -20,7 +20,7 @@ M.config = function()
   -- code lens action
   vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
 
-  -- show hover doc and press twice will jumpto hover window
+  -- show hover doc and press twice will jump to hover window
   vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 
   -- show signature help
@@ -32,7 +32,7 @@ M.config = function()
   -- preview definition
   vim.keymap.set("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
 
-  -- jump diagnositc
+  -- jump diagnostic
   vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
   vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
