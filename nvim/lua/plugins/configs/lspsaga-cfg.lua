@@ -23,9 +23,6 @@ M.config = function()
   -- show hover doc and press twice will jump to hover window
   vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 
-  -- show signature help
-  vim.keymap.set("n", "gs", "<Cmd>Lspsaga signature_help<CR>", opts)
-
   -- rename
   vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 
