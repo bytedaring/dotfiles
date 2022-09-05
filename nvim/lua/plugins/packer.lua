@@ -238,20 +238,20 @@ require("packer").startup({ function(use)
       end, 0)
     end
   }
-  use {
-    "williamboman/mason.nvim",
-    opt = true,
-    event = { 'InsertEnter' },
-    after = "nvim-lspconfig"
-  }
-  use {
-    "williamboman/mason-lspconfig.nvim",
-    after = "mason.nvim",
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end
-  }
+  -- use {
+  --   "williamboman/mason.nvim",
+  --   opt = true,
+  --   event = { 'InsertEnter' },
+  --   after = "nvim-lspconfig"
+  -- }
+  -- use {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   after = "mason.nvim",
+  --   config = function()
+  --     require("mason").setup()
+  --     require("mason-lspconfig").setup()
+  --   end
+  -- }
   -- LSP signature hint as you type
   use {
     "ray-x/lsp_signature.nvim",
@@ -356,7 +356,7 @@ require("packer").startup({ function(use)
     "ray-x/go.nvim", ft = { "go" },
     config = function()
       require("go").setup({
-        lsp_cfg = true,
+        lsp_cfg = false,
         lsp_keymaps = true,
         go = 'go1.19',
         icons = { breakpoint = "🔴", currentpos = "👉" },
