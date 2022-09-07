@@ -209,3 +209,17 @@ bufferline
 NvimTreeFindFileToggle
 nnoremap
 fi
+buf_set_keymap
+gd
+ga
+gi
+buf
+goto_next
+rn
+textDocument
+completionItem
+snippetSupport
+goto_prev
+setloclist
+Neovim
+Neovim
