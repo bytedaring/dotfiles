@@ -295,6 +295,13 @@ require("packer").startup({ function(use)
     'RRethy/vim-illuminate',
     after = "cmp-nvim-lsp",
     config = function()
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'dirvish',
+          'fugitive',
+          'NvimTree'
+        },
+      })
       require("core.mappings").illuminate()
     end
   }
