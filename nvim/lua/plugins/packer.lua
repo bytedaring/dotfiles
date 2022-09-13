@@ -458,13 +458,6 @@ require("packer").startup({ function(use)
       vim.notify = require('notify')
     end
   }
-  -----Spell checker-----
-  use {
-    'lewis6991/spellsitter.nvim',
-    config = function()
-      require('spellsitter').setup()
-    end
-  }
 
   -- Automatically set up your configuration after cloning packer.nvim Put this at the end after all core
   if PACKER_BOOTSTRAP then
