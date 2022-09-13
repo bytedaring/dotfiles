@@ -32,6 +32,9 @@ require("packer").startup({ function(use)
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   use "kyazdani42/nvim-web-devicons"
 
+  -- UI Component Library for Neovim
+  use 'MunifTanjim/nui.nvim'
+
   --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
   use {
     "goolord/alpha-nvim",
