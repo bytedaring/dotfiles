@@ -26,8 +26,8 @@ M.config = function()
   -- rename
   vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 
-  -- preview definition
-  vim.keymap.set("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
+  -- peek definition
+  vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
 
   -- jump diagnostic
   vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
