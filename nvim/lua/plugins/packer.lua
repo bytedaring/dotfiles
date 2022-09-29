@@ -260,9 +260,6 @@ require("packer").startup({ function(use)
     "ray-x/lsp_signature.nvim",
     after = "nvim-lspconfig",
     event = { "InsertEnter", "BufNewFile" },
-    config = function()
-      require("lsp_signature").setup()
-    end
   }
   -- LSP plugin
   use {
@@ -368,7 +365,7 @@ require("packer").startup({ function(use)
       require("go").setup({
         lsp_cfg = false,
         lsp_keymaps = true,
-        go = 'go1.19',
+        go = 'go1.18',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
       })

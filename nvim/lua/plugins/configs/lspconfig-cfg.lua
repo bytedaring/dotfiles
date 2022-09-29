@@ -113,7 +113,15 @@ M.setup = function()
         -- buildFlags = { "-tags=wireinject" }
       },
     },
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      require "lsp_signature".on_attach({
+        bind = true,
+        handler_opts = {
+          border = "rounded"
+        }
+      }, bufnr)
+    end
   }
 
   nvim_lsp.sumneko_lua.setup {

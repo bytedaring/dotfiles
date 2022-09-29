@@ -132,6 +132,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = syntax_group,
 })
 ---------- Spell Check  --------------------
+vim.opt.spelloptions = 'camel'
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "lua", "python", "go" },
