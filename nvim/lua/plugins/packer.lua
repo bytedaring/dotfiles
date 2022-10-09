@@ -259,7 +259,7 @@ require("packer").startup({ function(use)
   use {
     "ray-x/lsp_signature.nvim",
     after = "nvim-lspconfig",
-    event = { "InsertEnter", "BufNewFile" },
+    event = { "BufRead", "InsertEnter", "BufNewFile" },
   }
   -- LSP plugin
   use {
