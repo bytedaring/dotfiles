@@ -45,11 +45,18 @@ require("packer").startup({ function(use)
   }
 
   --  状态栏美化
+  -- use {
+  --   "feline-nvim/feline.nvim",
+  --   event = { "BufRead", "BufNewFile" },
+  --   config = function()
+  --     require("feline").setup()
+  --   end
+  -- }
   use {
-    "feline-nvim/feline.nvim",
+    'nvim-lualine/lualine.nvim',
     event = { "BufRead", "BufNewFile" },
     config = function()
-      require("feline").setup()
+      require("lualine").setup()
     end
   }
 
@@ -171,7 +178,8 @@ require("packer").startup({ function(use)
     config = function()
       require("Comment").setup()
     end,
-    ft = { "html", "javascript", "lua", "css", "less", "lua", "python", "go", "vim", "sh" }
+    ft = { "html", "typescriptreact", "typescript", "javascript", "lua", "css", "less", "lua", "python", "go", "vim",
+      "sh" }
   }
 
   -- Markdown预览

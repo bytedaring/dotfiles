@@ -323,3 +323,5 @@ nofoldenable
 plugins
 packer
 autocomplete
+typescriptreact
+lualine
