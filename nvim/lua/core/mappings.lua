@@ -59,7 +59,7 @@ M.gonvim = function()
     autocmd FileType go nmap <leader>dd :GoDebug<CR>
     autocmd FileType go nmap <leader>dx :GoDebug -s<CR>
     autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
-    autocmd FileType go nmap <leader>t :Ultest<CR>
+    autocmd FileType go nmap <leader>t :TestFile -strategy=neovim<CR>
   ]]
 end
 
