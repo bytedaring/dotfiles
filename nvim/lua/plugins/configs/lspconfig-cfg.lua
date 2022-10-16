@@ -3,9 +3,10 @@ M.setup = function()
   local nvim_lsp = require('lspconfig')
 
   -- 支持code snippets
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
   -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) -- Use an on_attach function to only map the following keys
+  -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) -- Use an on_attach function to only map the following keys
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   -- after the language server attaches to the current buffer
   local on_attach = function(client, bufnr)
