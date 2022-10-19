@@ -50,6 +50,13 @@ M.setup = function()
 
     -- 高亮鼠标下单词，Integrates with Neovim's LSP
     require('illuminate').on_attach(client)
+    -- 键入时提示LSP签名，LSP signature hint as you type
+    require "lsp_signature".setup({
+      bind = true,
+      handler_opts = {
+        border = 'rounded'
+      }
+    })
   end
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -114,15 +121,7 @@ M.setup = function()
         -- buildFlags = { "-tags=wireinject" }
       },
     },
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-      require "lsp_signature".on_attach({
-        bind = true,
-        handler_opts = {
-          border = "rounded"
-        }
-      }, bufnr)
-    end
+    on_attach = on_attach
   }
 
   nvim_lsp.sumneko_lua.setup {
