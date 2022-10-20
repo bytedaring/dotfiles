@@ -176,4 +176,4 @@ g.maplocalleader = ' '
 -- Required for nvim-cmp
 opt.completeopt = "menu,menuone,noselect"
 
-require("plugins.packer")
+require("plugins.plugin_packer")
