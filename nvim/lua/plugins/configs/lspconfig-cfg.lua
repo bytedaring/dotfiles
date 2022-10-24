@@ -50,13 +50,6 @@ M.setup = function()
 
     -- 高亮鼠标下单词，Integrates with Neovim's LSP
     require('illuminate').on_attach(client)
-    -- 键入时提示LSP签名，LSP signature hint as you type
-    require('lsp_signature').setup({
-      bind = true,
-      handler_opts = {
-        border = 'rounded'
-      }
-    })
   end
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
