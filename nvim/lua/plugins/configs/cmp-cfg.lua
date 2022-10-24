@@ -5,7 +5,21 @@ M.setup = function()
   -- luasnip setup
   local luasnip = require 'luasnip'
 
+  vim.o.completeopt = "menu,menuone,noselect"
+
   cmp.setup {
+    window = {
+      completion = {
+        winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+      },
+    },
+    formatting = {
+      format = function(_, vim_item)
+        local icons = require("core.icons").lspkind
+        vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+        return vim_item
+      end,
+    },
     snippet = {
       expand = function(args)
         require('luasnip').lsp_expand(args.body)

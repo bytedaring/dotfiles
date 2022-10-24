@@ -173,7 +173,4 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 g.mapleader = ' '
 g.maplocalleader = ' '
 
--- Required for nvim-cmp
-opt.completeopt = "menu,menuone,noselect"
-
 require("plugins.plugin_packer")
