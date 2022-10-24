@@ -290,7 +290,7 @@ require("packer").startup({ function(use)
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",
-    event = { "BufRead", "BufNewFile" }
+    event = { "InsertEnter", "BufNewFile" }
   }
   --  增强代码自动完成
   use {
@@ -298,7 +298,6 @@ require("packer").startup({ function(use)
     after = "friendly-snippets",
     config = require("plugins.configs.cmp-cfg").setup
   }
-  -----Cursorline------
   use {
     'RRethy/vim-illuminate',
     after = "cmp-nvim-lsp",
@@ -315,7 +314,7 @@ require("packer").startup({ function(use)
   }
   use {
     "hrsh7th/nvim-cmp",
-    after = "vim-illuminate",
+    after = 'friendly-snippets',
     config = require("plugins.configs.lspconfig-cfg").setup
   }
   use {
