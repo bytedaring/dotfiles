@@ -346,3 +346,10 @@ gopls
 bufnr
 omnifunc
 dirvish
+workspace
+runtime
+JIT
+postfix
+Pmenu
+lspkind
+onsails

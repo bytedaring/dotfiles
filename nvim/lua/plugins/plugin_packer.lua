@@ -290,7 +290,7 @@ require("packer").startup({ function(use)
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",
-    event = { "InsertEnter", "BufNewFile" }
+    event = { "BufRead", "BufNewFile" }
   }
   --  增强代码自动完成
   use {
