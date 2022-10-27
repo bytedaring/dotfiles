@@ -354,3 +354,15 @@ Pmenu
 lspkind
 onsails
 Sel
+popup
+#make_floating_popup_size/!
+#make_floating_popup_size/!
+#make_floating_popup_size
+#make_floating_popup_size/!
+#make_floating_popup_size/!
+_make_floating_popup_size/!
+pos
+filetype
+LSoutline
+LSoutline
+LSoutlineToggle

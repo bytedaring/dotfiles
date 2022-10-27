@@ -4,9 +4,9 @@
 local map = vim.api.nvim_set_keymap
 
 local M = {}
-M.symbol = function()
-  map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
-end
+-- M.symbol = function()
+--   map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
+-- end
 
 -- Find files using Telescope command-line sugar.
 M.telescope = function()

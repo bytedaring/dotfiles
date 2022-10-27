@@ -108,20 +108,20 @@ require("packer").startup({ function(use)
     end
   }
 
-  --  文档大纲-缩略图
-  use {
-    "simrat39/symbols-outline.nvim",
-    cmd = { "SymbolsOutline" },
-    config = function()
-      require "symbols-outline".setup {
-        auto_close = true,
-        width = 25,
-      }
-    end,
-    setup = function()
-      require("core.mappings").symbol()
-    end
-  }
+  --  文档大纲-缩略图 使用lspsaga 替代
+  -- use {
+  --   "simrat39/symbols-outline.nvim",
+  --   cmd = { "SymbolsOutline" },
+  --   config = function()
+  --     require "symbols-outline".setup {
+  --       auto_close = true,
+  --       width = 25,
+  --     }
+  --   end,
+  --   setup = function()
+  --     require("core.mappings").symbol()
+  --   end
+  -- }
 
   --  Insert or delete brackets, parens, quotes in pair.
   use {
