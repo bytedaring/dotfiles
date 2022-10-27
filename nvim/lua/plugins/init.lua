@@ -108,6 +108,9 @@ opt.termguicolors = true
 -- 搜索时忽略大小写
 o.ignorecase = true
 
+-- signcolumn 'scl': display signs in the 'number' column
+o.signcolumn = 'number'
+
 -- vim操作作用到系统clipboard
 vim.cmd [[ set clipboard+=unnamedplus ]]
 

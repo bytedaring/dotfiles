@@ -4,8 +4,9 @@ M.config = function()
   saga.init_lsp_saga({
     symbol_in_winbar = {
       in_custom = false,
+      separator = ' > ',
       enable = true
-    }
+    },
   })
 
   local opts = { noremap = true, silent = true }
