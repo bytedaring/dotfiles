@@ -33,7 +33,7 @@ require("packer").startup({ function(use)
   use "kyazdani42/nvim-web-devicons"
 
   -- UI Component Library for Neovim
-  use 'MunifTanjim/nui.nvim'
+  -- use 'MunifTanjim/nui.nvim'
 
   --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
   use {
@@ -196,11 +196,13 @@ require("packer").startup({ function(use)
       require "colorizer".setup({
         "less";
         "css";
+        "go";
+        "lua";
         "javascript";
         html = { mode = "foreground" };
       }, { mode = "background" })
     end,
-    ft = { "html", "css", "less" }
+    ft = { "html", "css", "less", "lua", "go" }
   }
 
   --  终端控制
