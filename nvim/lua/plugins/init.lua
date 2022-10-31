@@ -111,6 +111,9 @@ o.ignorecase = true
 -- signcolumn 'scl': display signs in the 'number' column
 o.signcolumn = 'number'
 
+-- 设置默认winhl
+vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
+
 -- vim操作作用到系统clipboard
 vim.cmd [[ set clipboard+=unnamedplus ]]
 
@@ -154,7 +157,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- 使用黑色主题 设置配色方案
-opt.bg = "dark"
+-- opt.bg = "dark"
 -- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
 
 --------------- Blame -----------------
