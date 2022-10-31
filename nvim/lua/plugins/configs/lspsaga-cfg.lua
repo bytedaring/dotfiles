@@ -2,6 +2,7 @@ local M = {}
 M.config = function()
   local saga = require 'lspsaga'
   saga.init_lsp_saga({
+    border_style = 'bold',
     symbol_in_winbar = {
       in_custom = false,
       separator = ' > ',
