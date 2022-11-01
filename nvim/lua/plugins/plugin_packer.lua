@@ -216,6 +216,11 @@ require("packer").startup({ function(use)
     end
   }
 
+  -- lua development
+  use {
+    "folke/neodev.nvim",
+  }
+
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
     "nvim-treesitter/nvim-treesitter",
