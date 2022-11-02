@@ -56,7 +56,7 @@ require("packer").startup({ function(use)
     'nvim-lualine/lualine.nvim',
     event = { "BufRead", "BufNewFile" },
     config = function()
-      require("lualine").setup()
+      require("lualine").setup({})
     end
   }
 
@@ -108,20 +108,7 @@ require("packer").startup({ function(use)
     end
   }
 
-  --  文档大纲-缩略图 使用lspsaga 替代
-  -- use {
-  --   "simrat39/symbols-outline.nvim",
-  --   cmd = { "SymbolsOutline" },
-  --   config = function()
-  --     require "symbols-outline".setup {
-  --       auto_close = true,
-  --       width = 25,
-  --     }
-  --   end,
-  --   setup = function()
-  --     require("core.mappings").symbol()
-  --   end
-  -- }
+  --  文档大纲-缩略图 使用lspsaga 替代 simrat39/symbols-outline.nvim
 
   --  Insert or delete brackets, parens, quotes in pair.
   use {
@@ -139,7 +126,6 @@ require("packer").startup({ function(use)
   }
 
   --  Surround 环绕的标签修改插件
-  -- use { "tpope/vim-surround", event = "BufRead" }
   use { 'kylechui/nvim-surround',
     event = { 'BufRead', 'BufNewFile' },
     config = function()
@@ -208,7 +194,6 @@ require("packer").startup({ function(use)
   --  终端控制
   use {
     "akinsho/toggleterm.nvim",
-    -- event = "BufRead",
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
     setup = function()
@@ -217,9 +202,7 @@ require("packer").startup({ function(use)
   }
 
   -- lua development
-  use {
-    "folke/neodev.nvim",
-  }
+  use { "folke/neodev.nvim" }
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {

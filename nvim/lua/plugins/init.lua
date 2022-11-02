@@ -4,56 +4,33 @@ local o = vim.o
 local wo = vim.wo
 
 -- 禁用netrw等默认内置插件
--- -- g.loaded_2html_plugin = 1
--- g.loaded_gzip = 1
--- g.loaded_netrw = 1
--- g.loaded_netrwPlugin = 1
--- g.loaded_netrwSettings = 1
--- g.loaded_netrwFileHandlers = 1
--- g.loaded_tar = 1
--- g.loaded_tarPlugin = 1
--- g.loaded_zip = 1
--- g.loaded_zipPlugin = 1
--- g.loaded_spellfile_plugin = 1
--- g.loaded_matchparen = 1
--- g.loaded_matchit = 1
--- g.loaded_logiPat = 1
--- g.loaded_rrhelper = 1
--- -- g.loaded_remote_plugins=1
--- g.loaded_tutor_mode_plugin = 1
--- g.vimball = 1
--- g.vimballPlugin = 1
--- g.getscriptPlugin = 1
--- g.getscript = 1
--- g.loaded_shada_plugin = 1
 local builtin_plugs = {
   '2html_plugin',
+  'getscriptPlugin',
+  'getscript',
   'gzip',
+  'logiPat',
+  'matchparen',
+  'matchit',
   'netrw',
   'netrwPlugin',
   'netrwSettings',
   'netrwFileHandlers',
+  'remote_plugins',
+  'rrhelper',
+  'spellfile_plugin',
   'tar',
   'tarPlugin',
-  'zip',
-  'zipPlugin',
-  'spellfile_plugin',
-  'matchparen',
-  'matchit',
-  'logiPat',
-  'rrhelper',
-  'remote_plugins',
   'tutor_mode_plugin',
   'vimball',
   'vimballPlugin',
-  'getscriptPlugin',
-  'getscript'
+  'zip',
+  'zipPlugin',
 }
 for i = 1, #builtin_plugs do
   g['loaded_' .. builtin_plugs[i]] = 1
 end
 
-opt.shada = "'50,<400,s100,:200"
 opt.lazyredraw = true
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]
@@ -77,7 +54,6 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 -- 表示Tab自动转换成空格
 opt.expandtab = true
-
 -- 表示换行后自动缩进
 opt.autoindent = true
 -- 智能对齐
@@ -123,14 +99,6 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 
 --------------- Color scheme -----------------
 -- 启用语法高亮、拼写检查
---syntax on
--- vim.cmd [[
--- augroup syntax
--- autocmd!
--- autocmd FileType awk syntax on
--- " autocmd FileType proto syntax on
--- augroup end
--- ]]
 local syntax_group = vim.api.nvim_create_augroup("syntax_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "awk" },
@@ -141,7 +109,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.spelloptions = 'camel'
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python", "go" },
+  pattern = { "lua", "python", "go", "javascript" },
   command = "setlocal spell spelllang=en_us,cjk",
   group = spell_group,
 })
