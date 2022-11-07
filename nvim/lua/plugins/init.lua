@@ -4,15 +4,11 @@ local o = vim.o
 local wo = vim.wo
 
 -- 禁用netrw等默认内置插件
--- 'tar',
--- 'tarPlugin',
--- 'gzip',
--- 'zip',
--- 'zipPlugin',
 local builtin_plugs = {
   '2html_plugin',
   'getscriptPlugin',
   'getscript',
+  'gzip',
   'logiPat',
   'matchparen',
   'matchit',
@@ -22,10 +18,14 @@ local builtin_plugs = {
   'netrwFileHandlers',
   'remote_plugins',
   'rrhelper',
+  'tar',
+  'tarPlugin',
   'spellfile_plugin',
   'tutor_mode_plugin',
   'vimball',
   'vimballPlugin',
+  'zip',
+  'zipPlugin',
 }
 for i = 1, #builtin_plugs do
   g['loaded_' .. builtin_plugs[i]] = 1
