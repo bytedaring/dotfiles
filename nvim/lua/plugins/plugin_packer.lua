@@ -142,7 +142,15 @@ require("packer").startup({ function(use)
   --  Git diffs for all modified files
   use {
     'sindrets/diffview.nvim',
-    event = 'InsertEnter'
+    cmd = {
+      'DiffviewLog',
+      'DiffviewOpen',
+      'DiffviewClose',
+      'DiffviewRefresh',
+      'DiffviewFocusFiles',
+      'DiffviewToggleFiles',
+      'DiffviewFileHistory'
+    }
   }
 
   -- indentation guides to all lines
