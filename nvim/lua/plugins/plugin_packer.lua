@@ -437,6 +437,11 @@ require("packer").startup({ function(use)
   -- lint
   use {
     'mfussenegger/nvim-lint',
+    ft = {
+      'javascript', 'typescriptreact', 'typescript', 'less',
+      'html', 'css', 'sh', 'lua', 'vim', 'rust', 'python',
+      'go'
+    },
     config = require("plugins.configs.lint-cfg").config
   }
 
