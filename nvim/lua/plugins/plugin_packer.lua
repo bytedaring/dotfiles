@@ -25,9 +25,8 @@ end
 
 require("packer").startup({ function(use)
   use "lewis6991/impatient.nvim"
-  use "nvim-lua/plenary.nvim"
-
   use "wbthomason/packer.nvim"
+  use "nvim-lua/plenary.nvim"
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   use "kyazdani42/nvim-web-devicons"
@@ -137,7 +136,8 @@ require("packer").startup({ function(use)
 
   --  Git 文件git状态、Blame text
   use {
-    "f-person/git-blame.nvim", event = 'BufRead'
+    "f-person/git-blame.nvim",
+    event = 'BufRead'
   }
   --  Git diffs for all modified files
   use {
