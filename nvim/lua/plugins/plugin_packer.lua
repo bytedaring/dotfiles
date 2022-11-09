@@ -303,6 +303,7 @@ require("packer").startup({ function(use)
     config = function()
       require('illuminate').configure({
         filetypes_denylist = {
+          'toggleterm',
           'dirvish',
           'fugitive',
           'NvimTree'
