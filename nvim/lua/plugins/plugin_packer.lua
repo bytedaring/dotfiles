@@ -35,13 +35,13 @@ require("packer").startup({ function(use)
   -- use 'MunifTanjim/nui.nvim'
 
   --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
-  use {
-    "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-    config = function()
-      require "alpha".setup(require "alpha.themes.startify".config)
-    end
-  }
+  -- use {
+  --   "goolord/alpha-nvim",
+  --   requires = { "kyazdani42/nvim-web-devicons" },
+  --   config = function()
+  --     require "alpha".setup(require "alpha.themes.startify".config)
+  --   end
+  -- }
 
   --  状态栏美化
   -- use {
