@@ -108,6 +108,18 @@ require("packer").startup({ function(use)
   }
 
   --  文档大纲-缩略图 使用lspsaga 替代 simrat39/symbols-outline.nvim
+  use {
+    'stevearc/aerial.nvim',
+    cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
+    config = function()
+      require('aerial').setup({
+        layout = {
+          min_width = 30,
+        },
+        icons = require("core.icons").lspkind
+      })
+    end
+  }
 
   --  Insert or delete brackets, parens, quotes in pair.
   use {
