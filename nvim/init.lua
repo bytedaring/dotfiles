@@ -11,4 +11,4 @@ end
 
 require("plugins.setting")
 require("plugins.plugin_packer")
-require("core.mappings").config()
+require("plugins.mappings")
