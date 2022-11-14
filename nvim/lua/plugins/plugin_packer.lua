@@ -82,9 +82,6 @@ require("packer").startup({ function(use)
     after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = require('plugins.configs.nvim-tree-cfg').config,
-    setup = function()
-      require("core.mappings").nvimtree()
-    end
   }
 
   --  telescope 扩展插件
@@ -93,9 +90,6 @@ require("packer").startup({ function(use)
     requires = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
     config = require('plugins.configs.telescope-cfg').config,
-    setup = function()
-      require("core.mappings").telescope()
-    end
   }
 
   use {
@@ -216,9 +210,6 @@ require("packer").startup({ function(use)
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
-    setup = function()
-      require("core.mappings").toggleTerm()
-    end
   }
 
   -- lua development
@@ -321,7 +312,6 @@ require("packer").startup({ function(use)
           'NvimTree'
         },
       })
-      require("core.mappings").illuminate()
     end
   }
   use {
@@ -356,9 +346,6 @@ require("packer").startup({ function(use)
     "puremourning/vimspector",
     ft = { "rust", "lua" },
     event = { "BufNewFile", "InsertEnter" },
-    setup = function()
-      require("core.mappings").vimspector()
-    end
   }
   -- 另一种通用图形调试器
   use {
@@ -389,9 +376,6 @@ require("packer").startup({ function(use)
         run_in_floaterm = false,
       })
     end,
-    setup = function()
-      require("core.mappings").gonvim()
-    end
   }
   -- 另一种通用图形调试器
   -- use {
@@ -433,11 +417,10 @@ require("packer").startup({ function(use)
   use {
     "folke/trouble.nvim",
     event = 'InsertEnter',
-    config = require("plugins.configs.trouble-cfg").setup,
+    config = function()
+      require("trouble").setup {}
+    end,
     ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
-    setup = function()
-      require("core.mappings").trouble()
-    end
   }
 
   -- Bash Development for Neovim, also support formatting and lintting
@@ -466,9 +449,6 @@ require("packer").startup({ function(use)
     config = function()
       require("todo-comments").setup {}
     end,
-    setup = function()
-      require("core.mappings").todo()
-    end
   }
 
   -----Utility-----

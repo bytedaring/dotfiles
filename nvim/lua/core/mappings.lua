@@ -4,56 +4,48 @@
 local map = vim.api.nvim_set_keymap
 
 local M = {}
--- M.symbol = function()
---   map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
--- end
 
--- Find files using Telescope command-line sugar.
-M.telescope = function()
+M.config = function()
+
+  -- M.symbol = function()
+  --   map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
+  -- end
+
+  -- telescope
+  -- Find files using Telescope command-line sugar.
   map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
   map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
   map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
   map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
   map('n', 'fn', [[<Cmd>bNext<CR>]], { noremap = true, silent = true })
   map('n', 'fp', [[<Cmd>bprevious<CR>]], { noremap = true, silent = true })
-end
+  map('n', 'fo', [[<Cmd>Telescope oldfiles<CR>]], { noremap = true, silent = true })
 
--- todo-comments.nvim
-M.todo = function()
+  -- todo-comments.nvim
   map('n', 'ft', [[<cmd>TodoTelescope<CR>]], { noremap = true, silent = true })
-end
 
--- nvim-tree NvimTreeFindFileToggle
--- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
-M.nvimtree = function()
+  -- nvim-tree NvimTreeFindFileToggle
+  -- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
   map('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
-end
 
--- vimspector
-M.vimspector = function()
+  -- vimspector
   map('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], { noremap = true, silent = true })
   map('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], { noremap = true, silent = true })
   map('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], { noremap = true, silent = true })
   map('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], { noremap = true, silent = true })
   map('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], { noremap = true, silent = true })
-end
 
--- Trouble
-M.trouble = function()
+  -- Trouble
   map('n', '<leader>xx', [[<Cmd>TroubleToggle<CR>]], { noremap = true, silent = true })
   map('n', '<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], { noremap = true, silent = true })
   map('n', '<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], { noremap = true, silent = true })
   map('n', '<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], { noremap = true, silent = true })
   map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, silent = true })
-end
 
--- ToggleTerm
-M.toggleTerm = function()
+  -- ToggleTerm
   map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
-end
 
---------------------- autocmd for go.nvim --------------------
-M.gonvim = function()
+  -- go.nvim
   vim.cmd [[
     autocmd!
     autocmd FileType go nmap <F9> :GoBreakToggle<CR>
@@ -62,21 +54,15 @@ M.gonvim = function()
     autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
     autocmd FileType go nmap <leader>t :TestFile -strategy=neovim<CR>
   ]]
-end
 
--- bufferline
-M.bufferline = function()
-  map('n', 'b]', [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
-  map('n', 'b[', [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
-end
+  -- bufferline
+  -- map('n', 'b]', [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
+  -- map('n', 'b[', [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
 
--- Null-ls
-M.nullLs = function()
-  map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.format{async = true}<CR>]], { noremap = true, silent = true })
-end
+  -- Null-ls
+  -- map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.format{async = true}<CR>]], { noremap = true, silent = true })
 
--- vim-illuminate
-M.illuminate = function()
+  -- vim-illuminate
   map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
   map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
 end

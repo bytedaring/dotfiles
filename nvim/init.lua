@@ -10,3 +10,4 @@ else
 end
 
 require("plugins")
+require("core.mappings").config()
