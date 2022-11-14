@@ -9,5 +9,6 @@ else
   vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
 end
 
-require("plugins")
+require("plugins.setting")
+require("plugins.plugin_packer")
 require("core.mappings").config()
