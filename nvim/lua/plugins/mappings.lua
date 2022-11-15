@@ -42,7 +42,7 @@ map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sil
 map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
 
 -- go.nvim
-map('n', '<F9>', [[<Cmd>GoBreakToggle<CR>]], { noremap = true, silent = true })
+map('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], { noremap = true, silent = true })
