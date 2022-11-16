@@ -5,9 +5,6 @@ M.setup = function()
   local nvim_lsp = require('lspconfig')
 
   -- 支持code snippets
-  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-  -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) -- Use an on_attach function to only map the following keys
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   -- after the language server attaches to the current buffer
@@ -97,7 +94,30 @@ M.setup = function()
   nvim_lsp.gopls.setup {
     cmd = { 'gopls' },
     -- for postfix snippets and analyzers
-    capabilities = capabilities,
+    capabilities = {
+      textDocument = {
+        completion = {
+          completionItem = {
+            commitCharactersSupport = true,
+            deprecatedSupport = true,
+            documentationFormat = { 'markdown', 'plaintext' },
+            insertReplaceSupport = true,
+            insertTextModeSupport = {
+              valueSet = { 1, 2 }
+            },
+            labelDetailsSupport = true,
+            preselectSupport = true,
+            resolveSupport = {
+              properties = { "documentation", "detail", "additionalTextEdits" }
+            },
+            snippetSupport = true,
+          },
+          contextSupport = true,
+          dynamicRegistration = false,
+          insertTextMode = 1
+        }
+      }
+    },
     settings = {
       gopls = {
         experimentalPostfixCompletions = true,
@@ -105,7 +125,7 @@ M.setup = function()
           unusedparams = true,
           shadow = true,
         },
-        staticcheck = false,
+        staticcheck = true,
         -- codelenses = {
         --   test = true,
         --   tidy = true,
