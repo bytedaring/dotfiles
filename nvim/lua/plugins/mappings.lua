@@ -16,6 +16,7 @@ map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true
 map('n', 'fn', [[<Cmd>bNext<CR>]], { noremap = true, silent = true })
 map('n', 'fp', [[<Cmd>bprevious<CR>]], { noremap = true, silent = true })
 map('n', 'fo', [[<Cmd>Telescope oldfiles<CR>]], { noremap = true, silent = true })
+map('n', 'fc', [[<Cmd>Telescope<CR>]], { noremap = true, silent = true })
 
 -- todo-comments.nvim
 map('n', 'ft', [[<cmd>TodoTelescope<CR>]], { noremap = true, silent = true })

@@ -10,6 +10,11 @@ M.config = function()
         case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
       }
     },
+    pickers = {
+      colorscheme = {
+        enable_preview = true
+      }
+    },
     defaults = {
       layout_strategy = 'vertical',
       layout_config = {
