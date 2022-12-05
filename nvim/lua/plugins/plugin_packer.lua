@@ -69,30 +69,30 @@ require("packer").startup({ function(use)
   --     vim.cmd([[colorscheme vscode]])
   --   end
   -- }
-  use {
-    'glepnir/zephyr-nvim',
-    config = function()
-      -- require('zephyr')
-    end
-  }
-  use {
-    'folke/tokyonight.nvim',
-    -- config = function()
-    --   require('tokyonight').setup({
-    --     style = 'night'
-    --   })
-    --   vim.cmd [[colorscheme tokyonight]]
-    -- end
-  }
-  use {
-    'catppuccin/nvim', as = 'catppuccin',
-    -- config = function()
-    --   require('catppuccin').setup({
-    --     flavour = 'mocha'
-    --   })
-    --   vim.cmd [[colorscheme catppuccin]]
-    -- end
-  }
+  -- use {
+  --   'glepnir/zephyr-nvim',
+  --   config = function()
+  --     require('zephyr')
+  --   end
+  -- }
+  -- use {
+  --   'folke/tokyonight.nvim',
+  --   config = function()
+  --     require('tokyonight').setup({
+  --       style = 'night'
+  --     })
+  --     vim.cmd [[colorscheme tokyonight]]
+  --   end
+  -- }
+  -- use {
+  -- 'catppuccin/nvim', as = 'catppuccin',
+  -- config = function()
+  --   require('catppuccin').setup({
+  --     flavour = 'mocha'
+  --   })
+  --   vim.cmd [[colorscheme catppuccin]]
+  -- end
+  -- }
   use {
     'EdenEast/nightfox.nvim',
     config = function()
