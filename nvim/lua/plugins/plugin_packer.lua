@@ -167,7 +167,7 @@ require("packer").startup({ function(use)
   --  Git 文件git状态、Blame text
   use {
     "f-person/git-blame.nvim",
-    event = 'BufRead'
+    event = 'InsertEnter'
   }
   --  Git diffs for all modified files
   use {
@@ -266,13 +266,13 @@ require("packer").startup({ function(use)
   --  LSP
   use {
     "neovim/nvim-lspconfig",
-    setup = function()
-      require("core.utils").packer_lazy_load "nvim-lspconfig"
-      -- reload the current file so lsp actually starts for it
-      vim.defer_fn(function()
-        vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-      end, 0)
-    end
+    -- setup = function()
+    --   require("core.utils").packer_lazy_load "nvim-lspconfig"
+    --   -- reload the current file so lsp actually starts for it
+    --   vim.defer_fn(function()
+    --     vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+    --   end, 0)
+    -- end
   }
   -- use {
   --   "williamboman/mason.nvim",
@@ -298,7 +298,8 @@ require("packer").startup({ function(use)
   -- LSP plugin
   use {
     "ray-x/guihua.lua",
-    after = "nvim-lspconfig",
+    ft = { "go" }
+    -- after = "nvim-lspconfig",
   }
   use {
     "glepnir/lspsaga.nvim",
@@ -316,7 +317,8 @@ require("packer").startup({ function(use)
   -- snippet source
   use {
     "rafamadriz/friendly-snippets",
-    event = { "BufRead", "BufNewFile" }
+    -- event = { "BufRead", "BufNewFile" }
+    event = { 'InsertEnter' }
   }
   --  增强代码自动完成
   use {
