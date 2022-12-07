@@ -142,7 +142,7 @@ packer.startup({ function(use)
     end
   }
 
-  --  文档大纲-缩略图 使用lspsaga 替代 simrat39/symbols-outline.nvim
+  --  文档大纲-缩略图
   use {
     'stevearc/aerial.nvim',
     cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
