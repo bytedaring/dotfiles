@@ -15,6 +15,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path })
 end
 
+-- Autocommand that reloads neovim whenever you save the init.lua file
 -- vim.cmd [[packadd packer.nvim]]
 -- vim.cmd [[
 --   augroup Packe
@@ -23,7 +24,23 @@ end
 --   augroup end
 -- ]]
 
-require("packer").startup({ function(use)
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init({
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'rounded' })
+    end
+  }
+})
+
+-- Insert your plugins here
+packer.startup({ function(use)
   use "lewis6991/impatient.nvim"
   use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
