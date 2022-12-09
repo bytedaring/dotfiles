@@ -253,9 +253,6 @@ packer.startup({ function(use)
     config = require("plugins.configs.toggleterm-cfg").setup,
   }
 
-  -- lua development
-  use { "folke/neodev.nvim" }
-
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -283,6 +280,7 @@ packer.startup({ function(use)
   --  LSP
   use {
     "neovim/nvim-lspconfig",
+    event = { 'BufRead', 'BufNewFile' }
     -- setup = function()
     --   require("core.utils").packer_lazy_load "nvim-lspconfig"
     --   -- reload the current file so lsp actually starts for it
@@ -339,9 +337,16 @@ packer.startup({ function(use)
   }
   --  增强代码自动完成
   use {
+    "hrsh7th/nvim-cmp",
+    after = 'friendly-snippets',
+    config = function()
+      require("plugins.configs.cmp-cfg").setup()
+      require("plugins.configs.lspconfig-cfg").setup()
+    end
+  }
+  use {
     "hrsh7th/cmp-nvim-lsp",
-    after = "friendly-snippets",
-    config = require("plugins.configs.cmp-cfg").setup
+    after = "nvim-cmp",
   }
   use {
     'RRethy/vim-illuminate',
@@ -356,11 +361,6 @@ packer.startup({ function(use)
         },
       })
     end
-  }
-  use {
-    "hrsh7th/nvim-cmp",
-    after = 'friendly-snippets',
-    config = require("plugins.configs.lspconfig-cfg").setup
   }
   use {
     "L3MON4D3/LuaSnip",
@@ -482,6 +482,13 @@ packer.startup({ function(use)
       'go'
     },
     config = require("plugins.configs.lint-cfg").config
+  }
+
+  -- lua development
+  use {
+    "folke/neodev.nvim",
+    event = { "BufRead", "BufNewFile" },
+    ft = { "lua" }
   }
 
   -- TODO

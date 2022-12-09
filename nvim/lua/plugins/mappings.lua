@@ -67,3 +67,6 @@ map('n', '<leader>t', [[<Cmd>TestFile -strategy=neovim<CR>]], { noremap = true, 
 -- vim-illuminate
 map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
 map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
+
+-- Outline
+map("n", "<leader>o", "<cmd>AerialToggle<CR>", { noremap = true, silent = true })

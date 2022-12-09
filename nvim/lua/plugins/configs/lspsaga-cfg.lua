@@ -28,9 +28,6 @@ M.config = function()
   -- rename
   vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 
-  -- Outline
-  vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", { silent = true })
-
   -- peek definition
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
 
