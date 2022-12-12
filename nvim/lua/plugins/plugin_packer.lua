@@ -18,7 +18,7 @@ end
 -- Autocommand that reloads neovim whenever you save the init.lua file
 -- vim.cmd [[packadd packer.nvim]]
 -- vim.cmd [[
---   augroup Packe
+--   augroup packer_user_config
 --     autocmd!
 --     autocmd BufWritePost init.lua PackerCompile
 --   augroup end
