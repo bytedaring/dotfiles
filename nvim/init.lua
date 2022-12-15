@@ -1,7 +1,3 @@
--- require 'impatient'
--- require 'settings'
--- require 'plugins'
-
 local ok, _ = pcall(require, 'impatient')
 if ok then
   -- impatient.enable_profile()
