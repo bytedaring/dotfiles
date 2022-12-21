@@ -38,7 +38,7 @@ vim.cmd [[set nocompatible ]]
 o.mouse = 'a'
 
 -- shada
-o.shada = "!,'20,<50,s10,h"
+o.shada = "!,'15,<30,s10,h"
 
 -- 0: 不显示 1: 启动显示转态行 2: 总是显示状态行 3: 总是显示且显示最后一个windows的状态行
 o.laststatus = 3
