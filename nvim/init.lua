@@ -1,8 +1,8 @@
-local ok, _ = pcall(require, 'impatient')
+local ok, impatient = pcall(require, 'impatient')
 if ok then
-  -- impatient.enable_profile()
+	-- impatient.enable_profile()
 else
-  vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
+	vim.notify('impatient.nvim not installed', vim.log.levels.WARN)
 end
 
 require("plugins.setting")

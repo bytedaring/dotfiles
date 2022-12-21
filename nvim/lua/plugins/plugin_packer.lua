@@ -43,10 +43,16 @@ packer.init({
 packer.startup({ function(use)
   use "lewis6991/impatient.nvim"
   use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
+  use {
+    "nvim-lua/plenary.nvim",
+    event = { 'BufRead', 'BufNewFile' }
+  }
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
-  use "kyazdani42/nvim-web-devicons"
+  use {
+    "kyazdani42/nvim-web-devicons",
+    event = { 'BufRead', 'BufNewFile' }
+  }
 
   -- UI Component Library for Neovim
   -- use 'MunifTanjim/nui.nvim'
