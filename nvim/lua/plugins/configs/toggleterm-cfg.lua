@@ -31,10 +31,7 @@ M.setup = function()
     hidden = true,
     direction = "float"
   })
-  -- function _G.lazygit_toggle_term()
-  --   lazygit:toggle()
-  -- end
-  -- vim.api.nvim_set_keymap("n", "<c-g>", "<cmd> lua lazygit_toggle_term()<CR>", {noremap = true, silent = true })
+
   -- After Neovim 0.7, can use after:
   vim.api.nvim_set_keymap("n", "<c-g>", "", {
     noremap = true,

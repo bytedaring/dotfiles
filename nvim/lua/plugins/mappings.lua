@@ -48,21 +48,6 @@ map('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], { noremap = true, silent = true })
 map('n', '<leader>t', [[<Cmd>TestFile -strategy=neovim<CR>]], { noremap = true, silent = true })
--- vim.cmd [[
---     autocmd!
---     autocmd FileType go nmap <F9> :GoBreakToggle<CR>
---     autocmd FileType go nmap <leader>dd :GoDebug<CR>
---     autocmd FileType go nmap <leader>dx :GoDebug -s<CR>
---     autocmd FileType go nmap <leader>dt :GoDebug -t<CR>
---     autocmd FileType go nmap <leader>t :TestFile -strategy=neovim<CR>
---   ]]
-
--- bufferline
--- map('n', 'b]', [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
--- map('n', 'b[', [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
-
--- Null-ls
--- map('n', '<space>f', [[<Cmd>lua vim.lsp.buf.format{async = true}<CR>]], { noremap = true, silent = true })
 
 -- vim-illuminate
 map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
@@ -70,3 +55,23 @@ map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=tr
 
 -- Outline
 map("n", "<leader>o", "<cmd>AerialToggle<CR>", { noremap = true, silent = true })
+
+-- lspsaga
+local opts = { noremap = true, silent = true }
+-- lsp finder to find the cursor word definition and reference
+vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
+-- code action
+vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
+-- code lens action
+vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+-- show hover doc and press twice will jump to hover window
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+-- rename
+vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+-- peek definition
+vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+-- jump diagnostic
+vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)

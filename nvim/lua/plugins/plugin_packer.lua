@@ -326,7 +326,7 @@ packer.startup({ function(use)
     "glepnir/lspsaga.nvim",
     event = { "BufRead", "BufNewFile" },
     branch = "main",
-    config = require("plugins.configs.lspsaga-cfg").config
+    config = require("plugins.configs.others").lspsaga
   }
 
   use {
@@ -487,7 +487,7 @@ packer.startup({ function(use)
       'html', 'css', 'sh', 'lua', 'vim', 'rust', 'python',
       'go'
     },
-    config = require("plugins.configs.lint-cfg").config
+    config = require('plugins.configs.others').lint
   }
 
   -- lua development
