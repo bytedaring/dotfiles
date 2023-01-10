@@ -41,8 +41,8 @@ packer.init({
 
 -- Insert your plugins here
 packer.startup({ function(use)
-  use "lewis6991/impatient.nvim"
   use "wbthomason/packer.nvim"
+  use "lewis6991/impatient.nvim"
   use {
     "nvim-lua/plenary.nvim",
     event = { 'BufRead', 'BufNewFile' }
@@ -116,10 +116,16 @@ packer.startup({ function(use)
   --   vim.cmd [[colorscheme catppuccin]]
   -- end
   -- }
+  -- use {
+  --   'EdenEast/nightfox.nvim',
+  --   config = function()
+  --     -- vim.cmd [[colorscheme carbonfox]]
+  --   end
+  -- }
   use {
-    'EdenEast/nightfox.nvim',
+    'Mofiqul/dracula.nvim',
     config = function()
-      vim.cmd [[colorscheme carbonfox]]
+      vim.cmd [[colorscheme dracula]]
     end
   }
 
@@ -262,7 +268,10 @@ packer.startup({ function(use)
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpade",
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
     event = { "BufRead", "BufNewFile" },
     config = function()
       require "nvim-treesitter.configs".setup {
@@ -393,8 +402,7 @@ packer.startup({ function(use)
   --  用于VIM的多语言图形调试器
   use {
     "puremourning/vimspector",
-    ft = { "rust", "lua" },
-    event = { "BufNewFile", "InsertEnter" },
+    ft = { "rust", "lua" }
   }
   -- 另一种通用图形调试器
   use {
