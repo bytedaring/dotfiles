@@ -327,11 +327,6 @@ packer.startup({ function(use)
   }
   -- LSP plugin
   use {
-    "ray-x/guihua.lua",
-    ft = { "go" }
-    -- after = "nvim-lspconfig",
-  }
-  use {
     "glepnir/lspsaga.nvim",
     event = { "BufRead", "BufNewFile" },
     branch = "main",

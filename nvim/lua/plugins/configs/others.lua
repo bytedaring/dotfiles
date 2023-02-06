@@ -1,5 +1,4 @@
 local M = {}
-
 M.signature = function()
   local function get_border_style(style, highlight)
     highlight = highlight or 'FloatBorder'
@@ -53,7 +52,7 @@ M.signature = function()
 
   require('lsp_signature').setup({
     handler_opts = {
-      border = get_border_style('bold', "LspSagaHoverBorder") -- DefinitionBorder, double, rounded, single, shadow, none
+      border = get_border_style('bold', "SagaBorder") -- DefinitionBorder, double, rounded, single, shadow, none
     },
   })
 end
@@ -73,9 +72,11 @@ M.lint = function()
 end
 
 M.lspsaga = function()
-  local saga = require 'lspsaga'
-  saga.init_lsp_saga({
-    border_style = 'bold',
+  require('lspsaga').setup({
+    ui = {
+      border = 'single',
+      title = true,
+    },
     symbol_in_winbar = {
       in_custom = false,
       separator = ' > ',
