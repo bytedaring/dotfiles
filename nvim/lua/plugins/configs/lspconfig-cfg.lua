@@ -139,7 +139,7 @@ M.setup = function()
     on_attach = on_attach
   }
 
-  nvim_lsp.sumneko_lua.setup {
+  nvim_lsp.lua_ls.setup {
     cmd = { "lua-language-server" },
     capabilities = capabilities,
     settings = {
