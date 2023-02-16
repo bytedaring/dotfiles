@@ -12,7 +12,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-    install_path })
+      install_path })
 end
 
 -- Autocommand that reloads neovim whenever you save the init.lua file
@@ -33,23 +33,23 @@ end
 -- Have packer use a popup window
 packer.init({
   display = {
-    open_fn = function()
+    open_fn = function ()
       return require('packer.util').float({ border = 'rounded' })
     end
   }
 })
 
 -- Insert your plugins here
-packer.startup({ function(use)
-  use "wbthomason/packer.nvim"
-  use "lewis6991/impatient.nvim"
-  use {
+packer.startup({ function (use)
+  use"wbthomason/packer.nvim"
+  use"lewis6991/impatient.nvim"
+  use{
     "nvim-lua/plenary.nvim",
     event = { 'BufRead', 'BufNewFile' }
   }
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
-  use {
+  use{
     "kyazdani42/nvim-web-devicons",
     event = { 'BufRead', 'BufNewFile' }
   }
@@ -74,10 +74,10 @@ packer.startup({ function(use)
   --     require("feline").setup()
   --   end
   -- }
-  use {
+  use{
     'nvim-lualine/lualine.nvim',
     event = { "BufRead", "BufNewFile" },
-    config = function()
+    config = function ()
       require("lualine").setup({})
     end
   }
@@ -122,15 +122,15 @@ packer.startup({ function(use)
   --     -- vim.cmd [[colorscheme carbonfox]]
   --   end
   -- }
-  use {
+  use{
     'Mofiqul/dracula.nvim',
-    config = function()
-      vim.cmd [[colorscheme dracula]]
+    config = function ()
+      vim.cmd[[colorscheme dracula]]
     end
   }
 
   --  文件浏览器 File Explorer
-  use {
+  use{
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
@@ -138,27 +138,27 @@ packer.startup({ function(use)
   }
 
   --  telescope 扩展插件
-  use {
+  use{
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
     config = require('plugins.configs.telescope-cfg').config,
   }
 
-  use {
+  use{
     "nvim-telescope/telescope-fzf-native.nvim",
     after = "telescope.nvim",
     run = "make",
-    config = function()
+    config = function ()
       require("telescope").load_extension("fzf")
     end
   }
 
   --  文档大纲-缩略图
-  use {
+  use{
     'stevearc/aerial.nvim',
     cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
-    config = function()
+    config = function ()
       require('aerial').setup({
         layout = {
           min_width = 30,
@@ -169,37 +169,37 @@ packer.startup({ function(use)
   }
 
   --  Insert or delete brackets, parens, quotes in pair.
-  use {
+  use{
     "windwp/nvim-autopairs",
     config = require("plugins.configs.autopairs-cfg").setup,
     after = "nvim-cmp"
   }
   -- Use treesitter to auto close and auto rename html tag
-  use {
+  use{
     'windwp/nvim-ts-autotag',
     ft = { 'javascript', 'html' },
-    config = function()
+    config = function ()
       require('nvim-ts-autotag').setup()
     end
   }
 
   --  Surround 环绕的标签修改插件
-  use { 'kylechui/nvim-surround',
+  use{ 'kylechui/nvim-surround',
     event = { 'BufRead', 'BufNewFile' },
-    config = function()
+    config = function ()
       require('nvim-surround').setup()
     end
   }
   --  `.` 重复上次操作
-  use { "tpope/vim-repeat", event = "InsertEnter" }
+  use{ "tpope/vim-repeat", event = "InsertEnter" }
 
   --  Git 文件git状态、Blame text
-  use {
+  use{
     "f-person/git-blame.nvim",
     event = 'InsertEnter'
   }
   --  Git diffs for all modified files
-  use {
+  use{
     'sindrets/diffview.nvim',
     cmd = {
       'DiffviewLog',
@@ -213,11 +213,11 @@ packer.startup({ function(use)
   }
 
   -- indentation guides to all lines
-  use {
+  use{
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = function()
-      require("indent_blankline").setup {
+    config = function ()
+      require("indent_blankline").setup{
         space_char_blankline = " ",
         show_current_context = true,
         show_current_context_start = false,
@@ -226,9 +226,9 @@ packer.startup({ function(use)
   }
 
   --  注释插件
-  use {
+  use{
     "numToStr/Comment.nvim",
-    config = function()
+    config = function ()
       require("Comment").setup()
     end,
     ft = { "html", "typescriptreact", "typescript", "javascript", "lua", "css", "less", "lua", "python", "go", "vim",
@@ -236,45 +236,45 @@ packer.startup({ function(use)
   }
 
   -- Markdown预览
-  use {
+  use{
     "iamcco/markdown-preview.nvim", run = "cd app && yarn install",
     ft = { "markdown" },
     cmd = "MarkdownPreview"
   }
 
   --  高性能的十六进制文本颜色高亮
-  use {
+  use{
     "norcalli/nvim-colorizer.lua",
-    config = function()
-      require "colorizer".setup({
-        "less";
-        "css";
-        "go";
-        "lua";
-        "javascript";
-        html = { mode = "foreground" };
+    config = function ()
+      require"colorizer".setup({
+        "less",
+        "css",
+        "go",
+        "lua",
+        "javascript",
+        html = { mode = "foreground" },
       }, { mode = "background" })
     end,
     ft = { "html", "css", "less", "lua", "go" }
   }
 
   --  终端控制
-  use {
+  use{
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
   }
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
-  use {
+  use{
     "nvim-treesitter/nvim-treesitter",
-    run = function()
+    run = function ()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end,
     event = { "BufRead", "BufNewFile" },
-    config = function()
-      require "nvim-treesitter.configs".setup {
+    config = function ()
+      require"nvim-treesitter.configs".setup{
         matchup = {
           enable = true
         },
@@ -293,7 +293,7 @@ packer.startup({ function(use)
   }
 
   --  LSP
-  use {
+  use{
     "neovim/nvim-lspconfig",
     event = { 'BufRead', 'BufNewFile' }
     -- setup = function()
@@ -319,49 +319,49 @@ packer.startup({ function(use)
   --   end
   -- }
   -- LSP signature hint as you type
-  use {
+  use{
     "ray-x/lsp_signature.nvim",
     after = "nvim-lspconfig",
     event = { "BufRead", "InsertEnter", "BufNewFile" },
     config = require('plugins.configs.others').signature
   }
   -- LSP plugin
-  use {
+  use{
     "glepnir/lspsaga.nvim",
     event = { "BufRead", "BufNewFile" },
     branch = "main",
     config = require("plugins.configs.others").lspsaga
   }
 
-  use {
+  use{
     "andymass/vim-matchup",
     event = { "BufRead", "BufNewFile" }
   }
 
   -- load luasnips + cmp related in insert mode only
   -- snippet source
-  use {
+  use{
     "rafamadriz/friendly-snippets",
     -- event = { "BufRead", "BufNewFile" }
     event = { 'InsertEnter' }
   }
   --  增强代码自动完成
-  use {
+  use{
     "hrsh7th/nvim-cmp",
     after = 'friendly-snippets',
-    config = function()
+    config = function ()
       require("plugins.configs.cmp-cfg").setup()
       require("plugins.configs.lspconfig-cfg").setup()
     end
   }
-  use {
+  use{
     "hrsh7th/cmp-nvim-lsp",
     after = "nvim-cmp",
   }
-  use {
+  use{
     'RRethy/vim-illuminate',
     after = "cmp-nvim-lsp",
-    config = function()
+    config = function ()
       require('illuminate').configure({
         filetypes_denylist = {
           'toggleterm',
@@ -372,54 +372,54 @@ packer.startup({ function(use)
       })
     end
   }
-  use {
+  use{
     "L3MON4D3/LuaSnip",
     wants = "friendly-snippets",
     after = "nvim-cmp"
   }
-  use {
+  use{
     "saadparwaiz1/cmp_luasnip",
     after = "LuaSnip"
   }
-  use {
+  use{
     "hrsh7th/cmp-buffer",
     after = "cmp-nvim-lsp"
   }
-  use {
+  use{
     "hrsh7th/cmp-path",
     after = "cmp-buffer"
   }
-  use {
+  use{
     'hrsh7th/cmp-cmdline',
     after = "cmp-path"
   }
 
   --  用于VIM的多语言图形调试器
-  use {
+  use{
     "puremourning/vimspector",
     ft = { "rust", "lua" }
   }
   -- 另一种通用图形调试器
-  use {
+  use{
     "mfussenegger/nvim-dap",
     ft = { "go" },
-    config = function()
+    config = function ()
     end
   }
-  use {
+  use{
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     requires = { "mfussenegger/nvim-dap" },
-    config = function()
+    config = function ()
       require("dapui").setup()
     end
   }
-  use { "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
+  use{ "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
   -- go development ide plugin
   -- use { "fatih/vim-go", ft =  { "go" }}
-  use {
+  use{
     "ray-x/go.nvim", ft = { "go" },
-    config = function()
+    config = function ()
       require("go").setup({
         lsp_cfg = false,
         lsp_keymaps = true,
@@ -432,17 +432,17 @@ packer.startup({ function(use)
               -- You can change the order of elements in the sidebar
               elements = {
                 -- Provide IDs as strings or tables with "id" and "size" keys
-                { id = "scopes", size = 0.25 },
+                { id = "scopes",      size = 0.25 },
                 { id = "breakpoints", size = 0.25 },
-                { id = "stacks", size = 0.25 },
-                { id = "watches", size = 0.25 },
+                { id = "stacks",      size = 0.25 },
+                { id = "watches",     size = 0.25 },
               },
               size = 40,
               position = "left", -- Can be "left" or "right"
             },
             {
               elements = {
-                -- "repl", --"console"
+                "repl", --"console"
               },
               size = 10,
               position = "bottom", -- Can be "bottom" or "top"
@@ -461,15 +461,15 @@ packer.startup({ function(use)
   --     end
   -- }
   -- 测试插件
-  use { "vim-test/vim-test", ft = { "go", "python" } }
+  use{ "vim-test/vim-test", ft = { "go", "python" } }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
-  use { "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
-  use {
+  use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
+  use{
     "nvim-neotest/neotest-go",
     ft = { "go" },
     after = "FixCursorHold.nvim"
   }
-  use {
+  use{
     "nvim-neotest/neotest",
     ft = { "go" },
     after = "neotest-go",
@@ -478,7 +478,7 @@ packer.startup({ function(use)
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-go",
     },
-    config = function()
+    config = function ()
       require('neotest').setup({
         adapters = {
           require('neotest-go'),
@@ -489,11 +489,11 @@ packer.startup({ function(use)
   }
 
   --  Quick fix
-  use {
+  use{
     "folke/trouble.nvim",
     event = 'InsertEnter',
-    config = function()
-      require("trouble").setup {}
+    config = function ()
+      require("trouble").setup{}
     end,
     ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
   }
@@ -506,7 +506,7 @@ packer.startup({ function(use)
   -- }
 
   -- lint
-  use {
+  use{
     'mfussenegger/nvim-lint',
     ft = {
       'javascript', 'typescriptreact', 'typescript', 'less',
@@ -517,27 +517,27 @@ packer.startup({ function(use)
   }
 
   -- lua development
-  use {
+  use{
     "folke/neodev.nvim",
     event = { "BufRead", "BufNewFile" },
     ft = { "lua" }
   }
 
   -- TODO
-  use {
+  use{
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     cmd = { "TodoQuickFix", "TodoLocList", "TodoTelescope", "TroubleToggle" },
-    config = function()
-      require("todo-comments").setup {}
+    config = function ()
+      require("todo-comments").setup{}
     end,
   }
 
   -----Utility-----
-  use {
+  use{
     'rcarriga/nvim-notify',
     event = { "BufRead", "BufNewFile" },
-    config = function()
+    config = function ()
       vim.notify = require('notify')
     end
   }

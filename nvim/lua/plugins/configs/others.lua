@@ -1,5 +1,5 @@
 local M = {}
-M.signature = function()
+M.signature = function ()
   local function get_border_style(style, highlight)
     highlight = highlight or 'FloatBorder'
     local border_style = {
@@ -36,13 +36,13 @@ M.signature = function()
         { '│', highlight },
       },
       ['plus'] = {
-        { '+', highlight },
+        { '+',   highlight },
         { '─', highlight },
-        { '+', highlight },
+        { '+',   highlight },
         { '│', highlight },
-        { '+', highlight },
+        { '+',   highlight },
         { '─', highlight },
-        { '+', highlight },
+        { '+',   highlight },
         { '│', highlight },
       },
     }
@@ -57,7 +57,7 @@ M.signature = function()
   })
 end
 
-M.lint = function()
+M.lint = function ()
   require('lint').linters_by_ft = {
     go = { 'golangcilint' },
     sh = { 'shellcheck' },
@@ -65,13 +65,13 @@ M.lint = function()
     yaml = { 'yamllint' }
   }
   vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
-    callback = function()
+    callback = function ()
       require("lint").try_lint()
     end,
   })
 end
 
-M.lspsaga = function()
+M.lspsaga = function ()
   require('lspsaga').setup({
     ui = {
       border = 'single',
@@ -80,8 +80,9 @@ M.lspsaga = function()
     symbol_in_winbar = {
       in_custom = false,
       separator = ' > ',
-      enable = true
+      enable = false
     },
   })
 end
+
 return M
