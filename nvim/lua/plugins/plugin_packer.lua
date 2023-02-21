@@ -423,7 +423,7 @@ packer.startup({ function (use)
       require("go").setup({
         lsp_cfg = false,
         lsp_keymaps = true,
-        go = 'go1.18',
+        go = 'go',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
         dap_debug_gui = {
@@ -452,6 +452,7 @@ packer.startup({ function (use)
       })
     end,
   }
+  use{ 'ray-x/guihua.lua', ft = { 'go' } }
   -- 另一种通用图形调试器
   -- use {
   --     "leoluz/nvim-dap-go",

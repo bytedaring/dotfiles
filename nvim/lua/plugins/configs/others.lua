@@ -80,7 +80,7 @@ M.lspsaga = function ()
     symbol_in_winbar = {
       in_custom = false,
       separator = ' > ',
-      enable = false
+      enable = true
     },
   })
 end
