@@ -1,5 +1,5 @@
 local M = {}
-M.setup = function()
+M.setup = function ()
   require("neodev").setup()
 
   local nvim_lsp = require('lspconfig')
@@ -8,7 +8,7 @@ M.setup = function()
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   -- after the language server attaches to the current buffer
-  local on_attach = function(client, bufnr)
+  local on_attach = function (client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -41,10 +41,10 @@ M.setup = function()
     -- 保存文件时自动 formatting
     -- if client.resolved_capabilities.document_formatting then
     if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_command [[augroup Format]]
-      vim.api.nvim_command [[autocmd! * <buffer>]]
-      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
-      vim.api.nvim_command [[augroup END]]
+      vim.api.nvim_command[[augroup Format]]
+      vim.api.nvim_command[[autocmd! * <buffer>]]
+      vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
+      vim.api.nvim_command[[augroup END]]
     end
 
     -- 高亮鼠标下单词，Integrates with Neovim's LSP
@@ -56,7 +56,7 @@ M.setup = function()
   local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'tailwindcss',
     'bashls', 'awk_ls', 'dockerls', 'html', 'cssls', 'yamlls', 'bufls' }
   for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+    nvim_lsp[lsp].setup{
       on_attach = on_attach,
       capabilities = capabilities,
       flags = {
@@ -66,7 +66,7 @@ M.setup = function()
   end
 
   --
-  nvim_lsp.pylsp.setup {
+  nvim_lsp.pylsp.setup{
     cmd = { 'pylsp' },
     -- for postfix snippets and analyzers
     capabilities = capabilities,
@@ -78,12 +78,9 @@ M.setup = function()
       pylsp = {
         plugins = {
           pycodestyle = {
-            enable = true
+            enabled = true
           },
-          yapf = {
-            enable = true
-          }
-        },
+        }
       }
     },
     on_attach = on_attach,
@@ -91,7 +88,7 @@ M.setup = function()
   }
 
   -- gopls
-  nvim_lsp.gopls.setup {
+  nvim_lsp.gopls.setup{
     cmd = { 'gopls' },
     -- for postfix snippets and analyzers
     capabilities = {
@@ -139,7 +136,7 @@ M.setup = function()
     on_attach = on_attach
   }
 
-  nvim_lsp.lua_ls.setup {
+  nvim_lsp.lua_ls.setup{
     cmd = { "lua-language-server" },
     capabilities = capabilities,
     settings = {
