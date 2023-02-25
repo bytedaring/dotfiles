@@ -410,9 +410,6 @@ packer.startup({ function (use)
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     requires = { "mfussenegger/nvim-dap" },
-    config = function ()
-      require("dapui").setup()
-    end
   }
   use{ "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
   -- go development ide plugin
