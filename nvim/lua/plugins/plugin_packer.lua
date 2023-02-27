@@ -493,7 +493,7 @@ packer.startup({ function (use)
     config = function ()
       require("trouble").setup{}
     end,
-    ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html" },
+    ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html", "zig" },
   }
 
   -- Bash Development for Neovim, also support formatting and lintting
@@ -509,7 +509,7 @@ packer.startup({ function (use)
     ft = {
       'javascript', 'typescriptreact', 'typescript', 'less',
       'html', 'css', 'sh', 'lua', 'vim', 'rust', 'python',
-      'go'
+      'go', "zig"
     },
     config = require('plugins.configs.others').lint
   }

@@ -1,7 +1,7 @@
 local M = {}
 
-M.config = function()
-  require("telescope").setup {
+M.config = function ()
+  require("telescope").setup{
     extensions = {
       fzf = {
         fuzzy = true, -- false will only do exact matching
@@ -22,8 +22,8 @@ M.config = function()
       },
       file_ignore_patterns = { "vendor" },
       preview = {
-        mime_hook = function(filepath, bufnr, opts)
-          local is_image = function(filepath)
+        mime_hook = function (filepath, bufnr, opts)
+          local is_image = function (filepath)
             local image_extensions = { 'png', 'jpg', 'jpeg' } -- Supported image formats
             local split_path = vim.split(filepath:lower(), '.', { plain = true })
             local extension = split_path[#split_path]
@@ -39,7 +39,7 @@ M.config = function()
 
             vim.fn.jobstart(
               {
-                'viu', filepath -- Terminal image viewer command
+                'viu', '-h', '20', '-b', filepath -- Terminal image viewer command
               },
               { on_stdout = send_output, stdout_buffered = true })
           else
