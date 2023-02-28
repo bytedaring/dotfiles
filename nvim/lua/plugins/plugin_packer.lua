@@ -402,16 +402,14 @@ packer.startup({ function (use)
   -- 另一种通用图形调试器
   use{
     "mfussenegger/nvim-dap",
-    ft = { "go" },
-    config = function ()
-    end
+    ft = { "go" }
   }
   use{
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     requires = { "mfussenegger/nvim-dap" },
   }
-  use{ "theHamsta/nvim-dap-virtual-text", ft = { "go" }, after = "nvim-dap" }
+  use{ "theHamsta/nvim-dap-virtual-text", ft = { "go", "lua" }, after = "nvim-dap" }
   -- go development ide plugin
   -- use { "fatih/vim-go", ft =  { "go" }}
   use{
