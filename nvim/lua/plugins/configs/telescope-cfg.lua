@@ -49,6 +49,11 @@ M.config = function ()
       },
     }
   }
+
+  local ok, _ = pcall(require, 'aerial')
+  if ok then
+    require('telescope').load_extension('aerial')
+  end
 end
 
 return M

@@ -417,3 +417,5 @@ zig
 zls
 lldb
 codelldb
+gte
+lte

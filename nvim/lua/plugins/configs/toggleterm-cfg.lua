@@ -1,6 +1,6 @@
 local M = {}
-M.setup = function()
-  require("toggleterm").setup {
+M.setup = function ()
+  require("toggleterm").setup{
     size = 15,
     open_mapping = [[<c-\>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
@@ -22,24 +22,30 @@ M.setup = function()
         border = "Normal",
         background = "Normal",
       }
+    },
+    winbar = {
+      enabled = false,
+      name_formatter = function (term) --  term: Terminal
+        return term.name
+      end
     }
   }
   -- 集成lazygit
-  local Terminal = require('toggleterm.terminal').Terminal
-  local lazygit = Terminal:new({
-    cmd = "lazygit",
-    hidden = true,
-    direction = "float"
-  })
+  -- local Terminal = require('toggleterm.terminal').Terminal
+  -- local lazygit = Terminal:new({
+  --   cmd = "lazygit",
+  --   hidden = true,
+  --   direction = "float"
+  -- })
 
   -- After Neovim 0.7, can use after:
-  vim.api.nvim_set_keymap("n", "<c-g>", "", {
-    noremap = true,
-    silent = true,
-    callback = function()
-      lazygit:toggle()
-    end
-  })
+  -- vim.api.nvim_set_keymap("n", "<c-g>", "", {
+  --   noremap = true,
+  --   silent = true,
+  --   callback = function()
+  --     lazygit:toggle()
+  --   end
+  -- })
 
   -- Terminal window mappings, it can be helpful to make moving in and out of a terminal
   function _G.set_terminal_keymaps()
@@ -50,6 +56,7 @@ M.setup = function()
     vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
     vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
     vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+    vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
   end
 
   -- if you only want these mappings for toggle term use term://*toggleterm#* instead

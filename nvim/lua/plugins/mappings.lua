@@ -2,6 +2,7 @@
 -- Description: Keymaps
 --
 local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
 -- M.symbol = function()
 --   map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
@@ -12,11 +13,12 @@ local map = vim.api.nvim_set_keymap
 map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
 map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
 map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
-map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
+-- map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
 map('n', 'fn', [[<Cmd>bNext<CR>]], { noremap = true, silent = true })
 map('n', 'fp', [[<Cmd>bprevious<CR>]], { noremap = true, silent = true })
-map('n', 'fo', [[<Cmd>Telescope oldfiles<CR>]], { noremap = true, silent = true })
+map('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], { noremap = true, silent = true })
 map('n', 'fc', [[<Cmd>Telescope<CR>]], { noremap = true, silent = true })
+map('n', 'fo', [[<Cmd>Telescope aerial<CR>]], opts)
 
 -- todo-comments.nvim
 map('n', 'ft', [[<cmd>TodoTelescope<CR>]], { noremap = true, silent = true })
@@ -57,7 +59,6 @@ map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=tr
 map("n", "<leader>o", "<cmd>AerialToggle<CR>", { noremap = true, silent = true })
 
 -- lspsaga
-local opts = { noremap = true, silent = true }
 -- lsp finder to find the cursor word definition and reference
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
 -- code action
@@ -75,3 +76,6 @@ vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
 vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+
+--lazygit.nvim
+vim.keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)

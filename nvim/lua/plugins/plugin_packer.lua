@@ -141,7 +141,7 @@ packer.startup({ function (use)
   use{
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
-    cmd = "Telescope",
+    cmd = { "Telescope", 'AerialOpen' },
     config = require('plugins.configs.telescope-cfg').config,
   }
 
@@ -157,7 +157,7 @@ packer.startup({ function (use)
   --  文档大纲-缩略图
   use{
     'stevearc/aerial.nvim',
-    cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
+    cmd = { 'AerialOpen', 'Telescope', 'AerialToggle', 'AerialOpenAll' },
     config = function ()
       require('aerial').setup({
         layout = {
@@ -165,6 +165,10 @@ packer.startup({ function (use)
         },
         icons = require("core.icons").lspkind
       })
+      local ok, telescope = pcall(require, 'telescope')
+      if ok then
+        telescope.load_extension('aerial')
+      end
     end
   }
 
@@ -264,6 +268,10 @@ packer.startup({ function (use)
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
   }
+  -- use {
+  --   'kdheepak/lazygit.nvim',
+  --   cmd = "ToggleTerm"
+  -- }
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use{

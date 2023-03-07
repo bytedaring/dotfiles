@@ -15,8 +15,8 @@
 # BlexMono Nerd Font Mono Light
 # SauceCodePro Nerd Font Mono Light
 
-font_family      BlexMono Nerd Font Mono ExtraLight
-bold_font        BlexMono Nerd Font Mono Text 
+font_family      BlexMono Nerd Font Mono Light
+bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
@@ -85,6 +85,8 @@ adjust_column_width 0
 #: accordingly.
 
 # symbol_map
+# https://github.com/ChristianChiarulli/neovim-codicons/blob/main/dist/codicon.css
+symbol_map U+ea60-U+ebf8 codicon
 
 #: E.g. symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
 
@@ -178,7 +180,7 @@ adjust_column_width 0
 
 #:     font_features FiraCode-Retina +zero
 
-font_features BlexMonoNerdFontCompleteM-Light +zero +onum
+# font_features BlexMonoNerdFontCompleteM-Light +zero +onum
 
 #: Disable the normal ligatures, but keep the calt feature which (in
 #: this font) breaks up monotony::
@@ -2083,6 +2085,6 @@ macos_thicken_font 0
 
 
 # BEGIN_KITTY_THEME
-# Espresso
+# Breath2
 include current-theme.conf
 # END_KITTY_THEME
