@@ -79,3 +79,6 @@ vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
 --lazygit.nvim
 vim.keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
+
+--gx open URL in browser
+vim.keymap.set('n', 'gx', "<cmd>silent !open <cWORD><CR>", opts)
