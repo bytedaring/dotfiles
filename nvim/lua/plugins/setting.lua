@@ -5,27 +5,27 @@ local wo = vim.wo
 
 -- 禁用netrw等默认内置插件
 local builtin_plugs = {
-    '2html_plugin',
-    'getscriptPlugin',
-    'getscript',
-    'gzip',
-    'logiPat',
-    'matchparen',
-    'matchit',
-    'netrw',
-    'netrwPlugin',
-    'netrwSettings',
-    'netrwFileHandlers',
-    'remote_plugins',
-    'rrhelper',
-    'tar',
-    'tarPlugin',
-    'spellfile_plugin',
-    'tutor_mode_plugin',
-    'vimball',
-    'vimballPlugin',
-    'zip',
-    'zipPlugin',
+  '2html_plugin',
+  'getscriptPlugin',
+  'getscript',
+  'gzip',
+  'logiPat',
+  'matchparen',
+  'matchit',
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'remote_plugins',
+  'rrhelper',
+  'tar',
+  'tarPlugin',
+  'spellfile_plugin',
+  'tutor_mode_plugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
 }
 for i = 1, #builtin_plugs do
   g['loaded_' .. builtin_plugs[i]] = 1
@@ -33,7 +33,7 @@ end
 
 opt.lazyredraw = true
 -- 不兼容模式
-vim.cmd [[set nocompatible ]]
+vim.cmd[[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
@@ -43,7 +43,7 @@ o.shada = "!,'15,<30,s10,h"
 -- 0: 不显示 1: 启动显示转态行 2: 总是显示状态行 3: 总是显示且显示最后一个windows的状态行
 o.laststatus = 3
 
-vim.cmd [[set autowrite]]
+vim.cmd[[set autowrite]]
 opt.list = true
 
 -- 递归搜索文件路径
@@ -64,7 +64,7 @@ opt.smartindent = true
 
 -- 设置折叠方式
 opt.foldmethod = "indent"
-vim.cmd [[ set nofoldenable ]]
+vim.cmd[[ set nofoldenable ]]
 opt.foldlevel = 2
 
 -- indentLine
@@ -94,37 +94,37 @@ o.signcolumn = 'number'
 vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
 
 -- vim操作作用到系统clipboard
-vim.cmd [[ set clipboard+=unnamedplus ]]
+vim.cmd[[ set clipboard+=unnamedplus ]]
 
 -- vimspector 图形调试器
 g.vimspector_enable_mappings = 'HUMAN'
-vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
+vim.cmd[[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
 
 --------------- Color scheme -----------------
 -- 启用语法高亮、拼写检查
 local syntax_group = vim.api.nvim_create_augroup("syntax_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "awk" },
-    command = "syntax on",
-    group = syntax_group,
+  pattern = { "awk" },
+  command = "syntax on",
+  group = syntax_group,
 })
 ---------- Spell Check  --------------------
 vim.opt.spelloptions = 'camel'
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "python", "go", "javascript" },
-    command = "setlocal spell spelllang=en_us,cjk",
-    group = spell_group,
+  pattern = { "lua", "python", "go", "javascript" },
+  command = "setlocal spell spelllang=en_us,cjk",
+  group = spell_group,
 })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown" },
-    command = "setlocal nospell",
-    group = spell_group,
+  pattern = { "markdown" },
+  command = "setlocal nospell",
+  group = spell_group,
 })
 vim.api.nvim_create_autocmd("TermOpen", {
-    pattern = "*",
-    command = "setlocal nospell",
-    group = spell_group,
+  pattern = "*",
+  command = "setlocal nospell",
+  group = spell_group,
 })
 
 -- 使用黑色主题 设置配色方案
@@ -132,11 +132,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
 
 --------------- Blame -----------------
+g.gitblame_highlight_group = 'Question'
 g.gitblame_message_template = '<date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
 g.gitblame_ignored_filetypes = {
-    'NvimTree', 'packer', 'Trouble', 'dap-repl', 'dapui_watches',
-    'dapui_breakpoints', 'dapui_scopes', 'dapui_stacks'
+  'NvimTree', 'packer', 'Trouble', 'dap-repl', 'dapui_watches',
+  'dapui_breakpoints', 'dapui_scopes', 'dapui_stacks'
 }
 
 --------------- Python3 -----------------
