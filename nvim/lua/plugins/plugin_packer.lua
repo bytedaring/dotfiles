@@ -236,7 +236,7 @@ packer.startup({ function (use)
       require("Comment").setup()
     end,
     ft = { "html", "typescriptreact", "typescript", "javascript", "lua", "css", "less", "lua", "python", "go", "vim",
-      "sh" }
+      "sh", "zig" }
   }
 
   -- Markdown预览
