@@ -467,16 +467,14 @@ packer.startup({ function (use)
   -- 测试插件
   use{ "vim-test/vim-test", ft = { "go", "python" } }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
-  use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
+  -- use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
   use{
     "nvim-neotest/neotest-go",
     ft = { "go" },
-    after = "FixCursorHold.nvim"
   }
   use{
     "nvim-neotest/neotest",
     ft = { "go" },
-    after = "neotest-go",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
