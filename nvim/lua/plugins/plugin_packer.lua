@@ -141,7 +141,7 @@ packer.startup({ function (use)
   use{
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
-    cmd = { "Telescope", 'AerialOpen' },
+    cmd = { "Telescope" },
     config = require('plugins.configs.telescope-cfg').config,
   }
 
@@ -157,7 +157,7 @@ packer.startup({ function (use)
   --  文档大纲-缩略图
   use{
     'stevearc/aerial.nvim',
-    cmd = { 'AerialOpen', 'Telescope', 'AerialToggle', 'AerialOpenAll' },
+    cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
     config = function ()
       require('aerial').setup({
         layout = {
@@ -470,22 +470,16 @@ packer.startup({ function (use)
   -- use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
   use{
     "nvim-neotest/neotest-go",
-    ft = { "go" },
+    after = "nvim-cmp"
   }
   use{
     "nvim-neotest/neotest",
-    ft = { "go" },
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/neotest-go",
-    },
+    after = 'neotest-go',
     config = function ()
-      require('neotest').setup({
+      require("neotest").setup({
         adapters = {
-          require('neotest-go'),
-          -- require("neotest-python")
-        }
+          require("neotest-go"),
+        },
       })
     end
   }

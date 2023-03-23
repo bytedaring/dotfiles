@@ -43,13 +43,13 @@ map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, sil
 
 -- ToggleTerm
 map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<C-r>', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 
 -- go.nvim
 map('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], { noremap = true, silent = true })
 map('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], { noremap = true, silent = true })
-map('n', '<leader>t', [[<Cmd>TestFile -strategy=neovim<CR>]], { noremap = true, silent = true })
 
 -- vim-illuminate
 map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
@@ -82,3 +82,9 @@ vim.keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
 
 --gx open URL in browser
 vim.keymap.set('n', 'gx', "<cmd>silent !open <cWORD><CR>", opts)
+
+--neotest_
+vim.keymap.set('n', '<leader>ts', [[<Cmd>lua require('neotest').summary.toggle()<CR>]], opts)
+vim.keymap.set('n', '<leader>to', [[<Cmd>lua require('neotest').output_panel.toggle()<CR>]], opts)
+vim.keymap.set('n', '<leader>tr', [[<Cmd>lua require('neotest').run.run()<CR>]], opts)
+vim.keymap.set('n', '<leader>tf', [[<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>]], opts)
