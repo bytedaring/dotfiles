@@ -1,5 +1,5 @@
 {
-  "name": "js-snippets",
+  "name": "lang-snippets",
   "contributes": {
     "snippets": [
       {
@@ -7,6 +7,12 @@
           "javascript"
         ],
         "path": "./react.json"
+      },
+      {
+        "language": [
+          "zig"
+        ],
+        "path": "./zig.json"
       }
     ]
   }
