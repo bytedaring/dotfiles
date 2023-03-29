@@ -37,10 +37,9 @@ M.config = function ()
               end
             end
 
+            -- { 'viu', '-h', '20', '-b', filepath },
             vim.fn.jobstart(
-              {
-                'viu', '-h', '20', '-b', filepath -- Terminal image viewer command
-              },
+              { 'viu', filepath },
               { on_stdout = send_output, stdout_buffered = true })
           else
             require("telescope.previewers.utils").set_preview_message(bufnr, opts.winid, "Binary cannot be previewed")

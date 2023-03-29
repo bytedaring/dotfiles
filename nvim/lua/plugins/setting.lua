@@ -132,7 +132,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
 
 --------------- Blame -----------------
-g.gitblame_highlight_group = 'Question'
+g.gitblame_highlight_group = 'Comment'
 g.gitblame_message_template = '<date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
 g.gitblame_ignored_filetypes = {
