@@ -78,7 +78,13 @@ packer.startup({ function (use)
     'nvim-lualine/lualine.nvim',
     event = { "BufRead", "BufNewFile" },
     config = function ()
-      require("lualine").setup({})
+      require("lualine").setup({
+        options = {
+          theme = 'powerline_dark',
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' }
+        }
+      })
     end
   }
 
@@ -128,6 +134,12 @@ packer.startup({ function (use)
       vim.cmd[[colorscheme dracula]]
     end
   }
+  -- use{
+  --   'ellisonleao/gruvbox.nvim',
+  --   config = function ()
+  --     vim.cmd[[colorscheme gruvbox]]
+  --   end
+  -- }
 
   --  文件浏览器 File Explorer
   use{
@@ -426,7 +438,7 @@ packer.startup({ function (use)
       require("go").setup({
         lsp_cfg = false,
         lsp_keymaps = true,
-        go = 'go',
+        go = 'go1.19',
         icons = { breakpoint = "🔴", currentpos = "👉" },
         run_in_floaterm = false,
         dap_debug_gui = {
