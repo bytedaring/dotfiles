@@ -89,57 +89,20 @@ packer.startup({ function (use)
   }
 
   -- color scheme
-  -- use {
-  --   'Mofiqul/vscode.nvim',
-  --   disable = true,
-  --   config = function()
-  --     vim.o.background = 'dark'
-  --     vim.g.vscode_italic_comment = 0
-  --     vim.cmd([[colorscheme vscode]])
-  --   end
-  -- }
-  -- use {
-  --   'glepnir/zephyr-nvim',
-  --   config = function()
-  --     require('zephyr')
-  --   end
-  -- }
-  -- use {
-  --   'folke/tokyonight.nvim',
-  --   config = function()
-  --     require('tokyonight').setup({
-  --       style = 'night'
-  --     })
-  --     vim.cmd [[colorscheme tokyonight]]
-  --   end
-  -- }
-  -- use {
-  -- 'catppuccin/nvim', as = 'catppuccin',
-  -- config = function()
-  --   require('catppuccin').setup({
-  --     flavour = 'mocha'
-  --   })
-  --   vim.cmd [[colorscheme catppuccin]]
-  -- end
-  -- }
-  -- use {
-  --   'EdenEast/nightfox.nvim',
-  --   config = function()
-  --     -- vim.cmd [[colorscheme carbonfox]]
-  --   end
-  -- }
-  use{
-    'Mofiqul/dracula.nvim',
-    config = function ()
-      vim.cmd[[colorscheme dracula]]
-    end
-  }
   -- use{
   --   'ellisonleao/gruvbox.nvim',
   --   config = function ()
   --     vim.cmd[[colorscheme gruvbox]]
   --   end
   -- }
+  use{
+    'Mofiqul/dracula.nvim',
+    config = function ()
+      vim.cmd[[colorscheme dracula]]
+      vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
+      vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
+    end
+  }
 
   --  文件浏览器 File Explorer
   use{
@@ -417,7 +380,7 @@ packer.startup({ function (use)
   --  用于VIM的多语言图形调试器
   use{
     "puremourning/vimspector",
-    ft = { "rust", "lua" }
+    ft = { "rust" }
   }
   -- 另一种通用图形调试器
   use{

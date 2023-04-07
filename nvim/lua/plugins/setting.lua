@@ -112,7 +112,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.spelloptions = 'camel'
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python", "go", "javascript" },
+  pattern = { "lua", "python", "go", "javascript", "rust", "zig" },
   command = "setlocal spell spelllang=en_us,cjk",
   group = spell_group,
 })
