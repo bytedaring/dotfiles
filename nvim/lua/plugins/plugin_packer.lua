@@ -31,13 +31,13 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
--- packer.init({
---   display = {
---     open_fn = function ()
---       return require('packer.util').float({ border = 'rounded' })
---     end
---   }
--- })
+packer.init({
+  display = {
+    open_fn = function ()
+      return require('packer.util').float({ border = 'rounded' })
+    end
+  }
+})
 
 -- Insert your plugins here
 packer.startup({ function (use)
@@ -89,20 +89,51 @@ packer.startup({ function (use)
   }
 
   -- color scheme
-  -- use{
-  --   'ellisonleao/gruvbox.nvim',
-  --   config = function ()
-  --     vim.cmd[[colorscheme gruvbox]]
-  --   end
-  -- }
   use{
-    'Mofiqul/dracula.nvim',
+    'tanvirtin/monokai.nvim',
     config = function ()
-      vim.cmd[[colorscheme dracula]]
-      vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
-      vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
+      local monokai = require('monokai')
+      local palette = monokai.pro
+      monokai.setup{
+        palette = require('monokai').pro,
+        custom_hlgroups = {
+          ["@comment"] = {
+            fg = palette.base6,
+            -- style = 'NONE',
+          },
+          ["@function"] = {
+            fg = palette.green,
+            style = 'NONE',
+          },
+          ["@keyword.function"] = {
+            fg = palette.aqua,
+            style = 'NONE',
+          },
+          ["@keyword"] = {
+            fg = palette.pink,
+            style = 'NONE',
+          },
+          ["@function.builtin"] = {
+            fg = palette.aqua,
+            style = 'italic',
+          },
+          ["@type.builtin"] = {
+            fg = palette.aqua,
+            style = 'italic',
+          },
+        }
+      }
     end
   }
+  -- use{
+    -- 'Mofiqul/dracula.nvim',
+    -- config = function ()
+      -- vim.cmd[[colorscheme dracula]]
+      -- vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
+      -- vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
+      -- vim.cmd[[highlight Underlined under]]
+    -- end
+  -- }
 
   --  文件浏览器 File Explorer
   use{
@@ -347,6 +378,8 @@ packer.startup({ function (use)
     config = function ()
       require('illuminate').configure({
         filetypes_denylist = {
+          'json',
+          'mysql',
           'toggleterm',
           'dirvish',
           'fugitive',
