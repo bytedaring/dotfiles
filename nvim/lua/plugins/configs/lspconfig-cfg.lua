@@ -1,7 +1,5 @@
 local M = {}
 M.setup = function ()
-  require("neodev").setup()
-
   local nvim_lsp = require('lspconfig')
 
   -- 支持code snippets
