@@ -72,8 +72,7 @@ o.cursorline = true
 
 -- indentLine
 -- g.indentLine_char = 'c'
-g.indentLine_char_list = { '|', '¦', '┆', '┊' }
-
+--
 -- 当文件在外部被修改时，自动重新读取
 -- set autoread
 
