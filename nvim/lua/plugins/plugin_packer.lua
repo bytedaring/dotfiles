@@ -126,13 +126,13 @@ packer.startup({ function (use)
     end
   }
   -- use{
-    -- 'Mofiqul/dracula.nvim',
-    -- config = function ()
-      -- vim.cmd[[colorscheme dracula]]
-      -- vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
-      -- vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
-      -- vim.cmd[[highlight Underlined under]]
-    -- end
+  -- 'Mofiqul/dracula.nvim',
+  -- config = function ()
+  -- vim.cmd[[colorscheme dracula]]
+  -- vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
+  -- vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
+  -- vim.cmd[[highlight Underlined under]]
+  -- end
   -- }
 
   --  文件浏览器 File Explorer
@@ -227,10 +227,29 @@ packer.startup({ function (use)
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     config = function ()
+      vim.opt.termguicolors = true
+      vim.cmd[[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+      vim.cmd[[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+      vim.cmd[[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+      vim.cmd[[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+      vim.cmd[[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+      vim.cmd[[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+
+      vim.opt.list = true
+      -- vim.opt.listchars:append "space:⋅"
+      -- vim.opt.listchars:append "eol:↴"
       require("indent_blankline").setup{
         space_char_blankline = " ",
         show_current_context = true,
         show_current_context_start = false,
+        char_highlight_list = {
+          "IndentBlanklineIndent1",
+          "IndentBlanklineIndent2",
+          "IndentBlanklineIndent3",
+          "IndentBlanklineIndent4",
+          "IndentBlanklineIndent5",
+          "IndentBlanklineIndent6",
+        },
       }
     end
   }
