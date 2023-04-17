@@ -10,53 +10,54 @@ local opts = { noremap = true, silent = true }
 
 -- telescope
 -- Find files using Telescope command-line sugar.
-map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], { noremap = true, silent = true })
-map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], { noremap = true, silent = true })
-map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], { noremap = true, silent = true })
+map('n', 'ff', [[<Cmd>Telescope find_files<CR>]], opts)
+map('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], opts)
+map('n', 'fb', [[<Cmd>Telescope buffers<CR>]], opts)
 -- map('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
-map('n', 'fn', [[<Cmd>bNext<CR>]], { noremap = true, silent = true })
-map('n', 'fp', [[<Cmd>bprevious<CR>]], { noremap = true, silent = true })
-map('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], { noremap = true, silent = true })
-map('n', 'fc', [[<Cmd>Telescope<CR>]], { noremap = true, silent = true })
+map('n', 'fn', [[<Cmd>bNext<CR>]], opts)
+map('n', 'fp', [[<Cmd>bprevious<CR>]], opts)
+map('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], opts)
+map('n', 'fc', [[<Cmd>Telescope<CR>]], opts)
 map('n', 'fo', [[<Cmd>Telescope aerial<CR>]], opts)
+map('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
 
 -- todo-comments.nvim
-map('n', 'ft', [[<cmd>TodoTelescope<CR>]], { noremap = true, silent = true })
+map('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
 
 -- nvim-tree NvimTreeFindFileToggle
 -- nnoremap fi :<C-u>:NvimTreeFindFileToggle<CR>
-map('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], { noremap = true, silent = true })
+map('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
 
 -- vimspector
-map('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], { noremap = true, silent = true })
-map('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], { noremap = true, silent = true })
-map('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], { noremap = true, silent = true })
-map('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], { noremap = true, silent = true })
-map('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], { noremap = true, silent = true })
+map('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
+map('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], opts)
+map('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], opts)
+map('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], opts)
+map('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
 
 -- Trouble
-map('n', '<leader>xx', [[<Cmd>TroubleToggle<CR>]], { noremap = true, silent = true })
-map('n', '<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], { noremap = true, silent = true })
-map('n', '<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], { noremap = true, silent = true })
-map('n', '<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], { noremap = true, silent = true })
-map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], { noremap = true, silent = true })
+map('n', '<leader>xx', [[<Cmd>TroubleToggle<CR>]], opts)
+map('n', '<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], opts)
+map('n', '<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], opts)
+map('n', '<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], opts)
+map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], opts)
 
 -- ToggleTerm
-map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)
 vim.keymap.set('n', '<C-r>', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 
 -- go.nvim
-map('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], { noremap = true, silent = true })
-map('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], { noremap = true, silent = true })
-map('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], { noremap = true, silent = true })
-map('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], { noremap = true, silent = true })
+map('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)
+map('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], opts)
+map('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], opts)
+map('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
 
 -- vim-illuminate
 map('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
 map('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
 
 -- Outline
-map("n", "<leader>o", "<cmd>AerialToggle<CR>", { noremap = true, silent = true })
+map("n", "<leader>o", "<cmd>AerialToggle<CR>", opts)
 
 -- lspsaga
 -- lsp finder to find the cursor word definition and reference
