@@ -376,40 +376,6 @@ packer.startup({ function (use)
     after = "nvim-cmp",
   }
   use{
-    'yamatsum/nvim-cursorline',
-    config = function ()
-      require('nvim-cursorline').setup{
-        cursorline = {
-          enable = true,
-          timeout = 1000,
-          number = false,
-        },
-        cursorword = {
-          enable = true,
-          min_length = 3,
-          hl = { underline = true },
-        }
-      }
-    end
-  }
-  -- use{
-  --   'RRethy/vim-illuminate',
-  --   after = "cmp-nvim-lsp",
-  --   config = function ()
-  --     require('illuminate').configure({
-  --       providers = { 'regex' },
-  --       filetypes_denylist = {
-  --         'json',
-  --         'mysql',
-  --         'toggleterm',
-  --         'dirvish',
-  --         'fugitive',
-  --         'NvimTree'
-  --       },
-  --     })
-  --   end
-  -- }
-  use{
     "L3MON4D3/LuaSnip",
     wants = "friendly-snippets",
     after = "nvim-cmp"
@@ -575,6 +541,26 @@ packer.startup({ function (use)
     event = { "BufRead", "BufNewFile" },
     config = function ()
       vim.notify = require('notify')
+    end
+  }
+
+  -- highlight cursor words and lines
+  use{
+    'yamatsum/nvim-cursorline',
+    event = { "BufRead", "BufNewFile" },
+    config = function ()
+      require('nvim-cursorline').setup{
+        cursorline = {
+          enable = true,
+          timeout = 1000,
+          number = false,
+        },
+        cursorword = {
+          enable = true,
+          min_length = 3,
+          hl = { underline = true },
+        }
+      }
     end
   }
 
