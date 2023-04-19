@@ -546,21 +546,10 @@ packer.startup({ function (use)
 
   -- highlight cursor words and lines
   use{
-    'yamatsum/nvim-cursorline',
+    'xiyaowong/nvim-cursorword',
     event = { "BufRead", "BufNewFile" },
     config = function ()
-      require('nvim-cursorline').setup{
-        cursorline = {
-          enable = true,
-          timeout = 1000,
-          number = false,
-        },
-        cursorword = {
-          enable = true,
-          min_length = 3,
-          hl = { underline = true },
-        }
-      }
+      vim.cmd[[hi default CursorWord cterm=underline gui=underline]]
     end
   }
 
