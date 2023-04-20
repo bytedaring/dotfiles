@@ -345,7 +345,7 @@ packer.startup({ function (use)
   -- LSP plugin
   use{
     "glepnir/lspsaga.nvim",
-    event = { "BufRead", "BufNewFile" },
+    event = { "LspAttach" },
     branch = "main",
     config = require("plugins.configs.others").lspsaga
   }
