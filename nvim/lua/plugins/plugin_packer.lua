@@ -121,6 +121,9 @@ packer.startup({ function (use)
             fg = palette.aqua,
             style = 'italic',
           },
+          ["@method.call"] = {
+            fg = palette.green,
+          },
         }
       }
     end
@@ -338,8 +341,9 @@ packer.startup({ function (use)
   -- LSP signature hint as you type
   use{
     "ray-x/lsp_signature.nvim",
-    after = "nvim-lspconfig",
-    event = { "BufRead", "InsertEnter", "BufNewFile" },
+    -- after = "nvim-lspconfig",
+    event = { "LspAttach" },
+    -- event = { "BufRead", "InsertEnter", "BufNewFile" },
     config = require('plugins.configs.others').signature
   }
   -- LSP plugin
