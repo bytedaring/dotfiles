@@ -66,7 +66,8 @@ vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
 vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
 -- code lens action
-vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+-- vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+vim.keymap.set("n", "<leader>la", "<cmd>GoCodeLenAct<CR>", opts)
 -- show hover doc and press twice will jump to hover window
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 -- rename

@@ -341,7 +341,7 @@ packer.startup({ function (use)
   -- LSP signature hint as you type
   use{
     "ray-x/lsp_signature.nvim",
-    -- after = "nvim-lspconfig",
+    after = "nvim-lspconfig",
     event = { "LspAttach" },
     -- event = { "BufRead", "InsertEnter", "BufNewFile" },
     config = require('plugins.configs.others').signature
