@@ -129,10 +129,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = spell_group,
 })
 
--- 使用黑色主题 设置配色方案
--- opt.bg = "dark"
--- vim.cmd [[ colorscheme dracula ]] --monokai_soda  "dracula onedark  monokai_pro gruvbox
-
 --------------- Blame -----------------
 g.gitblame_highlight_group = 'Comment'
 g.gitblame_message_template = '          <date> • <author> • <summary>'

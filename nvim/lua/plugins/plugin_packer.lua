@@ -1,13 +1,3 @@
--- -----------------------------------------------------------------------------
---       _                                                       _
--- __  _(_)_      ____ _ _ __   __ _       _ __   ___  _____   _(_)_ __ ___
--- \ \/ / \ \ /\ / / _` | "_ \ / _` |_____| "_ \ / _ \/ _ \ \ / / | "_ ` _ \
---  >  <| |\ V  V / (_| | | | | (_| |_____| | | |  __/ (_) \ V /| | | | | | |
--- /_/\_\_| \_/\_/ \__,_|_| |_|\__, |     |_| |_|\___|\___/ \_/ |_|_| |_| |_|
---                            |___/                     _                        _
---
--- -----------------------------------------------------------------------------
-
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -54,26 +44,6 @@ packer.startup({ function (use)
     event = { 'BufRead', 'BufNewFile' }
   }
 
-  -- UI Component Library for Neovim
-  -- use 'MunifTanjim/nui.nvim'
-
-  --  vim开屏页美化插件，可以记录最近编辑的文件，使用对应数字编号就可以快速打开文件，使用起来非常方便。
-  -- use {
-  --   "goolord/alpha-nvim",
-  --   requires = { "kyazdani42/nvim-web-devicons" },
-  --   config = function()
-  --     require "alpha".setup(require "alpha.themes.startify".config)
-  --   end
-  -- }
-
-  --  状态栏美化
-  -- use {
-  --   "feline-nvim/feline.nvim",
-  --   event = { "BufRead", "BufNewFile" },
-  --   config = function()
-  --     require("feline").setup()
-  --   end
-  -- }
   use{
     'nvim-lualine/lualine.nvim',
     event = { "BufRead", "BufNewFile" },
@@ -128,15 +98,6 @@ packer.startup({ function (use)
       }
     end
   }
-  -- use{
-  -- 'Mofiqul/dracula.nvim',
-  -- config = function ()
-  -- vim.cmd[[colorscheme dracula]]
-  -- vim.cmd[[highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=gray]]
-  -- vim.cmd[[highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=orange]]
-  -- vim.cmd[[highlight Underlined under]]
-  -- end
-  -- }
 
   --  文件浏览器 File Explorer
   use{
@@ -280,10 +241,6 @@ packer.startup({ function (use)
     cmd = "ToggleTerm",
     config = require("plugins.configs.toggleterm-cfg").setup,
   }
-  -- use {
-  --   'kdheepak/lazygit.nvim',
-  --   cmd = "ToggleTerm"
-  -- }
 
   --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
   use{
@@ -300,8 +257,7 @@ packer.startup({ function (use)
         },
         highlight = {
           enable = true,
-          disable = {},
-          -- additional_vim_regex_highlighting = false,
+          disable = {}
         },
         indent = {
           enable = false,
@@ -316,34 +272,12 @@ packer.startup({ function (use)
   use{
     "neovim/nvim-lspconfig",
     event = { 'BufRead', 'BufNewFile' }
-    -- setup = function()
-    --   require("core.utils").packer_lazy_load "nvim-lspconfig"
-    --   -- reload the current file so lsp actually starts for it
-    --   vim.defer_fn(function()
-    --     vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-    --   end, 0)
-    -- end
   }
-  -- use {
-  --   "williamboman/mason.nvim",
-  --   opt = true,
-  --   event = { 'InsertEnter' },
-  --   after = "nvim-lspconfig"
-  -- }
-  -- use {
-  --   "williamboman/mason-lspconfig.nvim",
-  --   after = "mason.nvim",
-  --   config = function()
-  --     require("mason").setup()
-  --     require("mason-lspconfig").setup()
-  --   end
-  -- }
   -- LSP signature hint as you type
   use{
     "ray-x/lsp_signature.nvim",
     after = "nvim-lspconfig",
     event = { "LspAttach" },
-    -- event = { "BufRead", "InsertEnter", "BufNewFile" },
     config = require('plugins.configs.others').signature
   }
   -- LSP plugin
@@ -363,7 +297,6 @@ packer.startup({ function (use)
   -- snippet source
   use{
     "rafamadriz/friendly-snippets",
-    -- event = { "BufRead", "BufNewFile" }
     event = { 'InsertEnter' }
   }
   --  增强代码自动完成
@@ -417,8 +350,6 @@ packer.startup({ function (use)
     requires = { "mfussenegger/nvim-dap" },
   }
   use{ "theHamsta/nvim-dap-virtual-text", ft = { "go", "lua" }, after = "nvim-dap" }
-  -- go development ide plugin
-  -- use { "fatih/vim-go", ft =  { "go" }}
   use{
     "ray-x/go.nvim", ft = { "go" },
     config = function ()
@@ -455,14 +386,6 @@ packer.startup({ function (use)
     end,
   }
   use{ 'ray-x/guihua.lua', ft = { 'go' } }
-  -- 另一种通用图形调试器
-  -- use {
-  --     "leoluz/nvim-dap-go",
-  --     ft = { "go" },
-  --     config = function ()
-  --         require("dap-go").setup()
-  --     end
-  -- }
   -- 测试插件
   use{ "vim-test/vim-test", ft = { "go", "python" } }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
@@ -475,7 +398,6 @@ packer.startup({ function (use)
     "nvim-neotest/neotest",
     after = 'neotest-go',
     config = function ()
-      -- get neotest namespace (api call creates or returns namespace)
       local neotest_ns = vim.api.nvim_create_namespace("neotest")
       vim.diagnostic.config({
         virtual_text = {
@@ -500,16 +422,8 @@ packer.startup({ function (use)
     cmd = { "TroubleToggle", "Trouble" },
     config = function ()
       require("trouble").setup{}
-    end,
-    -- ft = { "javascript", "go", "rust", "lua", "python", "vim", "sh", "html", "zig" },
+    end
   }
-
-  -- Bash Development for Neovim, also support formatting and lintting
-  -- use {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   ft = { "javascript", "html", "css", "sh", "vim", "lua" },
-  --   config = require("plugins.configs.null-ls-cfg").setup,
-  -- }
 
   -- lint
   use{
@@ -521,13 +435,6 @@ packer.startup({ function (use)
     },
     config = require('plugins.configs.others').lint
   }
-
-  -- lua development
-  -- use{
-  --   "folke/neodev.nvim",
-  --   event = { "BufRead", "BufNewFile" },
-  --   ft = { "lua" }
-  -- }
 
   -- TODO
   use{
