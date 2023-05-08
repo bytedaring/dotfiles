@@ -41,7 +41,31 @@ packer.startup({ function (use)
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   use{
     "kyazdani42/nvim-web-devicons",
-    event = { 'BufRead', 'BufNewFile' }
+    event = { 'BufRead', 'BufNewFile' },
+    config = function ()
+      require'nvim-web-devicons'.setup{
+        override = {
+          zip = {
+            icon = " ",
+            color = "#dad8d8",
+            cterm_color = "188",
+            name = "Zip"
+          },
+          sum = {
+            icon = "",
+            color = "#E8274B",
+            cterm_color = "74",
+            name = "GoSum",
+          },
+          mod = {
+            icon = "",
+            color = "#E8274B",
+            cterm_color = "74",
+            name = "GoMod",
+          },
+        },
+      }
+    end
   }
 
   use{
@@ -358,7 +382,7 @@ packer.startup({ function (use)
         lsp_cfg = false,
         lsp_keymaps = true,
         go = 'go1.19',
-        icons = { breakpoint = "🔴", currentpos = "👉" },
+        icons = { breakpoint = "🔴", currentpos = " " },
         run_in_floaterm = false,
         dap_debug_gui = {
           layouts = {
