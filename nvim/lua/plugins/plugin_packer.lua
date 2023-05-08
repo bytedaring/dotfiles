@@ -50,9 +50,10 @@ packer.startup({ function (use)
     config = function ()
       require("lualine").setup({
         options = {
-          theme = 'powerline_dark',
-          section_separators = { left = '', right = '' },
-          component_separators = { left = '', right = '' }
+          theme = 'auto',
+          icons_enabled = true,
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
         }
       })
     end
@@ -335,10 +336,10 @@ packer.startup({ function (use)
   }
 
   --  用于VIM的多语言图形调试器
-  use{
-    "puremourning/vimspector",
-    ft = { "rust" }
-  }
+  -- use{
+  --   "puremourning/vimspector",
+  --   ft = { "rust" }
+  -- }
   -- 另一种通用图形调试器
   use{
     "mfussenegger/nvim-dap",
@@ -392,7 +393,8 @@ packer.startup({ function (use)
   -- use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
   use{
     "nvim-neotest/neotest-go",
-    after = "nvim-cmp"
+    ft = { "go" },
+    event = { "LspAttach" }
   }
   use{
     "nvim-neotest/neotest",
@@ -451,7 +453,9 @@ packer.startup({ function (use)
     'rcarriga/nvim-notify',
     event = { "BufRead", "BufNewFile" },
     config = function ()
-      vim.notify = require('notify')
+      local notify = require('notify')
+      notify.setup({ timeout = 1000 })
+      vim.notify = notify
     end
   }
 
