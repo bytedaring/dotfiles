@@ -45,7 +45,7 @@ map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], opts)
 
 -- ToggleTerm
 map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)
-vim.keymap.set('n', '<C-r>', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
+vim.keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 
 -- go.nvim
 map('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)
