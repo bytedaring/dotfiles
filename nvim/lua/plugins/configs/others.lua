@@ -85,4 +85,27 @@ M.lspsaga = function ()
   })
 end
 
+M.neotest = function ()
+  local create_cmd = function (cmd, func, opt)
+    opt = vim.tbl_extend('force', { desc = 'xw.nvim ' .. cmd }, opt or {})
+    vim.api.nvim_create_user_command(cmd, func, opt)
+  end
+
+  create_cmd("NeotestToggleSummary", function (_)
+    require('neotest').summary.toggle()
+  end)
+
+  create_cmd("NeotestToggleOutputPanel", function (_)
+    require('neotest').output_panel.toggle()
+  end)
+
+  create_cmd("NeotestRun", function (_)
+    require('neotest').run.run()
+  end)
+
+  create_cmd("NeotestRunFile", function (_)
+    require('neotest').run.run(vim.fn.expand('%'))
+  end)
+end
+
 return M

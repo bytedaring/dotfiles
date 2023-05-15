@@ -53,14 +53,14 @@ packer.startup({ function (use)
           },
           sum = {
             icon = "",
-            color = "#E8274B",
-            cterm_color = "74",
+            color = "#e44d26",
+            cterm_color = "196",
             name = "GoSum",
           },
           mod = {
             icon = "",
-            color = "#E8274B",
-            cterm_color = "74",
+            color = "#e44d26",
+            cterm_color = "196",
             name = "GoMod",
           },
         },
@@ -127,7 +127,7 @@ packer.startup({ function (use)
   --  文件浏览器 File Explorer
   use{
     "kyazdani42/nvim-tree.lua",
-    after = "nvim-web-devicons",
+    -- after = "nvim-web-devicons",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = require('plugins.configs.nvim-tree-cfg').config,
   }
@@ -301,7 +301,6 @@ packer.startup({ function (use)
   -- LSP signature hint as you type
   use{
     "ray-x/lsp_signature.nvim",
-    after = "nvim-lspconfig",
     event = { "LspAttach" },
     config = require('plugins.configs.others').signature
   }
@@ -313,10 +312,10 @@ packer.startup({ function (use)
     config = require("plugins.configs.others").lspsaga
   }
 
-  use{
-    "andymass/vim-matchup",
-    event = { "BufRead", "BufNewFile" }
-  }
+  -- use{
+  -- "andymass/vim-matchup",
+  -- event = { "BufRead", "BufNewFile" }
+  -- }
 
   -- load luasnips + cmp related in insert mode only
   -- snippet source
@@ -382,7 +381,7 @@ packer.startup({ function (use)
         lsp_cfg = false,
         lsp_keymaps = true,
         go = 'go1.19',
-        icons = { breakpoint = "🔴", currentpos = " " },
+        icons = { breakpoint = "🍄", currentpos = "🔥" }, --🔴🤡🌕🚨
         run_in_floaterm = false,
         dap_debug_gui = {
           layouts = {
@@ -400,7 +399,8 @@ packer.startup({ function (use)
             },
             {
               elements = {
-                "repl", --"console"
+                "repl",
+
               },
               size = 10,
               position = "bottom", -- Can be "bottom" or "top"
@@ -412,18 +412,18 @@ packer.startup({ function (use)
   }
   use{ 'ray-x/guihua.lua', ft = { 'go' } }
   -- 测试插件
-  use{ "vim-test/vim-test", ft = { "go", "python" } }
+  use{
+    "vim-test/vim-test",
+    cmd = { "TestFile", "TestLast", "TestNearest", "TestSuite" }
+  }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
   -- use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
   use{
-    "nvim-neotest/neotest-go",
-    ft = { "go" },
-    event = { "LspAttach" }
-  }
-  use{
     "nvim-neotest/neotest",
-    after = 'neotest-go',
+    cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },
+    requires = { "nvim-neotest/neotest-go", opt = true },
     config = function ()
+      require("plugins.configs.others").neotest()
       local neotest_ns = vim.api.nvim_create_namespace("neotest")
       vim.diagnostic.config({
         virtual_text = {

@@ -86,7 +86,7 @@ vim.keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
 vim.keymap.set('n', 'gx', "<cmd>silent !open <cWORD><CR>", opts)
 
 --neotest_
-vim.keymap.set('n', '<leader>ts', [[<Cmd>lua require('neotest').summary.toggle()<CR>]], opts)
-vim.keymap.set('n', '<leader>to', [[<Cmd>lua require('neotest').output_panel.toggle()<CR>]], opts)
-vim.keymap.set('n', '<leader>tr', [[<Cmd>lua require('neotest').run.run()<CR>]], opts)
-vim.keymap.set('n', '<leader>tf', [[<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>]], opts)
+vim.keymap.set('n', '<leader>ts', [[<Cmd>NeotestToggleSummary<CR>]], opts)
+vim.keymap.set('n', '<leader>to', [[<Cmd>NeotestToggleOutputPanel<CR>]], opts)
+vim.keymap.set('n', '<leader>tr', [[<Cmd>NeotestRun<CR>]], opts)
+vim.keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
