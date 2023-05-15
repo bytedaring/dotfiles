@@ -77,7 +77,7 @@ vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 -- goto definition
 vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 -- peek type definition
-vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+vim.keymap.set("n", "gP", "<cmd>Lspsaga peek_type_definition<CR>")
 -- peek definition
 vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
 -- jump diagnostic
