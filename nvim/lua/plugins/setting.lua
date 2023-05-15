@@ -148,4 +148,3 @@ g.python3_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python3'
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 g.mapleader = ' '
 g.maplocalleader = ' '
-

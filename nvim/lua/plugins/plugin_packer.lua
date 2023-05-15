@@ -150,22 +150,22 @@ packer.startup({ function (use)
   }
 
   --  文档大纲-缩略图
-  use{
-    'stevearc/aerial.nvim',
-    cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
-    config = function ()
-      require('aerial').setup({
-        layout = {
-          min_width = 30,
-        },
-        icons = require("core.icons").lspkind
-      })
-      local ok, telescope = pcall(require, 'telescope')
-      if ok then
-        telescope.load_extension('aerial')
-      end
-    end
-  }
+  -- use{
+  --   'stevearc/aerial.nvim',
+  --   cmd = { 'AerialOpen', 'AerialToggle', 'AerialOpenAll' },
+  --   config = function ()
+  --     require('aerial').setup({
+  --       layout = {
+  --         min_width = 30,
+  --       },
+  --       icons = require("core.icons").lspkind
+  --     })
+  --     local ok, telescope = pcall(require, 'telescope')
+  --     if ok then
+  --       telescope.load_extension('aerial')
+  --     end
+  --   end
+  -- }
 
   --  Insert or delete brackets, parens, quotes in pair.
   use{
