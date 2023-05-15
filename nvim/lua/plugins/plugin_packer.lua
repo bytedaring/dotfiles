@@ -326,20 +326,22 @@ packer.startup({ function (use)
   --  增强代码自动完成
   use{
     "hrsh7th/nvim-cmp",
-    after = 'friendly-snippets',
-    config = function ()
-      require("plugins.configs.cmp-cfg").setup()
-      require("plugins.configs.lspconfig-cfg").setup()
-    end
+    after = 'friendly-snippets'
   }
   use{
     "hrsh7th/cmp-nvim-lsp",
     after = "nvim-cmp",
+    config = function ()
+      require("plugins.configs.lspconfig-cfg").setup()
+    end
   }
   use{
     "L3MON4D3/LuaSnip",
     wants = "friendly-snippets",
-    after = "nvim-cmp"
+    after = "nvim-cmp",
+    config = function ()
+      require("plugins.configs.cmp-cfg").setup()
+    end
   }
   use{
     "saadparwaiz1/cmp_luasnip",
