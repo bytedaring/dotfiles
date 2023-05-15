@@ -1,7 +1,8 @@
 --
 -- Description: Keymaps
 --
-local map = vim.api.nvim_set_keymap
+-- local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- M.symbol = function()
@@ -45,6 +46,15 @@ map('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], opts)
 
 -- ToggleTerm
 map('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)
+map('n', '<CS-\\>', function ()
+  if vim.g.toggleTerm_direction == 'horizontal' then
+    vim.cmd[[ToggleTerm direction=float]]
+    vim.g.toggleTerm_direction = 'float'
+  else
+    vim.cmd[[ToggleTerm direction=horizontal]]
+    vim.g.toggleTerm_direction = 'horizontal'
+  end
+end, opts)
 vim.keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 
 -- go.nvim
