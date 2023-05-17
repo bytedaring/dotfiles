@@ -44,9 +44,6 @@ M.setup = function ()
       vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
       vim.api.nvim_command[[augroup END]]
     end
-
-    -- 高亮鼠标下单词，Integrates with Neovim's LSP
-    require('illuminate').on_attach(client)
   end
 
   -- Use a loop to conveniently call 'setup' on multiple servers and

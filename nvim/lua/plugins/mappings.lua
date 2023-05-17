@@ -63,10 +63,6 @@ keymap.set('n', '<leader>dd', [[<Cmd>GoDebug<CR>]], opts)
 keymap.set('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], opts)
 keymap.set('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
 
--- vim-illuminate
-keymap.set('n', ']r', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-keymap.set('n', '[r', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { noremap = true })
-
 -- Outline
 -- keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", opts)
 keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)

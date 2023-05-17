@@ -76,8 +76,8 @@ packer.startup({ function (use)
         options = {
           theme = 'auto',
           icons_enabled = true,
-          component_separators = { left = ' ', right = ' ' },
-          section_separators = { left = ' ', right = ' ' },
+          component_separators = { left = ' ', right = ' ' },
+          section_separators = { left = ' ', right = ' ' },
         }
       })
     end
@@ -277,18 +277,14 @@ packer.startup({ function (use)
     event = { "BufRead", "BufNewFile" },
     config = function ()
       require"nvim-treesitter.configs".setup{
-        matchup = {
-          enable = true
-        },
+        textobjects = { enable = true },
         highlight = {
           enable = true,
-          disable = {}
+          additional_vim_regex_highlighting = false
         },
         indent = {
-          enable = false,
-          disable = {},
+          enable = true,
         },
-        ensure_installed = {},
       }
     end
   }
@@ -317,35 +313,23 @@ packer.startup({ function (use)
   -- event = { "BufRead", "BufNewFile" }
   -- }
 
+  --  增强代码自动完成
   -- load luasnips + cmp related in insert mode only
   -- snippet source
   use{
     "rafamadriz/friendly-snippets",
-    event = { 'InsertEnter' }
+    after = { "nvim-lspconfig" },
+    opt = true
   }
-  --  增强代码自动完成
+  -- completion engine
   use{
     "hrsh7th/nvim-cmp",
-    after = 'friendly-snippets'
+    after = "friendly-snippets",
   }
+  -- nvim-cmp source neovim's built-in language server client.
   use{
     "hrsh7th/cmp-nvim-lsp",
     after = "nvim-cmp",
-    config = function ()
-      require("plugins.configs.lspconfig-cfg").setup()
-    end
-  }
-  use{
-    "L3MON4D3/LuaSnip",
-    wants = "friendly-snippets",
-    after = "nvim-cmp",
-    config = function ()
-      require("plugins.configs.cmp-cfg").setup()
-    end
-  }
-  use{
-    "saadparwaiz1/cmp_luasnip",
-    after = "LuaSnip"
   }
   use{
     "hrsh7th/cmp-buffer",
@@ -358,6 +342,21 @@ packer.startup({ function (use)
   use{
     'hrsh7th/cmp-cmdline',
     after = "cmp-path"
+  }
+
+  -- snippet engine
+  use{
+    "L3MON4D3/LuaSnip",
+    wants = "friendly-snippets",
+    after = "cmp-cmdline"
+  }
+  use{
+    "saadparwaiz1/cmp_luasnip",
+    after = "LuaSnip",
+    config = function ()
+      require("plugins.configs.cmp-cfg").setup()
+      require("plugins.configs.lspconfig-cfg").setup()
+    end
   }
 
   --  用于VIM的多语言图形调试器
