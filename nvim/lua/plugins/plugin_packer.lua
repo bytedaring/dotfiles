@@ -292,7 +292,9 @@ packer.startup({ function (use)
   --  LSP
   use{
     "neovim/nvim-lspconfig",
-    event = { 'BufRead', 'BufNewFile' }
+    cmd = { "Lspsaga" },
+    event = { "InsertEnter" }
+    -- event = { 'BufRead', 'BufNewFile' }
   }
   -- LSP signature hint as you type
   use{
@@ -304,6 +306,7 @@ packer.startup({ function (use)
   use{
     "glepnir/lspsaga.nvim",
     event = { "LspAttach" },
+    cmd = { "Lspsaga" },
     branch = "main",
     config = require("plugins.configs.others").lspsaga
   }
@@ -367,16 +370,17 @@ packer.startup({ function (use)
   -- 另一种通用图形调试器
   use{
     "mfussenegger/nvim-dap",
-    ft = { "go" }
+    cmd = { "GoDebug" }
   }
   use{
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     requires = { "mfussenegger/nvim-dap" },
   }
-  use{ "theHamsta/nvim-dap-virtual-text", ft = { "go", "lua" }, after = "nvim-dap" }
+  use{ "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", opt = true }
   use{
-    "ray-x/go.nvim", ft = { "go" },
+    "ray-x/go.nvim",
+    cmd = { "GoDebug" },
     config = function ()
       require("go").setup({
         lsp_cfg = false,
