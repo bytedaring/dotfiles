@@ -15,13 +15,14 @@ keymap.set('n', 'ff', [[<Cmd>Telescope find_files<CR>]], opts)
 keymap.set('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], opts)
 keymap.set('n', 'fb', [[<Cmd>Telescope buffers<CR>]], opts)
 keymap.set('n', 'fs', [[<Cmd>Telescope grep_string<CR>]], opts)
-keymap.set('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
+-- keymap.set('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
 keymap.set('n', 'fn', [[<Cmd>bNext<CR>]], opts)
 keymap.set('n', 'fp', [[<Cmd>bprevious<CR>]], opts)
 keymap.set('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], opts)
 keymap.set('n', 'fc', [[<Cmd>Telescope<CR>]], opts)
 keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
 keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
+keymap.set('n', 'fm', [[<Cmd>Telescope marks<CR>]], opts)
 
 -- todo-comments.nvim
 keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
@@ -31,11 +32,11 @@ keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
 keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
 
 -- vimspector
-keymap.set('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
-keymap.set('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], opts)
-keymap.set('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], opts)
-keymap.set('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], opts)
-keymap.set('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
+-- keymap.set('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
+-- keymap.set('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], opts)
+-- keymap.set('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], opts)
+-- keymap.set('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], opts)
+-- keymap.set('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
 
 -- Trouble
 keymap.set('n', '<leader>xx', [[<Cmd>TroubleToggle<CR>]], opts)
@@ -92,7 +93,7 @@ keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
 --lazygit.nvim
-keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
+-- keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
 
 --gx open URL in browser
 keymap.set('n', 'gx', "<cmd>silent !open <cWORD><CR>", opts)
