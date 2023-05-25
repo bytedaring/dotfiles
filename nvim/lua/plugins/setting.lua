@@ -148,3 +148,16 @@ g.python3_host_prog = '/Users/xiaoxiwang/opt/miniconda3/bin/python3'
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 g.mapleader = ' '
 g.maplocalleader = ' '
+
+--------------- go -----------------------
+local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = "go.mod,go.MOD",
+  command = "set filetype=gomod",
+  group = go_group,
+})
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = "go.sum",
+  command = "set filetype=gosum",
+  group = go_group,
+})
