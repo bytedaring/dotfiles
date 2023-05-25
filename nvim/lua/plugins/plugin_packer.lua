@@ -289,28 +289,13 @@ packer.startup({ function (use)
     end
   }
 
-  --  LSP
+  -- LSP
   use{
     "neovim/nvim-lspconfig",
     cmd = { "Lspsaga" },
     event = { "InsertEnter" }
     -- event = { 'BufRead', 'BufNewFile' }
   }
-  -- LSP signature hint as you type
-  use{
-    "ray-x/lsp_signature.nvim",
-    event = { "LspAttach" },
-    config = require('plugins.configs.others').signature
-  }
-  -- LSP plugin
-  use{
-    "glepnir/lspsaga.nvim",
-    event = { "LspAttach" },
-    cmd = { "Lspsaga" },
-    branch = "main",
-    config = require("plugins.configs.others").lspsaga
-  }
-
   -- use{
   -- "andymass/vim-matchup",
   -- event = { "BufRead", "BufNewFile" }
@@ -362,6 +347,21 @@ packer.startup({ function (use)
     end
   }
 
+  -- LSP signature hint as you type
+  use{
+    "ray-x/lsp_signature.nvim",
+    after = "cmp_luasnip",
+    config = require('plugins.configs.others').signature
+  }
+  -- LSP plugin
+  use{
+    "glepnir/lspsaga.nvim",
+    event = { "InsertEnter" },
+    cmd = { "Lspsaga" },
+    branch = "main",
+    config = require("plugins.configs.others").lspsaga
+  }
+
   --  用于VIM的多语言图形调试器
   -- use{
   --   "puremourning/vimspector",
@@ -370,7 +370,8 @@ packer.startup({ function (use)
   -- 另一种通用图形调试器
   use{
     "mfussenegger/nvim-dap",
-    cmd = { "GoDebug" }
+    event = { "BufRead", "BufNewFile" },
+    ft = { 'go', 'rust' }
   }
   use{
     "rcarriga/nvim-dap-ui",
@@ -379,8 +380,12 @@ packer.startup({ function (use)
   }
   use{ "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", opt = true }
   use{
+    'simrat39/rust-tools.nvim',
+    ft = 'rust'
+  }
+  use{
     "ray-x/go.nvim",
-    cmd = { "GoDebug" },
+    ft = 'go',
     config = function ()
       require("go").setup({
         lsp_cfg = false,
