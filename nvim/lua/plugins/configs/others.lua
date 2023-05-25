@@ -51,7 +51,6 @@ M.signature = function ()
   end
 
   require('lsp_signature').setup({
-    debug = true,
     handler_opts = {
       border = get_border_style('bold', "SagaBorder") -- DefinitionBorder, double, rounded, single, shadow, none
     },
