@@ -292,8 +292,7 @@ packer.startup({ function (use)
   -- LSP
   use{
     "neovim/nvim-lspconfig",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   -- use{
   -- "andymass/vim-matchup",
@@ -305,51 +304,43 @@ packer.startup({ function (use)
   -- snippet source
   use{
     "rafamadriz/friendly-snippets",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   -- nvim-cmp source neovim's built-in language server client.
   -- completion engine
   use{
     "hrsh7th/nvim-cmp",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   use{
     "hrsh7th/cmp-nvim-lsp",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   use{
     "hrsh7th/cmp-buffer",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   use{
     "hrsh7th/cmp-path",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
   use{
     'hrsh7th/cmp-cmdline',
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' }
+    event = { "BufRead", "BufNewFile" },
   }
 
   -- snippet engine
   use{
     "L3MON4D3/LuaSnip",
-    wants = "nvim-cmp",
-    event = { 'InsertEnter' },
-    config = function ()
-      require("plugins.configs.cmp-cfg").setup()
-    end
+    event = { "BufRead", "BufNewFile" },
   }
+
   use{
     "saadparwaiz1/cmp_luasnip",
-    wants = "nvim-cmp",
-    event = { 'InsertEnter' },
+    event = "InsertEnter",
+    cmd = "Lspsaga",
     config = function ()
+      require("plugins.configs.cmp-cfg").setup()
       require("plugins.configs.lspconfig-cfg").setup()
     end
   }
@@ -363,8 +354,7 @@ packer.startup({ function (use)
   -- LSP plugin
   use{
     "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga",
-    event = { 'InsertEnter' },
+    after = "cmp_luasnip",
     branch = "main",
     config = require("plugins.configs.others").lspsaga
   }
