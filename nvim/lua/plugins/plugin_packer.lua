@@ -292,9 +292,8 @@ packer.startup({ function (use)
   -- LSP
   use{
     "neovim/nvim-lspconfig",
-    cmd = { "Lspsaga" },
-    event = { "InsertEnter" }
-    -- event = { 'BufRead', 'BufNewFile' }
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
   -- use{
   -- "andymass/vim-matchup",
@@ -306,43 +305,51 @@ packer.startup({ function (use)
   -- snippet source
   use{
     "rafamadriz/friendly-snippets",
-    after = { "nvim-lspconfig" },
-    opt = true
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
+  -- nvim-cmp source neovim's built-in language server client.
   -- completion engine
   use{
     "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
-  -- nvim-cmp source neovim's built-in language server client.
   use{
     "hrsh7th/cmp-nvim-lsp",
-    after = "nvim-cmp",
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
   use{
     "hrsh7th/cmp-buffer",
-    after = "cmp-nvim-lsp"
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
   use{
     "hrsh7th/cmp-path",
-    after = "cmp-buffer"
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
   use{
     'hrsh7th/cmp-cmdline',
-    after = "cmp-path"
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' }
   }
 
   -- snippet engine
   use{
     "L3MON4D3/LuaSnip",
-    wants = "friendly-snippets",
-    after = "cmp-cmdline"
+    wants = "nvim-cmp",
+    event = { 'InsertEnter' },
+    config = function ()
+      require("plugins.configs.cmp-cfg").setup()
+    end
   }
   use{
     "saadparwaiz1/cmp_luasnip",
-    after = "LuaSnip",
+    wants = "nvim-cmp",
+    event = { 'InsertEnter' },
     config = function ()
-      require("plugins.configs.cmp-cfg").setup()
       require("plugins.configs.lspconfig-cfg").setup()
     end
   }
@@ -356,8 +363,8 @@ packer.startup({ function (use)
   -- LSP plugin
   use{
     "glepnir/lspsaga.nvim",
-    event = { "InsertEnter" },
-    cmd = { "Lspsaga" },
+    cmd = "Lspsaga",
+    event = { 'InsertEnter' },
     branch = "main",
     config = require("plugins.configs.others").lspsaga
   }
@@ -381,7 +388,8 @@ packer.startup({ function (use)
   use{ "theHamsta/nvim-dap-virtual-text", after = "nvim-dap", opt = true }
   use{
     'simrat39/rust-tools.nvim',
-    ft = 'rust'
+    ft = 'rust',
+    config = require("plugins.configs.others").rusttools,
   }
   use{
     "ray-x/go.nvim",
