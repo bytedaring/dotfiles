@@ -3,7 +3,7 @@ M.config = function ()
   require"nvim-tree".setup{
     disable_netrw = false,
     view = {
-      width = 35
+      width = 45
     },
     renderer = {
       indent_markers = {
@@ -12,7 +12,7 @@ M.config = function ()
       icons          = {
         git_placement = "after",
         glyphs = {
-          default = " ",
+          default = "",
           bookmark = ""
         }
       }

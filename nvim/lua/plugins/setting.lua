@@ -93,7 +93,8 @@ o.ignorecase = true
 o.signcolumn = 'number'
 
 -- 设置默认winhl
-vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
+-- vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
+vim.api.nvim_set_option_value('winhl', 'Normal:Normal,FloatBorder:FloatBorder', {win = 0})
 
 -- vim操作作用到系统clipboard
 vim.cmd[[ set clipboard+=unnamedplus ]]
