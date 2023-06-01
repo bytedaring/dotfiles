@@ -14,10 +14,11 @@
 # RobotoMono Nerd Font Mono Thin 
 # BlexMono Nerd Font Mono Light
 # SauceCodePro Nerd Font Mono Light
+# IBM Plex Mono ExtraLight
 
-font_family      BlexMono Nerd Font Mono Light
+font_family      IBM Plex Mono ExtraLight
 bold_font        auto
-italic_font      auto
+italic_font      IBM Plex Mono ExtraLight Italic
 bold_italic_font auto
 
 #font_family      FiraCode Nerd Font Mono Light
@@ -41,7 +42,7 @@ bold_italic_font auto
 #:     bold_italic_font Operator Mono Medium Italic
 
 # font_size 11.0
-font_size 18.0
+font_size 19.0
 
 #: Font size (in pts)
 
@@ -86,7 +87,11 @@ adjust_column_width 0
 
 # symbol_map
 # https://github.com/ChristianChiarulli/neovim-codicons/blob/main/dist/codicon.css
-symbol_map U+ea60-U+ebf8 codicon
+symbol_map U+4E00-U+62FF PingFangSC-Thin
+symbol_map U+6300-U+77FF PingFangSC-Thin
+symbol_map U+7800-U+8CFF PingFangSC-Thin
+symbol_map U+8D00-U+9FCC PingFangSC-Thin
+
 
 #: E.g. symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
 
@@ -605,6 +610,7 @@ copy_on_select yes
 #: Terminal bell {{{
 
 # enable_audio_bell yes
+enable_audio_bell yes
 
 #: Enable/disable the audio bell. Useful in environments that require
 #: silence.
@@ -917,6 +923,7 @@ tab_bar_style powerline
 #: tab_title_template for how this is rendered.
 
 # tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title}"
+tab_title_template "{fmt.fg.green}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title[title.rfind('/')+1:]}"
 
 #: A template to render the tab title. The default just renders the
 #: title with optional symbols for bell and activity. If you wish to
@@ -942,6 +949,12 @@ tab_bar_style powerline
 
 #: Template to use for active tabs, if not specified falls back to
 #: tab_title_template.
+# active_tab_foreground     #a6e22e
+# active_tab_background     #504945
+active_tab_font_style     bold
+# inactive_tab_foreground   #a89984
+# inactive_tab_background   #282828
+inactive_tab_font_style   normal
 
 # active_tab_foreground   #000
 # active_tab_background   #eee
@@ -1123,6 +1136,7 @@ tab_bar_style powerline
 #: interactive mode and reads its startup rc files.
 
 # editor .
+editor /usr/local/nvim/bin/nvim
 
 #: The terminal editor (such as ``vim`` or ``nano``) to use when
 #: editing the kitty config file or similar tasks.
@@ -2085,6 +2099,6 @@ macos_thicken_font 0
 
 
 # BEGIN_KITTY_THEME
-# Breath2
+# Dark Pastel
 include current-theme.conf
 # END_KITTY_THEME

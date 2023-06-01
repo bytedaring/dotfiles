@@ -233,8 +233,8 @@ packer.startup({ function (use)
     config = function ()
       require("Comment").setup()
     end,
-    ft = { "html", "typescriptreact", "typescript", "javascript", "lua", "css", "less", "lua", "python", "go", "vim",
-      "sh", "zig" }
+    ft = { "html", "typescriptreact", "typescript", "javascript", "css", "less", "lua", "python", "go", "vim",
+      "sh", "zig", "zsh" }
   }
 
   -- Markdown预览
@@ -332,6 +332,7 @@ packer.startup({ function (use)
   -- snippet engine
   use{
     "L3MON4D3/LuaSnip",
+    after = "nvim-cmp",
     event = { "BufRead", "BufNewFile" },
   }
 
