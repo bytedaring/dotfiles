@@ -233,8 +233,11 @@ packer.startup({ function (use)
     config = function ()
       require("Comment").setup()
     end,
-    ft = { "html", "typescriptreact", "typescript", "javascript", "css", "less", "lua", "python", "go", "vim",
-      "sh", "zig", "zsh" }
+    ft = { "html", "typescriptreact", "typescript",
+      "javascript", "css", "less", "lua",
+      "python", "go", "vim",
+      "sh", "zig", "zsh", "conf"
+    }
   }
 
   -- Markdown预览
