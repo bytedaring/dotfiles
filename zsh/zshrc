@@ -181,6 +181,7 @@ alias nvim="/usr/local/nvim/bin/nvim"
 alias go="go1.20.2"
 alias icat="kitty +kitten icat"
 alias diff="kitty +kitten diff"
+alias python="python3"
 
 #--------设置终端color方案、影响到tmux, alacritty-----------
 export TERM=xterm-256color
@@ -190,10 +191,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
 #[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 eval "$(zoxide init zsh)"
 
-#----------Wasmer--------------------
+#----------wasmtime
 export WASMTIME_HOME="$HOME/.wasmtime"
-
 export PATH="$WASMTIME_HOME/bin:$PATH"
-# Wasmer
+
+#----------wasmer--------------------
 export WASMER_DIR="/Users/xiaoxiwang/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

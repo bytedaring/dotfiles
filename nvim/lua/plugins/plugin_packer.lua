@@ -33,10 +33,7 @@ packer.init({
 packer.startup({ function (use)
   use"wbthomason/packer.nvim"
   use"lewis6991/impatient.nvim"
-  use{
-    "nvim-lua/plenary.nvim",
-    event = { 'BufRead', 'BufNewFile' }
-  }
+  use"nvim-lua/plenary.nvim"
 
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   use{
@@ -135,7 +132,7 @@ packer.startup({ function (use)
   --  telescope 扩展插件
   use{
     "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
+    -- requires = { { "nvim-lua/plenary.nvim" } },
     cmd = { "Telescope" },
     config = require('plugins.configs.telescope-cfg').config,
   }
@@ -321,23 +318,21 @@ packer.startup({ function (use)
   }
   use{
     "hrsh7th/cmp-buffer",
-    after = "nvim-cmp",
-    event = { "BufRead", "BufNewFile" },
+    after = "nvim-cmp"
   }
   use{
     "hrsh7th/cmp-path",
-    event = { "BufRead", "BufNewFile" },
+    after = "nvim-cmp"
   }
   use{
     'hrsh7th/cmp-cmdline',
-    event = { "BufRead", "BufNewFile" },
+    after = "nvim-cmp"
   }
 
   -- snippet engine
   use{
     "L3MON4D3/LuaSnip",
-    after = "nvim-cmp",
-    event = { "BufRead", "BufNewFile" },
+    after = "nvim-cmp"
   }
 
   use{
