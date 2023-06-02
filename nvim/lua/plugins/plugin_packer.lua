@@ -321,6 +321,7 @@ packer.startup({ function (use)
   }
   use{
     "hrsh7th/cmp-buffer",
+    after = "nvim-cmp",
     event = { "BufRead", "BufNewFile" },
   }
   use{
