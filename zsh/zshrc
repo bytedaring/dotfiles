@@ -1,0 +1,199 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+# export ZSH="/Users/xiaoxiwang/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="bira"
+# ZSH_THEME="fino-time"
+# ZSH_THEME="tjkirch"
+# ZSH_THEME="random"
+# ZSH_THEME="ys"
+# ZSH_THEME="suvash"
+# ZSH_THEME="candy-kingdom"
+# ZSH_THEME="random"
+# ZSH_THEME="eastwood"
+
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+# plugins=(git kubectl macos zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete zoxide adb)
+
+# source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Download Znap, if it's not there yet.
+[[ -r ~/Repos/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh  # Start Znap
+
+# `znap prompt` makes your prompt visible in just 15-40ms!
+znap prompt sindresorhus/pure
+
+#plugins=(git kubectl macos zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete zoxide adb)
+# `znap source` starts plugins.
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+# `znap prompt` also supports Oh-My-Zsh themes. Just make sure you load the
+# required libs first:
+znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance} plugins/git plugins/zoxide plugins/macos
+#znap prompt ohmyzsh/ohmyzsh robbyrussell 
+
+export PATH=$PATH:/Users/xiaoxiwang/Work/go/bin:/Users/xiaoxiwang/go/bin:/usr/local/protoc-3.8.0/bin:/Users/xiaoxiwang/.conda/envs/p3/bin:$HOME/bin:/usr/local/gradle-4.8.1/bin:/Volumes/Samsung_T5/app/flutter/bin:/Users/xiaoxiwang/.nodejs/node_global/bin:/usr/local/flutter/bin:$HOME/.cargo/bin:/usr/local/opt/mysql-client/bin:/Users/xiaoxiwang/Work/study-demo/zig/zig-0.11
+
+export GOPATH=/Users/xiaoxiwang/Work/go:/Users/xiaoxiwang/Work/go_server:/Users/xiaoxiwang/Work/demo/golangDemo:/Users/xiaoxiwang/Work/zyt
+export GOPROXY=https://goproxy.cn
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export ANDROID_HOME=/Users/xiaoxiwang/Library/Android/sdk
+
+alias emulator="$ANDROID_HOME/emulator/emulator"
+alias start_emu="$ANDROID_HOME/emulator/emulator -avd Pixel_3_API_R"
+
+# 需要用到Python conda时，再解除下面的注释
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#  目前没有使用conda ，需要使用的时候，需要把下面的解除禁用
+#__conda_setup="$('/Users/xiaoxiwang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/xiaoxiwang/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/xiaoxiwang/opt/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/xiaoxiwang/opt/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+#------------ homebrew ------------------
+export HOMEBREW_CORE_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+
+#------------ go env ------------------
+export GO111MODULE=off
+export MallocNanoZone=0
+
+#------------ alias ------------------
+alias rm="rm -i"
+alias ls="exa"
+alias l="exa -lh"
+alias ll="exa -lha"
+alias ..="cd ./.."
+alias ../..="cd ./../.."
+alias cls="clear"
+alias vim="/usr/local/nvim/bin/nvim"
+alias nvim="/usr/local/nvim/bin/nvim"
+#alias go="go1.19"
+alias go="go1.20.2"
+alias icat="kitty +kitten icat"
+alias diff="kitty +kitten diff"
+
+#--------设置终端color方案、影响到tmux, alacritty-----------
+export TERM=xterm-256color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
+
+#-------------- autojump -----------------
+#[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+eval "$(zoxide init zsh)"
+
+#----------Wasmer--------------------
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
+# Wasmer
+export WASMER_DIR="/Users/xiaoxiwang/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

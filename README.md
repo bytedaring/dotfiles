@@ -8,3 +8,7 @@ My personal dotfiles.
 - tmux config
 - Alacritty config 
 
+## 
+```bash
+$ ln -s $PWD/zsh/zshrc ~/.zshrc
+```
