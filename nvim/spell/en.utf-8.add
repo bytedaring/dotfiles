@@ -433,3 +433,8 @@ Mixin
 goto
 wechat
 openid
+extern
+namespace
+JS
+wasm
+ourself

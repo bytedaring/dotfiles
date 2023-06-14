@@ -124,10 +124,12 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 # `znap prompt` also supports Oh-My-Zsh themes. Just make sure you load the
 # required libs first:
-znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance} plugins/git plugins/zoxide plugins/macos
+znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories} plugins/git plugins/zoxide plugins/macos
 #znap prompt ohmyzsh/ohmyzsh robbyrussell 
 
-export PATH=$PATH:/Users/xiaoxiwang/Work/go/bin:/Users/xiaoxiwang/go/bin:/usr/local/protoc-3.8.0/bin:/Users/xiaoxiwang/.conda/envs/p3/bin:$HOME/bin:/usr/local/gradle-4.8.1/bin:/Volumes/Samsung_T5/app/flutter/bin:/Users/xiaoxiwang/.nodejs/node_global/bin:/usr/local/flutter/bin:$HOME/.cargo/bin:/usr/local/opt/mysql-client/bin:/Users/xiaoxiwang/Work/study-demo/zig/zig-0.11
+export BUN_INSTALL=$HOME/.bun
+
+export PATH=$PATH:/Users/xiaoxiwang/Work/go/bin:/Users/xiaoxiwang/go/bin:/usr/local/protoc-3.8.0/bin:/Users/xiaoxiwang/.conda/envs/p3/bin:$HOME/bin:/usr/local/gradle-4.8.1/bin:/Volumes/Samsung_T5/app/flutter/bin:/usr/local/flutter/bin:$HOME/.cargo/bin:/usr/local/opt/mysql-client/bin:/Users/xiaoxiwang/Work/study-demo/zig/zig-0.11:$BUN_INSTALL/bin:/Users/xiaoxiwang/.nodejs/node_global/bin
 
 export GOPATH=/Users/xiaoxiwang/Work/go:/Users/xiaoxiwang/Work/go_server:/Users/xiaoxiwang/Work/demo/golangDemo:/Users/xiaoxiwang/Work/zyt
 export GOPROXY=https://goproxy.cn
@@ -145,7 +147,7 @@ alias start_emu="$ANDROID_HOME/emulator/emulator -avd Pixel_3_API_R"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 #  目前没有使用conda ，需要使用的时候，需要把下面的解除禁用
-#__conda_setup="$('/Users/xiaoxiwang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#__conda_setup="$()"
 #if [ $? -eq 0 ]; then
 #    eval "$__conda_setup"
 #else
@@ -169,11 +171,11 @@ export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
-alias ls="exa"
-alias l="exa -lh"
-alias ll="exa -lha"
-alias ..="cd ./.."
-alias ../..="cd ./../.."
+# alias ls="exa"
+# alias l="exa -lh"
+# alias ll="exa -lha"
+#alias ..="cd ./.."
+#alias ../..="cd ./../.."
 alias cls="clear"
 alias vim="/usr/local/nvim/bin/nvim"
 alias nvim="/usr/local/nvim/bin/nvim"

@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+if (( $# < 1 ))
+then
+    echo "usage: $(basename $0) target"
+    echo -e "\ttarget: hostname or ip"
+    exit 1
+fi
+
+target=$1
+shift
+
+hostfile=~/myhost
+
+function gethostfile()
+{
+ sed -e '/^#/d' $hostfile
+}
+
+function get_host()
+{
+    name=$1
+    result=$(gethostfile | awk -v n="$name" '{if ($1==n) {print; exit;}} ');
+    if [[ "$result" == "" ]]
+    then
+        result=$(gethostfile | awk -v n="$name" '{if ($2==n) {print; exit}} ');
+    fi
+    echo -n $result
+}
+
+host_line=$(get_host $target)
+
+if [[ "$host_line" == "" ]]
+then
+    echo "nofound host record for $target in $hostfile"
+    exit 2
+fi
+
+
+read name host port user pwd <<<"$host_line"
+if (( $# < 1))
+then
+#echo $host $port $user
+echo "Login $user to $host by $port"
+fi
+
+
+tty >/dev/null
+if (( $? == 0))
+then
+    sshpass -p $pwd ssh -tt -o StrictHostKeyChecking=no -p $port $user@$host "$@"
+else
+    sshpass -p $pwd ssh -T -o StrictHostKeyChecking=no -p $port $user@$host "$@"
+fi
+
+

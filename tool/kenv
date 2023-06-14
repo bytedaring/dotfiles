@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [[ -e ~/k8s_env/$1/config ]]
+then
+    cp -f ~/k8s_env/$1/config ~/.kube/
+else
+    echo "noexsit k8s env %1"
+fi
+

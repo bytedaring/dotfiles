@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+if (( $# != 3 ))
+then
+    echo "usage: $(basename "$0") target src_file dst_dir"
+    echo -e "\ttarget: hostname or ip"
+    echo -e "\tsrc_file: copy from file"
+    echo -e "\tdst_dir:  copy to dst dir"
+    echo -e "\tif @src_file: would replace to user@host:src_file"
+
+    exit 1
+fi
+
+target=$1
+first=$2
+second=$3
+
+hostfile=~/myhost
+
+function gethostfile()
+{
+ sed -e '/^#/d' $hostfile
+}
+
+function get_host()
+{
+    name=$1
+    result=$(gethostfile | awk -v n="$name" '{if ($1==n) {print; exit;}} ');
+    if [[ "$result" == "" ]]
+    then
+        result=$(gethostfile | awk -v n="$name" '{if ($2==n) {print; exit}} ');
+    fi
+    echo -n "$result"
+}
+
+host_line=$(get_host "$target")
+
+if [[ "$host_line" == "" ]]
+then
+    echo "nofound host record for $target in $hostfile"
+    exit 2
+fi
+
+
+read -r name host port user pwd <<<"$host_line"
+#echo $name $host $port $user $pwd
+
+function gen_param()
+{
+    p=$1
+    r=$(sed -n -e '/^@/p' <<<"$p")
+    if [[ "$r" != "" ]]
+    then
+      r="${p//^@//}"
+        echo -n "$user@$host:$r"
+    else
+        echo -n "$p"
+    fi
+}
+
+one=$(gen_param "$first")
+two=$(gen_param "$second")
+
+if [[ "$one" == "$first" && "$two" == "$second" ]]
+then
+    two=$(echo -n "$user@$host:$second")
+fi
+
+echo "$one" "$two"
+sshpass -p "$pwd" scp -o StrictHostKeyChecking=no -P "$port" -r "$one" "$two"

@@ -3,7 +3,7 @@ M.config = function ()
   require"nvim-tree".setup{
     disable_netrw = false,
     view = {
-      width = 45
+      width = 40
     },
     renderer = {
       indent_markers = {

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+#
+# 从搜狗更新词库
+#
+# 先备份./scel 目录下的以后词库文件到压缩文件
+# 再根据./scel_url.txt 配置的词库地址，下载最新词库
+# 转换词库文件后，复制到Rime 配置文件夹
+# 最后手动重新启动Rime 即可
+#
+
+cd /Users/xiaoxiwang/Work/study-demo/python/scel2txt || return 1
+
+files=(./scel/*.scel*)
+# for file in "${files[@]}" 
+# do
+#   echo "$file"
+# done
+
+# 已有 scel 文件则进行存档
+if [[ -f "${files[0]}" ]];
+then
+  if tar -czvf "./scel/scel_$(date -u +'%Y-%m-%d').tar.gz" ./scel/*.scel; 
+  then
+    trash ./scel/*.scel*
+  fi
+fi
+
+# 更新scel_url.txt 文件下载最新词库
+wget -i ./scel_url.txt -P ./scel/ -q --show-progress --content-disposition
+
+# 转换词库
+python3 ./scel2txt.py
+
+# 部署合并词库到 Rime 目录
+if [[ -f "./out/luna_pinyin.sogou.dict.yaml" ]];then
+  cp ./out/luna_pinyin.sogou.dict.yaml ~/Library/Rime/luna_pinyin.sogou.dict.yaml
+  RED="\033[0;31m"
+  NC="\033[0m" # No Color
+  echo -e "${RED}已经部署到Rime配置文件夹，请重新启动Rime!${NC}"
+fi

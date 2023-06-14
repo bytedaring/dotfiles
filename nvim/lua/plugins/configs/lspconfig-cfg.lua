@@ -32,19 +32,24 @@ M.setup = function ()
     -- 保存文件时自动 formatting
     -- if client.resolved_capabilities.document_formatting then
     if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_command[[augroup Format]]
-      vim.api.nvim_command[[autocmd! * <buffer>]]
-      vim.api.nvim_command[[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
-      vim.api.nvim_command[[augroup END]]
+      vim.api.nvim_command [[augroup Format]]
+      vim.api.nvim_command [[autocmd! * <buffer>]]
+      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
+      vim.api.nvim_command [[augroup END]]
     end
   end
 
+  -- Add bun for Node.js-based servers
+  -- local lspconfig_util = require "lspconfig.util"
+  -- local add_bun_prefix = require("plugins.lsp.bun").add_bun_prefix
+  -- lspconfig_util.on_setup = lspconfig_util.add_hook_before(lspconfig_util.on_setup, add_bun_prefix)
+
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'tailwindcss',
-    'bashls', 'awk_ls', 'dockerls', 'html', 'cssls', 'yamlls', 'bufls', 'zls', 'clangd' }
+  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls',
+    'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'html', 'cssls' }
   for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup{
+    nvim_lsp[lsp].setup {
       on_attach = on_attach,
       capabilities = capabilities,
       flags = {
@@ -54,7 +59,7 @@ M.setup = function ()
   end
 
   --
-  nvim_lsp.pylsp.setup{
+  nvim_lsp.pylsp.setup {
     cmd = { 'pylsp' },
     -- for postfix snippets and analyzers
     capabilities = capabilities,
@@ -76,7 +81,7 @@ M.setup = function ()
   }
 
   -- gopls
-  nvim_lsp.gopls.setup{
+  nvim_lsp.gopls.setup {
     cmd = { 'gopls' },
     -- for postfix snippets and analyzers
     capabilities = {
@@ -124,7 +129,7 @@ M.setup = function ()
     on_attach = on_attach
   }
 
-  nvim_lsp.lua_ls.setup{
+  nvim_lsp.lua_ls.setup {
     cmd = { "lua-language-server" },
     capabilities = capabilities,
     settings = {
