@@ -472,6 +472,13 @@ packer.startup({ function (use)
     config = require('plugins.configs.others').lint
   }
 
+  -- formatter
+  use {
+    'mhartington/formatter.nvim',
+    ft = { 'html' },
+    config = require('plugins.configs.others').format
+  }
+
   -- TODO
   use {
     "folke/todo-comments.nvim",

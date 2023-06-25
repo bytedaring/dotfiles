@@ -62,11 +62,32 @@ M.lint = function ()
     go = { 'golangcilint' },
     sh = { 'shellcheck' },
     dockerfile = { 'hadolint' },
-    yaml = { 'yamllint' }
+    yaml = { 'yamllint' },
+    html = { 'eslint' },
+    javascript = { 'jshint' }
   }
   vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
     callback = function ()
       require("lint").try_lint()
+    end,
+  })
+end
+
+M.format = function ()
+  local defaults = require('formatter.filetypes')
+  require("formatter").setup {
+    filetype = {
+      html = {
+        defaults.html.prettier,
+      },
+      -- javascript = {
+      --   defaults.javascript.prettier,
+      -- }
+    }
+  }
+  vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
+    callback = function ()
+      vim.cmd [[Format]]
     end,
   })
 end

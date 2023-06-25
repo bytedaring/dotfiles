@@ -47,7 +47,7 @@ M.setup = function ()
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
   local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls',
-    'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'html', 'cssls' }
+    'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls' }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
@@ -151,6 +151,21 @@ M.setup = function ()
       telemetry = {
         enable = false,
       },
+    },
+    on_attach = on_attach,
+  }
+
+  nvim_lsp.html.setup {
+    capabilities = capabilities,
+    init_options = {
+      configurationSection = { "html", "css", "javascript" },
+      embeddedLanguages = {
+        css = true,
+        javascript = true
+      },
+      provideFormatter = false
+    },
+    settings = {
     },
     on_attach = on_attach,
   }
