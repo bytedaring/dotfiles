@@ -64,7 +64,7 @@ M.lint = function ()
     dockerfile = { 'hadolint' },
     yaml = { 'yamllint' },
     html = { 'eslint' },
-    javascript = { 'jshint' }
+    javascript = { 'eslint' }
   }
   vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
     callback = function ()
@@ -80,6 +80,9 @@ M.format = function ()
       html = {
         defaults.html.prettier,
       },
+      svelte = {
+        defaults.svelte.prettier,
+      }
       -- javascript = {
       --   defaults.javascript.prettier,
       -- }

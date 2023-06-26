@@ -475,7 +475,7 @@ packer.startup({ function (use)
   -- formatter
   use {
     'mhartington/formatter.nvim',
-    ft = { 'html' },
+    ft = { 'html', 'svelte' },
     config = require('plugins.configs.others').format
   }
 

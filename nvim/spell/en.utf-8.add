@@ -439,3 +439,5 @@ JS
 wasm
 ourself
 formatter
+jshint
+esversion
