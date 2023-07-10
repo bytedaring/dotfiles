@@ -49,10 +49,10 @@ keymap.set('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], opts)
 keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)
 keymap.set('n', '<CS-\\>', function ()
   if vim.g.toggleTerm_direction == 'horizontal' then
-    vim.cmd[[ToggleTerm direction=float]]
+    vim.cmd [[ToggleTerm direction=float]]
     vim.g.toggleTerm_direction = 'float'
   else
-    vim.cmd[[ToggleTerm direction=horizontal]]
+    vim.cmd [[ToggleTerm direction=horizontal]]
     vim.g.toggleTerm_direction = 'horizontal'
   end
 end, opts)
@@ -70,7 +70,9 @@ keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 
 -- lspsaga
 -- lsp finder to find the cursor word definition and reference
-keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
+keymap.set("n", "gh", "<cmd>Lspsaga finder def+ref<CR>", opts)
+-- find definition and implementation
+keymap.set("n", "gi", "<cmd>Lspsaga finder def+imp<CR>", opts)
 -- code action
 keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)

@@ -85,9 +85,9 @@ packer.startup({ function (use)
     'tanvirtin/monokai.nvim',
     config = function ()
       local monokai = require('monokai')
-      local palette = monokai.pro
+      local palette = monokai.classic
       monokai.setup {
-        palette = require('monokai').pro,
+        palette = require('monokai').classic,
         custom_hlgroups = {
           ["@comment"] = {
             fg = palette.base6,
@@ -428,6 +428,10 @@ packer.startup({ function (use)
   }
   -- use { "rcarriga/vim-ultest", ft = { "go", "python" }, requires = {"vim-test/vim-test"}, run = ":UpdateRemotecore" }
   -- use{ "antoinemadec/FixCursorHold.nvim", ft = { "go" } }
+  use {
+    "nvim-neotest/neotest-go",
+    ft = { 'go' }
+  }
   use {
     "nvim-neotest/neotest",
     cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },

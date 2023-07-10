@@ -2,7 +2,9 @@ lastupdatecheck: 0
 recentrepos:
 - /Users/xiaoxiwang/.config
 - /Users/xiaoxiwang/Work/go_server
+- /Users/xiaoxiwang/Work/study-demo/zig/zls
 - /Users/xiaoxiwang/Work/common
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- w
 hidecommandlog: false

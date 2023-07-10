@@ -33,7 +33,7 @@ end
 
 opt.lazyredraw = true
 -- 不兼容模式
-vim.cmd[[set nocompatible ]]
+vim.cmd [[set nocompatible ]]
 -- 启用鼠标
 o.mouse = 'a'
 
@@ -43,7 +43,7 @@ o.shada = "!,'15,<30,s10,h"
 -- 0: 不显示 1: 启动显示转态行 2: 总是显示状态行 3: 总是显示且显示最后一个windows的状态行
 o.laststatus = 3
 
-vim.cmd[[set autowrite]]
+vim.cmd [[set autowrite]]
 opt.list = true
 
 -- 递归搜索文件路径
@@ -61,14 +61,17 @@ opt.expandtab = true
 opt.autoindent = true
 -- 智能对齐
 opt.smartindent = true
+-- 语法高亮的最大列数，This helps to avoid very slow redrawing for a file that is one long line
+opt.synmaxcol = 300
 
 -- 设置折叠方式
 opt.foldmethod = "indent"
-vim.cmd[[ set nofoldenable ]]
+vim.cmd [[ set nofoldenable ]]
 opt.foldlevel = 2
 
 -- show cursor line
 o.cursorline = true
+
 
 -- indentLine
 -- g.indentLine_char = 'c'
@@ -94,14 +97,14 @@ o.signcolumn = 'number'
 
 -- 设置默认winhl
 -- vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')
-vim.api.nvim_set_option_value('winhl', 'Normal:Normal,FloatBorder:FloatBorder', {win = 0})
+-- vim.api.nvim_set_option_value('winhl', 'Normal:Normal,FloatBorder:FloatBorder', { win = 0 })
 
 -- vim操作作用到系统clipboard
-vim.cmd[[ set clipboard+=unnamedplus ]]
+vim.cmd [[ set clipboard+=unnamedplus ]]
 
 -- vimspector 图形调试器
 g.vimspector_enable_mappings = 'HUMAN'
-vim.cmd[[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
+vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ] ]]
 
 --------------- Color scheme -----------------
 -- 启用语法高亮、拼写检查
