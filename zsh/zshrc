@@ -205,3 +205,6 @@ export WASMER_DIR="/Users/xiaoxiwang/.wasmer"
 
 #----------fx------------------------
 export FX_THEME=7
+
+# bun completions
+[ -s "/Users/xiaoxiwang/.bun/_bun" ] && source "/Users/xiaoxiwang/.bun/_bun"
