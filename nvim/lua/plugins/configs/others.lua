@@ -101,6 +101,12 @@ M.lspsaga = function ()
       border = 'single',
       title = true,
     },
+    hover = {
+      max_width = 0.6,
+      max_height = 0.8,
+      open_link = 'gx',
+      open_cmd = '!open'
+    },
     symbol_in_winbar = {
       in_custom = false,
       separator = ' > ',

@@ -336,14 +336,15 @@ packer.startup({ function (use)
   -- snippet engine
   use {
     "L3MON4D3/LuaSnip",
-    after = "friendly-snippets"
-  }
-  use {
-    "saadparwaiz1/cmp_luasnip",
+    tag = "v2.*",
     after = "friendly-snippets",
     config = function ()
       require("plugins.configs.cmp-cfg").setup()
     end
+  }
+  use {
+    "saadparwaiz1/cmp_luasnip",
+    after = "friendly-snippets",
   }
 
   -- LSP signature hint as you type
