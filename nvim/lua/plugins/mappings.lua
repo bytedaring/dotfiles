@@ -39,11 +39,11 @@ keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
 -- keymap.set('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
 
 -- Trouble
-keymap.set('n', '<leader>xx', [[<Cmd>TroubleToggle<CR>]], opts)
-keymap.set('n', '<leader>xw', [[<Cmd>TroubleToggle workspace_diagnostics<CR>]], opts)
-keymap.set('n', '<leader>xd', [[<Cmd>TroubleToggle document_diagnostics<CR>]], opts)
-keymap.set('n', '<leader>xq', [[<Cmd>TroubleToggle quickfix<CR>]], opts)
-keymap.set('n', '<leader>xl', [[<Cmd>TroubleToggle loclist<CR>]], opts)
+keymap.set('n', '<leader>xx', function () require("trouble").open() end, opts)
+keymap.set('n', '<leader>xw', function () require("trouble").open("workspace_diagnostics") end, opts)
+keymap.set('n', '<leader>xd', function () require("trouble").open("document_diagnostics") end, opts)
+keymap.set('n', '<leader>xq', function () require("trouble").open("quickfix") end, opts)
+keymap.set('n', '<leader>xl', function () require("trouble").open("loclist") end, opts)
 
 -- ToggleTerm
 keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)

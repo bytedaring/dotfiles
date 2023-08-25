@@ -1,10 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/xiaoxiwang/.config
 - /Users/xiaoxiwang/Work/go_server
-- /Users/xiaoxiwang/Work/study-demo/zig/zls
 - /Users/xiaoxiwang/Work/common
+- /Users/xiaoxiwang/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim
+- /Users/xiaoxiwang/.config
+- /Users/xiaoxiwang/Work/study-demo/zig/ziglings
+- /Users/xiaoxiwang/Work/study-demo/zig/zls
 startuppopupversion: 5
 customcommandshistory:
 - w
 hidecommandlog: false
+ignorewhitespaceindiffview: false

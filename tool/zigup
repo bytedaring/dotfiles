@@ -4,10 +4,10 @@ old_version=$(zig version)
 cd /Users/xiaoxiwang/Work/study-demo/zig || exit 1
 
 http https://ziglang.org/download/index.json | jq  '.master."x86_64-macos".tarball' | \
-    xargs -I{} -r curl -fSL -o zig-macos-x86_64-0.11.tar.xz {}
-tar -xvzf zig-macos-x86_64-0.11.tar.xz 
-trash zig-macos-x86_64-0.11.tar.xz
-[ -d zig-0.11 ] && trash zig-0.11
-mv zig-macos-x86_64-0.11.0-dev.* zig-0.11
+    xargs -I{} -r curl -fSL -o zig-macos-x86_64.tar.xz {}
+tar -xvzf zig-macos-x86_64.tar.xz
+[ -d zig-macos-x86_64.tar.xz ] && trash zig-macos-x86_64.tar.xz
+[ -d zig ] && trash zig
+mv zig-macos-x86_64-0.*-dev.* zig
 
 printf "\033[0m %-15s\033[36m%s" "zig version:" "$old_version => $(zig version)"
