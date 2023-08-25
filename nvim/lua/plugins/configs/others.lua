@@ -136,6 +136,22 @@ M.neotest = function ()
   create_cmd("NeotestRunFile", function (_)
     require('neotest').run.run(vim.fn.expand('%'))
   end)
+
+  local neotest_ns = vim.api.nvim_create_namespace("neotest")
+  vim.diagnostic.config({
+    virtual_text = {
+      format = function (diagnostic)
+        local message =
+          diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+        return message
+      end,
+    },
+  }, neotest_ns)
+  require("neotest").setup({
+    adapters = {
+      require("neotest-go"),
+    },
+  })
 end
 
 M.rusttools = function ()
@@ -150,6 +166,13 @@ M.rusttools = function ()
       -- end,
     },
   })
+end
+
+M.snippet = function ()
+  -- lazy-load snippets from my-snippets folder
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/my_snippets" })
+  -- lazy-load default snippets
+  require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M
