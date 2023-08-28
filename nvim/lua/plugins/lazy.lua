@@ -97,13 +97,6 @@ require("lazy").setup({
     end
   },
   --  文件浏览器 File Explorer
-  -- {
-  --   "kyazdani42/nvim-tree.lua",
-  --   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-  --   config = function ()
-  --     require('plugins.configs.nvim-tree-cfg').config()
-  --   end
-  -- },
   {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {

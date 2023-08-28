@@ -29,7 +29,8 @@ keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
 
 -- nvim-tree NvimTreeFindFileToggle
 -- nnorekeymap.set fi :<C-u>:NvimTreeFindFileToggle<CR>
-keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
+-- keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
+keymap.set('n', '<C-b>', [[<Cmd>Neotree toggle reveal<CR>]], opts)
 
 -- vimspector
 -- keymap.set('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
