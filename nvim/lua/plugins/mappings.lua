@@ -67,7 +67,13 @@ keymap.set('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
 
 -- Outline
 -- keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", opts)
-keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
+keymap.set("n", "<leader>o", function ()
+  if vim.fn.exists(':FlutterOutlineToggle') > 0 and ('dart' == vim.bo.filetype or 'flutterToolsOutline' == vim.bo.filetype) then
+    vim.cmd [[FlutterOutlineToggle]]
+  else
+    vim.cmd [[Lspsaga outline]]
+  end
+end, opts)
 
 -- lspsaga
 -- lsp finder to find the cursor word definition and reference

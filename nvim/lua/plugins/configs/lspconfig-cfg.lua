@@ -31,12 +31,18 @@ M.setup = function ()
 
     -- 保存文件时自动 formatting
     -- if client.resolved_capabilities.document_formatting then
-    if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_command [[augroup Format]]
-      vim.api.nvim_command [[autocmd! * <buffer>]]
-      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
-      vim.api.nvim_command [[augroup END]]
-    end
+    -- if client.server_capabilities.documentFormattingProvider then
+    --   vim.api.nvim_command [[augroup Format]]
+    --   vim.api.nvim_command [[autocmd! * <buffer>]]
+    --   vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
+    --   vim.api.nvim_command [[augroup END]]
+    -- end
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.format({ async = true })
+      end
+    })
   end
 
   -- Add bun for Node.js-based servers
@@ -46,7 +52,7 @@ M.setup = function ()
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls',
+  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'marksman',
     'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls', 'svelte' }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
