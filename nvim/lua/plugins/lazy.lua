@@ -292,7 +292,7 @@ require("lazy").setup({
   -- LSP signature hint as you type
   {
     "ray-x/lsp_signature.nvim",
-    event = { "LspAttach" },
+    event = "LspAttach",
     config = function ()
       require('plugins.configs.others').signature()
     end
@@ -300,7 +300,7 @@ require("lazy").setup({
   -- LSP plugin
   {
     "glepnir/lspsaga.nvim",
-    event = { "LspAttach" },
+    event = "LspAttach",
     branch = "main",
     config = function ()
       require("plugins.configs.others").lspsaga()
