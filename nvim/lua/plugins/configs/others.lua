@@ -88,7 +88,7 @@ M.format = function ()
       -- }
     }
   }
-  vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     callback = function ()
       vim.cmd [[Format]]
     end,

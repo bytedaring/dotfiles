@@ -24,6 +24,9 @@ keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
 keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
 keymap.set('n', 'fm', [[<Cmd>Telescope marks<CR>]], opts)
 
+-- tab
+keymap.set('n', '<C-t>', [[<Cmd>tabp<CR>]], opts)
+
 -- todo-comments.nvim
 keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
 
@@ -112,3 +115,6 @@ keymap.set('n', '<leader>ts', [[<Cmd>NeotestToggleSummary<CR>]], opts)
 keymap.set('n', '<leader>to', [[<Cmd>NeotestToggleOutputPanel<CR>]], opts)
 keymap.set('n', '<leader>tr', [[<Cmd>NeotestRun<CR>]], opts)
 keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
+
+--format
+keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opts)

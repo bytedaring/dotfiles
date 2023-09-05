@@ -292,7 +292,7 @@ require("lazy").setup({
   -- LSP signature hint as you type
   {
     "ray-x/lsp_signature.nvim",
-    event = { "LspAttach", "InsertEnter" },
+    event = { "LspAttach" },
     config = function ()
       require('plugins.configs.others').signature()
     end
@@ -300,7 +300,7 @@ require("lazy").setup({
   -- LSP plugin
   {
     "glepnir/lspsaga.nvim",
-    event = { "LspAttach", "InsertEnter" },
+    event = { "LspAttach" },
     branch = "main",
     config = function ()
       require("plugins.configs.others").lspsaga()
@@ -394,13 +394,13 @@ require("lazy").setup({
     end
   },
   -- flutter
-  {
-    'akinsho/flutter-tools.nvim',
-    ft = 'dart',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim'
-    },
-    config = true
-  }
+  -- {
+  --   'akinsho/flutter-tools.nvim',
+  --   ft = 'dart',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'stevearc/dressing.nvim'
+  --   },
+  --   config = true
+  -- }
 })
