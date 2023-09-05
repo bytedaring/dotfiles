@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-sudo rm -rf /usr/local/nvim &&
+cd ~/Downloads/ || exit
+
+rm -rf /usr/local/nvim/* &&
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz &&
 tar -xvzf nvim-macos.tar.gz &&
-sudo mv nvim-macos /usr/local/nvim &&
+mv nvim-macos/* /usr/local/nvim/ &&
 
 test -f 'nvim-macos.tar.gz' && trash nvim-macos.tar.gz
+test -d 'nvim-macos' && trash nvim-macos
