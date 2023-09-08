@@ -92,8 +92,8 @@ opt.termguicolors = true
 -- 搜索时忽略大小写
 o.ignorecase = true
 
--- signcolumn 'scl': display signs in the 'number' column
-o.signcolumn = 'number'
+-- signcolumn 'scl': display signs in the 'number' column, auto,auto:[1-8]-[2-9],no,yes[1-9],number
+o.signcolumn = 'auto:1-2'
 
 -- 设置默认winhl
 -- vim.api.nvim_win_set_option(0, 'winhl', 'Normal:Normal,FloatBorder:FloatBorder')

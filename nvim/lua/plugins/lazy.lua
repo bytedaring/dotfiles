@@ -179,14 +179,7 @@ require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     config = function ()
-      vim.g.indentLine_char_list = { '|', '¦', '┆', '┊' }
-      vim.opt.termguicolors = true
-      vim.opt.list = true
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = false,
-      }
+      require("plugins.configs.others").blankline()
     end
   },
   --  注释插件
@@ -197,7 +190,7 @@ require("lazy").setup({
     end,
     ft = { "html", "typescriptreact", "typescript",
       "javascript", "css", "less", "lua",
-      "python", "go", "vim",
+      "python", "go", "vim", "dart", "java",
       "sh", "zig", "zsh", "conf"
     }
   },
@@ -238,6 +231,7 @@ require("lazy").setup({
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end,
+    branch = 'local-dart',
     event = { "BufRead", "BufNewFile" },
     config = function ()
       require "nvim-treesitter.configs".setup {
@@ -394,13 +388,15 @@ require("lazy").setup({
     end
   },
   -- flutter
-  -- {
-  --   'akinsho/flutter-tools.nvim',
-  --   ft = 'dart',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'stevearc/dressing.nvim'
-  --   },
-  --   config = true
-  -- }
+  {
+    'akinsho/flutter-tools.nvim',
+    ft = 'dart',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim'
+    },
+    config = function ()
+      require("plugins.configs.others").flutter()
+    end
+  }
 })

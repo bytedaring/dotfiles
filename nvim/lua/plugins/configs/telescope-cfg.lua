@@ -1,13 +1,13 @@
 local M = {}
 
 M.config = function ()
-  require("telescope").setup{
+  require("telescope").setup {
     extensions = {
       fzf = {
-        fuzzy = true, -- false will only do exact matching
+        fuzzy = true,                   -- false will only do exact matching
         override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
+        override_file_sorter = true,    -- override the file sorter
+        case_mode = "ignore_case",      -- or "ignore_case" or "respect_case"
       }
     },
     pickers = {
@@ -24,7 +24,7 @@ M.config = function ()
       preview = {
         mime_hook = function (filepath, bufnr, opts)
           local is_image = function (filepath)
-            local image_extensions = { 'png', 'jpg', 'jpeg' } -- Supported image formats
+            local image_extensions = { 'png', 'jpg', 'jpeg', 'webp' } -- Supported image formats
             local split_path = vim.split(filepath:lower(), '.', { plain = true })
             local extension = split_path[#split_path]
             return vim.tbl_contains(image_extensions, extension)
