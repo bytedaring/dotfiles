@@ -53,7 +53,8 @@ M.config = function ()
   --if ok then
   --  require('telescope').load_extension('aerial')
   --end
-  require("telescope").load_extension("fzf")
+  local telescope = require("telescope")
+  telescope.load_extension("fzf")
 end
 
 return M

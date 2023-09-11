@@ -19,13 +19,12 @@ keymap.set('n', 'fs', [[<Cmd>Telescope grep_string<CR>]], opts)
 keymap.set('n', 'fn', [[<Cmd>bNext<CR>]], opts)
 keymap.set('n', 'fp', [[<Cmd>bprevious<CR>]], opts)
 keymap.set('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], opts)
-keymap.set('n', 'fc', [[<Cmd>Telescope<CR>]], opts)
+keymap.set('n', 'fc', [[<Cmd>Telescope commands<CR>]], opts)
+keymap.set('n', 'fk', [[<Cmd>Telescope keymapps<CR>]], opts)
+keymap.set('n', 'fa', [[<Cmd>Telescope<CR>]], opts)
 keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
 keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
 keymap.set('n', 'fm', [[<Cmd>Telescope marks<CR>]], opts)
-
--- tab
-keymap.set('n', '<C-t>', [[<Cmd>tabp<CR>]], opts)
 
 -- todo-comments.nvim
 keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)

@@ -303,18 +303,35 @@ require("lazy").setup({
   -- 一种通用图形调试器
   {
     "mfussenegger/nvim-dap",
-    ft           = { 'go', 'rust', 'zig' },
-    event        = { "BufRead", "BufNewFile" },
+    ft           = { 'go', 'rust', 'zig', 'dart' },
+    -- event        = { "BufRead", "BufNewFile" },
     dependencies = {
-      "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
     },
+    config       = function ()
+      require("plugins.configs.dap-cfg").setup()
+    end
   },
+  -- go
   {
     "ray-x/go.nvim",
     ft = 'go',
     dependencies = 'ray-x/guihua.lua',
     config = function ()
       require("plugins.configs.go-cfg").setup()
+    end
+  },
+  -- flutter
+  {
+    'akinsho/flutter-tools.nvim',
+    ft = 'dart',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim'
+    },
+    config = function ()
+      require("plugins.configs.flutter-cfg").setup()
     end
   },
   -- 测试插件
@@ -324,7 +341,10 @@ require("lazy").setup({
   },
   {
     "nvim-neotest/neotest",
-    dependencies = "nvim-neotest/neotest-go",
+    dependencies = {
+      "nvim-neotest/neotest-go",
+      "sidlatau/neotest-dart",
+    },
     cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },
     config = function ()
       require("plugins.configs.others").neotest()
@@ -387,16 +407,4 @@ require("lazy").setup({
       vim.cmd [[hi default CursorWord cterm=underline gui=underline]]
     end
   },
-  -- flutter
-  {
-    'akinsho/flutter-tools.nvim',
-    ft = 'dart',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim'
-    },
-    config = function ()
-      require("plugins.configs.others").flutter()
-    end
-  }
 })
