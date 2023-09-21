@@ -75,6 +75,7 @@ end
 
 M.format = function ()
   local defaults = require('formatter.filetypes')
+  local util = require "formatter.util"
   require("formatter").setup {
     filetype = {
       html = {
@@ -82,13 +83,16 @@ M.format = function ()
       },
       svelte = {
         defaults.svelte.prettier,
+      },
+      css = {
+        defaults.css.prettier,
       }
       -- javascript = {
       --   defaults.javascript.prettier,
       -- }
     }
   }
-  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function ()
       vim.cmd [[Format]]
     end,

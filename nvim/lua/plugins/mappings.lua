@@ -20,7 +20,7 @@ keymap.set('n', 'fn', [[<Cmd>bNext<CR>]], opts)
 keymap.set('n', 'fp', [[<Cmd>bprevious<CR>]], opts)
 keymap.set('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], opts)
 keymap.set('n', 'fc', [[<Cmd>Telescope commands<CR>]], opts)
-keymap.set('n', 'fk', [[<Cmd>Telescope keymapps<CR>]], opts)
+keymap.set('n', 'fk', [[<Cmd>Telescope keymaps<CR>]], opts)
 keymap.set('n', 'fa', [[<Cmd>Telescope<CR>]], opts)
 keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
 keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
@@ -116,4 +116,12 @@ keymap.set('n', '<leader>tr', [[<Cmd>NeotestRun<CR>]], opts)
 keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
-keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opts)
+keymap.set('n', '<space>f', function ()
+  if 'xml' == vim.bo.filetype then
+    vim.cmd [[%!xmllint % --format ]]
+  elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype then
+    vim.cmd [[Format]]
+  else
+    vim.lsp.buf.format { async = true }
+  end
+end, opts)

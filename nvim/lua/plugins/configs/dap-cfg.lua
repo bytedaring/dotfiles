@@ -250,7 +250,7 @@ M.setup = function ()
     end, 200)
   end
   dap.listeners.before.event_terminated["dapui_config"] = function ()
-    dapui.close()
+    -- dapui.close()
     unmap()
   end
   dap.listeners.before.event_exited["dapui_config"] = function ()

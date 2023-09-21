@@ -145,7 +145,7 @@ require("lazy").setup({
   -- Use treesitter to auto close and auto rename html tag
   {
     'windwp/nvim-ts-autotag',
-    ft = { 'javascript', 'html' },
+    event = 'InsertEnter',
     config = function ()
       require('nvim-ts-autotag').setup()
     end
@@ -191,7 +191,7 @@ require("lazy").setup({
     ft = { "html", "typescriptreact", "typescript",
       "javascript", "css", "less", "lua",
       "python", "go", "vim", "dart", "java",
-      "sh", "zig", "zsh", "conf"
+      "sh", "zig", "zsh", "conf", "astro"
     }
   },
   -- Markdown预览
@@ -303,7 +303,8 @@ require("lazy").setup({
   -- 一种通用图形调试器
   {
     "mfussenegger/nvim-dap",
-    ft           = { 'go', 'rust', 'zig', 'dart' },
+    lazy         = true,
+    -- ft           = { 'go', 'rust', 'zig', 'dart' },
     -- event        = { "BufRead", "BufNewFile" },
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -328,6 +329,7 @@ require("lazy").setup({
     ft = 'dart',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
       'stevearc/dressing.nvim'
     },
     config = function ()
@@ -372,7 +374,7 @@ require("lazy").setup({
   -- formatter
   {
     'mhartington/formatter.nvim',
-    ft = { 'html', 'svelte' },
+    ft = { 'html', 'svelte', 'css', 'xml' },
     config = function ()
       require('plugins.configs.others').format()
     end

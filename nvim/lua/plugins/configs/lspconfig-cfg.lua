@@ -27,7 +27,7 @@ M.setup = function ()
     -- vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     -- vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     -- vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    vim.keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opts)
+    -- vim.keymap.set('n', '<space>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opts)
 
     -- 保存文件时自动 formatting
     -- if client.resolved_capabilities.document_formatting then
@@ -37,10 +37,12 @@ M.setup = function ()
     --   vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
     --   vim.api.nvim_command [[augroup END]]
     -- end
-    vim.api.nvim_create_autocmd("BufWritePre", {
+    vim.api.nvim_create_autocmd("BufWritePost", {
       buffer = bufnr,
       callback = function ()
-        vim.lsp.buf.format({ async = true })
+        if 'css' ~= vim.bo.filetype and 'html' ~= vim.bo.filetype then
+          vim.lsp.buf.format({ async = true })
+        end
       end
     })
   end
@@ -52,7 +54,7 @@ M.setup = function ()
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'marksman',
+  local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'marksman', 'astro',
     'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls', 'svelte' }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
