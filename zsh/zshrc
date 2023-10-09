@@ -176,9 +176,9 @@ export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
-# alias ls="exa"
-# alias l="exa -lh"
-# alias ll="exa -lha"
+alias ls="exa"
+alias l="exa -lh"
+alias ll="exa -lha"
 #alias ..="cd ./.."
 #alias ../..="cd ./../.."
 alias cls="clear"

@@ -44,7 +44,7 @@ o.shada = "!,'15,<30,s10,h"
 o.laststatus = 3
 
 vim.cmd [[set autowrite]]
-opt.list = true
+opt.list = false
 
 -- 递归搜索文件路径
 -- opt.path+="**"

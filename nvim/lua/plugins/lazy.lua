@@ -12,33 +12,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "lewis6991/impatient.nvim" },
+  -- { "lewis6991/impatient.nvim" },
   --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
   {
     "kyazdani42/nvim-web-devicons",
     event = { 'BufRead', 'BufNewFile' },
     config = function ()
-      require 'nvim-web-devicons'.setup {
-        override = {
-          zip = {
-            icon = " ",
-            color = "#dad8d8",
-            cterm_color = "188",
-            name = "Zip"
-          },
-          sum = {
-            icon = "",
-            color = "#e44d26",
-            cterm_color = "196",
-            name = "GoSum",
-          },
-          mod = {
-            icon = "",
-            color = "#e44d26",
-            cterm_color = "196",
-            name = "GoMod",
-          },
+      require 'nvim-web-devicons'.setup { override = {
+        zip = {
+          icon = " ",
+          color = "#dad8d8",
+          cterm_color = "188",
+          name = "Zip"
         },
+        sum = {
+          icon = "",
+          color = "#e44d26",
+          cterm_color = "196",
+          name = "GoSum",
+        },
+        mod = {
+          icon = "",
+          color = "#e44d26",
+          cterm_color = "196",
+          name = "GoMod",
+        },
+      },
       }
     end
   },
@@ -50,20 +49,20 @@ require("lazy").setup({
         options = {
           theme = 'auto',
           icons_enabled = true,
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
+          -- component_separators = { left = '', right = '' },
+          -- section_separators = { left = '', right = '' },
         }
       })
     end
   },
-  -- color scheme
+  -- colorscheme
   {
     'tanvirtin/monokai.nvim',
     config = function ()
       local monokai = require('monokai')
-      local palette = monokai.classic
+      local palette = monokai.pro
       monokai.setup {
-        palette = require('monokai').classic,
+        palette = palette,
         custom_hlgroups = {
           ["@comment"] = {
             fg = palette.base6,
@@ -159,7 +158,7 @@ require("lazy").setup({
     end
   },
   --  `.` 重复上次操作
-  { "tpope/vim-repeat",        event = "InsertEnter" },
+  { "tpope/vim-repeat", event = "InsertEnter" },
   --  Git 文件git状态、Blame text
   {
     "f-person/git-blame.nvim",
@@ -178,6 +177,7 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
+    main = 'ibl',
     config = function ()
       require("plugins.configs.others").blankline()
     end

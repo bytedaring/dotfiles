@@ -75,7 +75,7 @@ end
 
 M.format = function ()
   local defaults = require('formatter.filetypes')
-  local util = require "formatter.util"
+  -- local util = require "formatter.util"
   require("formatter").setup {
     filetype = {
       html = {
@@ -86,7 +86,7 @@ M.format = function ()
       },
       css = {
         defaults.css.prettier,
-      }
+      },
       -- javascript = {
       --   defaults.javascript.prettier,
       -- }
@@ -185,13 +185,14 @@ M.snippet = function ()
 end
 
 M.blankline = function ()
-  vim.g.indentLine_char_list = { '|', '¦', '┆', '┊' }
   vim.opt.termguicolors = true
-  vim.opt.list = true
-  require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = false,
+  -- vim.opt.list = true
+  require("ibl").setup {
+    indent = {
+      char = { '|', '¦', '┆', '┊' },
+    },
+    whitespace = { highlight = { "Whitespace", "NonText" } },
+    scope = { enabled = false }
   }
 end
 return M

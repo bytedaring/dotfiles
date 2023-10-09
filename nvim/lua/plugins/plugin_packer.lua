@@ -80,7 +80,7 @@ packer.startup({ function (use)
     end
   }
 
-  -- color scheme
+  -- colorscheme
   use {
     'tanvirtin/monokai.nvim',
     config = function ()
