@@ -140,7 +140,7 @@ local unmap = function ()
         local sl = (v.slient == 1)
         local exp = (v.expr == 1)
         local mode = v.mode
-        local desc = v.desc or 'go-dap'
+        local desc = v.desc or 'dap'
         if v.mode == ' ' then
           mode = { 'n', 'v' }
         end
