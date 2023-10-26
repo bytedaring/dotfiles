@@ -304,7 +304,7 @@ require("lazy").setup({
   {
     "mfussenegger/nvim-dap",
     lazy         = true,
-    -- ft           = { 'go', 'rust', 'zig', 'dart' },
+    ft           = { 'zig' },
     -- event        = { "BufRead", "BufNewFile" },
     dependencies = {
       "rcarriga/nvim-dap-ui",

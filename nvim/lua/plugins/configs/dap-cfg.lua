@@ -257,6 +257,30 @@ M.setup = function ()
     dapui.close()
     unmap()
   end
+
+  dap.adapters.cppdbg = {
+    id = 'cppdbg',
+    type = 'executable',
+    command = '/Users/xiaoxiwang/Work/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+    options = {
+      detached = false
+    }
+  }
+
+  dap.configurations.cpp = {
+    {
+      name = 'Launch',
+      type = 'cppdbg',
+      request = 'launch',
+      program = function ()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/zig-out/bin/', 'file')
+      end,
+      cwd = '${workspaceFolder}',
+      stopOnEntry = true,
+      MIMode = 'lldb',
+    }
+  }
+  dap.configurations.zig = dap.configurations.cpp
 end
 
 local function dapui_opened()

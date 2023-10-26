@@ -82,6 +82,7 @@ o.cursorline = true
 -- 显示行号、 显示当前行行号，其它行的行号都是以当前行为基准从 1 开始增加（即相对行号）
 wo.number = true
 opt.relativenumber = true
+o.numberwidth = 3
 -- 允许自动换行
 opt.wrap = true
 opt.linebreak = true
@@ -164,4 +165,11 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = "go.sum",
   command = "set filetype=gosum",
   group = go_group,
+})
+--------------- zig --------------------
+local zig_group = vim.api.nvim_create_augroup("zig_group", { clear = true })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = "build.zig.zon",
+  command = "set filetype=zig",
+  group = zig_group,
 })

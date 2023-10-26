@@ -181,7 +181,7 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  use_thin_strokes: true
+  #use_thin_strokes: true
 
   # Use built-in font for box drawing characters.
   #
@@ -920,39 +920,6 @@ key_bindings:
   # Print all received window events.
   #print_events: false
 
+import:
+ - ~/.config/alacritty/themes/themes/ayu_dark.yaml
 
-
-# Colors (Darkside)
-# Colors (Wombat)
-# Colors (Gruvbox light)
-# The 'GNOME Light" theme from GNOME terminal.
-# Colors (Monokai Dark)
-# Colors (Monokai Pro)
-# Colors (Material Theme)
-colors:
-  # Default colors
-  primary:
-    background: '#000000'
-    foreground: '#dddddd'
-
-  # Normal colors
-  normal:
-    black:   '#000000'
-    red:     '#cc0403'
-    green:   '#19cb00'
-    yellow:  '#cecb00'
-    blue:    '#0d73cc'
-    magenta: '#cb1ed1'
-    cyan:    '#0dcdcd'
-    white:   '#dddddd'
-
-  # Bright colors
-  bright:
-    black:   '#767676'
-    red:     '#f2201f'
-    green:   '#23fd00'
-    yellow:  '#fffd00'
-    blue:    '#1a8fff'
-    magenta: '#fd28ff'
-    cyan:    '#14ffff'
-    white:   '#ffffff'
