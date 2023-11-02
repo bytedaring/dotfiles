@@ -127,10 +127,11 @@ znap source zsh-users/zsh-syntax-highlighting
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories} plugins/git plugins/zoxide plugins/macos
 #znap prompt ohmyzsh/ohmyzsh robbyrussell 
 
-export ZIGUP_INSTALL=/Users/xiaoxiwang/Work/study-demo/zig/zigup/zig-out
+#export ZIGUP_INSTALL=/Users/xiaoxiwang/Work/study-demo/zig/zigup/zig-out/bin
+export ZIGUP_INSTALL=/Users/xiaoxiwang/zig/master
 export BUN_INSTALL=$HOME/.bun
 
-export PATH=$PATH:/Users/xiaoxiwang/Work/go/bin:/Users/xiaoxiwang/go/bin:/usr/local/protoc-3.8.0/bin:$HOME/bin:/usr/local/gradle-4.8.1/bin:/Volumes/Samsung_T5/app/flutter/bin:/usr/local/flutter/bin:$HOME/.cargo/bin:/usr/local/opt/mysql-client/bin:$ZIGUP_INSTALL/bin:$BUN_INSTALL/bin:/Users/xiaoxiwang/.nodejs/node_global/bin:/usr/local/codelldb/extension/adapter
+export PATH=$PATH:/Users/xiaoxiwang/Work/go/bin:/Users/xiaoxiwang/go/bin:/usr/local/protoc-3.8.0/bin:$HOME/bin:/usr/local/gradle-4.8.1/bin:/Volumes/Samsung_T5/app/flutter/bin:/usr/local/flutter/bin:$HOME/.cargo/bin:/usr/local/opt/mysql-client/bin:$ZIGUP_INSTALL:$BUN_INSTALL/bin:/Users/xiaoxiwang/.nodejs/node_global/bin:/usr/local/codelldb/extension/adapter
 
 export GOPATH=/Users/xiaoxiwang/Work/go:/Users/xiaoxiwang/Work/go_server:/Users/xiaoxiwang/Work/demo/golangDemo:/Users/xiaoxiwang/Work/zyt
 export GOPROXY=https://goproxy.cn

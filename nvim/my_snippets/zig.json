@@ -366,6 +366,7 @@
     },
     "import-std": {
         "prefix": [
+            "std",
             "imps",
             "impstd"
         ],

@@ -441,3 +441,4 @@ ourself
 formatter
 jshint
 esversion
+allocator
