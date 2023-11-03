@@ -191,7 +191,7 @@ require("lazy").setup({
     ft = { "html", "typescriptreact", "typescript",
       "javascript", "css", "less", "lua",
       "python", "go", "vim", "dart", "java",
-      "sh", "zig", "zsh", "conf", "astro"
+      "sh", "zig", "zsh", "conf", "astro", "rust"
     }
   },
   -- Markdown预览
