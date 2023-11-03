@@ -346,6 +346,8 @@ require("lazy").setup({
     dependencies = {
       "nvim-neotest/neotest-go",
       "sidlatau/neotest-dart",
+      "lawrence-laz/neotest-zig",
+      "antoinemadec/FixCursorHold.nvim"
     },
     cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },
     config = function ()

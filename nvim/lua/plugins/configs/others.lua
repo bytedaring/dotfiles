@@ -154,6 +154,7 @@ M.neotest = function ()
   }, neotest_ns)
   require("neotest").setup({
     adapters = {
+      require("neotest-zig"),
       require("neotest-go"),
       require("neotest-dart") {
         command = "flutter",

@@ -371,7 +371,8 @@
             "impstd"
         ],
         "body": [
-            "const std = @import(\"std\");"
+            "const std = @import(\"std\");\n",
+            ""
         ],
         "description": "import std"
     },
