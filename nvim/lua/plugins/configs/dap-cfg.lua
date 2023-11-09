@@ -43,8 +43,7 @@ local dap_debug_config = {
     max_width = nil,
     border = "single",
     mappings = {
-      ["close"] = { "q", "<Esc>" },
-    },
+      ["close"] = { "q", "<Esc>" }, },
   },
   -- controls = {
   --   enabled = vim.fn.exists("+winbar") == 1,
@@ -266,6 +265,21 @@ M.setup = function ()
       detached = false
     }
   }
+  dap.adapters.lldb = {
+    id = "lldb",
+    type = "server",
+    port = "${port}",
+    host = "127.0.0.1",
+    executable = {
+      command = "/Users/xiaoxiwang/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb",
+      args = {
+        "--liblldb",
+        "/Users/xiaoxiwang/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/lldb/lib/liblldb.dylib",
+        "--port",
+        "${port}",
+      },
+    },
+  }
 
   dap.configurations.cpp = {
     {
@@ -280,7 +294,24 @@ M.setup = function ()
       MIMode = 'lldb',
     }
   }
+
   dap.configurations.zig = dap.configurations.cpp
+  dap.configurations.rust = {
+    {
+      name = 'Launch',
+      type = 'cppdbg',
+      request = 'launch',
+      program = vim.fn.getcwd() .. '/target/debug/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t"),
+      -- program = function ()
+      --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+      -- end,
+      cwd = '${workspaceFolder}',
+      stopOnEntry = true,
+      MIMode = 'lldb',
+    }
+  }
+  -- rust
+  -- require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'rust' } });
 end
 
 local function dapui_opened()

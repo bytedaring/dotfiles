@@ -336,6 +336,16 @@ require("lazy").setup({
       require("plugins.configs.flutter-cfg").setup()
     end
   },
+  -- rust
+  {
+    'simrat39/rust-tools.nvim',
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function ()
+      require("plugins.configs.rust-cfg").setup()
+    end
+  },
   -- 测试插件
   {
     "vim-test/vim-test",

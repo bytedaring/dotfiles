@@ -49,7 +49,7 @@ keymap.set('n', '<leader>xq', function () require("trouble").open("quickfix") en
 keymap.set('n', '<leader>xl', function () require("trouble").open("loclist") end, opts)
 
 -- ToggleTerm
-keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm<CR>]], opts)
+keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
 keymap.set('n', '<CS-\\>', function ()
   if vim.g.toggleTerm_direction == 'horizontal' then
     vim.cmd [[ToggleTerm direction=float]]
@@ -68,6 +68,8 @@ keymap.set('n', '<leader>dd', function ()
     vim.cmd [[DapContinue]]
   elseif 'flutter' == vim.bo.filetype then
     vim.cmd [[FlutterRun]]
+    -- elseif 'rust' == vim.bo.filetype then
+    -- require('rust-tools').hover_actions.hover_actions()
   else
     vim.cmd [[GoDebug]]
   end
