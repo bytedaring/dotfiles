@@ -121,11 +121,12 @@ znap prompt sindresorhus/pure
 # `znap source` starts plugins.
 znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
 # `znap prompt` also supports Oh-My-Zsh themes. Just make sure you load the
 # required libs first:
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories} plugins/git plugins/zoxide plugins/macos
 #znap prompt ohmyzsh/ohmyzsh robbyrussell 
+znap source zsh-users/zsh-syntax-highlighting
+#znap source zdharma-continuum/fast-syntax-highlighting
 
 #export ZIGUP_INSTALL=/Users/xiaoxiwang/Work/study-demo/zig/zigup/zig-out/bin
 export ZIGUP_INSTALL=/Users/xiaoxiwang/zig/master
