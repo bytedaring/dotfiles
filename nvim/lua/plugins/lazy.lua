@@ -93,6 +93,7 @@ require("lazy").setup({
           },
         }
       }
+      vim.api.nvim_set_hl(0, 'NormalFloat', { fg = '#fff1f3', bg = '#26292c' })
     end
   },
   --  文件浏览器 File Explorer
