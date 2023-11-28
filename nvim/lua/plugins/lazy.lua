@@ -339,6 +339,7 @@ require("lazy").setup({
   -- rust
   {
     'simrat39/rust-tools.nvim',
+    ft = 'rust',
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -357,6 +358,7 @@ require("lazy").setup({
       "nvim-neotest/neotest-go",
       "sidlatau/neotest-dart",
       "lawrence-laz/neotest-zig",
+      "rouge8/neotest-rust",
       "antoinemadec/FixCursorHold.nvim"
     },
     cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },
