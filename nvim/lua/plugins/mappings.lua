@@ -64,7 +64,7 @@ keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 -- go.nvim
 keymap.set('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)
 keymap.set('n', '<leader>dd', function ()
-  if 'zig' == vim.bo.filetype then
+  if 'zig' == vim.bo.filetype or 'rust' == vim.bo.filetype then
     vim.cmd [[DapContinue]]
   elseif 'flutter' == vim.bo.filetype then
     vim.cmd [[FlutterRun]]
