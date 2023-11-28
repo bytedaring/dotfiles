@@ -52,7 +52,8 @@ M.signature = function ()
 
   require('lsp_signature').setup({
     handler_opts = {
-      border = get_border_style('bold', "SagaBorder") -- DefinitionBorder, double, rounded, single, shadow, none
+      -- DefinitionBorder, double, rounded, single, shadow, none, SagaBorder, HoverBorder
+      border = get_border_style('bold', "SagaBorder")
     },
   })
 end
@@ -159,6 +160,9 @@ M.neotest = function ()
       require("neotest-dart") {
         command = "flutter",
         use_lsp = true,
+      },
+      require("neotest-rust") {
+        dap_adapter = "lldb"
       }
     },
   })
