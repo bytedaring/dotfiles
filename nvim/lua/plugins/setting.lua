@@ -172,3 +172,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   command = "set filetype=zig",
   group = zig_group,
 })
+--------------- justfile --------------------
+local just_group = vim.api.nvim_create_augroup("just_group", { clear = true })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = "justfile",
+  command = "setf make",
+  group = just_group,
+})
