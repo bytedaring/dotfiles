@@ -19,7 +19,6 @@
 # ZSH_THEME="random"
 # ZSH_THEME="eastwood"
 
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -123,10 +122,13 @@ znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 # `znap prompt` also supports Oh-My-Zsh themes. Just make sure you load the
 # required libs first:
-znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories} plugins/git plugins/zoxide plugins/macos
+znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories,completion} plugins/{git,zoxide,macos}
 #znap prompt ohmyzsh/ohmyzsh robbyrussell 
 znap source zsh-users/zsh-syntax-highlighting
 #znap source zdharma-continuum/fast-syntax-highlighting
+
+znap fpath _cargo   'rustup  completions zsh cargo'
+znap fpath _rustup  'rustup  completions zsh'
 
 #export ZIGUP_INSTALL=/Users/xiaoxiwang/Work/study-demo/zig/zigup/zig-out/bin
 export ZIGUP_INSTALL=/Users/xiaoxiwang/zig/master
@@ -179,9 +181,9 @@ export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
-alias ls="exa"
-alias l="exa -lh"
-alias ll="exa -lha"
+alias ls="eza"
+alias l="eza -lh"
+alias ll="eza -lha"
 #alias ..="cd ./.."
 #alias ../..="cd ./../.."
 alias cls="clear"
