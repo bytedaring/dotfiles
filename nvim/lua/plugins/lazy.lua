@@ -424,4 +424,10 @@ require("lazy").setup({
       vim.cmd [[hi default CursorWord cterm=underline gui=underline]]
     end
   },
+  -- Just Syntax
+  {
+    "NoahTheDuke/vim-just",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" }
+  }
 })
