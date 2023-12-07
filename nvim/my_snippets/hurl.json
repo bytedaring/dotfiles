@@ -1,0 +1,361 @@
+{
+  "get": {
+    "prefix": "get",
+    "body": "GET ",
+    "description": "The GET method requests a representation of the specified resource"
+  },
+  "post": {
+    "prefix": "post",
+    "body": "POST ",
+    "description": "The POST method submits an entity to the specified resource"
+  },
+  "put": {
+    "prefix": "put",
+    "body": "PUT ",
+    "description": "The PUT method replaces all current representations of the target resource with the request payload"
+  },
+  "options": {
+    "prefix": "options",
+    "body": "OPTIONS ",
+    "description": "The OPTIONS method describes the communication options for the target resource."
+  },
+  "trace": {
+    "prefix": "trace",
+    "body": "TRACE ",
+    "description": "The TRACE method performs a message loop-back test along the path to the target resource."
+  },
+  "patch": {
+    "prefix": "pat",
+    "body": "PATCH ",
+    "description": "The PATCH method applies partial modifications to a resource."
+  },
+  "delete": {
+    "prefix": "del",
+    "body": "DELETE ",
+    "description": "The DELETE method deletes the specified resource."
+  },
+  "User-Agent": {
+    "prefix": "user",
+    "body": "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:70.0) Gecko/20100101 Firefox/70.0"
+  },
+  "Accept": {
+    "prefix": "acc",
+    "body": [
+      "Accept: */*\n",
+      ""
+    ]
+  },
+  "Accept-Language": {
+    "prefix": "acce",
+    "body": [
+      "Accept-Language: en-US,en;q=0.5\n",
+      ""
+    ]
+  },
+  "Content-Type": {
+    "prefix": "ct",
+    "body": "Content-Type: "
+  },
+  "Content-Disposition": {
+    "prefix": "cd",
+    "body": "Content-Disposition: "
+  },
+  "Connection": {
+    "prefix": "conn",
+    "body": [
+      "Connection: keep-alive\n",
+      ""
+    ]
+  },
+  "Set-Cookie": {
+    "prefix": "sc",
+    "body": "Set-Cookie: "
+  },
+  "http": {
+    "prefix": "http",
+    "body": "HTTP "
+  },
+  "http1": {
+    "prefix": "http1",
+    "body": "HTTP/1 "
+  },
+  "http2": {
+    "prefix": "http2",
+    "body": "HTTP/2"
+  },
+  "status": {
+    "prefix": "status",
+    "body": "status "
+  },
+  "startsWith": {
+    "prefix": "sw",
+    "body": "startsWith "
+  },
+  "endsWith": {
+    "prefix": "ed",
+    "body": "endsWith "
+  },
+  "contains": {
+    "prefix": "contains",
+    "body": "contains "
+  },
+  "count": {
+    "prefix": "count",
+    "body": "count"
+  },
+  "includes": {
+    "prefix": "inclu",
+    "body": "includes "
+  },
+  "matches": {
+    "prefix": "match",
+    "body": "matches "
+  },
+  "exists": {
+    "prefix": "exists",
+    "body": "exists "
+  },
+  "isBoolean": {
+    "prefix": "isb",
+    "body": "isBoolean "
+  },
+  "isCollection": {
+    "prefix": "isc",
+    "body": "isCollection "
+  },
+  "isDate": {
+    "prefix": "isd",
+    "body": "isDate "
+  },
+  "isEmpty": {
+    "prefix": "ise",
+    "body": "isEmpty "
+  },
+  "isFloat": {
+    "prefix": "isf",
+    "body": "isFloat "
+  },
+  "isInteger": {
+    "prefix": "isi",
+    "body": "isInteger "
+  },
+  "isString": {
+    "prefix": "iss",
+    "body": "isString "
+  },
+  "bytes decode": {
+    "prefix": "bytes",
+    "body": "bytes decode "
+  },
+  "variable": {
+    "prefix": "var",
+    "body": "variable "
+  },
+  "duration": {
+    "prefix": "dura",
+    "body": "duration "
+  },
+  "certificate": {
+    "prefix": "cert",
+    "body": "certificate "
+  },
+  "Subject": {
+    "prefix": "sub",
+    "body": "certificate \"Subject\""
+  },
+  "certificate Issuer": {
+    "prefix": "certi",
+    "body": "certificate \"Issuer\""
+  },
+  "certificate Start-Date": {
+    "prefix": "certs",
+    "body": "certificate \"Start-Date\""
+  },
+  "certificate Expire-Date": {
+    "prefix": "certe",
+    "body": "certificate \"Expire-Date\""
+  },
+  "certificate Serial-Number": {
+    "prefix": "certs",
+    "body": "certificate \"Serial-Number\""
+  },
+  "regex": {
+    "prefix": "reg",
+    "body": "regex "
+  },
+  "header": {
+    "prefix": "header",
+    "body": "header "
+  },
+  "jsonpath": {
+    "prefix": "jsonp",
+    "body": "jsonpath \"$.${1:path}\""
+  },
+  "xpath": {
+    "prefix": "xpa",
+    "body": "xpath \"${1}\""
+  },
+  "cookie": {
+    "prefix": "cookie",
+    "body": "cookie"
+  },
+  "multipart/form-data": {
+    "prefix": "form-data",
+    "body": [
+      "Content-Type: multipart/form-data; boundary=\"boundary\"\n",
+      ""
+    ]
+  },
+  "soap": {
+    "prefix": "soap",
+    "body": [
+      "Content-Type: application/soap+xml; charset=utf-8\n",
+      ""
+    ]
+  },
+  "text/plain": {
+    "prefix": "textp",
+    "body": "text/plain"
+  },
+  "image/gif": {
+    "prefix": "imagg",
+    "body": "image/gif"
+  },
+  "image/jpeg": {
+    "prefix": "imagj",
+    "body": "image/jpeg"
+  },
+  "image/png": {
+    "prefix": "imagp",
+    "body": "image/png"
+  },
+  "image/svg+xml": {
+    "prefix": "imgs",
+    "body": "image/svg+xml"
+  },
+  "text/html": {
+    "prefix": "texth",
+    "body": "text/html"
+  },
+  "application/pdf": {
+    "prefix": "pdf",
+    "body": "application/pdf"
+  },
+  "application/xml": {
+    "prefix": "application/xml",
+    "body": "application/xml"
+  },
+  "graphql": {
+    "prefix": "grap",
+    "body": "```graphql\n{\n${1}\n}\n```"
+  },
+  "json": {
+    "prefix": "json",
+    "body": "```json\n{\n${1}\n}\n```"
+  },
+  "xml": {
+    "prefix": "xml",
+    "body": "```xml\n${1}\n```"
+  },
+  "QueryStringParams": {
+    "prefix": "query",
+    "body": [
+      "[QueryStringParams]\n",
+      ""
+    ]
+  },
+  "FormParams": {
+    "prefix": "form",
+    "body": [
+      "[FormParams]\n",
+      ""
+    ]
+  },
+  "MultipartFormData": {
+    "prefix": "multi",
+    "body": [
+      "[MultipartFormData]\n",
+      ""
+    ]
+  },
+  "BasicAuth": {
+    "prefix": "basic",
+    "body": [
+      "[BasicAuth]\n",
+      ""
+    ]
+  },
+  "Cookies": {
+    "prefix": "cookies",
+    "body": [
+      "[Cookies]\n",
+      ""
+    ]
+  },
+  "Captures": {
+    "prefix": "capt",
+    "body": [
+      "[Captures]\n",
+      ""
+    ]
+  },
+  "Asserts": {
+    "prefix": "asserts",
+    "body": [
+      "[Asserts]\n",
+      ""
+    ]
+  },
+  "Options": {
+    "prefix": "options",
+    "body": [
+      "[Options]\n",
+      ""
+    ]
+  },
+  "aws-sigv4": {
+    "prefix": "aws",
+    "body": "aws-sigv4: aws:amz:sts ",
+    "description": "generate AWS SigV4 Authorization header"
+  },
+  "cacert": {
+    "prefix": "cacert",
+    "body": "cacert: /etc/cert.pem  ",
+    "description": "a custom certificate file"
+  },
+  "compressed": {
+    "prefix": "compressed",
+    "body": "compressed: true       ",
+    "description": "request a compressed response"
+  },
+  "insecure": {
+    "prefix": "insecure",
+    "body": "insecure: true         ",
+    "description": "allows insecure SSL connections and transfers"
+  },
+  "location": {
+    "prefix": "location",
+    "body": "location: true         ",
+    "description": "follow redirection for this request"
+  },
+  "max-redirs": {
+    "prefix": "max-redirs",
+    "body": "max-redirs: 10         ",
+    "description": "maximum number of redirections"
+  },
+  "path-as-is": {
+    "prefix": "path-as-is",
+    "body": "path-as-is: true       ",
+    "description": "tell curl to not handle sequences of /../ or /./ in the given URL path"
+  },
+  "verbose": {
+    "prefix": "verbose",
+    "body": "verbose: true          ",
+    "description": "allow verbose output"
+  },
+  "very-verbose": {
+    "prefix": "very-v",
+    "body": "very-verbose: true     ",
+    "description": "allow more verbose output"
+  }
+}

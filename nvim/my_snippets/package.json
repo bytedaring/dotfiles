@@ -13,6 +13,12 @@
           "zig"
         ],
         "path": "./zig.json"
+      },
+      {
+        "language": [
+          "hurl"
+        ],
+        "path": "./hurl.json"
       }
     ]
   }
