@@ -40,7 +40,7 @@ M.setup = function ()
     vim.api.nvim_create_autocmd("BufWritePost", {
       buffer = bufnr,
       callback = function ()
-        if 'css' ~= vim.bo.filetype and 'html' ~= vim.bo.filetype and 'proto' ~= vim.bo.filetype then
+        if 'css' ~= vim.bo.filetype and 'html' ~= vim.bo.filetype and 'proto' ~= vim.bo.filetype and 'sh' ~= vim.bo.filetype then
           vim.lsp.buf.format({ async = true })
         end
       end
