@@ -15,7 +15,7 @@
     "description": "The PUT method replaces all current representations of the target resource with the request payload"
   },
   "options": {
-    "prefix": "options",
+    "prefix": "option",
     "body": "OPTIONS ",
     "description": "The OPTIONS method describes the communication options for the target resource."
   },
@@ -53,8 +53,8 @@
     ]
   },
   "Content-Type": {
-    "prefix": "ct",
-    "body": "Content-Type: "
+    "prefix": "cont",
+    "body": "Content-Type"
   },
   "Content-Disposition": {
     "prefix": "cd",
@@ -68,8 +68,8 @@
     ]
   },
   "Set-Cookie": {
-    "prefix": "sc",
-    "body": "Set-Cookie: "
+    "prefix": "setc",
+    "body": "Set-Cookie"
   },
   "http": {
     "prefix": "http",
@@ -88,28 +88,24 @@
     "body": "status "
   },
   "startsWith": {
-    "prefix": "sw",
-    "body": "startsWith "
+    "prefix": "startsW",
+    "body": "startsWith \"${0}\""
   },
   "endsWith": {
-    "prefix": "ed",
-    "body": "endsWith "
+    "prefix": "endsW",
+    "body": "endsWith \"${0}\""
   },
   "contains": {
     "prefix": "contains",
-    "body": "contains "
-  },
-  "count": {
-    "prefix": "count",
-    "body": "count"
+    "body": "contains \"${0}\""
   },
   "includes": {
     "prefix": "inclu",
-    "body": "includes "
+    "body": "includes \"${0}\""
   },
   "matches": {
     "prefix": "match",
-    "body": "matches "
+    "body": "matches \"${0}\""
   },
   "exists": {
     "prefix": "exists",
@@ -145,7 +141,12 @@
   },
   "bytes decode": {
     "prefix": "bytes",
-    "body": "bytes decode "
+    "body": "bytes decode ",
+    "description": "Decode bytes to string using encoding."
+  },
+  "bytes contains": {
+    "prefix": "bytes contains",
+    "body": "bytes contains "
   },
   "variable": {
     "prefix": "var",
@@ -179,13 +180,79 @@
     "prefix": "certs",
     "body": "certificate \"Serial-Number\""
   },
+  "count": {
+    "prefix": "count",
+    "body": "count",
+    "description": "Counts the number of items in a collection."
+  },
+  "daysAfterNow": {
+    "prefix": "daysAfterNow",
+    "body": "daysAfterNow ",
+    "description": "Returns the number of days between now and a date in the future."
+  },
+  "daysBeforeNow": {
+    "prefix": "daysBeforeNow",
+    "body": "daysBeforeNow",
+    "description": "Returns the number of days between now and a date in the past."
+  },
+  "format": {
+    "prefix": "format",
+    "body": "format \"${0}\"",
+    "description": "Formats a date to a string given a specification format."
+  },
+  "htmlEscape": {
+    "prefix": "htmlEscape",
+    "body": "htmlEscape ",
+    "description": "Converts the characters &, < and > to HTML-safe sequence."
+  },
+  "htmlUnescape": {
+    "prefix": "htmlUnescape",
+    "body": "htmlUnescape ",
+    "description": "Converts all named and numeric character references (e.g. &gt;, &#62;, &#x3e;) to the corresponding Unicode characters."
+  },
+  "nth": {
+    "prefix": "nth",
+    "body": "nth",
+    "description": "Returns the element from a collection at a zero-based index."
+  },
   "regex": {
-    "prefix": "reg",
-    "body": "regex "
+    "prefix": "regex",
+    "body": "regex ",
+    "description": "Extracts regex capture group. Pattern must have at least one capture group."
+  },
+  "replace": {
+    "prefix": "replace",
+    "body": "replace \"${0}\" \"${1}\"",
+    "description": "Replaces all occurrences of old string with new string."
+  },
+  "split": {
+    "prefix": "split",
+    "body": "split \"${0}\"",
+    "description": "Splits to a list of strings around occurrences of the specified delimiter."
+  },
+  "toDate": {
+    "prefix": "todate",
+    "body": "toDate \"${0}\"",
+    "description": "Converts a string to a date given a specification format."
+  },
+  "toInt": {
+    "prefix": "toint",
+    "body": "toInt ",
+    "description": "Converts to integer number."
+  },
+  "urlDecode": {
+    "prefix": "urldecode",
+    "body": "urlDecode",
+    "description": "Replaces %xx escapes with their single-character equivalent."
+  },
+  "urlEncode": {
+    "prefix": "urlencode",
+    "body": "urlEncode ",
+    "description": "Percent-encodes all the characters which are not included in unreserved chars (see RFC3986) with the exception of forward slash (/)."
   },
   "header": {
     "prefix": "header",
-    "body": "header "
+    "body": "header \"${0}\""
   },
   "jsonpath": {
     "prefix": "jsonp",
@@ -197,7 +264,11 @@
   },
   "cookie": {
     "prefix": "cookie",
-    "body": "cookie"
+    "body": "cookie \"${0}\""
+  },
+  "url": {
+    "prefix": "url",
+    "body": "url \"${0}\""
   },
   "multipart/form-data": {
     "prefix": "form-data",
@@ -215,7 +286,7 @@
   },
   "text/plain": {
     "prefix": "textp",
-    "body": "text/plain"
+    "body": "text/plain; charset=utf-8"
   },
   "image/gif": {
     "prefix": "imagg",
@@ -235,7 +306,7 @@
   },
   "text/html": {
     "prefix": "texth",
-    "body": "text/html"
+    "body": "text/html; charset=utf-8"
   },
   "application/pdf": {
     "prefix": "pdf",
@@ -243,7 +314,7 @@
   },
   "application/xml": {
     "prefix": "application/xml",
-    "body": "application/xml"
+    "body": "application/xml; charset=utf-8"
   },
   "graphql": {
     "prefix": "grap",
@@ -265,7 +336,7 @@
     ]
   },
   "FormParams": {
-    "prefix": "form",
+    "prefix": "formp",
     "body": [
       "[FormParams]\n",
       ""
@@ -325,22 +396,22 @@
   },
   "compressed": {
     "prefix": "compressed",
-    "body": "compressed: true       ",
+    "body": "compressed: true",
     "description": "request a compressed response"
   },
   "insecure": {
     "prefix": "insecure",
-    "body": "insecure: true         ",
+    "body": "insecure: true",
     "description": "allows insecure SSL connections and transfers"
   },
   "location": {
     "prefix": "location",
-    "body": "location: true         ",
+    "body": "location: true",
     "description": "follow redirection for this request"
   },
   "max-redirs": {
     "prefix": "max-redirs",
-    "body": "max-redirs: 10         ",
+    "body": "max-redirs: 10",
     "description": "maximum number of redirections"
   },
   "path-as-is": {
@@ -350,12 +421,12 @@
   },
   "verbose": {
     "prefix": "verbose",
-    "body": "verbose: true          ",
+    "body": "verbose: true",
     "description": "allow verbose output"
   },
   "very-verbose": {
     "prefix": "very-v",
-    "body": "very-verbose: true     ",
+    "body": "very-verbose: true",
     "description": "allow more verbose output"
   }
 }

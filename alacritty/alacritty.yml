@@ -119,10 +119,11 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: BlexMono Nerd Font Mono
-    family: JetBrains Mono
+    family: "JetBrainsMono Nerd Font Mono" 
 
     # The `style` can be specified to pick a specific face.
     # style: ExtraLight
+
     style: Thin
 
   # Bold font face
@@ -132,10 +133,11 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: BlexMono Nerd Font Mono
+    #family: BlexMono Nerd Font Mono
+    family: Hasklig
 
     # The `style` can be specified to pick a specific face.
-    style: Light
+    style: Medium
 
   # Italic font face
   italic:
@@ -144,7 +146,8 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: BlexMono Nerd Font Mono
+    #family: BlexMono Nerd Font Mono
+    family: Hasklig Light 
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -156,7 +159,7 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: BlexMono Nerd Font Mono
+    family: Hasklig Medium
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -818,6 +821,7 @@ key_bindings:
   #- { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
   #- { key: L,      mods: Shift,         mode: Vi|~Search, action: Low                     }
   #- { key: B,                           mode: Vi|~Search, action: SemanticLeft            }
+  #- { key: B,                           mode: Vi|~Search, action: None}
   #- { key: W,                           mode: Vi|~Search, action: SemanticRight           }
   #- { key: E,                           mode: Vi|~Search, action: SemanticRightEnd        }
   #- { key: B,      mods: Shift,         mode: Vi|~Search, action: WordLeft                }
