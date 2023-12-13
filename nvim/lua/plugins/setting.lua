@@ -31,6 +31,8 @@ for i = 1, #builtin_plugs do
   g['loaded_' .. builtin_plugs[i]] = 1
 end
 
+-- 设置编辑器视窗宽度
+opt.columns = 148
 opt.lazyredraw = true
 -- 不兼容模式
 vim.cmd [[set nocompatible ]]
