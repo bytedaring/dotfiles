@@ -153,6 +153,12 @@ export JAVA_HOME=/usr/local/Cellar/openjdk@17/17.0.8.1/libexec/openjdk.jdk/Conte
 alias emulator="$ANDROID_HOME/emulator/emulator"
 alias start_emu="$ANDROID_HOME/emulator/emulator -avd Pixel_3_API_R"
 
+# -------------------- pyenv --------------------
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+
+
 # 需要用到Python conda时，再解除下面的注释
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -181,9 +187,10 @@ export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
-alias ls="eza"
-alias l="eza -lh"
-alias ll="eza -lha"
+alias ls="lsd"
+alias l="ls -lh"
+alias ll="ls -lha"
+alias lt="ls --tree"
 #alias ..="cd ./.."
 #alias ../..="cd ./../.."
 alias cls="clear"
