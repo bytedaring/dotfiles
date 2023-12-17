@@ -129,7 +129,7 @@ keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
 keymap.set('n', '<space>f', function ()
   if 'xml' == vim.bo.filetype then
     vim.cmd [[%!xmllint % --format ]]
-  elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype then
+  elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype or 'svelte' == vim.bo.filetype then
     vim.cmd [[Format]]
   else
     vim.lsp.buf.format { async = true }
