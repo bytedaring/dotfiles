@@ -5,31 +5,34 @@ local wo = vim.wo
 
 -- 禁用netrw等默认内置插件
 local builtin_plugs = {
-  '2html_plugin',
-  'getscriptPlugin',
-  'getscript',
-  'gzip',
-  'logiPat',
-  'matchparen',
-  'matchit',
-  'netrw',
-  'netrwPlugin',
-  'netrwSettings',
-  'netrwFileHandlers',
-  'remote_plugins',
-  'rrhelper',
-  'tar',
-  'tarPlugin',
-  'spellfile_plugin',
-  'tutor_mode_plugin',
-  'vimball',
-  'vimballPlugin',
-  'zip',
-  'zipPlugin',
+    '2html_plugin',
+    'getscriptPlugin',
+    'getscript',
+    'gzip',
+    'logiPat',
+    'matchparen',
+    'matchit',
+    'netrw',
+    'netrwPlugin',
+    'netrwSettings',
+    'netrwFileHandlers',
+    'remote_plugins',
+    'rrhelper',
+    'tar',
+    'tarPlugin',
+    'spellfile_plugin',
+    'tutor_mode_plugin',
+    'vimball',
+    'vimballPlugin',
+    'zip',
+    'zipPlugin',
 }
 for i = 1, #builtin_plugs do
-  g['loaded_' .. builtin_plugs[i]] = 1
+    g['loaded_' .. builtin_plugs[i]] = 1
 end
+
+-- 背景透明
+-- vim.cmd [[ highlight Normal guibg=none ]]
 
 -- 设置编辑器视窗宽度
 opt.columns = 148
@@ -112,27 +115,27 @@ vim.cmd [[ let g:vimspector_install_gadgets = [ 'debugpy', 'delve', 'CodeLLDB' ]
 -- 启用语法高亮、拼写检查
 local syntax_group = vim.api.nvim_create_augroup("syntax_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "awk" },
-  command = "syntax on",
-  group = syntax_group,
+    pattern = { "awk" },
+    command = "syntax on",
+    group = syntax_group,
 })
 ---------- Spell Check  --------------------
 vim.opt.spelloptions = 'camel'
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python", "go", "javascript", "rust", "zig" },
-  command = "setlocal spell spelllang=en_us,cjk",
-  group = spell_group,
+    pattern = { "lua", "python", "go", "javascript", "rust", "zig" },
+    command = "setlocal spell spelllang=en_us,cjk",
+    group = spell_group,
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown" },
-  command = "setlocal nospell",
-  group = spell_group,
+    pattern = { "markdown" },
+    command = "setlocal nospell",
+    group = spell_group,
 })
 vim.api.nvim_create_autocmd("TermOpen", {
-  pattern = "*",
-  command = "setlocal nospell",
-  group = spell_group,
+    pattern = "*",
+    command = "setlocal nospell",
+    group = spell_group,
 })
 
 --------------- Blame -----------------
@@ -140,8 +143,8 @@ g.gitblame_highlight_group = 'Comment'
 g.gitblame_message_template = '          <date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
 g.gitblame_ignored_filetypes = {
-  'NvimTree', 'packer', 'Trouble', 'dap-repl', 'dapui_watches',
-  'dapui_breakpoints', 'dapui_scopes', 'dapui_stacks'
+    'NvimTree', 'packer', 'Trouble', 'dap-repl', 'dapui_watches',
+    'dapui_breakpoints', 'dapui_scopes', 'dapui_stacks'
 }
 
 --------------- Python3 -----------------
@@ -158,19 +161,19 @@ g.maplocalleader = ' '
 --------------- go -----------------------
 local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = "go.mod,go.MOD",
-  command = "set filetype=gomod",
-  group = go_group,
+    pattern = "go.mod,go.MOD",
+    command = "set filetype=gomod",
+    group = go_group,
 })
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = "go.sum",
-  command = "set filetype=gosum",
-  group = go_group,
+    pattern = "go.sum",
+    command = "set filetype=gosum",
+    group = go_group,
 })
 --------------- zig --------------------
 local zig_group = vim.api.nvim_create_augroup("zig_group", { clear = true })
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = "build.zig.zon",
-  command = "set filetype=zig",
-  group = zig_group,
+    pattern = "build.zig.zon",
+    command = "set filetype=zig",
+    group = zig_group,
 })

@@ -154,9 +154,9 @@ alias emulator="$ANDROID_HOME/emulator/emulator"
 alias start_emu="$ANDROID_HOME/emulator/emulator -avd Pixel_3_API_R"
 
 # -------------------- pyenv --------------------
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
+# export PYENV_ROOT=$HOME/.pyenv
+# export PATH=$PYENV_ROOT/bin:$PATH
+# eval "$(pyenv init -)"
 
 
 # 需要用到Python conda时，再解除下面的注释
