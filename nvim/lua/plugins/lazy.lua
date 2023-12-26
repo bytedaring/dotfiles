@@ -57,7 +57,8 @@ require("lazy").setup({
     -- colorscheme
     {
         'tanvirtin/monokai.nvim',
-        event = { 'BufRead', 'BufNewFile' },
+        lazy = false,
+        -- event = { 'BufRead', 'BufNewFile' },
         config = function ()
             local monokai = require('monokai')
             local palette = monokai.pro
