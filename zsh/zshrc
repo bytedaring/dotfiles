@@ -203,6 +203,7 @@ alias go="go1.20.2"
 alias icat="kitty +kitten icat"
 alias diff="kitty +kitten diff"
 alias python="python3"
+alias j="just --justfile ~/.config/tool/.justfile --working-directory ."
 
 #--------设置终端color方案、影响到tmux, alacritty-----------
 export TERM=xterm-256color
