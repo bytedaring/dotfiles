@@ -59,44 +59,7 @@ require("lazy").setup({
         'tanvirtin/monokai.nvim',
         lazy = false,
         -- event = { 'BufRead', 'BufNewFile' },
-        config = function ()
-            local monokai = require('monokai')
-            local palette = monokai.pro
-            monokai.setup {
-                palette = palette,
-                custom_hlgroups = {
-                    ["@comment"] = {
-                        fg = palette.base6,
-                        -- style = 'NONE',
-                    },
-                    ["@function"] = {
-                        fg = palette.green,
-                        style = 'NONE',
-                    },
-                    ["@keyword.function"] = {
-                        fg = palette.aqua,
-                        style = 'NONE',
-                    },
-                    ["@keyword"] = {
-                        fg = palette.pink,
-                        style = 'NONE',
-                    },
-                    ["@function.builtin"] = {
-                        fg = palette.aqua,
-                        style = 'italic',
-                    },
-                    ["@type.builtin"] = {
-                        fg = palette.aqua,
-                        style = 'italic',
-                    },
-                    ["@method.call"] = {
-                        fg = palette.green,
-                    },
-                }
-            }
-
-            vim.api.nvim_set_hl(0, 'NormalFloat', { fg = '#fff1f3', bg = '#26292c' })
-        end
+        config = require("plugins.configs.others").monokai
     },
     --  文件浏览器 File Explorer
     {
@@ -350,6 +313,11 @@ require("lazy").setup({
         },
         config = function ()
             require("plugins.configs.rust-cfg").setup()
+            vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+                callback = function ()
+                    vim.lsp.buf.format({ async = true })
+                end,
+            })
         end
     },
     -- 测试插件
