@@ -45,6 +45,8 @@ M.setup = function ()
                 end
             end
         })
+
+        vim.lsp.inlay_hint.enable()
     end
 
     -- Add bun for Node.js-based servers
@@ -54,7 +56,7 @@ M.setup = function ()
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
-    local servers = { 'rust_analyzer', 'tsserver', 'vimls', 'jsonls', 'marksman', 'astro',
+    local servers = { 'tsserver', 'vimls', 'jsonls', 'marksman', 'astro',
         'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls', 'svelte', 'tailwindcss' }
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {

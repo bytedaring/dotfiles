@@ -177,3 +177,11 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     command = "set filetype=zig",
     group = zig_group,
 })
+--------------- rust -------------------
+vim.g.rustaceanvim = {
+    server = {
+        on_attach = function (client, bufnr)
+            vim.lsp.inlay_hint.enable()
+        end
+    }
+}

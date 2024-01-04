@@ -306,19 +306,16 @@ require("lazy").setup({
     },
     -- rust
     {
-        'simrat39/rust-tools.nvim',
-        ft = 'rust',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function ()
-            require("plugins.configs.rust-cfg").setup()
-            vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-                callback = function ()
-                    vim.lsp.buf.format({ async = true })
-                end,
-            })
-        end
+        'mrcjkb/rustaceanvim',
+        ft = 'rust'
+        -- config = function ()
+        --     require("plugins.configs.rust-cfg").setup()
+        --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        --         callback = function ()
+        --             vim.lsp.buf.format({ async = true })
+        --         end,
+        --     })
+        -- end
     },
     -- 测试插件
     {
