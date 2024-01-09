@@ -443,3 +443,5 @@ jshint
 esversion
 allocator
 mutex
+versioning
+CLI
