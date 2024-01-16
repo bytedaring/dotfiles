@@ -62,10 +62,11 @@ M.lint = function ()
     require('lint').linters_by_ft = {
         go = { 'golangcilint' },
         sh = { 'shellcheck' },
-        dockerfile = { 'hadolint' },
         yaml = { 'yamllint' },
         html = { 'eslint' },
-        javascript = { 'eslint' }
+        javascript = { 'eslint' },
+        dockerfile = { 'hadolint' },
+        -- markdown = { 'vale' }
     }
     vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
         callback = function ()
@@ -164,20 +165,6 @@ M.neotest = function ()
             require("neotest-rust") {
                 dap_adapter = "lldb"
             }
-        },
-    })
-end
-
-M.rusttools = function ()
-    local rt = require("rust-tools")
-    rt.setup({
-        server = {
-            -- on_attach = function (_, bufnr)
-            -- Hover actions
-            -- vim.keymap.set("n", "<leader>ca", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            -- vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-            -- end,
         },
     })
 end
