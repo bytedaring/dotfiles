@@ -308,14 +308,6 @@ require("lazy").setup({
     {
         'mrcjkb/rustaceanvim',
         ft = 'rust'
-        -- config = function ()
-        --     require("plugins.configs.rust-cfg").setup()
-        --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        --         callback = function ()
-        --             vim.lsp.buf.format({ async = true })
-        --         end,
-        --     })
-        -- end
     },
     -- 测试插件
     {
@@ -348,7 +340,7 @@ require("lazy").setup({
     {
         'mfussenegger/nvim-lint',
         ft = {
-            'javascript', 'typescriptreact', 'typescript', 'less',
+            'javascript', 'typescriptreact', 'typescript', 'less', 'markdown',
             'html', 'css', 'sh', 'lua', 'vim', 'rust', 'python', 'go', "zig"
         },
         config = function ()
@@ -397,7 +389,7 @@ require("lazy").setup({
     {
         "NoahTheDuke/vim-just",
         ft = 'just'
-    }
+    },
 }, {
     defaults = { lazy = true }
 })
