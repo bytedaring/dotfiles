@@ -46,7 +46,9 @@ M.setup = function ()
             end
         })
 
-        vim.lsp.inlay_hint.enable()
+        if vim.bo.filetype ~= 'proto' then
+            vim.lsp.inlay_hint.enable()
+        end
     end
 
     -- Add bun for Node.js-based servers
