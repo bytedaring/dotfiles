@@ -6,7 +6,7 @@ temp:='\1_package rpc;import("context";pb "lib\/protos");func (s Server)\1(ctx c
     
 #根据proto，生成基本内容, 文件名是函数名
 @_gen_content file:
-    gsed -n '/rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/{{temp}}/' |\
+    gsed -n '/^\s*rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/{{temp}}/' |\
     gawk -v FS="_" '{print $2 > $1".go"}'
 
 #驼峰文件名改名为SnakeCase
@@ -26,8 +26,8 @@ temp:='\1_package rpc;import("context";pb "lib\/protos");func (s Server)\1(ctx c
 
 #显示文件名
 @show_snake file:
-    gsed -n '/rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/\1/' | gsed -r 's/([A-Z])/_\l\1/g' | gsed -r 's/^_//'
+    gsed -n '/^\s*rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/\1/' | gsed -r 's/([A-Z])/_\l\1/g' | gsed -r 's/^_//'
 
 #显示字段
 @show_field file:
-    gsed -n '/rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/\1 \2 \3/' 
+    gsed -n '/^\s*rpc/p' {{file}} | gsed -e 's/\s*rpc\s*\(\w\+\)(\(\w\+\))\s*returns\s*(\(\w\+\));/\1 \2 \3/' 
