@@ -126,6 +126,7 @@ znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance,directories,completion
 #znap prompt ohmyzsh/ohmyzsh robbyrussell 
 znap source zsh-users/zsh-syntax-highlighting
 #znap source zdharma-continuum/fast-syntax-highlighting
+znap source zsh-users/zsh-history-substring-search
 
 znap fpath _cargo   'rustup  completions zsh cargo'
 znap fpath _rustup  'rustup  completions zsh'
