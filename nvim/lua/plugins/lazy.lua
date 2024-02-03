@@ -56,10 +56,31 @@ require("lazy").setup({
     },
     -- colorscheme
     {
-        'tanvirtin/monokai.nvim',
+        "rebelot/kanagawa.nvim",
+        priority = 1000, -- Ensure it loads first
         lazy = false,
+        config = function ()
+            require('kanagawa').setup({
+                compile = true,
+                transparent = true,
+            })
+            vim.cmd [[colorscheme kanagawa]]
+        end
+    },
+    {
+        "olimorris/onedarkpro.nvim",
+        lazy = true,
+        priority = 1000, -- Ensure it loads first
+        config = function ()
+            vim.cmd [[colorscheme onedark_vivid]]
+        end
+    },
+    {
+        'tanvirtin/monokai.nvim',
+        lazy = true,
+        priority = 1000, -- Ensure it loads first
         -- event = { 'BufRead', 'BufNewFile' },
-        config = require("plugins.configs.others").monokai
+        -- config = require("plugins.configs.others").monokai
     },
     --  文件浏览器 File Explorer
     {
@@ -145,7 +166,6 @@ require("lazy").setup({
         "lukas-reineke/indent-blankline.nvim",
         event = "BufRead",
         main = 'ibl',
-        dependencies = 'tanvirtin/monokai.nvim',
         config = function ()
             require("plugins.configs.others").blankline()
         end
@@ -158,7 +178,7 @@ require("lazy").setup({
         end,
         ft = { "html", "typescriptreact", "typescript",
             "javascript", "css", "less", "lua",
-            "python", "go", "vim", "dart", "java",
+            "python", "go", "vim", "dart", "java", "svelte", "vue", "php",
             "sh", "zig", "zsh", "conf", "astro", "rust"
         }
     },
@@ -177,7 +197,9 @@ require("lazy").setup({
                 "less",
                 "css",
                 "go",
+                "svelte",
                 "lua",
+                "astro",
                 "javascript",
                 html = { mode = "foreground" },
             }, { mode = "background" })
@@ -211,6 +233,15 @@ require("lazy").setup({
                 indent = {
                     enable = true,
                 },
+                autopairs = {
+                    enable = true,
+                },
+                autotag = {
+                    enable = true,
+                    enable_rename = true,
+                    enable_close = true,
+                    enable_close_on_slash = true,
+                }
             }
         end
     },
