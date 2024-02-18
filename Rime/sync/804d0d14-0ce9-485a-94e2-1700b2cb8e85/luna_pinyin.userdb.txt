@@ -1,0 +1,7 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.7.3
+#@/tick	1
+#@/user_id	804d0d14-0ce9-485a-94e2-1700b2cb8e85
+zhong zhou yun 	中州韻	c=1 d=1 t=1

@@ -3,6 +3,7 @@
 .android/
 lazygit/
 settings
+build/
 
 raycast/
 clash
