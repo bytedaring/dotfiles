@@ -58,6 +58,7 @@ M.setup = function ()
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
+    -- 'emmet_ls'
     local servers = { 'tsserver', 'vimls', 'jsonls', 'marksman', 'astro',
         'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls', 'svelte', 'tailwindcss' }
     for _, lsp in ipairs(servers) do
