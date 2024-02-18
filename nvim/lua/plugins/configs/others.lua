@@ -115,8 +115,6 @@ M.lspsaga = function ()
             open_cmd = '!open'
         },
         symbol_in_winbar = {
-            in_custom = false,
-            separator = ' > ',
             enable = true
         },
     })
