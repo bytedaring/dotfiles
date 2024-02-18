@@ -67,7 +67,7 @@ opt.autoindent = true
 -- 智能对齐
 opt.smartindent = true
 -- 语法高亮的最大列数，This helps to avoid very slow redrawing for a file that is one long line
-opt.synmaxcol = 300
+opt.synmaxcol = 200
 
 -- 设置折叠方式
 opt.foldmethod = "indent"

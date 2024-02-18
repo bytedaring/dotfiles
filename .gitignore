@@ -18,3 +18,7 @@ wireshark
 yarn/global
 htop
 lazy-lock.json
+
+easy_en.userdb/
+luna_pinyin.userdb/
+Rime/user.yaml

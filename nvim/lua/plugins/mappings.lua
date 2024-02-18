@@ -49,30 +49,27 @@ keymap.set('n', '<leader>xq', function () require("trouble").open("quickfix") en
 keymap.set('n', '<leader>xl', function () require("trouble").open("loclist") end, opts)
 
 -- ToggleTerm
-keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
-keymap.set('n', '<CS-\\>', function ()
-  if vim.g.toggleTerm_direction == 'horizontal' then
+-- keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
+keymap.set('n', '<C-\\>', function ()
     vim.cmd [[ToggleTerm direction=float]]
-    vim.g.toggleTerm_direction = 'float'
-  else
+end, opts)
+keymap.set('n', '<CS-\\>', function ()
     vim.cmd [[ToggleTerm direction=horizontal]]
-    vim.g.toggleTerm_direction = 'horizontal'
-  end
 end, opts)
 keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
 
 -- go.nvim
 keymap.set('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)
 keymap.set('n', '<leader>dd', function ()
-  if 'zig' == vim.bo.filetype or 'rust' == vim.bo.filetype then
-    vim.cmd [[DapContinue]]
-  elseif 'flutter' == vim.bo.filetype then
-    vim.cmd [[FlutterRun]]
-    -- elseif 'rust' == vim.bo.filetype then
-    -- require('rust-tools').hover_actions.hover_actions()
-  else
-    vim.cmd [[GoDebug]]
-  end
+    if 'zig' == vim.bo.filetype or 'rust' == vim.bo.filetype then
+        vim.cmd [[DapContinue]]
+    elseif 'flutter' == vim.bo.filetype then
+        vim.cmd [[FlutterRun]]
+        -- elseif 'rust' == vim.bo.filetype then
+        -- require('rust-tools').hover_actions.hover_actions()
+    else
+        vim.cmd [[GoDebug]]
+    end
 end, opts)
 keymap.set('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], opts)
 keymap.set('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
@@ -80,11 +77,11 @@ keymap.set('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
 -- Outline
 -- keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", opts)
 keymap.set("n", "<leader>o", function ()
-  if vim.fn.exists(':FlutterOutlineToggle') > 0 and ('dart' == vim.bo.filetype or 'flutterToolsOutline' == vim.bo.filetype) then
-    vim.cmd [[FlutterOutlineToggle]]
-  else
-    vim.cmd [[Lspsaga outline]]
-  end
+    if vim.fn.exists(':FlutterOutlineToggle') > 0 and ('dart' == vim.bo.filetype or 'flutterToolsOutline' == vim.bo.filetype) then
+        vim.cmd [[FlutterOutlineToggle]]
+    else
+        vim.cmd [[Lspsaga outline]]
+    end
 end, opts)
 
 -- lspsaga
@@ -127,11 +124,11 @@ keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
 keymap.set('n', '<space>f', function ()
-  if 'xml' == vim.bo.filetype then
-    vim.cmd [[%!xmllint % --format ]]
-  elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype or 'svelte' == vim.bo.filetype then
-    vim.cmd [[Format]]
-  else
-    vim.lsp.buf.format { async = true }
-  end
+    if 'xml' == vim.bo.filetype then
+        vim.cmd [[%!xmllint % --format ]]
+    elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype or 'svelte' == vim.bo.filetype then
+        vim.cmd [[Format]]
+    else
+        vim.lsp.buf.format { async = true }
+    end
 end, opts)

@@ -67,21 +67,21 @@ require("lazy").setup({
             vim.cmd [[colorscheme kanagawa]]
         end
     },
-    {
-        "olimorris/onedarkpro.nvim",
-        lazy = true,
-        priority = 1000, -- Ensure it loads first
-        config = function ()
-            vim.cmd [[colorscheme onedark_vivid]]
-        end
-    },
-    {
-        'tanvirtin/monokai.nvim',
-        lazy = true,
-        priority = 1000, -- Ensure it loads first
-        -- event = { 'BufRead', 'BufNewFile' },
-        -- config = require("plugins.configs.others").monokai
-    },
+    -- {
+    --     "olimorris/onedarkpro.nvim",
+    --     lazy = true,
+    --     priority = 1000, -- Ensure it loads first
+    --     config = function ()
+    --         vim.cmd [[colorscheme onedark_vivid]]
+    --     end
+    -- },
+    -- {
+    --     'tanvirtin/monokai.nvim',
+    --     lazy = true,
+    --     priority = 1000, -- Ensure it loads first
+    --     -- event = { 'BufRead', 'BufNewFile' },
+    --     -- config = require("plugins.configs.others").monokai
+    -- },
     --  文件浏览器 File Explorer
     {
         "nvim-neo-tree/neo-tree.nvim",
