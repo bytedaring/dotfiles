@@ -5,6 +5,7 @@ lazygit/
 settings
 build/
 
+*.log
 raycast/
 clash
 configstore
