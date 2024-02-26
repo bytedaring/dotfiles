@@ -50,13 +50,9 @@ keymap.set('n', '<leader>xl', function () require("trouble").open("loclist") end
 
 -- ToggleTerm
 -- keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
-keymap.set('n', '<C-\\>', function ()
-    vim.cmd [[ToggleTerm direction=float]]
-end, opts)
-keymap.set('n', '<CS-\\>', function ()
-    vim.cmd [[ToggleTerm direction=horizontal]]
-end, opts)
-keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendVisualLines<CR>]], opts)
+keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=horizontal<CR>]], opts)
+-- keymap.set('n', '<CS-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
+keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendCurrentLine<CR>]], opts)
 
 -- go.nvim
 keymap.set('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)

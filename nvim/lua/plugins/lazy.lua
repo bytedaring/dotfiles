@@ -55,16 +55,40 @@ require("lazy").setup({
         end
     },
     -- colorscheme
+    -- {
+    --     "rebelot/kanagawa.nvim",
+    --     priority = 1000, -- Ensure it loads first
+    --     lazy = false,
+    --     config = function ()
+    --         require('kanagawa').setup({
+    --             compile = true,
+    --             transparent = true,
+    --         })
+    --         vim.cmd [[colorscheme kanagawa]]
+    --     end
+    -- },
     {
-        "rebelot/kanagawa.nvim",
-        priority = 1000, -- Ensure it loads first
+        "folke/tokyonight.nvim",
         lazy = false,
+        priority = 1000,
         config = function ()
-            require('kanagawa').setup({
-                compile = true,
+            require('tokyonight').setup({
                 transparent = true,
+                styles = {
+                    sidebars = 'transparent',
+                    floats = 'transparent'
+                }
             })
-            vim.cmd [[colorscheme kanagawa]]
+            vim.cmd [[colorscheme tokyonight-night]]
+        end
+    },
+    {
+        "catppuccin/nvim",
+        lazy = true,
+        name = "catppuccin",
+        priority = 1000,
+        config = function ()
+            vim.cmd [[colorscheme catppuccin-mocha]]
         end
     },
     -- {
@@ -421,6 +445,20 @@ require("lazy").setup({
         "NoahTheDuke/vim-just",
         ft = 'just'
     },
+    -- Documentation Generator
+    {
+        'kkoomen/vim-doge',
+        event = 'InsertEnter',
+        build = ':call doge#install()'
+    },
+    -- smooth scrolling
+    -- {
+    --     "karb94/neoscroll.nvim",
+    --     event = "VeryLazy",
+    --     config = function ()
+    --         require('neoscroll').setup {}
+    --     end
+    -- }
 }, {
     defaults = { lazy = true }
 })
