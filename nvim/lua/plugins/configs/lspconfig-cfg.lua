@@ -153,8 +153,15 @@ M.setup = function ()
                 },
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
-                    globals = { 'vim' },
-                }
+                    globals = { 'vim', 'hs' },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                        ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
+                    },
+                },
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
