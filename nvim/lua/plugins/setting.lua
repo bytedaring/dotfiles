@@ -75,7 +75,7 @@ vim.cmd [[ set nofoldenable ]]
 opt.foldlevel = 2
 
 -- show cursor line
-o.cursorline = true
+o.cursorline = false
 
 
 -- indentLine
@@ -140,6 +140,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 --------------- Blame -----------------
+g.gitblame_delay = 1000 --1 second
 g.gitblame_highlight_group = 'Comment'
 g.gitblame_message_template = '          <date> • <author> • <summary>'
 g.gitblame_date_format = '%r'
