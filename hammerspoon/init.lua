@@ -7,12 +7,11 @@
 --   end
 -- end)
 
-hs.hotkey.bind({"option"}, "space", function()
-  local kitty = hs.application.find('kitty')
-  if kitty ~= nil and kitty:isFrontmost() then
-    kitty:hide()
-  else
-    hs.application.launchOrFocus("/Applications/kitty.app")
-  end
+hs.hotkey.bind({ "option" }, "space", function()
+    local kitty = hs.application.find('kitty')
+    if kitty ~= nil and kitty:isFrontmost() then
+        kitty:hide()
+    else
+        hs.application.launchOrFocus("/Applications/kitty.app")
+    end
 end)
-

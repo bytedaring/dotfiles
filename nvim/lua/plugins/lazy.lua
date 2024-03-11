@@ -73,13 +73,13 @@ require("lazy").setup({
         priority = 1000,
         config = function ()
             require('tokyonight').setup({
-                transparent = true,
+                transparent = false,
                 styles = {
                     sidebars = 'transparent',
                     floats = 'transparent'
                 }
             })
-            vim.cmd [[colorscheme tokyonight-night]]
+            vim.cmd [[colorscheme tokyonight-moon]]
         end
     },
     {
@@ -112,6 +112,7 @@ require("lazy").setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
+            "3rd/image.nvim"
         },
         cmd = "Neotree",
         config = function ()
@@ -123,6 +124,11 @@ require("lazy").setup({
                         --               -- the current file is changed while the tree is open.
                         leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
+                },
+                window = {
+                    mappings = {
+                        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+                    }
                 }
             })
         end
