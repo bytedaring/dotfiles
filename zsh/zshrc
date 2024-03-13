@@ -229,3 +229,7 @@ export WASMER_DIR="/Users/xiaoxiwang/.wasmer"
 
 # initialize starship 
 eval "$(starship init zsh)"
+
+# magic
+export DYLD_LIBRARY_PATH=/usr/local/lib
+# magic

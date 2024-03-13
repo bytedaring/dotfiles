@@ -116,6 +116,10 @@ require("lazy").setup({
         },
         cmd = "Neotree",
         config = function ()
+            package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+            package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+            require('image').setup()
+
             require("neo-tree").setup({
                 close_if_last_window = true,
                 filesystem = {
@@ -127,7 +131,7 @@ require("lazy").setup({
                 },
                 window = {
                     mappings = {
-                        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+                        ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
                     }
                 }
             })
@@ -258,6 +262,7 @@ require("lazy").setup({
                 textobjects = { enable = true },
                 highlight = {
                     enable = true,
+                    disable = { "markdown" },
                     additional_vim_regex_highlighting = false
                 },
                 indent = {
