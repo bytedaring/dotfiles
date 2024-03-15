@@ -37,10 +37,11 @@ M.setup = function ()
         --   vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
         --   vim.api.nvim_command [[augroup END]]
         -- end
+        local not_lsp_format = { css = true, html = true, proto = true, sh = true, markdown = true }
         vim.api.nvim_create_autocmd("BufWritePost", {
             buffer = bufnr,
             callback = function ()
-                if 'css' ~= vim.bo.filetype and 'html' ~= vim.bo.filetype and 'proto' ~= vim.bo.filetype and 'sh' ~= vim.bo.filetype then
+                if vim.fn.has_key(not_lsp_format, vim.bo.filetype) == 0 then
                     vim.lsp.buf.format({ async = true })
                 end
             end
