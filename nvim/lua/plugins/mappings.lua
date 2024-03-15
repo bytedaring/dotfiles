@@ -92,7 +92,7 @@ keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
 -- keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
 keymap.set("n", "<leader>la", "<cmd>GoCodeLenAct<CR>", opts)
 -- show hover doc and press twice will jump to hover window
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<CR>", opts)
 -- rename
 keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 -- goto definition
@@ -120,9 +120,10 @@ keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
 keymap.set('n', '<space>f', function ()
+    local targets = { css = true, html = true, svelte = true, markdown = true }
     if 'xml' == vim.bo.filetype then
         vim.cmd [[%!xmllint % --format ]]
-    elseif 'css' == vim.bo.filetype or 'html' == vim.bo.filetype or 'svelte' == vim.bo.filetype then
+    elseif vim.fn.has_key(targets, vim.bo.filetype) then
         vim.cmd [[Format]]
     else
         vim.lsp.buf.format { async = true }
