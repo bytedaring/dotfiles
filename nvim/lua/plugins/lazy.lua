@@ -69,7 +69,7 @@ require("lazy").setup({
     -- },
     {
         "folke/tokyonight.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function ()
             require('tokyonight').setup({
@@ -84,7 +84,7 @@ require("lazy").setup({
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function ()
@@ -416,7 +416,7 @@ require("lazy").setup({
     -- formatter
     {
         'mhartington/formatter.nvim',
-        ft = { 'html', 'svelte', 'css', 'xml' },
+        ft = { 'html', 'svelte', 'css', 'xml', 'markdown' },
         config = function ()
             require('plugins.configs.others').format()
         end

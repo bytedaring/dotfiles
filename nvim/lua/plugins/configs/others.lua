@@ -8,8 +8,7 @@ M.signature = function ()
                 { "┌", highlight },
                 { "─", highlight },
                 { "┐", highlight },
-                { "│", highlight },
-                { "┘", highlight },
+                { "│", highlight }, { "┘", highlight },
                 { "─", highlight },
                 { "└", highlight },
                 { "│", highlight }
@@ -66,7 +65,7 @@ M.lint = function ()
         html = { 'eslint' },
         javascript = { 'eslint' },
         dockerfile = { 'hadolint' },
-        -- markdown = { 'vale' }
+        markdown = { 'markdownlint' }
     }
     vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
         callback = function ()
@@ -89,9 +88,9 @@ M.format = function ()
             css = {
                 defaults.css.prettier,
             },
-            -- javascript = {
-            --   defaults.javascript.prettier,
-            -- }
+            markdown = {
+                defaults.javascript.prettier,
+            }
         }
     }
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -182,8 +181,9 @@ M.blankline = function ()
         indent = {
             char = { '|', '¦', '┆', '┊' },
         },
-        whitespace = { highlight = { "Whitespace", "NonText" } },
-        scope = { enabled = false }
+        whitespace = { highlight = { "Whitespace" } },
+        -- whitespace = { highlight = { "Whitespace", "NonText" } },
+        scope = { enabled = true }
     }
 end
 
