@@ -183,6 +183,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.g.rustaceanvim = {
     server = {
         on_attach = function (client, bufnr)
+            -- virtual text
             vim.lsp.inlay_hint.enable()
         end
     }
