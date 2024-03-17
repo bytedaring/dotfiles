@@ -123,7 +123,7 @@ keymap.set('n', '<space>f', function ()
     local targets = { css = true, html = true, svelte = true, markdown = true }
     if 'xml' == vim.bo.filetype then
         vim.cmd [[%!xmllint % --format ]]
-    elseif vim.fn.has_key(targets, vim.bo.filetype) then
+    elseif vim.fn.has_key(targets, vim.bo.filetype) == 1 then
         vim.cmd [[Format]]
     else
         vim.lsp.buf.format { async = true }
