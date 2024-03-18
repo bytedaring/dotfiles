@@ -37,15 +37,15 @@ M.setup = function ()
         --   vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async = true})]]
         --   vim.api.nvim_command [[augroup END]]
         -- end
-        local not_lsp_format = { css = true, html = true, proto = true, sh = true, markdown = true }
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function ()
-                if vim.fn.has_key(not_lsp_format, vim.bo.filetype) == 0 then
-                    vim.lsp.buf.format({ async = true })
-                end
-            end
-        })
+        -- local not_lsp_format = { css = true, html = true, proto = true, sh = true, markdown = true }
+        -- vim.api.nvim_create_autocmd("BufWritePre", {
+        --     buffer = bufnr,
+        --     callback = function ()
+        --         if vim.fn.has_key(not_lsp_format, vim.bo.filetype) == 0 then
+        --             vim.lsp.buf.format({ async = true })
+        --         end
+        --     end
+        -- })
 
         if vim.bo.filetype ~= 'proto' then
             vim.lsp.inlay_hint.enable()

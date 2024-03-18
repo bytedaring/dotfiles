@@ -25,6 +25,9 @@ keymap.set('n', 'fa', [[<Cmd>Telescope<CR>]], opts)
 keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
 keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
 keymap.set('n', 'fm', [[<Cmd>Telescope marks<CR>]], opts)
+keymap.set('n', '<C-p>', function ()
+    require('telescope').extensions.project.project { display_type = 'full' }
+end, opts)
 
 -- todo-comments.nvim
 keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
@@ -119,13 +122,16 @@ keymap.set('n', '<leader>tr', [[<Cmd>NeotestRun<CR>]], opts)
 keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
-keymap.set('n', '<space>f', function ()
-    local targets = { css = true, html = true, svelte = true, markdown = true }
-    if 'xml' == vim.bo.filetype then
-        vim.cmd [[%!xmllint % --format ]]
-    elseif vim.fn.has_key(targets, vim.bo.filetype) == 1 then
-        vim.cmd [[Format]]
-    else
-        vim.lsp.buf.format { async = true }
-    end
+keymap.set('n', '<leader>f', function ()
+    require('conform').format({ async = true, lsp_fallback = true })
 end, opts)
+-- keymap.set('n', '<space>f', function ()
+--     local targets = { css = true, html = true, markdown = true }
+--     if 'xml' == vim.bo.filetype then
+--         vim.cmd [[%!xmllint % --format ]]
+--     elseif vim.fn.has_key(targets, vim.bo.filetype) == 1 then
+--         vim.cmd [[Format]]
+--     else
+--         vim.lsp.buf.format { async = true }
+--     end
+-- end, opts)

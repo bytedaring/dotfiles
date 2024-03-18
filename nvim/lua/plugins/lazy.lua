@@ -84,11 +84,19 @@ require("lazy").setup({
     },
     {
         "catppuccin/nvim",
-        lazy = false,
+        lazy = true,
         name = "catppuccin",
         priority = 1000,
         config = function ()
             vim.cmd [[colorscheme catppuccin-mocha]]
+        end
+    },
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function ()
+            vim.cmd [[colorscheme duskfox]]
         end
     },
     -- {
@@ -143,7 +151,6 @@ require("lazy").setup({
         cmd = { "Telescope" },
         dependencies = {
             'nvim-lua/plenary.nvim',
-            "nvim-telescope/telescope.nvim"
         },
         config = function ()
             require('plugins.configs.telescope-cfg').config()
@@ -152,6 +159,10 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = 'make',
+        lazy = true
+    },
+    {
+        "nvim-telescope/telescope-project.nvim",
         lazy = true
     },
     --  Insert or delete brackets, parens, quotes in pair.
@@ -414,12 +425,38 @@ require("lazy").setup({
         end
     },
     -- formatter
+    -- {
+    --     'mhartington/formatter.nvim',
+    --     ft = { 'html', 'css', 'xml', 'markdown' },
+    --     config = function ()
+    --         require('plugins.configs.others').format()
+    --     end
+    -- },
     {
-        'mhartington/formatter.nvim',
-        ft = { 'html', 'svelte', 'css', 'xml', 'markdown' },
-        config = function ()
-            require('plugins.configs.others').format()
-        end
+        'stevearc/conform.nvim',
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
+        opts = {
+            -- Define your formatters
+            formatters_by_ft = {
+                lua = { "stylua" },
+                go = { "goimports", "gofmt" },
+                python = { "isort", "black" },
+                javascript = { { "prettier", "prettierd" } },
+                markdown = { "prettier" },
+                json = { "jq" },
+                just = { "just" },
+                sh = { "shfmt" }
+            },
+            -- Set up format-on-save
+            format_on_save = { timeout_ms = 500, lsp_fallback = true },
+            -- Customize formatters
+            formatters = {
+                shfmt = {
+                    prepend_args = { "-i", "2" },
+                },
+            },
+        },
     },
     -- TODO
     {

@@ -35,13 +35,13 @@ M.signature = function ()
                 { '│', highlight },
             },
             ['plus'] = {
-                { '+',   highlight },
+                { '+', highlight },
                 { '─', highlight },
-                { '+',   highlight },
+                { '+', highlight },
                 { '│', highlight },
-                { '+',   highlight },
+                { '+', highlight },
                 { '─', highlight },
-                { '+',   highlight },
+                { '+', highlight },
                 { '│', highlight },
             },
         }
@@ -82,9 +82,9 @@ M.format = function ()
             html = {
                 defaults.html.prettier,
             },
-            svelte = {
-                defaults.svelte.prettier,
-            },
+            -- svelte = {
+            --     defaults.svelte.prettier,
+            -- },
             css = {
                 defaults.css.prettier,
             },
