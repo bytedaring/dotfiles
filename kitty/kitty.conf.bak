@@ -2137,6 +2137,6 @@ macos_traditional_fullscreen yes
 
 
 # BEGIN_KITTY_THEME
-# Nightfox
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
