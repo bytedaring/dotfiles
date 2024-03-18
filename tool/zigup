@@ -3,14 +3,14 @@
 old_version=$(zig version)
 cd ~/zig || exit 1
 
-download=$(http https://ziglang.org/download/index.json | jq  '.master."x86_64-macos".tarball' | sed -e "s/\"//g" )
+download=$(http https://ziglang.org/download/index.json | jq '.master."x86_64-macos".tarball' | sed -e "s/\"//g")
 #file=$(echo "${download##*/}")
-file=$(basename "$download")  
+file=$(basename "$download")
 version=$(echo "$file" | sed -e "s/.*64-//" -e "s/.tar.xz//")
 
-if [[ -z "$file"  ||  -z "$version" ]]; then
-    echo "get download url filed..."
-    exit 1
+if [[ -z "$file" || -z "$version" ]]; then
+  echo "get download url filed..."
+  exit 1
 fi
 
 # download...
@@ -23,7 +23,7 @@ if [[ -d $target_dir ]]; then
   trash "$target_dir"
 fi
 
-tar -xvzf "$file" 
+tar -xvzf "$file"
 mv "zig-macos-x86_64-$version" "$version"
 
 [ -f "$file" ] && trash "$file"
