@@ -15,7 +15,8 @@ require("lazy").setup({
     --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
     {
         "kyazdani42/nvim-web-devicons",
-        event = { "BufRead", "BufNewFile" },
+        -- event = { "BufRead", "BufNewFile" },
+        event = "VeryLazy",
         config = function()
             require("nvim-web-devicons").setup({
                 override = {
@@ -43,12 +44,13 @@ require("lazy").setup({
     },
     {
         "nvim-lualine/lualine.nvim",
-        event = { "BufRead", "BufNewFile" },
+        -- event = { "BufRead", "BufNewFile" },
+        event = "VeryLazy",
         config = function()
             require("lualine").setup({
                 options = {
                     theme = "auto",
-                    icons_enabled = true,
+                    icons_nabled = true,
                     -- component_separators = { left = '', right = '' },
                     -- section_separators = { left = '', right = '' },
                 },
@@ -85,7 +87,7 @@ require("lazy").setup({
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function()
@@ -94,7 +96,7 @@ require("lazy").setup({
     },
     {
         "EdenEast/nightfox.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme duskfox]])
@@ -226,7 +228,8 @@ require("lazy").setup({
     -- indentation guides to all lines
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
+        -- event = "BufRead",
+        event = "VeryLazy",
         main = "ibl",
         config = function()
             require("plugins.configs.others").blankline()
@@ -266,7 +269,6 @@ require("lazy").setup({
     {
         "iamcco/markdown-preview.nvim",
         build = "cd app && yarn install",
-        ft = { "markdown" },
         cmd = "MarkdownPreview",
     },
     --  高性能的十六进制文本颜色高亮
@@ -302,7 +304,8 @@ require("lazy").setup({
             ts_update()
         end,
         branch = "local-dart",
-        event = { "BufRead", "BufNewFile" },
+        -- event = { "BufRead", "BufNewFile" },
+        event = "VeryLazy",
         config = function()
             require("nvim-treesitter.configs").setup({
                 textobjects = { enable = true },
@@ -329,7 +332,8 @@ require("lazy").setup({
     -- LSP
     {
         "neovim/nvim-lspconfig",
-        event = { "BufRead", "BufNewFile" },
+        -- event = { "BufRead", "BufNewFile" },
+        event = "VeryLazy",
     },
     --  增强代码自动完成
     -- load luasnips + cmp related in insert mode only
@@ -343,6 +347,7 @@ require("lazy").setup({
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
+            "onsails/lspkind.nvim",
         },
         config = function()
             require("plugins.configs.lspconfig-cfg").setup()
@@ -363,14 +368,14 @@ require("lazy").setup({
             require("plugins.configs.others").snippet()
         end,
     },
-    -- LSP signature hint as you type
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "LspAttach",
-        config = function()
-            require("plugins.configs.others").signature()
-        end,
-    },
+    -- LSP signature hint as you type(use noice instant)
+    -- {
+    --     "ray-x/lsp_signature.nvim",
+    --     event = "LspAttach",
+    --     config = function()
+    --         require("plugins.configs.others").signature()
+    --     end,
+    -- },
     -- LSP plugin
     {
         "glepnir/lspsaga.nvim",
@@ -384,8 +389,8 @@ require("lazy").setup({
     {
         "mfussenegger/nvim-dap",
         lazy = true,
-        ft = { "zig" },
         -- event        = { "BufRead", "BufNewFile" },
+        -- ft = { "zig" },
         dependencies = {
             "rcarriga/nvim-dap-ui",
             "theHamsta/nvim-dap-virtual-text",
@@ -565,6 +570,50 @@ require("lazy").setup({
     --         require('neoscroll').setup {}
     --     end
     -- }
+    -- completely replaces the UI
+    -- lazy.nvim
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        -- event = { "BufRead", "BufNewFile" },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        },
+        config = function()
+            require("plugins.configs.others").noice()
+        end,
+    },
+    -- motion
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {
+            modes = {
+                search = { enabled = false },
+                char = { enabled = false },
+            },
+        },
+        keys = {
+            {
+                "s",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash",
+            },
+            {
+                "F",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter",
+            },
+        },
+    },
 }, {
     defaults = { lazy = true },
 })
