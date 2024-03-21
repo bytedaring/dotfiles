@@ -11,31 +11,31 @@ local opts = { noremap = true, silent = true }
 
 -- telescope
 -- Find files using Telescope command-line sugar.
-keymap.set('n', 'ff', [[<Cmd>Telescope find_files<CR>]], opts)
-keymap.set('n', 'fg', [[<Cmd>Telescope live_grep<CR>]], opts)
-keymap.set('n', 'fb', [[<Cmd>Telescope buffers<CR>]], opts)
-keymap.set('n', 'fs', [[<Cmd>Telescope grep_string<CR>]], opts)
+keymap.set("n", "ff", [[<Cmd>Telescope find_files<CR>]], opts)
+keymap.set("n", "fg", [[<Cmd>Telescope live_grep<CR>]], opts)
+keymap.set("n", "fb", [[<Cmd>Telescope buffers<CR>]], opts)
+keymap.set("n", "fs", [[<Cmd>Telescope grep_string<CR>]], opts)
 -- keymap.set('n', 'fh', [[<Cmd>Telescope help_tags<CR>]], { noremap = true, silent = true })
-keymap.set('n', 'fn', [[<Cmd>bNext<CR>]], opts)
-keymap.set('n', 'fp', [[<Cmd>bprevious<CR>]], opts)
-keymap.set('n', 'fh', [[<Cmd>Telescope oldfiles<CR>]], opts)
-keymap.set('n', 'fc', [[<Cmd>Telescope commands<CR>]], opts)
-keymap.set('n', 'fk', [[<Cmd>Telescope keymaps<CR>]], opts)
-keymap.set('n', 'fa', [[<Cmd>Telescope<CR>]], opts)
-keymap.set('n', 'fo', [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
-keymap.set('n', 'fr', [[<Cmd>Telescope lsp_references<CR>]], opts)
-keymap.set('n', 'fm', [[<Cmd>Telescope marks<CR>]], opts)
-keymap.set('n', '<C-p>', function ()
-    require('telescope').extensions.project.project { display_type = 'full' }
+keymap.set("n", "fn", [[<Cmd>bNext<CR>]], opts)
+keymap.set("n", "fp", [[<Cmd>bprevious<CR>]], opts)
+keymap.set("n", "fh", [[<Cmd>Telescope oldfiles<CR>]], opts)
+keymap.set("n", "fc", [[<Cmd>Telescope commands<CR>]], opts)
+keymap.set("n", "fk", [[<Cmd>Telescope keymaps<CR>]], opts)
+keymap.set("n", "fa", [[<Cmd>Telescope<CR>]], opts)
+keymap.set("n", "fo", [[<Cmd>Telescope lsp_document_symbols<CR>]], opts)
+keymap.set("n", "fr", [[<Cmd>Telescope lsp_references<CR>]], opts)
+keymap.set("n", "fm", [[<Cmd>Telescope marks<CR>]], opts)
+keymap.set("n", "<C-p>", function()
+    require("telescope").extensions.project.project({ display_type = "full" })
 end, opts)
 
 -- todo-comments.nvim
-keymap.set('n', 'ft', [[<cmd>TodoTelescope<CR>]], opts)
+keymap.set("n", "ft", [[<cmd>TodoTelescope<CR>]], opts)
 
 -- nvim-tree NvimTreeFindFileToggle
 -- nnorekeymap.set fi :<C-u>:NvimTreeFindFileToggle<CR>
 -- keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
-keymap.set('n', '<C-b>', [[<Cmd>Neotree toggle reveal<CR>]], opts)
+keymap.set("n", "<C-b>", [[<Cmd>Neotree toggle reveal<CR>]], opts)
 
 -- vimspector
 -- keymap.set('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
@@ -45,41 +45,54 @@ keymap.set('n', '<C-b>', [[<Cmd>Neotree toggle reveal<CR>]], opts)
 -- keymap.set('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
 
 -- Trouble
-keymap.set('n', '<leader>xx', function () require("trouble").open() end, opts)
-keymap.set('n', '<leader>xw', function () require("trouble").open("workspace_diagnostics") end, opts)
-keymap.set('n', '<leader>xd', function () require("trouble").open("document_diagnostics") end, opts)
-keymap.set('n', '<leader>xq', function () require("trouble").open("quickfix") end, opts)
-keymap.set('n', '<leader>xl', function () require("trouble").open("loclist") end, opts)
+keymap.set("n", "<leader>xx", function()
+    require("trouble").open()
+end, opts)
+keymap.set("n", "<leader>xw", function()
+    require("trouble").open("workspace_diagnostics")
+end, opts)
+keymap.set("n", "<leader>xd", function()
+    require("trouble").open("document_diagnostics")
+end, opts)
+keymap.set("n", "<leader>xq", function()
+    require("trouble").open("quickfix")
+end, opts)
+keymap.set("n", "<leader>xl", function()
+    require("trouble").open("loclist")
+end, opts)
 
 -- ToggleTerm
 -- keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
-keymap.set('n', '<C-\\>', [[<Cmd>ToggleTerm direction=horizontal<CR>]], opts)
+keymap.set("n", "<C-\\>", [[<Cmd>ToggleTerm direction=horizontal<CR>]], opts)
 -- keymap.set('n', '<CS-\\>', [[<Cmd>ToggleTerm direction=float<CR>]], opts)
-keymap.set('n', '<leader>s', [[<Cmd>ToggleTermSendCurrentLine<CR>]], opts)
+keymap.set("n", "<leader>s", [[<Cmd>ToggleTermSendCurrentLine<CR>]], opts)
 
 -- go.nvim
-keymap.set('n', '<F9>', [[<Cmd>GoDebug -b<CR>]], opts)
-keymap.set('n', '<leader>dd', function ()
-    if 'zig' == vim.bo.filetype or 'rust' == vim.bo.filetype then
-        vim.cmd [[DapContinue]]
-    elseif 'flutter' == vim.bo.filetype then
-        vim.cmd [[FlutterRun]]
+keymap.set("n", "<F9>", [[<Cmd>GoDebug -b<CR>]], opts)
+keymap.set("n", "<leader>dd", function()
+    if "zig" == vim.bo.filetype or "rust" == vim.bo.filetype then
+        vim.cmd([[DapContinue]])
+    elseif "flutter" == vim.bo.filetype then
+        vim.cmd([[FlutterRun]])
         -- elseif 'rust' == vim.bo.filetype then
         -- require('rust-tools').hover_actions.hover_actions()
     else
-        vim.cmd [[GoDebug]]
+        vim.cmd([[GoDebug]])
     end
 end, opts)
-keymap.set('n', '<leader>dx', [[<Cmd>GoDebug -s<CR>]], opts)
-keymap.set('n', '<leader>dt', [[<Cmd>GoDebug -t<CR>]], opts)
+keymap.set("n", "<leader>dx", [[<Cmd>GoDebug -s<CR>]], opts)
+keymap.set("n", "<leader>dt", [[<Cmd>GoDebug -t<CR>]], opts)
 
 -- Outline
 -- keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>", opts)
-keymap.set("n", "<leader>o", function ()
-    if vim.fn.exists(':FlutterOutlineToggle') > 0 and ('dart' == vim.bo.filetype or 'flutterToolsOutline' == vim.bo.filetype) then
-        vim.cmd [[FlutterOutlineToggle]]
+keymap.set("n", "<leader>o", function()
+    if
+        vim.fn.exists(":FlutterOutlineToggle") > 0
+        and ("dart" == vim.bo.filetype or "flutterToolsOutline" == vim.bo.filetype)
+    then
+        vim.cmd([[FlutterOutlineToggle]])
     else
-        vim.cmd [[Lspsaga outline]]
+        vim.cmd([[Lspsaga outline]])
     end
 end, opts)
 
@@ -113,17 +126,17 @@ keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 -- keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
 
 --gx open URL in browser
-keymap.set('n', 'gx', "<cmd>silent !open <cWORD><CR>", opts)
+keymap.set("n", "gx", "<cmd>silent !open <cWORD><CR>", opts)
 
 --neotest_
-keymap.set('n', '<leader>ts', [[<Cmd>NeotestToggleSummary<CR>]], opts)
-keymap.set('n', '<leader>to', [[<Cmd>NeotestToggleOutputPanel<CR>]], opts)
-keymap.set('n', '<leader>tr', [[<Cmd>NeotestRun<CR>]], opts)
-keymap.set('n', '<leader>tf', [[<Cmd>NeotestRunFile<CR>]], opts)
+keymap.set("n", "<leader>ts", [[<Cmd>NeotestToggleSummary<CR>]], opts)
+keymap.set("n", "<leader>to", [[<Cmd>NeotestToggleOutputPanel<CR>]], opts)
+keymap.set("n", "<leader>tr", [[<Cmd>NeotestRun<CR>]], opts)
+keymap.set("n", "<leader>tf", [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
-keymap.set('n', '<leader>f', function ()
-    require('conform').format({ async = true, lsp_fallback = true })
+keymap.set("n", "<leader>f", function()
+    require("conform").format({ async = true, lsp_fallback = true })
 end, opts)
 -- keymap.set('n', '<space>f', function ()
 --     local targets = { css = true, html = true, markdown = true }
@@ -135,3 +148,6 @@ end, opts)
 --         vim.lsp.buf.format { async = true }
 --     end
 -- end, opts)
+
+-- Generate comment for current line
+keymap.set("n", "<Leader>d", "<Plug>(doge-generate)")
