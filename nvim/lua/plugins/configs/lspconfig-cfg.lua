@@ -1,12 +1,12 @@
 local M = {}
-M.setup = function ()
-    local nvim_lsp = require('lspconfig')
+M.setup = function()
+    local nvim_lsp = require("lspconfig")
 
     -- 支持code snippets
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- after the language server attaches to the current buffer
-    local on_attach = function (client, bufnr)
+    local on_attach = function(client, bufnr)
         -- Mappings.
         local opts = { noremap = true, silent = true, buffer = bufnr }
         -- -- Se `:help vim.lsp.*` for documentation on any of the below functions
@@ -18,9 +18,9 @@ M.setup = function ()
         -- vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
         -- vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
         -- vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-        vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-        vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-        vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+        vim.keymap.set("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+        vim.keymap.set("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+        vim.keymap.set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
         -- vim.keymap.set('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
         -- vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
         -- vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -47,7 +47,7 @@ M.setup = function ()
         --     end
         -- })
 
-        if vim.bo.filetype ~= 'proto' then
+        if vim.bo.filetype ~= "proto" then
             vim.lsp.inlay_hint.enable()
         end
     end
@@ -60,21 +60,37 @@ M.setup = function ()
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
     -- 'emmet_ls'
-    local servers = { 'tsserver', 'vimls', 'jsonls', 'marksman', 'astro',
-        'bashls', 'awk_ls', 'dockerls', 'yamlls', 'bufls', 'zls', 'clangd', 'cssls', 'svelte', 'tailwindcss' }
+    local servers = {
+        "tsserver",
+        "vimls",
+        "jsonls",
+        "marksman",
+        "astro",
+        "sourcekit",
+        "bashls",
+        "awk_ls",
+        "dockerls",
+        "yamlls",
+        "bufls",
+        "zls",
+        "clangd",
+        "cssls",
+        "svelte",
+        "tailwindcss",
+    }
     for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup {
+        nvim_lsp[lsp].setup({
             on_attach = on_attach,
             capabilities = capabilities,
             flags = {
                 debounce_text_changes = 150,
-            }
-        }
+            },
+        })
     end
 
     --
-    nvim_lsp.pylsp.setup {
-        cmd = { 'pylsp' },
+    nvim_lsp.pylsp.setup({
+        cmd = { "pylsp" },
         -- for postfix snippets and analyzers
         capabilities = capabilities,
         filetypes = { "python" },
@@ -85,18 +101,18 @@ M.setup = function ()
             pylsp = {
                 plugins = {
                     pycodestyle = {
-                        enabled = true
+                        enabled = true,
                     },
-                }
-            }
+                },
+            },
         },
         on_attach = on_attach,
         -- single_file_support = false
-    }
+    })
 
     -- gopls
-    nvim_lsp.gopls.setup {
-        cmd = { 'gopls' },
+    nvim_lsp.gopls.setup({
+        cmd = { "gopls" },
         -- for postfix snippets and analyzers
         capabilities = {
             textDocument = {
@@ -104,23 +120,23 @@ M.setup = function ()
                     completionItem = {
                         commitCharactersSupport = true,
                         deprecatedSupport = true,
-                        documentationFormat = { 'markdown', 'plaintext' },
+                        documentationFormat = { "markdown", "plaintext" },
                         insertReplaceSupport = true,
                         insertTextModeSupport = {
-                            valueSet = { 1, 2 }
+                            valueSet = { 1, 2 },
                         },
                         labelDetailsSupport = true,
                         preselectSupport = true,
                         resolveSupport = {
-                            properties = { "documentation", "detail", "additionalTextEdits" }
+                            properties = { "documentation", "detail", "additionalTextEdits" },
                         },
                         snippetSupport = true,
                     },
                     contextSupport = true,
                     dynamicRegistration = false,
-                    insertTextMode = 1
-                }
-            }
+                    insertTextMode = 1,
+                },
+            },
         },
         settings = {
             gopls = {
@@ -140,27 +156,27 @@ M.setup = function ()
                 -- buildFlags = { "-tags=wireinject" }
             },
         },
-        on_attach = on_attach
-    }
+        on_attach = on_attach,
+    })
 
-    nvim_lsp.lua_ls.setup {
+    nvim_lsp.lua_ls.setup({
         cmd = { "lua-language-server" },
         capabilities = capabilities,
         settings = {
             Lua = {
                 runtime = {
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                    version = 'LuaJIT',
+                    version = "LuaJIT",
                 },
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
-                    globals = { 'vim', 'hs' },
+                    globals = { "vim", "hs" },
                 },
                 workspace = {
                     library = {
-                        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                        ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                        ["/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/"] = true,
                     },
                 },
             },
@@ -174,21 +190,20 @@ M.setup = function ()
             },
         },
         on_attach = on_attach,
-    }
+    })
 
-    nvim_lsp.html.setup {
+    nvim_lsp.html.setup({
         capabilities = capabilities,
         init_options = {
             configurationSection = { "html", "css", "javascript" },
             embeddedLanguages = {
                 css = true,
-                javascript = true
+                javascript = true,
             },
-            provideFormatter = false
+            provideFormatter = false,
         },
-        settings = {
-        },
+        settings = {},
         on_attach = on_attach,
-    }
+    })
 end
 return M

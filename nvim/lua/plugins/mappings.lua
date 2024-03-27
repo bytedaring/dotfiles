@@ -28,6 +28,7 @@ keymap.set("n", "fm", [[<Cmd>Telescope marks<CR>]], opts)
 keymap.set("n", "<C-p>", function()
     require("telescope").extensions.project.project({ display_type = "full" })
 end, opts)
+keymap.set("n", "<leader><leader>", [[<Cmd>Telescope frecency workspace=CWD<CR>]], opts)
 
 -- todo-comments.nvim
 keymap.set("n", "ft", [[<cmd>TodoTelescope<CR>]], opts)
