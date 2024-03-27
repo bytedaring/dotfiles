@@ -2,10 +2,11 @@
 
 cd ~/Downloads/ || exit
 
-rm -rf /usr/local/nvim/* &&
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz &&
-tar -xvzf nvim-macos.tar.gz &&
-mv nvim-macos/* /usr/local/nvim/ &&
+file=nvim-macos-x86_64
 
-test -f 'nvim-macos.tar.gz' && trash nvim-macos.tar.gz
-test -d 'nvim-macos' && trash nvim-macos
+rm -rf /usr/local/nvim/* &&
+  curl -LO https://github.com/neovim/neovim/releases/download/nightly/"$file".tar.gz &&
+  tar -xvzf "$file".tar.gz &&
+  mv "$file"/* /usr/local/nvim/ &&
+  test -f "$file".tar.gz && trash "$file".tar.gz
+test -d "$file" && trash "$file"
