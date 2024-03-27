@@ -168,6 +168,11 @@ require("lazy").setup({
         "nvim-telescope/telescope-project.nvim",
         lazy = true,
     },
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        lazy = true,
+        config = function() end,
+    },
     --  Insert or delete brackets, parens, quotes in pair.
     {
         "windwp/nvim-autopairs",
@@ -270,6 +275,11 @@ require("lazy").setup({
         "iamcco/markdown-preview.nvim",
         build = "cd app && yarn install",
         cmd = "MarkdownPreview",
+    },
+    {
+        "ellisonleao/glow.nvim",
+        config = true,
+        cmd = "Glow",
     },
     --  高性能的十六进制文本颜色高亮
     {
@@ -387,13 +397,14 @@ require("lazy").setup({
     },
     -- 一种通用图形调试器
     {
-        "mfussenegger/nvim-dap",
+        "rcarriga/nvim-dap-ui",
         lazy = true,
         -- event        = { "BufRead", "BufNewFile" },
         -- ft = { "zig" },
         dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "theHamsta/nvim-dap-virtual-text",
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
+            -- "theHamsta/nvim-dap-virtual-text",
         },
         config = function()
             require("plugins.configs.dap-cfg").setup()
@@ -471,6 +482,7 @@ require("lazy").setup({
             "python",
             "go",
             "zig",
+            "swift",
         },
         config = function()
             require("plugins.configs.others").lint()
@@ -508,6 +520,7 @@ require("lazy").setup({
                 sh = { "shfmt" },
                 zig = { "zigfmt" },
                 xml = { "xmllint" },
+                swift = { "swiftformat" },
             },
             -- Set up format-on-save
             format_on_save = { timeout_ms = 500, lsp_fallback = true },
@@ -613,6 +626,30 @@ require("lazy").setup({
                 desc = "Flash Treesitter",
             },
         },
+    },
+    -- hurl
+    {
+        "jellydn/hurl.nvim",
+        cmd = { "HurlRunner", "HurlRunnerAt", "HurlRunnerToEntry", "HurlToggleMode", "HurlVerbose" },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("hurl").setup({
+                debug = false,
+                show_notification = false,
+                mode = "split",
+                formatters = {
+                    json = { "jq" }, -- Make sure you have install jq in your system, e.g: brew install jq
+                    html = {
+                        "prettier", -- Make sure you have install prettier in your system, e.g: npm install -g prettier
+                        "--parser",
+                        "html",
+                    },
+                },
+            })
+        end,
     },
 }, {
     defaults = { lazy = true },
