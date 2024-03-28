@@ -273,15 +273,12 @@ require("lazy").setup({
     -- Markdown预览
     {
         "iamcco/markdown-preview.nvim",
-        build = "cd app && yarn install",
-        cmd = "MarkdownPreview",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
     },
-    {
-        "ellisonleao/glow.nvim",
-        config = true,
-        cmd = "Glow",
-    },
-    --  高性能的十六进制文本颜色高亮
+    -- 高性能的十六进制文本颜色高亮
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
@@ -467,23 +464,25 @@ require("lazy").setup({
     -- lint
     {
         "mfussenegger/nvim-lint",
-        ft = {
-            "javascript",
-            "typescriptreact",
-            "typescript",
-            "less",
-            "markdown",
-            "html",
-            "css",
-            "sh",
-            "lua",
-            "vim",
-            "rust",
-            "python",
-            "go",
-            "zig",
-            "swift",
-        },
+        event = "VeryLazy",
+        -- ft = {
+        --     "css",
+        --     "docker",
+        --     "go",
+        --     "html",
+        --     "javascript",
+        --     "less",
+        --     "lua",
+        --     "markdown",
+        --     "python",
+        --     "rust",
+        --     "sh",
+        --     "swift",
+        --     "typescript",
+        --     "typescriptreact",
+        --     "vim",
+        --     "zig",
+        -- },
         config = function()
             require("plugins.configs.others").lint()
         end,
@@ -521,6 +520,7 @@ require("lazy").setup({
                 zig = { "zigfmt" },
                 xml = { "xmllint" },
                 swift = { "swiftformat" },
+                proto = { "buf" },
             },
             -- Set up format-on-save
             format_on_save = { timeout_ms = 500, lsp_fallback = true },
@@ -565,9 +565,16 @@ require("lazy").setup({
         end,
     },
     -- Just Syntax
+    -- {
+    --     "NoahTheDuke/vim-just",
+    --     ft = "just",
+    -- },
     {
-        "NoahTheDuke/vim-just",
+        "IndianBoy42/tree-sitter-just",
         ft = "just",
+        config = function()
+            require("tree-sitter-just").setup({})
+        end,
     },
     -- Documentation Generator
     {
@@ -629,7 +636,7 @@ require("lazy").setup({
     },
     -- hurl
     {
-        "jellydn/hurl.nvim",
+        "bytedaring/hurl.nvim",
         cmd = { "HurlRunner", "HurlRunnerAt", "HurlRunnerToEntry", "HurlToggleMode", "HurlVerbose" },
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -639,6 +646,9 @@ require("lazy").setup({
             require("hurl").setup({
                 debug = false,
                 show_notification = false,
+                env_file = {
+                    "hurl.env",
+                },
                 mode = "split",
                 formatters = {
                     json = { "jq" }, -- Make sure you have install jq in your system, e.g: brew install jq

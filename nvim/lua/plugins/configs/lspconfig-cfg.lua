@@ -60,23 +60,23 @@ M.setup = function()
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
     -- 'emmet_ls'
+    -- "clangd",
     local servers = {
-        "tsserver",
-        "vimls",
+        "astro",
+        "awk_ls",
+        "bashls",
+        "bufls",
+        "cssls",
+        "dockerls",
         "jsonls",
         "marksman",
-        "astro",
         "sourcekit",
-        "bashls",
-        "awk_ls",
-        "dockerls",
-        "yamlls",
-        "bufls",
-        "zls",
-        "clangd",
-        "cssls",
         "svelte",
         "tailwindcss",
+        "tsserver",
+        "vimls",
+        "yamlls",
+        "zls",
     }
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup({

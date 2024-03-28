@@ -68,6 +68,8 @@ M.lint = function()
         dockerfile = { "hadolint" },
         markdown = { "markdownlint" },
         swift = { "swiftlint" },
+        python = { "ruff" },
+        proto = { "buf_lint" },
     }
     vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
         callback = function()
