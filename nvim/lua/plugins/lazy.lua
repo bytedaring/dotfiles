@@ -246,29 +246,7 @@ require("lazy").setup({
         config = function()
             require("Comment").setup()
         end,
-        ft = {
-            "html",
-            "typescriptreact",
-            "typescript",
-            "javascript",
-            "css",
-            "less",
-            "lua",
-            "python",
-            "go",
-            "vim",
-            "dart",
-            "java",
-            "svelte",
-            "vue",
-            "php",
-            "sh",
-            "zig",
-            "zsh",
-            "conf",
-            "astro",
-            "rust",
-        },
+        event = "VeryLazy",
     },
     -- Markdown预览
     {
@@ -276,6 +254,18 @@ require("lazy").setup({
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = function()
             vim.fn["mkdp#util#install"]()
+        end,
+    },
+    {
+        "Zeioth/markmap.nvim",
+        cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
+        opts = {
+            html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
+            hide_toolbar = false, -- (default)
+            grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
+        },
+        config = function(_, opts)
+            require("markmap").setup(opts)
         end,
     },
     -- 高性能的十六进制文本颜色高亮
@@ -341,6 +331,12 @@ require("lazy").setup({
         "neovim/nvim-lspconfig",
         -- event = { "BufRead", "BufNewFile" },
         event = "VeryLazy",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+        },
+        config = function()
+            require("plugins.configs.lspconfig-cfg").setup()
+        end,
     },
     --  增强代码自动完成
     -- load luasnips + cmp related in insert mode only
@@ -350,14 +346,12 @@ require("lazy").setup({
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "onsails/lspkind.nvim",
         },
         config = function()
-            require("plugins.configs.lspconfig-cfg").setup()
             require("plugins.configs.cmp-cfg").setup()
         end,
     },
@@ -395,7 +389,8 @@ require("lazy").setup({
     -- 一种通用图形调试器
     {
         "rcarriga/nvim-dap-ui",
-        lazy = true,
+        -- lazy = true,
+        cmd = { "DapToggleBreakpoint", "DapContinue", "DapRunToCursor" },
         -- event        = { "BufRead", "BufNewFile" },
         -- ft = { "zig" },
         dependencies = {
@@ -456,9 +451,12 @@ require("lazy").setup({
     --  Quick fix
     {
         "folke/trouble.nvim",
-        cmd = { "TroubleToggle", "Trouble" },
+        branch = "dev",
+        cmd = { "Trouble" },
         config = function()
-            require("trouble").setup({})
+            require("trouble").setup({
+                focus = true,
+            })
         end,
     },
     -- lint
@@ -636,7 +634,7 @@ require("lazy").setup({
     },
     -- hurl
     {
-        "bytedaring/hurl.nvim",
+        "jellydn/hurl.nvim",
         cmd = { "HurlRunner", "HurlRunnerAt", "HurlRunnerToEntry", "HurlToggleMode", "HurlVerbose" },
         dependencies = {
             "MunifTanjim/nui.nvim",

@@ -38,7 +38,10 @@ M.config = function()
                         end
 
                         -- { 'viu', '-h', '20', '-b', filepath },
-                        vim.fn.jobstart({ "viu", filepath }, { on_stdout = send_output, stdout_buffered = true })
+                        vim.fn.jobstart(
+                            { "viu", filepath },
+                            { on_stdout = send_output, stdout_buffered = true, pty = true }
+                        )
                     else
                         require("telescope.previewers.utils").set_preview_message(
                             bufnr,
