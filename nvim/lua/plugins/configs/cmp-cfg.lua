@@ -26,7 +26,12 @@ M.setup = function()
             -- end,
             fields = { "kind", "abbr", "menu" },
             format = function(entry, vim_item)
-                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                local kind = require("lspkind").cmp_format({
+                    mode = "symbol_text",
+                    maxwidth = 50,
+                    ellipsis_char = "...",
+                    symbol_map = { Codeium = "" },
+                })(entry, vim_item)
                 local strings = vim.split(kind.kind, "%s", { trimempty = true })
                 kind.kind = " " .. (strings[1] or "") .. " "
                 kind.menu = "    (" .. (strings[2] or "") .. ")"
@@ -70,6 +75,7 @@ M.setup = function()
             end, { "i", "s" }),
         },
         sources = cmp.config.sources({
+            { name = "codeium" },
             { name = "nvim_lsp" },
             { name = "buffer" },
             { name = "luasnip" },
