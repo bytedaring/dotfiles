@@ -142,3 +142,12 @@ end, opts)
 
 -- Generate comment for current line
 keymap.set("n", "<Leader>d", "<Plug>(doge-generate)")
+
+--spell suggest
+keymap.set("n", "z=", [[<Cmd>Telescope spell_suggest<CR>]])
+
+-- gitsigns
+keymap.set("n", "<leader>gb", [[<Cmd>Gitsigns toggle_current_line_blame<CR>]], opts)
+keymap.set("n", "<leader>gd", [[<Cmd>Gitsigns diffthis<CR>]], opts)
+keymap.set("n", "<leader>gp", [[<Cmd>Gitsigns preview_hunk<CR>]], opts)
+keymap.set("n", "<leader>gr", [[<Cmd>Gitsigns reset_hunk<CR>]], opts)

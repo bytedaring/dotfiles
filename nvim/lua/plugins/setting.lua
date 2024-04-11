@@ -4,6 +4,7 @@ local o = vim.o
 local wo = vim.wo
 
 -- 禁用netrw等默认内置插件
+--     "spellfile_plugin", "spellfile_plugin",
 local builtin_plugs = {
     "2html_plugin",
     "getscriptPlugin",
@@ -20,7 +21,6 @@ local builtin_plugs = {
     "rrhelper",
     "tar",
     "tarPlugin",
-    "spellfile_plugin",
     "tutor_mode_plugin",
     "vimball",
     "vimballPlugin",
@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.spelloptions = "camel"
 local spell_group = vim.api.nvim_create_augroup("spell_group", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "lua", "python", "go", "javascript", "rust", "zig" },
+    pattern = { "lua", "python", "go", "javascript", "rust", "zig", "svelte", "css" },
     command = "setlocal spell spelllang=en_us,cjk",
     group = spell_group,
 })
@@ -137,21 +137,23 @@ vim.api.nvim_create_autocmd("TermOpen", {
     group = spell_group,
 })
 
+--------------- gitsigns --------------
+
 --------------- Blame -----------------
-g.gitblame_delay = 1000 --1 second
-g.gitblame_highlight_group = "Comment"
-g.gitblame_message_template = "          <date> • <author> • <summary>"
-g.gitblame_date_format = "%r"
-g.gitblame_ignored_filetypes = {
-    "NvimTree",
-    "packer",
-    "Trouble",
-    "dap-repl",
-    "dapui_watches",
-    "dapui_breakpoints",
-    "dapui_scopes",
-    "dapui_stacks",
-}
+-- g.gitblame_delay = 1000 --1 second
+-- g.gitblame_highlight_group = "Comment"
+-- g.gitblame_message_template = "          <date> • <author> • <summary>"
+-- g.gitblame_date_format = "%r"
+-- g.gitblame_ignored_filetypes = {
+--     "NvimTree",
+--     "packer",
+--     "Trouble",
+--     "dap-repl",
+--     "dapui_watches",
+--     "dapui_breakpoints",
+--     "dapui_scopes",
+--     "dapui_stacks",
+-- }
 
 --------------- Python3 -----------------
 g.python3_host_skip_check = 1

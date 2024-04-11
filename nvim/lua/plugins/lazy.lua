@@ -213,9 +213,16 @@ require("lazy").setup({
     --  `.` 重复上次操作
     { "tpope/vim-repeat", event = "InsertEnter" },
     --  Git 文件git状态、Blame text
+    -- {
+    --     "f-person/git-blame.nvim",
+    --     event = "InsertEnter",
+    -- },
     {
-        "f-person/git-blame.nvim",
-        event = "InsertEnter",
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("gitsigns").setup()
+        end,
     },
     --  Git diffs for all modified files [replaced by gitsigns]
     -- {
@@ -240,14 +247,14 @@ require("lazy").setup({
             require("plugins.configs.others").blankline()
         end,
     },
-    --  注释插件
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
-        event = "VeryLazy",
-    },
+    --  注释插件 -- replaced by build-in commentings
+    -- {
+    --     "numToStr/Comment.nvim",
+    --     config = function()
+    --         require("Comment").setup()
+    --     end,
+    --     event = "VeryLazy",
+    -- },
     -- Markdown预览
     {
         "iamcco/markdown-preview.nvim",
@@ -390,7 +397,8 @@ require("lazy").setup({
     {
         "rcarriga/nvim-dap-ui",
         -- lazy = true,
-        cmd = { "DapToggleBreakpoint", "DapContinue", "DapRunToCursor" },
+        event = "VeryLazy",
+        -- cmd = { "DapToggleBreakpoint", "DapContinue", "DapRunToCursor" },
         -- event        = { "BufRead", "BufNewFile" },
         -- ft = { "zig" },
         dependencies = {
@@ -497,38 +505,9 @@ require("lazy").setup({
         "stevearc/conform.nvim",
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
-        opts = {
-            -- Define your formatters
-            formatters_by_ft = {
-                lua = { "stylua" },
-                go = { "goimports", "gofmt" },
-                python = function(bufnr)
-                    if require("conform").get_formatter_info("ruff_format", bufnr).available then
-                        return { "ruff_format" }
-                    else
-                        return { "isort", "black" }
-                    end
-                end,
-                javascript = { { "prettierd", "prettier" } },
-                html = { { "prettierd", "prettier" } },
-                markdown = { "prettier" },
-                json = { "jq" },
-                just = { "just" },
-                sh = { "shfmt" },
-                zig = { "zigfmt" },
-                xml = { "xmllint" },
-                swift = { "swiftformat" },
-                proto = { "buf" },
-            },
-            -- Set up format-on-save
-            format_on_save = { timeout_ms = 500, lsp_fallback = true },
-            -- Customize formatters
-            formatters = {
-                shfmt = {
-                    prepend_args = { "-i", "2" },
-                },
-            },
-        },
+        config = function()
+            require("plugins.configs.others").conform()
+        end,
     },
     -- TODO
     {
@@ -593,6 +572,7 @@ require("lazy").setup({
     {
         "folke/noice.nvim",
         event = "VeryLazy",
+        -- lazy = true,
         -- event = { "BufRead", "BufNewFile" },
         dependencies = {
             "MunifTanjim/nui.nvim",
@@ -659,7 +639,14 @@ require("lazy").setup({
             })
         end,
     },
+    -- AI Code Generator
+    {
+        "Exafunction/codeium.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("codeium").setup({})
+        end,
+    },
 }, {
     defaults = { lazy = true },
 })
-
