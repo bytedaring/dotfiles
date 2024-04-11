@@ -213,10 +213,6 @@ require("lazy").setup({
     --  `.` 重复上次操作
     { "tpope/vim-repeat", event = "InsertEnter" },
     --  Git 文件git状态、Blame text
-    -- {
-    --     "f-person/git-blame.nvim",
-    --     event = "InsertEnter",
-    -- },
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
@@ -224,19 +220,6 @@ require("lazy").setup({
             require("gitsigns").setup()
         end,
     },
-    --  Git diffs for all modified files [replaced by gitsigns]
-    -- {
-    --     "sindrets/diffview.nvim",
-    --     cmd = {
-    --         "DiffviewLog",
-    --         "DiffviewOpen",
-    --         "DiffviewClose",
-    --         "DiffviewRefresh",
-    --         "DiffviewFocusFiles",
-    --         "DiffviewToggleFiles",
-    --         "DiffviewFileHistory",
-    --     },
-    -- },
     -- indentation guides to all lines
     {
         "lukas-reineke/indent-blankline.nvim",
