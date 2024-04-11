@@ -22,7 +22,7 @@
 - 注释 - [comment](https://github.com/numToStr/Comment.nvim)
 - 自动括号补全 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - 自动补全html tag - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
-- Blame text - ~~[gitsigns](https://github.com/lewis6991/gitsigns.nvim)~~ [git-blame.nvim](https://github.com/f-person/git-blame.nvim)
+- Blame text - [gitsigns](https://github.com/lewis6991/gitsigns.nvim) ~~[git-blame.nvim](https://github.com/f-person/git-blame.nvim)~~
 - 代码自动补全 - ~~[coq_nvim](https://github.com/ms-jpq/coq_nvim)~~ [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - 图标 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - 代码高亮着色 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -40,6 +40,7 @@
 - 代码格式化 - ~~[neoformat](https://github.com/sbdchd/neoformat)~~ [conform.nvim](https://github.com/stevearc/conform.nvim)
 - 异步Linter - [nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - 通知管理器 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- AI - [codeium](https://github.com/Exafunction/codeium.nvim)
 
 ## TODO
 
