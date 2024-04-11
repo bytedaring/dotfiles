@@ -217,19 +217,19 @@ require("lazy").setup({
         "f-person/git-blame.nvim",
         event = "InsertEnter",
     },
-    --  Git diffs for all modified files
-    {
-        "sindrets/diffview.nvim",
-        cmd = {
-            "DiffviewLog",
-            "DiffviewOpen",
-            "DiffviewClose",
-            "DiffviewRefresh",
-            "DiffviewFocusFiles",
-            "DiffviewToggleFiles",
-            "DiffviewFileHistory",
-        },
-    },
+    --  Git diffs for all modified files [replaced by gitsigns]
+    -- {
+    --     "sindrets/diffview.nvim",
+    --     cmd = {
+    --         "DiffviewLog",
+    --         "DiffviewOpen",
+    --         "DiffviewClose",
+    --         "DiffviewRefresh",
+    --         "DiffviewFocusFiles",
+    --         "DiffviewToggleFiles",
+    --         "DiffviewFileHistory",
+    --     },
+    -- },
     -- indentation guides to all lines
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -662,3 +662,4 @@ require("lazy").setup({
 }, {
     defaults = { lazy = true },
 })
+
