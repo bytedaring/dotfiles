@@ -95,6 +95,8 @@
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR='nvim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -185,7 +187,7 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 #------------ go env ------------------
-export GO111MODULE=off
+export GO111MODULE=on
 export MallocNanoZone=0
 
 #------------ alias ------------------
@@ -233,3 +235,7 @@ eval "$(starship init zsh)"
 # magic
 export DYLD_LIBRARY_PATH=/usr/local/lib
 # magic
+
+# atuin
+eval "$(atuin init zsh)"
+# atuin
