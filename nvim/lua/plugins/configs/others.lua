@@ -187,7 +187,7 @@ M.blankline = function()
         },
         whitespace = { highlight = { "Whitespace" } },
         -- whitespace = { highlight = { "Whitespace", "NonText" } },
-        scope = { enabled = true },
+        scope = { enabled = true, show_start = false, show_end = false },
     })
 end
 
