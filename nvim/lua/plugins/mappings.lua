@@ -151,3 +151,17 @@ keymap.set("n", "<leader>gb", [[<Cmd>Gitsigns toggle_current_line_blame<CR>]], o
 keymap.set("n", "<leader>gd", [[<Cmd>Gitsigns diffthis<CR>]], opts)
 keymap.set("n", "<leader>gp", [[<Cmd>Gitsigns preview_hunk<CR>]], opts)
 keymap.set("n", "<leader>gr", [[<Cmd>Gitsigns reset_hunk<CR>]], opts)
+keymap.set("n", "[c", function()
+    if vim.wo.diff then
+        vim.cmd.normal({ "[c", bang = true })
+    else
+        vim.cmd([[Gitsigns prev_hunk]])
+    end
+end, opts)
+keymap.set("n", "]c", function()
+    if vim.wo.diff then
+        vim.cmd.normal({ "]c", bang = true })
+    else
+        vim.cmd([[Gitsigns next_hunk]])
+    end
+end, opts)
