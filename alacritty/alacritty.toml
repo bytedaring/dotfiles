@@ -1,0 +1,107 @@
+# hide_cursor_when_typing = true
+live_config_reload = true
+# strip_formatting = true
+
+import = ["~/.config/alacritty/themes/themes/tomorrow_night.toml"]
+
+# [colors.bright]
+# black = "0x444b6a"
+# blue = "0x7da6ff"
+# cyan = "0x0db9d7"
+# green = "0xb9f27c"
+# magenta = "0xbb9af7"
+# red = "0xff7a93"
+# white = "0xacb0d0"
+# yellow = "0xff9e64"
+
+# [colors.normal]
+# black = "0x32344a"
+# blue = "0x7aa2f7"
+# cyan = "0x449dab"
+# green = "0x9ece6a"
+# magenta = "0xad8ee6"
+# red = "0xf7768e"
+# white = "0x787c99"
+# yellow = "0xe0af68"
+
+# [colors.primary]
+# background = "0x1a1b26"
+# foreground = "0xa9b1d6"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 17
+builtin_box_drawing = true
+
+[font.normal]
+family = "SauceCodePro Nerd Font Mono"
+style = "Light"
+
+[font.bold]
+family = "SauceCodePro Nerd Font Mono"
+style = "Light"
+
+[font.italic]
+family = "SauceCodePro Nerd Font Mono"
+style = "ExtraLight Italic"
+
+[font.bold_italic]
+family = "SauceCodePro Nerd Font Mono"
+style = "Light Italic"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mode = "~Search"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ClearHistory"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "K"
+mods = "Command"
+
+[shell]
+# args = ["-l", "-c", "zellij attach --index 0 || zellij -l compact"]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/zsh"
+
+[window]
+decorations = "Full"
+dynamic_padding = false
+opacity = 1
+startup_mode = "Fullscreen"
+
+[window.padding]
+x = 0
+y = 0
+
+[window.position]
+x = 0
+y = 0
