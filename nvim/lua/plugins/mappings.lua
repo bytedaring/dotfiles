@@ -101,7 +101,10 @@ keymap.set("n", "<leader>la", "<cmd>GoCodeLenAct<CR>", opts)
 -- show hover doc and press twice will jump to hover window
 keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<CR>", opts)
 -- rename
-keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+-- keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+keymap.set("n", "gr", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
 -- goto definition
 keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 -- peek type definition

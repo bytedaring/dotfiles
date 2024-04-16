@@ -566,6 +566,14 @@ require("lazy").setup({
             require("plugins.configs.others").noice()
         end,
     },
+    -- rename
+    {
+        "smjonas/inc-rename.nvim",
+        cmd = "IncRename",
+        config = function()
+            require("inc_rename").setup({})
+        end,
+    },
     -- motion
     {
         "folke/flash.nvim",
