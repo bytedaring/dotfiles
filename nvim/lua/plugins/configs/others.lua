@@ -107,7 +107,7 @@ end
 M.lspsaga = function()
     require("lspsaga").setup({
         ui = {
-            border = "single",
+            border = "rounded",
             title = true,
             code_action = "",
             -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),

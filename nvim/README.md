@@ -14,15 +14,17 @@
 - 启动屏 - ~~[vim-stratify](https://github.com/mhinz/vim-startify)~~
 - LSP - [lspconfig](https://github.com/neovim/nvim-lspconfig)
 - 改善Neovim LSP 体验 - [lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim)
+- Rename - ~~[lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim)~~ [ince-rename](https://github.com/smjonas/inc-rename.nvim)
 - 键入时LSP签名提示 - ~~[lsp_signature.nvim](https://github.com/ray-x/lsp_signature.nvim)~~
   [noice.nvim](https://github.com/folke/noice.nvim)
 - UI改善取代`messages`、`cmdline`、`popupmenu` - [noice.nvim](https://github.com/folke/noice.nvim)
 - 控制台 - [toggleterm](https://github.com/akinsho/toggleterm.nvim)
 - GIT - [fugitive](https://github.com/tpope/vim-fugitive)、[lazygit](https://github.com/lewis6991/gitsigns.nvim)
-- 注释 - [comment](https://github.com/numToStr/Comment.nvim)
+- 注释 - ~~[comment](https://github.com/numToStr/Comment.nvim)~~ 0.10 版本后neovim自带该功能
 - 自动括号补全 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - 自动补全html tag - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - Blame text - [gitsigns](https://github.com/lewis6991/gitsigns.nvim) ~~[git-blame.nvim](https://github.com/f-person/git-blame.nvim)~~
+- Git diff - ~~[diffview](https://github.com/sindrets/diffview.nvim)~~ [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - 代码自动补全 - ~~[coq_nvim](https://github.com/ms-jpq/coq_nvim)~~ [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - 图标 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - 代码高亮着色 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
