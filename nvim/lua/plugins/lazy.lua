@@ -60,9 +60,8 @@ require("lazy").setup({
     -- colorscheme
     {
         "rebelot/kanagawa.nvim",
-        -- priority = 1000, -- Ensure it loads first
-        -- lazy = true,
-        cmd = "colorscheme",
+        priority = 1000, -- Ensure it loads first
+        lazy = true,
         config = function()
             require("kanagawa").setup({
                 compile = false,
@@ -73,9 +72,8 @@ require("lazy").setup({
     },
     {
         "folke/tokyonight.nvim",
-        cmd = "colorscheme",
-        -- lazy = true,
-        -- priority = 1000,
+        lazy = true,
+        priority = 1000,
         config = function()
             require("tokyonight").setup({
                 transparent = false,
