@@ -60,8 +60,9 @@ require("lazy").setup({
     -- colorscheme
     {
         "rebelot/kanagawa.nvim",
-        priority = 1000, -- Ensure it loads first
-        lazy = true,
+        -- priority = 1000, -- Ensure it loads first
+        -- lazy = true,
+        cmd = "colorscheme",
         config = function()
             require("kanagawa").setup({
                 compile = false,
@@ -72,8 +73,9 @@ require("lazy").setup({
     },
     {
         "folke/tokyonight.nvim",
-        lazy = true,
-        priority = 1000,
+        cmd = "colorscheme",
+        -- lazy = true,
+        -- priority = 1000,
         config = function()
             require("tokyonight").setup({
                 transparent = false,
@@ -546,10 +548,10 @@ require("lazy").setup({
     -- {
     --     "karb94/neoscroll.nvim",
     --     event = "VeryLazy",
-    --     config = function ()
-    --         require('neoscroll').setup {}
-    --     end
-    -- }
+    --     config = function()
+    --         require("neoscroll").setup({})
+    --     end,
+    -- },
     -- completely replaces the UI
     -- lazy.nvim
     {
@@ -637,6 +639,11 @@ require("lazy").setup({
         config = function()
             require("codeium").setup({})
         end,
+    },
+    -- tabline
+    {
+        "romgrk/barbar.nvim",
+        event = "VeryLazy",
     },
 }, {
     defaults = { lazy = true },
