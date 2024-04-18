@@ -3,34 +3,6 @@ local g = vim.g
 local o = vim.o
 local wo = vim.wo
 
--- 禁用netrw等默认内置插件
---     "spellfile_plugin", "spellfile_plugin",
-local builtin_plugs = {
-    "2html_plugin",
-    "getscriptPlugin",
-    "getscript",
-    "gzip",
-    "logiPat",
-    "matchparen",
-    "matchit",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    "remote_plugins",
-    "rrhelper",
-    "tar",
-    "tarPlugin",
-    "tutor_mode_plugin",
-    "vimball",
-    "vimballPlugin",
-    "zip",
-    "zipPlugin",
-}
-for i = 1, #builtin_plugs do
-    g["loaded_" .. builtin_plugs[i]] = 1
-end
-
 -- 背景透明
 -- vim.cmd [[ highlight Normal guibg=none ]]
 
@@ -140,12 +112,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 --------------- Python3 -----------------
 g.python3_host_skip_check = 1
 g.python3_host_prog = "/usr/local/bin/python3"
-
---设置leader键
---Remap space as leader key
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-g.mapleader = " "
-g.maplocalleader = " "
 
 --------------- go -----------------------
 local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })

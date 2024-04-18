@@ -1,7 +1,6 @@
-local M = {}
-
-M.config = function()
-    require("telescope").setup({
+local function setup()
+    local telescope = require("telescope")
+    telescope.setup({
         extensions = {
             fzf = {
                 fuzzy = true, -- false will only do exact matching
@@ -58,10 +57,35 @@ M.config = function()
     --if ok then
     --  require('telescope').load_extension('aerial')
     --end
-    local telescope = require("telescope")
     telescope.load_extension("fzf")
     telescope.load_extension("project")
     telescope.load_extension("frecency")
 end
 
-return M
+return {
+    --  telescope 扩展插件
+    {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        lazy = true,
+    },
+    {
+        "nvim-telescope/telescope-project.nvim",
+        lazy = true,
+    },
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        lazy = true,
+        config = function() end,
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        cmd = { "Telescope" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            setup()
+        end,
+    },
+}

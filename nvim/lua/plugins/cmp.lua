@@ -1,6 +1,4 @@
-local M = {}
-
-M.setup = function()
+local function setup()
     local cmp = require("cmp")
     -- luasnip setup
     local luasnip = require("luasnip")
@@ -143,4 +141,21 @@ M.setup = function()
     vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#D8EEEB", bg = "#58B5A8" })
 end
 
-return M
+return {
+    --  增强代码自动完成 load luasnips + cmp related in insert mode only
+    -- nvim-cmp source neovim's built-in language server client.
+    -- completion engine
+    {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "onsails/lspkind.nvim",
+        },
+        config = function()
+            setup()
+        end,
+    },
+}

@@ -1,17 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
+return {
     --  A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
     {
         "kyazdani42/nvim-web-devicons",
@@ -44,79 +31,16 @@ require("lazy").setup({
     },
     {
         "nvim-lualine/lualine.nvim",
-        -- event = { "BufRead", "BufNewFile" },
         event = "VeryLazy",
         config = function()
             require("lualine").setup({
                 options = {
                     theme = "auto",
                     icons_nabled = true,
-                    -- component_separators = { left = '', right = '' },
-                    -- section_separators = { left = '', right = '' },
                 },
             })
         end,
     },
-    -- colorscheme
-    {
-        "rebelot/kanagawa.nvim",
-        priority = 1000, -- Ensure it loads first
-        lazy = true,
-        config = function()
-            require("kanagawa").setup({
-                compile = false,
-                transparent = false,
-            })
-            vim.cmd([[colorscheme kanagawa]])
-        end,
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = true,
-        priority = 1000,
-        config = function()
-            require("tokyonight").setup({
-                transparent = false,
-                styles = {
-                    sidebars = "transparent",
-                    floats = "transparent",
-                },
-            })
-            vim.cmd([[colorscheme tokyonight-moon]])
-        end,
-    },
-    {
-        "catppuccin/nvim",
-        lazy = false,
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme catppuccin-mocha]])
-        end,
-    },
-    {
-        "EdenEast/nightfox.nvim",
-        lazy = true,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme duskfox]])
-        end,
-    },
-    -- {
-    --     "olimorris/onedarkpro.nvim",
-    --     lazy = true,
-    --     priority = 1000, -- Ensure it loads first
-    --     config = function ()
-    --         vim.cmd [[colorscheme onedark_vivid]]
-    --     end
-    -- },
-    -- {
-    --     'tanvirtin/monokai.nvim',
-    --     lazy = true,
-    --     priority = 1000, -- Ensure it loads first
-    --     -- event = { 'BufRead', 'BufNewFile' },
-    --     -- config = require("plugins.configs.others").monokai
-    -- },
     --  文件浏览器 File Explorer
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -146,39 +70,6 @@ require("lazy").setup({
                     },
                 },
             })
-        end,
-    },
-    --  telescope 扩展插件
-    {
-        "nvim-telescope/telescope.nvim",
-        cmd = { "Telescope" },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("plugins.configs.telescope-cfg").config()
-        end,
-    },
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        lazy = true,
-    },
-    {
-        "nvim-telescope/telescope-project.nvim",
-        lazy = true,
-    },
-    {
-        "nvim-telescope/telescope-frecency.nvim",
-        lazy = true,
-        config = function() end,
-    },
-    --  Insert or delete brackets, parens, quotes in pair.
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            require("plugins.configs.autopairs-cfg").setup()
         end,
     },
     -- Use treesitter to auto close and auto rename html tag
@@ -218,16 +109,6 @@ require("lazy").setup({
         event = "VeryLazy",
         config = function()
             require("gitsigns").setup()
-        end,
-    },
-    -- indentation guides to all lines
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        -- event = "BufRead",
-        event = "VeryLazy",
-        main = "ibl",
-        config = function()
-            require("plugins.configs.others").blankline()
         end,
     },
     --  注释插件 -- replaced by build-in commentings
@@ -275,14 +156,6 @@ require("lazy").setup({
         end,
         ft = { "html", "css", "less", "lua", "go", "svelte", "astro" },
     },
-    --  终端控制
-    {
-        "akinsho/toggleterm.nvim",
-        cmd = "ToggleTerm",
-        config = function()
-            require("plugins.configs.toggleterm-cfg").setup()
-        end,
-    },
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     {
         "nvim-treesitter/nvim-treesitter",
@@ -316,35 +189,6 @@ require("lazy").setup({
             })
         end,
     },
-    -- LSP
-    {
-        "neovim/nvim-lspconfig",
-        -- event = { "BufRead", "BufNewFile" },
-        event = "VeryLazy",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-        },
-        config = function()
-            require("plugins.configs.lspconfig-cfg").setup()
-        end,
-    },
-    --  增强代码自动完成
-    -- load luasnips + cmp related in insert mode only
-    -- nvim-cmp source neovim's built-in language server client.
-    -- completion engine
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "onsails/lspkind.nvim",
-        },
-        config = function()
-            require("plugins.configs.cmp-cfg").setup()
-        end,
-    },
     -- snippet engine
     {
         "L3MON4D3/LuaSnip",
@@ -356,63 +200,10 @@ require("lazy").setup({
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
-            require("plugins.configs.others").snippet()
-        end,
-    },
-    -- LSP signature hint as you type(use noice instant)
-    -- {
-    --     "ray-x/lsp_signature.nvim",
-    --     event = "LspAttach",
-    --     config = function()
-    --         require("plugins.configs.others").signature()
-    --     end,
-    -- },
-    -- LSP plugin
-    {
-        "glepnir/lspsaga.nvim",
-        event = "LspAttach",
-        branch = "main",
-        config = function()
-            require("plugins.configs.others").lspsaga()
-        end,
-    },
-    -- 一种通用图形调试器
-    {
-        "rcarriga/nvim-dap-ui",
-        -- lazy = true,
-        event = "VeryLazy",
-        -- cmd = { "DapToggleBreakpoint", "DapContinue", "DapRunToCursor" },
-        -- event        = { "BufRead", "BufNewFile" },
-        -- ft = { "zig" },
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio",
-            -- "theHamsta/nvim-dap-virtual-text",
-        },
-        config = function()
-            require("plugins.configs.dap-cfg").setup()
-        end,
-    },
-    -- go
-    {
-        "ray-x/go.nvim",
-        ft = "go",
-        dependencies = "ray-x/guihua.lua",
-        config = function()
-            require("plugins.configs.go-cfg").setup()
-        end,
-    },
-    -- flutter
-    {
-        "akinsho/flutter-tools.nvim",
-        ft = "dart",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "mfussenegger/nvim-dap",
-            "stevearc/dressing.nvim",
-        },
-        config = function()
-            require("plugins.configs.flutter-cfg").setup()
+            -- lazy-load snippets from my-snippets folder
+            require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/my_snippets" })
+            -- lazy-load default snippets
+            require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
     -- rust
@@ -425,20 +216,6 @@ require("lazy").setup({
         "vim-test/vim-test",
         cmd = { "TestFile", "TestLast", "TestNearest", "TestSuite" },
     },
-    {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/neotest-go",
-            "sidlatau/neotest-dart",
-            "lawrence-laz/neotest-zig",
-            "rouge8/neotest-rust",
-            "antoinemadec/FixCursorHold.nvim",
-        },
-        cmd = { "NeotestToggleSummary", "NeotestToggleOutputPanel", "NeotestRun", "NeotestRunFile" },
-        config = function()
-            require("plugins.configs.others").neotest()
-        end,
-    },
     --  Quick fix
     {
         "folke/trouble.nvim",
@@ -448,48 +225,6 @@ require("lazy").setup({
             require("trouble").setup({
                 focus = true,
             })
-        end,
-    },
-    -- lint
-    {
-        "mfussenegger/nvim-lint",
-        event = "VeryLazy",
-        -- ft = {
-        --     "css",
-        --     "docker",
-        --     "go",
-        --     "html",
-        --     "javascript",
-        --     "less",
-        --     "lua",
-        --     "markdown",
-        --     "python",
-        --     "rust",
-        --     "sh",
-        --     "swift",
-        --     "typescript",
-        --     "typescriptreact",
-        --     "vim",
-        --     "zig",
-        -- },
-        config = function()
-            require("plugins.configs.others").lint()
-        end,
-    },
-    -- formatter
-    -- {
-    --     'mhartington/formatter.nvim',
-    --     ft = { 'html', 'css', 'xml', 'markdown' },
-    --     config = function ()
-    --         require('plugins.configs.others').format()
-    --     end
-    -- },
-    {
-        "stevearc/conform.nvim",
-        event = { "BufWritePre" },
-        cmd = { "ConformInfo" },
-        config = function()
-            require("plugins.configs.others").conform()
         end,
     },
     -- TODO
@@ -525,10 +260,6 @@ require("lazy").setup({
         end,
     },
     -- Just Syntax
-    -- {
-    --     "NoahTheDuke/vim-just",
-    --     ft = "just",
-    -- },
     {
         "IndianBoy42/tree-sitter-just",
         ft = "just",
@@ -550,22 +281,6 @@ require("lazy").setup({
     --         require("neoscroll").setup({})
     --     end,
     -- },
-    -- completely replaces the UI
-    -- lazy.nvim
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        -- lazy = true,
-        -- event = { "BufRead", "BufNewFile" },
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        },
-        config = function()
-            require("plugins.configs.others").noice()
-        end,
-    },
     -- rename
     {
         "smjonas/inc-rename.nvim",
@@ -643,6 +358,4 @@ require("lazy").setup({
         "romgrk/barbar.nvim",
         event = "VeryLazy",
     },
-}, {
-    defaults = { lazy = true },
-})
+}
