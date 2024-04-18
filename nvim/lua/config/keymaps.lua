@@ -5,10 +5,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- M.symbol = function()
---   map('n', '<F7>', [[<Cmd>:SymbolsOutline<CR>]], { noremap = true, silent = true })
--- end
-
 -- telescope
 -- Find files using Telescope command-line sugar.
 keymap.set("n", "ff", [[<Cmd>Telescope find_files<CR>]], opts)
@@ -33,17 +29,8 @@ end, opts)
 -- todo-comments.nvim
 keymap.set("n", "ft", [[<cmd>TodoTelescope<CR>]], opts)
 
--- nvim-tree NvimTreeFindFileToggle
--- nnorekeymap.set fi :<C-u>:NvimTreeFindFileToggle<CR>
--- keymap.set('n', '<C-b>', [[<Cmd>NvimTreeToggle<CR>]], opts)
+-- neo-tree
 keymap.set("n", "<C-b>", [[<Cmd>Neotree toggle reveal<CR>]], opts)
-
--- vimspector
--- keymap.set('n', '<leader>dd', [[<Cmd>:call vimspector#Launch()<CR>]], opts)
--- keymap.set('n', '<leader>dx', [[<Cmd>:VimspectorReset<CR>]], opts)
--- keymap.set('n', '<leader>de', [[<Cmd>:VimspectorEval<CR>]], opts)
--- keymap.set('n', '<leader>dw', [[<Cm>:VimspectorWatch<CR>]], opts)
--- keymap.set('n', '<leader>do', [[<Cmd>:VimspectorShowOutput<CR>]], opts)
 
 -- Trouble
 keymap.set("n", "<leader>xx", [[<Cmd>Trouble diagnostics toggle<CR>]], opts)
@@ -116,9 +103,6 @@ keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
---lazygit.nvim
--- keymap.set('n', '<c-g>', "<cmd>LazyGit<CR>", opts)
-
 --gx open URL in browser
 keymap.set("n", "gx", "<cmd>silent !open <cWORD><CR>", opts)
 
@@ -132,16 +116,6 @@ keymap.set("n", "<leader>tf", [[<Cmd>NeotestRunFile<CR>]], opts)
 keymap.set("n", "<leader>f", function()
     require("conform").format({ async = true, lsp_fallback = true })
 end, opts)
--- keymap.set('n', '<space>f', function ()
---     local targets = { css = true, html = true, markdown = true }
---     if 'xml' == vim.bo.filetype then
---         vim.cmd [[%!xmllint % --format ]]
---     elseif vim.fn.has_key(targets, vim.bo.filetype) == 1 then
---         vim.cmd [[Format]]
---     else
---         vim.lsp.buf.format { async = true }
---     end
--- end, opts)
 
 -- Generate comment for current line
 keymap.set("n", "<Leader>d", "<Plug>(doge-generate)")

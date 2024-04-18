@@ -44,6 +44,14 @@ return {
             vim.cmd([[colorscheme duskfox]])
         end,
     },
+    {
+        "ellisonleao/gruvbox.nvim",
+        lazy = true,
+        priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme gruvbox]])
+        end,
+    },
     -- {
     --     "olimorris/onedarkpro.nvim",
     --     lazy = true,

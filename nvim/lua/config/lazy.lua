@@ -12,41 +12,39 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = {
-        {
-            import = "plugins",
-        },
-    },
+    spec = { { import = "plugins" } },
     defaults = {
         lazy = true,
     },
     install = {
-        colorscheme = { "tokyonight", "habamax" },
+        colorscheme = { "catppuccin", "tokyonight" },
     },
     checker = { enable = true },
     performance = {
         -- disable some rtp plugins
-        disabled_plugins = {
-            "2html_plugin",
-            "getscriptPlugin",
-            "getscript",
-            "gzip",
-            "logiPat",
-            "matchparen",
-            "matchit",
-            "netrw",
-            "netrwPlugin",
-            "netrwSettings",
-            "netrwFileHandlers",
-            "remote_plugins",
-            "rrhelper",
-            "tar",
-            "tarPlugin",
-            "tutor_mode_plugin",
-            "vimball",
-            "vimballPlugin",
-            "zip",
-            "zipPlugin",
+        rtp = {
+            disabled_plugins = {
+                "2html_plugin",
+                "getscriptPlugin",
+                "getscript",
+                "gzip",
+                "logiPat",
+                "matchparen",
+                "matchit",
+                "netrw",
+                "netrwPlugin",
+                "netrwSettings",
+                "netrwFileHandlers",
+                "remote_plugins",
+                "rrhelper",
+                "tar",
+                "tarPlugin",
+                "tutor_mode_plugin",
+                "vimball",
+                "vimballPlugin",
+                "zip",
+                "zipPlugin",
+            },
         },
     },
 })
