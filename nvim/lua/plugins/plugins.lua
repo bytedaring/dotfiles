@@ -142,19 +142,13 @@ return {
     -- 高性能的十六进制文本颜色高亮
     {
         "norcalli/nvim-colorizer.lua",
+        event = "VeryLazy",
         config = function()
             require("colorizer").setup({
-                "less",
-                "css",
-                "go",
-                "svelte",
-                "lua",
-                "astro",
-                "javascript",
+                "*",
                 html = { mode = "foreground" },
             }, { mode = "background" })
         end,
-        ft = { "html", "css", "less", "lua", "go", "svelte", "astro" },
     },
     --  插件提供基于 tree-sitter 的多个基础功能，它可以让你在 nvim 中高效的实现 代码高亮，增量选择 等功能。
     {

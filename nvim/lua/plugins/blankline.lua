@@ -5,8 +5,6 @@ return {
         event = "VeryLazy",
         main = "ibl",
         config = function()
-            vim.opt.termguicolors = true
-            -- vim.opt.list = true
             require("ibl").setup({
                 indent = {
                     char = { "|", "¦", "┆", "┊" },
