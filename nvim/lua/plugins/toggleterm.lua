@@ -1,6 +1,5 @@
--- Terminal window mappings, it can be helpful to make moving in and out of a terminal
-
 return {
+    -- Terminal window mappings, it can be helpful to make moving in and out of a terminal
     {
         "akinsho/toggleterm.nvim",
         cmd = "ToggleTerm",

@@ -7,7 +7,7 @@ local wo = vim.wo
 -- vim.cmd [[ highlight Normal guibg=none ]]
 
 -- 设置编辑器视窗宽度
-opt.columns = 148
+-- opt.columns = 148
 -- 不兼容模式
 vim.cmd([[set nocompatible ]])
 -- 启用鼠标

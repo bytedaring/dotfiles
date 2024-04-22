@@ -48,6 +48,7 @@ return {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             "3rd/image.nvim",
+            "romgrk/barbar.nvim",
         },
         cmd = "Neotree",
         config = function()
@@ -71,6 +72,11 @@ return {
                 },
             })
         end,
+    },
+    -- tabline
+    {
+        "romgrk/barbar.nvim",
+        lazy = true,
     },
     -- Use treesitter to auto close and auto rename html tag
     {
@@ -254,13 +260,13 @@ return {
         end,
     },
     -- Just Syntax
-    {
-        "IndianBoy42/tree-sitter-just",
-        ft = "just",
-        config = function()
-            require("tree-sitter-just").setup({})
-        end,
-    },
+    -- {
+    --     "IndianBoy42/tree-sitter-just",
+    --     ft = "just",
+    --     config = function()
+    --         require("tree-sitter-just").setup({})
+    --     end,
+    -- },
     -- Documentation Generator
     {
         "kkoomen/vim-doge",
@@ -346,10 +352,5 @@ return {
         config = function()
             require("codeium").setup({})
         end,
-    },
-    -- tabline
-    {
-        "romgrk/barbar.nvim",
-        event = "VeryLazy",
     },
 }
