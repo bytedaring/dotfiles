@@ -12,7 +12,6 @@ return {
     {
         "nvim-telescope/telescope-frecency.nvim",
         lazy = true,
-        config = function() end,
     },
     {
         "nvim-telescope/telescope.nvim",

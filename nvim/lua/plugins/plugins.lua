@@ -77,6 +77,13 @@ return {
     {
         "romgrk/barbar.nvim",
         lazy = true,
+        config = function()
+            require("barbar").setup({
+                sidebar_filetypes = {
+                    ["neo-tree"] = { event = "BufWipeout" },
+                },
+            })
+        end,
     },
     -- Use treesitter to auto close and auto rename html tag
     {
