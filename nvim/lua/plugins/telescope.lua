@@ -41,6 +41,11 @@ return {
                         vertical = { width = 0.85 },
                     },
                     file_ignore_patterns = { "vendor" },
+                    mappings = {
+                        i = {
+                            ["<C-u>"] = false,
+                        },
+                    },
                     preview = {
                         mime_hook = function(filepath, bufnr, opts)
                             local is_image = function(filepath)
@@ -81,6 +86,16 @@ return {
             telescope.load_extension("fzf")
             telescope.load_extension("project")
             telescope.load_extension("frecency")
+
+            -- previewer show number
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "TelescopePreviewerLoaded",
+                callback = function(args)
+                    if args.data.filetype ~= "help" then
+                        vim.wo.number = true
+                    end
+                end,
+            })
         end,
     },
 }
