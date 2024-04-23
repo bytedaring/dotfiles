@@ -27,12 +27,12 @@ opt.list = false
 
 -- 设置默认编码格式
 opt.encoding = "utf-8"
--- 缩进配置为2空格
+-- 缩进配置为4空格
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 -- 表示Tab自动转换成空格
-opt.expandtab = true
+o.expandtab = false
 -- 表示换行后自动缩进
 opt.autoindent = true
 -- 智能对齐

@@ -89,7 +89,8 @@ mods = "Command"
 
 [shell]
 # args = ["-l", "-c", "zellij attach --index 0 || zellij -l compact"]
-args = ["-l", "-c", "tmux attach || tmux"]
+args = ["-l", "-c", "zellij -l compact"]
+# args = ["-l", "-c", "tmux attach || tmux"]
 program = "/bin/zsh"
 
 [window]

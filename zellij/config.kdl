@@ -1,4 +1,4 @@
-pane_frames: false
+pane_frames false
 
 keybinds {
     unbind "Ctrl b" "Ctrl h"
