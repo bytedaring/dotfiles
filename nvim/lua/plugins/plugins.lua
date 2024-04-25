@@ -218,6 +218,15 @@ return {
         "mrcjkb/rustaceanvim",
         ft = "rust",
     },
+    {
+        "saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        config = function()
+            require("crates").setup({
+                popup = { autofocus = true },
+            })
+        end,
+    },
     -- 测试插件
     {
         "vim-test/vim-test",

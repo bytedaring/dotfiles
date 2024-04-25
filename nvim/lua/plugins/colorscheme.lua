@@ -29,7 +29,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function()
@@ -38,7 +38,7 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme carbonfox]])
