@@ -191,10 +191,11 @@ export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
-alias ls="lsd"
+alias ls="eza"
 alias l="ls -lh"
 alias ll="ls -lha"
 alias lt="ls --tree"
+alias lf="ls -f"
 #alias ..="cd ./.."
 #alias ../..="cd ./../.."
 alias cls="clear"
