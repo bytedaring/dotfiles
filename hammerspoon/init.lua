@@ -10,14 +10,12 @@
 hs.hotkey.bind({ "option" }, "space", function()
 	local app = hs.application.get("kitty")
 	if app ~= nil then
-		if not app:mainWindow() then
-			app:selectMenuItem("kitty", "New Window")
-		elseif app:isFrontmost() then
+		if app:isFrontmost() then
 			app:hide()
 		else
 			app:activate()
 		end
 	else
-		hs.application.launchOrFocus(app:name())
+		hs.application.launchOrFocus("/Applications/kitty.app")
 	end
 end)
