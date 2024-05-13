@@ -2,7 +2,7 @@
 live_config_reload = true
 # strip_formatting = true
 
-import = ["~/.config/alacritty/themes/themes/tomorrow_night.toml"]
+import = ["~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"]
 
 # [colors.bright]
 # black = "0x444b6a"
@@ -89,8 +89,9 @@ mods = "Command"
 
 [shell]
 # args = ["-l", "-c", "zellij attach --index 0 || zellij -l compact"]
-args = ["-l", "-c", "zellij -l compact"]
-# args = ["-l", "-c", "tmux attach || tmux"]
+# args = ["-l", "-c", "zellij -l ~/.config/zellij/layouts/default.kdl"]
+# args = ["-l", "-c", "zellij -l compact"]
+args = ["-l", "-c", "tmux attach || tmux"]
 program = "/bin/zsh"
 
 [window]

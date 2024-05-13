@@ -186,7 +186,7 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 #------------ go env ------------------
-export GO111MODULE=on
+export GO111MODULE=off
 export MallocNanoZone=0
 
 #------------ alias ------------------
@@ -235,6 +235,7 @@ source "/Users/xiaoxiwang/.bun/_bun"
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt
 
+znap eval fzf 'fzf --zsh'
 # magic
 export DYLD_LIBRARY_PATH=/usr/local/lib
 # magic

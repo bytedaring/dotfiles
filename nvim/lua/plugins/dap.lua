@@ -58,7 +58,7 @@ local dap_debug_config = {
     -- },
 }
 
-local function keybind()
+M.keybind = function()
     local dap = require("dap")
     keymaps_backup = vim.api.nvim_get_keymap("n")
     keys = {
@@ -119,7 +119,7 @@ local function keybind()
     bind.nvim_load_mapping(keys)
 end
 
-local unmap = function()
+M.unmap = function()
     local unmap_keys = {
         "r",
         "c",
@@ -255,16 +255,16 @@ M.setup = function()
     dap.listeners.after.event_initialized["dapui_config"] = function()
         vim.defer_fn(function()
             dapui.open()
-            keybind()
+            M.keybind()
         end, 200)
     end
     dap.listeners.before.event_terminated["dapui_config"] = function()
         -- dapui.close()
-        unmap()
+        M.unmap()
     end
     dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
-        unmap()
+        M.unmap()
     end
 
     dap.adapters.cppdbg = {
@@ -324,7 +324,7 @@ M.setup = function()
     -- require('dap.ext.vscode').load_launchjs(nil, { lldb = { 'rust' } });
 end
 
-local function dapui_opened()
+M.dapui_opened = function()
     local lys = require("dapui.windows").layouts or {}
     local opened = false
     for _, ly in ipairs(lys) do
@@ -336,10 +336,10 @@ local function dapui_opened()
 end
 
 M.stop = function()
-    unmap()
+    M.unmap()
     local has_dapui, dapui = pcall(require, "dapui")
     if has_dapui then
-        if dapui_opened() then
+        if M.dapui_opened() then
             dapui.close()
         end
     end

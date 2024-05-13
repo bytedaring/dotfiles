@@ -48,7 +48,7 @@ return {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             "3rd/image.nvim",
-            "romgrk/barbar.nvim",
+            -- "romgrk/barbar.nvim",
         },
         cmd = "Neotree",
         config = function()
@@ -74,17 +74,17 @@ return {
         end,
     },
     -- tabline
-    {
-        "romgrk/barbar.nvim",
-        lazy = true,
-        config = function()
-            require("barbar").setup({
-                sidebar_filetypes = {
-                    ["neo-tree"] = { event = "BufWipeout" },
-                },
-            })
-        end,
-    },
+    -- {
+    --     "romgrk/barbar.nvim",
+    --     lazy = true,
+    --     config = function()
+    --         require("barbar").setup({
+    --             sidebar_filetypes = {
+    --                 ["neo-tree"] = { event = "BufWipeout" },
+    --             },
+    --         })
+    --     end,
+    -- },
     -- Use treesitter to auto close and auto rename html tag
     {
         "windwp/nvim-ts-autotag",
@@ -369,4 +369,48 @@ return {
             require("codeium").setup({})
         end,
     },
+    {
+        "NoahTheDuke/vim-just",
+        event = { "BufRead justfile" },
+    },
+    -- -- neorg
+    -- {
+    --     "nvim-neorg/neorg",
+    --     version = "*",
+    --     dependencies = {
+    --         "nvim-neorg/lua-utils.nvim",
+    --         "pysan3/pathlib.nvim",
+    --         "nvim-neotest/nvim-nio",
+    --         "MunifTanjim/nui.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --         "vhyrro/luarocks.nvim",
+    --     },
+    --     cmd = "Neorg",
+    --     config = function()
+    --         require("neorg").setup({
+    --             load = {
+    --                 ["core.completion"] = {
+    --                     config = {
+    --                         engine = "nvim-cmp",
+    --                     },
+    --                 },
+    --                 ["core.summary"] = {},
+    --                 ["core.integrations.image"] = {},
+    --                 ["core.defaults"] = {},
+    --                 ["core.concealer"] = {},
+    --                 ["core.dirman"] = {
+    --                     config = {
+    --                         workspaces = {
+    --                             notes = "~/notes",
+    --                         },
+    --                         default_workspace = "notes",
+    --                     },
+    --                 },
+    --             },
+    --         })
+    --
+    --         vim.wo.foldlevel = 99
+    --         vim.wo.conceallevel = 2
+    --     end,
+    -- },
 }

@@ -24,12 +24,12 @@ return {
                     floats = "transparent",
                 },
             })
-            vim.cmd([[colorscheme tokyonight-moon]])
+            vim.cmd([[colorscheme tokyonight-night]])
         end,
     },
     {
         "catppuccin/nvim",
-        lazy = false,
+        lazy = true,
         name = "catppuccin",
         priority = 1000,
         config = function()
@@ -65,14 +65,31 @@ return {
         lazy = true,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme github_dark_tritanopia]])
+            vim.cmd([[colorscheme github_dark_default]])
         end,
     },
-    -- {
-    --     'tanvirtin/monokai.nvim',
-    --     lazy = true,
-    --     priority = 1000, -- Ensure it loads first
-    --     -- event = { 'BufRead', 'BufNewFile' },
-    --     -- config = require("plugins-bk.configs.others").monokai
-    -- },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("cyberdream").setup({
+                -- Recommended - see "Configuring" below for more config options
+                transparent = true,
+                italic_comments = true,
+                hide_fillchars = true,
+                borderless_telescope = true,
+                terminal_colors = true,
+            })
+            vim.cmd("colorscheme cyberdream") -- set the colorscheme
+        end,
+    },
+    {
+        "tanvirtin/monokai.nvim",
+        lazy = true,
+        priority = 1000, -- Ensure it loads first
+        config = function()
+            vim.cmd("colorscheme monokai")
+        end,
+    },
 }

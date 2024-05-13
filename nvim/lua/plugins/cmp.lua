@@ -83,6 +83,7 @@ return {
                     { name = "buffer" },
                     { name = "luasnip" },
                     { name = "path" },
+                    -- { name = "neorg" },
                 }),
             })
 

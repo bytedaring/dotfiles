@@ -10,10 +10,6 @@ return {
         lazy = true,
     },
     {
-        "nvim-telescope/telescope-frecency.nvim",
-        lazy = true,
-    },
-    {
         "nvim-telescope/telescope.nvim",
         cmd = { "Telescope" },
         dependencies = {
@@ -85,7 +81,6 @@ return {
             --end
             telescope.load_extension("fzf")
             telescope.load_extension("project")
-            telescope.load_extension("frecency")
 
             -- previewer show number
             vim.api.nvim_create_autocmd("User", {
