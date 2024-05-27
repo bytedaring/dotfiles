@@ -2,6 +2,8 @@ return {
     {
         "nvim-neotest/neotest",
         dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
             "nvim-neotest/neotest-go",
             "sidlatau/neotest-dart",
             "lawrence-laz/neotest-zig",

@@ -36,12 +36,29 @@
 # bold_italic_font JetBrains Mono Thin Italic
 
 # font_family      Hasklug Nerd Font Mono Light
-font_family      Hasklig Light
-# font_family      JetBrains Mono Thin
-bold_font        JetBrains Mono Thin
-italic_font      Hasklig Light Italic
-# italic_font      JetBrains Mono Thin Italic
-bold_italic_font JetBrains Mono Thin Italic
+# bold_font        Hasklug Nerd Font Mono Regular
+# italic_font      Hasklug Nerd Font Mono Light Italic
+# bold_italic_font Hasklug Nerd Font Mono Black Italic
+
+font_family      CaskaydiaCove Nerd Font Mono ExtraLight
+bold_font        CaskaydiaCove Nerd Font Mono Light
+italic_font      CaskaydiaCove Nerd Font Mono ExtraLight Italic
+bold_italic_font CaskaydiaCove Nerd Font Mono Light Italic
+
+# font_family		 AnonymicePro Nerd Font Mono Regular
+# bold_font		 AnonymicePro Nerd Font Mono Boldo
+# italic_font		 AnonymicePro Nerd Font Mono Italic
+# bold_italic_font AnonymicePro Nerd Font Mono Boldo
+
+# font_family		   FiraCode Nerd Font Mono Light
+# bold_font		   FiraCode Nerd Font Mono Medium
+# italic_font		   FiraCode Nerd Font Mono Light Italic
+# bold_italic_font   FiraCode Nerd Font Mono Medium Italic
+
+# font_family      VictorMono Nerd Font Mono ExtraLight
+# bold_font        VictorMono Nerd Font Mono Bold 
+# italic_font      VictorMono Nerd Font Mono ExtraLight Oblique
+# bold_italic_font VictorMono Nerd Font Mono Bold Oblique
 
 # font_family      Victor Mono Thin
 # bold_font        Victor Mono Medium
@@ -619,7 +636,7 @@ copy_on_select yes
 #: Performance tuning {{{
 
 # repaint_delay 10
-repaint_delay 1
+repaint_delay 2
 
 #: Delay (in milliseconds) between screen updates. Decreasing it,
 #: increases frames-per-second (FPS) at the cost of more CPU usage.
@@ -1030,6 +1047,7 @@ inactive_tab_font_style   normal
 #: The foreground and background colors
 
 # background_opacity 1.0
+background_opacity 1.0
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -1275,6 +1293,7 @@ listen_on unix:/tmp/mykitty
 #:     exe_search_path -/some/excluded/path
 
 # update_check_interval 24
+update_check_interval 0
 
 #: Periodically check if an update to kitty is available. If an update
 #: is found a system notification is displayed informing you of the
@@ -1693,6 +1712,9 @@ macos_traditional_fullscreen yes
 # map kitty_mod+enter new_window
 # map cmd+enter       new_window
 
+map kitty_mod+enter launch --cwd=current --type=window
+map cmd+enter       launch --cwd=current --type=window
+
 #::  You can open a new window running an arbitrary program, for
 #::  example::
 
@@ -1834,6 +1856,8 @@ macos_traditional_fullscreen yes
 
 # map kitty_mod+t new_tab
 # map cmd+t       new_tab
+map kitty_mod+t launch --cwd=current --type=tab
+map cmd+t       launch --cwd=current --type=tab
 
 #: Close tab
 
@@ -2145,6 +2169,6 @@ macos_traditional_fullscreen yes
 
 
 # BEGIN_KITTY_THEME
-# 1984 Orwellian
+# Adwaita dark
 include current-theme.conf
 # END_KITTY_THEME

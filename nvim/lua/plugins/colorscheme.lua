@@ -18,7 +18,7 @@ return {
         priority = 1000,
         config = function()
             require("tokyonight").setup({
-                transparent = false,
+                transparent = true,
                 styles = {
                     sidebars = "transparent",
                     floats = "transparent",
@@ -29,10 +29,13 @@ return {
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function()
+            require("catppuccin").setup({
+                transparent_background = true,
+            })
             vim.cmd([[colorscheme catppuccin-mocha]])
         end,
     },
@@ -70,7 +73,7 @@ return {
     },
     {
         "scottmckendry/cyberdream.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = function()
             require("cyberdream").setup({
@@ -78,7 +81,7 @@ return {
                 transparent = true,
                 italic_comments = true,
                 hide_fillchars = true,
-                borderless_telescope = true,
+                borderless_telescope = false,
                 terminal_colors = true,
             })
             vim.cmd("colorscheme cyberdream") -- set the colorscheme

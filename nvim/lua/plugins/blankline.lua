@@ -9,7 +9,7 @@ return {
                 indent = {
                     char = { "|", "¦", "┆", "┊" },
                 },
-                whitespace = { highlight = { "Whitespace" } },
+                -- whitespace = { highlight = { "Whitespace" } },
                 scope = { enabled = true, show_start = false, show_end = false },
             })
         end,

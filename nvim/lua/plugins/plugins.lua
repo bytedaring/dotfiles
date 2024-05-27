@@ -8,7 +8,7 @@ return {
             require("nvim-web-devicons").setup({
                 override = {
                     zip = {
-                        icon = " ",
+                        icon = "",
                         color = "#dad8d8",
                         cterm_color = "188",
                         name = "Zip",
@@ -52,6 +52,7 @@ return {
         },
         cmd = "Neotree",
         config = function()
+            -- local is_alacritty = os.getenv("ALACRITTY_LOG") ~= nil
             package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
             package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
             require("image").setup()
@@ -65,10 +66,15 @@ return {
                         leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                     },
                 },
+                use_libuv_file_watcher = true,
                 window = {
                     mappings = {
                         ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
                     },
+                },
+                source_selector = {
+                    winbar = false,
+                    statusline = false,
                 },
             })
         end,
@@ -88,20 +94,7 @@ return {
     -- Use treesitter to auto close and auto rename html tag
     {
         "windwp/nvim-ts-autotag",
-        ft = {
-            "astro",
-            "glimmer",
-            "handlebars",
-            "html",
-            "javascript",
-            "jsx",
-            "markdown",
-            "svelte",
-            "tsx",
-            "vue",
-            "xml",
-            "typescript",
-        },
+        event = "VeryLazy",
         config = function()
             require("nvim-ts-autotag").setup()
         end,
@@ -136,9 +129,7 @@ return {
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+        build = "cd app && bun install",
     },
     {
         "Zeioth/markmap.nvim",
@@ -186,12 +177,6 @@ return {
                 },
                 autopairs = {
                     enable = true,
-                },
-                autotag = {
-                    enable = true,
-                    enable_rename = true,
-                    enable_close = true,
-                    enable_close_on_slash = true,
                 },
             })
         end,
@@ -263,7 +248,7 @@ return {
         event = "InsertEnter",
         config = function()
             local notify = require("notify")
-            notify.setup({ timeout = 1000 })
+            notify.setup({ timeout = 1000, background_colour = "#000000" })
             vim.notify = notify
         end,
     },
