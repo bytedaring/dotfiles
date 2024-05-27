@@ -21,7 +21,7 @@ return {
                 -- This field is only relevant if direction is set to 'float'
                 float_opts = {
                     border = "curved", --'single' | 'double' | 'shadow' | 'curved'
-                    winblend = 3,
+                    winblend = 0,
                     highlights = {
                         border = "Normal",
                         background = "Normal",
