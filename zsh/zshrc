@@ -186,14 +186,14 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 #------------ go env ------------------
-export GO111MODULE=off
+export GO111MODULE=on
 export MallocNanoZone=0
 
 #------------ alias ------------------
 alias rm="rm -i"
 alias ls="eza"
 alias l="ls -lh"
-alias ll="ls -lha"
+alias ll="ls -lhas changed"
 alias lt="ls --tree"
 alias lf="ls -f"
 #alias ..="cd ./.."
