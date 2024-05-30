@@ -90,7 +90,7 @@ return {
     {
         "tanvirtin/monokai.nvim",
         lazy = true,
-        priority = 1000, -- Ensure it loads first
+        priority = 1000,
         config = function()
             vim.cmd("colorscheme monokai")
         end,

@@ -70,6 +70,16 @@ return {
                 window = {
                     mappings = {
                         ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
+                        ["<C-f>"] = "none",
+                        ["<C-b>"] = "none",
+                    },
+                    buffers = {
+                        ["<C-f>"] = "none",
+                        ["<C-b>"] = "none",
+                    },
+                    git_status = {
+                        ["<C-f>"] = "none",
+                        ["<C-b>"] = "none",
                     },
                 },
                 source_selector = {
