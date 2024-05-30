@@ -29,6 +29,11 @@ return {
                     lsp_doc_border = true, -- add a border to hover docs and signature help
                 },
                 views = {
+                    mini = {
+                        win_options = {
+                            winblend = 0,
+                        },
+                    },
                     cmdline_popup = {
                         position = {
                             row = "20%",
