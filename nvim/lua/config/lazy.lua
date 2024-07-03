@@ -17,7 +17,7 @@ require("lazy").setup({
         lazy = true,
     },
     install = {
-        colorscheme = { "nightfox" },
+        colorscheme = { "catppuccin" },
     },
     checker = { enable = true },
     performance = {

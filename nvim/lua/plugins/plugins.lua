@@ -124,17 +124,15 @@ return {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         config = function()
-            require("gitsigns").setup()
+            require("gitsigns").setup({
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    delay = 600,
+                },
+            })
         end,
     },
     --  注释插件 -- replaced by build-in commentings
-    -- {
-    --     "numToStr/Comment.nvim",
-    --     config = function()
-    --         require("Comment").setup()
-    --     end,
-    --     event = "VeryLazy",
-    -- },
     -- Markdown预览
     {
         "iamcco/markdown-preview.nvim",
@@ -151,6 +149,20 @@ return {
         },
         config = function(_, opts)
             require("markmap").setup(opts)
+        end,
+    },
+    {
+        "MeanderingProgrammer/markdown.nvim",
+        name = "render-markdown",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter", -- Mandatory
+        },
+        config = function()
+            require("render-markdown").setup({
+                -- Characters that will replace the # at the start of headings
+                headings = { "󰬺 ", "󰬻 ", "󰬼 ", "󰬽 ", "󰬾 ", "󰬿 " },
+            })
         end,
     },
     -- 高性能的十六进制文本颜色高亮
@@ -179,7 +191,7 @@ return {
                 textobjects = { enable = true },
                 highlight = {
                     enable = true,
-                    disable = { "markdown" },
+                    -- disable = { "markdown" },
                     additional_vim_regex_highlighting = false,
                 },
                 indent = {
@@ -230,7 +242,6 @@ return {
     --  Quick fix
     {
         "folke/trouble.nvim",
-        branch = "dev",
         cmd = { "Trouble" },
         config = function()
             require("trouble").setup({

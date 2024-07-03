@@ -4,9 +4,14 @@ cd ~/Downloads/ || exit
 
 file=nvim-macos-x86_64
 
+printf "\033[22m %s\n" "$(which nvim)"
+
 rm -rf /usr/local/nvim/* &&
   curl -LO https://github.com/neovim/neovim/releases/download/nightly/"$file".tar.gz &&
-  tar -xvzf "$file".tar.gz &&
+  # tar -xvzf "$file".tar.gz &&
+  tar -xzf "$file".tar.gz &&
   mv "$file"/* /usr/local/nvim/ &&
   test -f "$file".tar.gz && trash "$file".tar.gz
 test -d "$file" && trash "$file"
+
+printf "\033[36m%s\n" "$(nvim -v)"
