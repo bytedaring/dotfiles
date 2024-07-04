@@ -103,8 +103,8 @@ keymap.set("n", "gP", "<cmd>Lspsaga peek_type_definition<CR>")
 keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
 -- jump diagnostic
 keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
 --gx open URL in browser
 keymap.set("n", "gx", "<cmd>silent !open <cWORD><CR>", opts)

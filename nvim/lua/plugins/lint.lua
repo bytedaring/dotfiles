@@ -12,6 +12,7 @@ return {
                 javascript = { "eslint" },
                 dockerfile = { "hadolint" },
                 markdown = { "markdownlint" },
+                -- markdown = { "markdownlint", "vale" },
                 swift = { "swiftlint" },
                 python = { "ruff" },
                 proto = { "buf_lint" },

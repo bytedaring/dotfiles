@@ -151,20 +151,20 @@ return {
             require("markmap").setup(opts)
         end,
     },
-    {
-        "MeanderingProgrammer/markdown.nvim",
-        name = "render-markdown",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter", -- Mandatory
-        },
-        config = function()
-            require("render-markdown").setup({
-                -- Characters that will replace the # at the start of headings
-                headings = { "󰬺 ", "󰬻 ", "󰬼 ", "󰬽 ", "󰬾 ", "󰬿 " },
-            })
-        end,
-    },
+    -- {
+    --     "MeanderingProgrammer/markdown.nvim",
+    --     name = "render-markdown",
+    --     event = "VeryLazy",
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter", -- Mandatory
+    --     },
+    --     config = function()
+    --         require("render-markdown").setup({
+    --             -- Characters that will replace the # at the start of headings
+    --             headings = { "󰬺 ", "󰬻 ", "󰬼 ", "󰬽 ", "󰬾 ", "󰬿 " },
+    --         })
+    --     end,
+    -- },
     -- 高性能的十六进制文本颜色高亮
     {
         "norcalli/nvim-colorizer.lua",
