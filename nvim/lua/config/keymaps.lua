@@ -117,7 +117,7 @@ keymap.set("n", "<leader>tf", [[<Cmd>NeotestRunFile<CR>]], opts)
 
 --format
 keymap.set("n", "<leader>f", function()
-    require("conform").format({ async = true, lsp_fallback = true })
+    require("conform").format({ async = true, lsp_format = "lsp_fallback" })
 end, opts)
 
 -- Generate comment for current line
