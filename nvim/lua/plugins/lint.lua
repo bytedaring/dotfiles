@@ -7,7 +7,7 @@ return {
             require("lint").linters_by_ft = {
                 go = { "golangcilint" },
                 sh = { "shellcheck" },
-                yaml = { "yamllint" },
+                -- yaml = { "yamllint" },
                 html = { "eslint" },
                 javascript = { "eslint" },
                 dockerfile = { "hadolint" },

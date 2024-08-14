@@ -82,7 +82,7 @@ return {
                 "cssls",
                 "dockerls",
                 "jsonls",
-                "marksman",
+                -- "marksman",
                 "sourcekit",
                 "svelte",
                 "tailwindcss",
