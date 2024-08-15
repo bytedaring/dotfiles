@@ -3,7 +3,7 @@
 old_version=$(zig version)
 cd ~/zig || exit 1
 
-download=$(http https://ziglang.org/download/index.json | jq '.master."x86_64-macos".tarball' | sed -e "s/\"//g")
+download=$(http https://ziglang.org/download/index.json | jq -r '.master."x86_64-macos".tarball')
 #file=$(echo "${download##*/}")
 file=$(basename "$download")
 version=$(echo "$file" | sed -e "s/.*64-//" -e "s/.tar.xz//")
