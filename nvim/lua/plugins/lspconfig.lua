@@ -88,7 +88,7 @@ return {
                 "tailwindcss",
                 "tsserver",
                 "vimls",
-                "yamlls",
+                -- "yamlls",
                 "zls",
             }
             for _, lsp in ipairs(servers) do
@@ -217,6 +217,16 @@ return {
                 },
                 settings = {},
                 on_attach = on_attach,
+            })
+
+            nvim_lsp.helm_ls.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                ["helm-ls"] = {
+                    yamlls = {
+                        path = "yaml-language-server",
+                    },
+                },
             })
         end,
     },

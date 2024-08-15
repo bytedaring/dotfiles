@@ -379,6 +379,10 @@ return {
         "NoahTheDuke/vim-just",
         event = { "BufRead justfile" },
     },
+    {
+        "towolf/vim-helm",
+        event = "VeryLazy",
+    },
     -- -- neorg
     -- {
     --     "nvim-neorg/neorg",
