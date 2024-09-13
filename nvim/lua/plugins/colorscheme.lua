@@ -1,17 +1,17 @@
 return {
     -- colorscheme
-    -- {
-    --     "rebelot/kanagawa.nvim",
-    --     priority = 1000, -- Ensure it loads first
-    --     lazy = true,
-    --     config = function()
-    --         require("kanagawa").setup({
-    --             compile = false,
-    --             transparent = false,
-    --         })
-    --         vim.cmd([[colorscheme kanagawa]])
-    --     end,
-    -- },
+    {
+        "rebelot/kanagawa.nvim",
+        priority = 1000, -- Ensure it loads first
+        lazy = true,
+        config = function()
+            require("kanagawa").setup({
+                compile = false,
+                transparent = false,
+            })
+            vim.cmd([[colorscheme kanagawa]])
+        end,
+    },
     -- {
     --     "folke/tokyonight.nvim",
     --     lazy = false,

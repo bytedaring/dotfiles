@@ -86,7 +86,7 @@ return {
                 "sourcekit",
                 "svelte",
                 "tailwindcss",
-                "tsserver",
+                "ts_ls",
                 "vimls",
                 -- "yamlls",
                 "zls",

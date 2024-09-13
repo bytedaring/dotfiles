@@ -114,17 +114,17 @@ g.python3_host_skip_check = 1
 g.python3_host_prog = "/usr/local/bin/python3"
 
 --------------- go -----------------------
-local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "go.mod,go.MOD",
-    command = "set filetype=gomod",
-    group = go_group,
-})
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "go.sum",
-    command = "set filetype=gosum",
-    group = go_group,
-})
+-- local go_group = vim.api.nvim_create_augroup("go_group", { clear = true })
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--     pattern = "go.mod,go.MOD",
+--     command = "set filetype=gomod",
+--     group = go_group,
+-- })
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--     pattern = "go.sum",
+--     command = "set filetype=gosum",
+--     group = go_group,
+-- })
 --------------- zig --------------------
 local zig_group = vim.api.nvim_create_augroup("zig_group", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

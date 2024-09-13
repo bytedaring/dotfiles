@@ -183,7 +183,6 @@ return {
             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
         end,
-        branch = "local-dart",
         -- event = { "BufRead", "BufNewFile" },
         event = "VeryLazy",
         config = function()
@@ -375,13 +374,21 @@ return {
             require("codeium").setup({})
         end,
     },
-    {
-        "NoahTheDuke/vim-just",
-        event = { "BufRead justfile" },
-    },
+    -- {
+    --     "NoahTheDuke/vim-just",
+    --     event = { "BufRead justfile" },
+    -- },
     {
         "towolf/vim-helm",
         event = "VeryLazy",
+    },
+    -- scroll
+    {
+        "karb94/neoscroll.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("neoscroll").setup({})
+        end,
     },
     -- -- neorg
     -- {

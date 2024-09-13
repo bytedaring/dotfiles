@@ -32,7 +32,7 @@ end, opts)
 keymap.set("n", "ft", [[<cmd>TodoTelescope<CR>]], opts)
 
 -- neo-tree
-keymap.set("n", "<C-b>", [[<Cmd>Neotree toggle reveal<CR>]], opts)
+keymap.set("n", "<C-n>", [[<Cmd>Neotree toggle reveal<CR>]], opts)
 
 -- Trouble
 keymap.set("n", "<leader>xx", [[<Cmd>Trouble diagnostics toggle<CR>]], opts)
